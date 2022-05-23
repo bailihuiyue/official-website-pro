@@ -2,21 +2,20 @@
   <el-menu default-active="/" :mode="mode">
     <template v-for="(m,i1) in menus">
       <el-submenu :index="i1+''" v-if="m.children">
-        <template slot="title">{{m[lang]}}</template>
+        <template slot="title">{{m[$lang]}}</template>
         <el-menu-item
           :index="i1+'-'+i2+''"
           v-for="(c,i2) in m.children"
           @click="jumpTo(c.href)"
-        >{{c[lang]}}</el-menu-item>
+        >{{c[$lang]}}</el-menu-item>
       </el-submenu>
-      <el-menu-item :index="i1+''" v-else @click="jumpTo(m.href)">{{m[lang]}}</el-menu-item>
+      <el-menu-item :index="i1+''" v-else @click="jumpTo(m.href)">{{m[$lang]}}</el-menu-item>
     </template>
   </el-menu>
 </template>
 
 <script>
 import { getMenu } from './service'
-import { getLang } from '@/utils/utils'
 
 export default {
   props: {
@@ -29,8 +28,7 @@ export default {
   },
   data() {
     return {
-      menus: [],
-      lang: getLang()
+      menus: []
     }
   },
   created() {

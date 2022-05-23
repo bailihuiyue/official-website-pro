@@ -62,6 +62,11 @@ const router = new Router({
           component: () => import('./views/Admin/User.vue')
         },
         {
+          path: '/admin/menu',
+          name: 'user',
+          component: () => import('./views/Admin/Menu/index.vue')
+        },
+        {
           path: '/admin/news',
           name: 'new',
           component: () => import('./views/Admin/News.vue')

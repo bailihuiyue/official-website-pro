@@ -1,5 +1,5 @@
 module.exports = {
-  "get /User/Login": { data: { bRes: true, Ticket: "abc" } },
+  "post /User/Login": { data: { bRes: true, Ticket: "abc" } },
   "post /User/GetUserAll": {
     data: [
       {

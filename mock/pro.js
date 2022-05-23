@@ -28,4 +28,5 @@ module.exports = {
       },
     ]
   },
+  "post /menu/set": { data: true },
 }

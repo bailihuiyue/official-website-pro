@@ -7,6 +7,10 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">后台用户管理</span>
           </el-menu-item>
+          <el-menu-item index="/admin/menu">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">菜单管理</span>
+          </el-menu-item>
           <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>
@@ -51,8 +55,8 @@
 
 <script>
 export default {
-  name: "admin"
-};
+  name: 'admin'
+}
 </script>
 
 <style lang="scss" soped>

@@ -1,7 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { imgserver } from "@/utils/utils";
+import { imgserver, getLang } from "@/utils/utils";
+
+import JsonViewer from 'vue-json-viewer'
+Vue.use(JsonViewer)
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
@@ -32,6 +35,8 @@ Vue.config.productionTip = false;
 
 // 图片服务器地址
 Vue.prototype.imgserver = imgserver;
+
+Vue.prototype.$lang = getLang();
 
 new Vue({
   router,
