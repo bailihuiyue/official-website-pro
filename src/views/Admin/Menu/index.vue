@@ -10,7 +10,7 @@
       <div style="float:left;width:500px">
         <div>当前已保存的内容:</div>
         <div style="margin-top:5px;font-size:14px;white-space: pre;">
-          <code>{{JSON.stringify(JSON.parse(menuTxt) , '', 2)}}</code>
+          <code>{{JSON.stringify(currentTxt , '', 2)}}</code>
         </div>
       </div>
       <div style="float:left">
@@ -32,7 +32,8 @@ import { getMenu, setMenu } from './service'
 export default {
   data() {
     return {
-      menuTxt: ''
+      menuTxt: '',
+      currentTxt: ''
     }
   },
   created() {
@@ -40,7 +41,7 @@ export default {
   },
   methods: {
     getMenuFun() {
-      getMenu().then((res) => (this.menuTxt = JSON.stringify(res)))
+      getMenu().then((res) => (this.currentTxt = res))
     },
     updateMenu() {
       try {
@@ -52,6 +53,15 @@ export default {
         })
         return false
       }
+      
+      if (!Array.isArray(JSON.parse(this.menuTxt))) {
+        this.$message({
+          message: '最外层少了[],请查看!',
+          type: 'error'
+        })
+        return false
+      }
+
       setMenu(this.menuTxt).then((res) => {
         if (res) {
           this.$message({
