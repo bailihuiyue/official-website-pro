@@ -47,27 +47,18 @@ export default {
       try {
         JSON.parse(this.menuTxt)
       } catch (error) {
-        this.$message({
-          message: '请输入正确的JSON格式!',
-          type: 'error'
-        })
+        this.$message.error('请输入正确的JSON格式!')
         return false
       }
       
       if (!Array.isArray(JSON.parse(this.menuTxt))) {
-        this.$message({
-          message: '最外层少了[],请查看!',
-          type: 'error'
-        })
+        this.$message.error('最外层少了[],请查看!')
         return false
       }
 
       setMenu(this.menuTxt).then((res) => {
         if (res) {
-          this.$message({
-            message: '保存成功!',
-            type: 'success'
-          })
+          this.$message.success('保存成功!')
           this.getMenuFun()
         }
       })

@@ -27,17 +27,14 @@ export default {
   },
   created() {
     getLogo().then((res) => (this.logo = res))
-    console.log(this.$token)
   },
   methods: {
     handleSuccess(res) {
       if (res) {
         this.logo = res
+        this.$message.success('上传成功,请刷新页面!')
       } else {
-        this.$message({
-          message: res.resultMsg || '上传图片失败,请重试!',
-          type: 'error'
-        })
+        this.$message.error(res.resultMsg || '上传图片失败,请重试!')
       }
     }
   }
