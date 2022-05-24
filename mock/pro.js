@@ -29,4 +29,7 @@ module.exports = {
     ]
   },
   "post /menu/set": { data: true },
+  "get /logo/get": {
+    data: 'imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg'
+  },
 }

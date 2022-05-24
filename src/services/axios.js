@@ -20,7 +20,7 @@ axios.interceptors.request.use(
   (config) => {
     config.headers["Content-Type"] =
       ContentType[config.data instanceof FormData ? "formData" : "json"];
-    config.headers["token"] =window.sessionStorage.getItem("token");
+    config.headers["token"] =window.localStorage.getItem("token");
     return config;
   },
   (error) => {

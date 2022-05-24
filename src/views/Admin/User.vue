@@ -184,7 +184,7 @@ export default {
         cancelButtonText: "取消",
         type: "warning"
       }).then(res => {
-        window.sessionStorage.clear();
+        window.localStorage.clear();
         this.$router.push("/login");
       });
     }

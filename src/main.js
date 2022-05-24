@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { imgserver, getLang } from "@/utils/utils";
+import { imgserver, getLang, getToken } from "@/utils/utils";
 
 import JsonViewer from 'vue-json-viewer'
 Vue.use(JsonViewer)
@@ -34,9 +34,10 @@ Vue.use(VueLazyload, {
 Vue.config.productionTip = false;
 
 // 图片服务器地址
-Vue.prototype.imgserver = imgserver;
+Vue.prototype.$imgserver = imgserver;
 
 Vue.prototype.$lang = getLang();
+Vue.prototype.$token = getToken();
 
 new Vue({
   router,

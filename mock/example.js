@@ -1,6 +1,6 @@
 module.exports = {
   "post /User/Login": { data: { bRes: true, Ticket: "abc" } },
-  "post /User/GetUserAll": {
+  "get /User/GetUserAll": {
     data: [
       {
         id: "@uuid()",

@@ -7,7 +7,7 @@
       <el-table-column prop="title" label="新闻标题" width="300"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="imgserver + scope.row.img" alt />
+          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
         </template>
       </el-table-column>
       <el-table-column prop="content" label="新闻内容">
@@ -43,12 +43,12 @@
         <el-form-item label="新闻图片" :label-width="formLabelWidth">
           <el-upload
             class="avatar-uploader"
-            :action="`${imgserver}api/Upload/UploadImage`"
+            :action="`${$imgserver}api/Upload/UploadImage`"
             :show-file-list="false"
             :on-success="handleSuccess"
             :headers="headers"
           >
-            <img v-if="formData.img" :src="imgserver+formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
@@ -88,7 +88,7 @@ export default {
       formLabelWidth: "120px",
       loading: true,
       headers: {
-        token: window.sessionStorage.getItem("token")
+        token: window.localStorage.getItem("token")
       }
     };
   },

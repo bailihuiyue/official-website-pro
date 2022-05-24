@@ -2,12 +2,7 @@
   <div id="app">
     <el-container>
       <el-header :style="{width:isMobile?'':'80%'}">
-        <div class="logo">
-          <i class="el-icon-s-unfold" v-if="isMobile" @click="handleDisplayDrawer(true)"></i>
-          <div style="flex:1;overflow:hidden">
-            <img src="./assets/img/toplogo.png" alt />
-          </div>
-        </div>
+        <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
         <Menu mode="horizontal" :handleSelect="handleSelect" v-if="!isMobile" />
       </el-header>
       <el-drawer
@@ -29,22 +24,24 @@
 </template>
 
 <script>
-import device from "current-device";
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
+import device from 'current-device'
+import Menu from '@/components/Menu'
+import Footer from '@/components/Footer'
+import Logo from '@/components/Logo'
 
 export default {
   components: {
     Menu,
-    Footer
+    Footer,
+    Logo
   },
   data() {
     return {
-      defaultActive: "/",
+      defaultActive: '/',
       isShow: true,
       isMobile: device.mobile(),
       showDrawer: false
-    };
+    }
   },
   // created() {
   //   window.onresize = () => {
@@ -53,14 +50,14 @@ export default {
   // },
   methods: {
     handleSelect(key) {
-      this.isShow = this.defaultActive != key;
-      if (this.showDrawer) this.showDrawer = false;
+      this.isShow = this.defaultActive != key
+      if (this.showDrawer) this.showDrawer = false
     },
     handleDisplayDrawer(isShowDrawer) {
-      this.showDrawer = isShowDrawer;
+      this.showDrawer = isShowDrawer
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -74,7 +71,7 @@ body {
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -88,22 +85,7 @@ body {
   // width: 80%;
   padding: 0;
   //background-color: #fff;
-
-  .logo {
-    width: 350px;
-    display: flex;
-    img {
-      width: 280px;
-      line-height: 60px;
-      padding: 10px;
-    }
-    i {
-      font-size: 30px;
-      margin: 5px;
-      color: rgba(0, 0, 0, 0.35);
-      line-height: 50px;
-    }
-  }
+  height: 70px !important;
 }
 .el-main {
   padding: 0 !important;

@@ -2,7 +2,7 @@
   <div class="banner">
     <div class="mm"></div>
     <div class="banner-img">
-      <img src="../assets/img/bgtop.jpg" />
+      <img src="../../assets/img/bgtop.jpg" />
     </div>
     <div class="banner-title">
       <p>{{title}}</p>
@@ -20,7 +20,7 @@ export default {
     },
     img: {
       type: String,
-      default: "../assets/img/bgtop.jpg"
+      default: "../../assets/img/bgtop.jpg"
     }
   }
 };
@@ -44,7 +44,7 @@ export default {
     margin: -10px;
     filter: blur(10px);
 
-    background-image: url(../assets/img/bgtop.jpg);
+    background-image: url(../../assets/img/bgtop.jpg);
     background-position: center;
     background-size: 100%;
   }

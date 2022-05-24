@@ -11,6 +11,10 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">菜单管理</span>
           </el-menu-item>
+          <el-menu-item index="/admin/logo">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">Logo管理</span>
+          </el-menu-item>
           <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>

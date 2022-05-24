@@ -17,7 +17,7 @@
           <li
             v-for="(item,index) in caseList"
             :key="index"
-            v-lazy:background-image="imgserver + item.img"
+            v-lazy:background-image="$imgserver + item.img"
           >
             <router-link
               class="text-decoration"
@@ -46,7 +46,7 @@
                 class="text-decoration"
                 :to="{ name: 'newsdetails', params: { id: news.id }}"
               >
-                <div class="item-img" v-lazy:background-image="imgserver + news.img"></div>
+                <div class="item-img" v-lazy:background-image="$imgserver + news.img"></div>
               </router-link>
             </div>
             <div style="order: 2">

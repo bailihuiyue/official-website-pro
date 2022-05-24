@@ -9,3 +9,4 @@ export const imgserver = "http://shkjgw.shkjem.com/";
 export const videoURL = "http://www.shkjem.com/video/kj.mp4";
 
 export const getLang = () => window.localStorage.getItem('lang') || 'cn'
+export const getToken = () => window.localStorage.getItem('token')

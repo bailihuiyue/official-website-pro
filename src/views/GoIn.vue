@@ -82,8 +82,8 @@
           <ul class="honor-show">
             <li v-for="(honor,index) in honorList" :key="index">
               <img
-                v-lazy="imgserver+honor.img"
-                @click="dialogTableVisible = true ;dialogUrl = imgserver + honor.img;dialogTitle= honor.remark"
+                v-lazy="$imgserver+honor.img"
+                @click="dialogTableVisible = true ;dialogUrl = $imgserver + honor.img;dialogTitle= honor.remark"
               />
             </li>
           </ul>
@@ -97,7 +97,7 @@
           </div>
           <el-carousel :interval="4000" type="card">
             <el-carousel-item v-for="(team,index) in teamItem" :key="index">
-              <div class="swiper-img" v-lazy:background-image="imgserver + team.img"></div>
+              <div class="swiper-img" v-lazy:background-image="$imgserver + team.img"></div>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -108,7 +108,7 @@
             <p>RARTNERS</p>
             <ul class="partner-img">
               <li v-for="(partner,i) in partnerImg" :key="i">
-                <img v-lazy="imgserver+partner.img" alt />
+                <img v-lazy="$imgserver+partner.img" alt />
               </li>
             </ul>
           </div>

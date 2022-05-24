@@ -68,7 +68,7 @@ export default {
                   message: "登录成功",
                   type: "success"
                 });
-                sessionStorage.setItem("token", response.Ticket);
+                localStorage.setItem("token", response.Ticket);
                 this.$router.push({ name: "admin" });
               }
             })
