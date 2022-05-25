@@ -2,54 +2,44 @@
   <div class="footer">
     <div class="footer-content">
       <ul class="content-nav">
-        <li>
-          <p>走进韭菜</p>
-          <span>发展历程</span>
-          <span>企业文化</span>
-          <span>资质荣誉</span>
-          <span>合作伙伴</span>
-        </li>
-        <li>
-          <p>新闻资讯</p>
-          <span>公司新闻</span>
-          <span>行业动态</span>
-        </li>
-        <li>
-          <p>产品中心</p>
-          <span>介绍视频</span>
-          <span>管理模式</span>
-          <span>平台目标</span>
-          <span>功能模块</span>
-        </li>
-        <li class="contact">
-          <p>联系我们</p>
-          <span>邮箱：websitelml@163.com</span>
-          <span>电话：021-55802368</span>
-          <span>地址：上海市杨浦区翔殷路128号12号楼101</span>
+        <li v-for="f in footers.list">
+          <p>{{f.title}}</p>
+          <a v-for="c in f.children" target="_blank" :href="c.href||''">{{c.title}}</a>
         </li>
       </ul>
-      <img src="@/assets/img/ercode.png" alt />
+      <img v-if="footers.img" :src="footers.img" alt />
     </div>
     <div class="copyright">
-      <span>韭菜版权所有</span>
+      <span>{{footers.copyright}}</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { getFooter } from './service'
+
+export default {
+  data() {
+    return {
+      footers: []
+    }
+  },
+  created() {
+    getFooter().then((res) => (this.footers = res))
+  }
+}
 </script>
 
 <style lang="scss">
 .footer {
   width: 100%;
-  height: 216px;
-  overflow: hidden;
+  // height: 216px;
+  // overflow: hidden;
   background-color: #14679f;
   &-content {
     width: 1240px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
     .content-nav {
@@ -66,11 +56,23 @@ export default {};
           color: #d4edff;
           padding: 10px 0;
         }
-        span {
+        a {
           color: #f7f7f7;
           font-weight: 300;
           padding: 5px 0;
+          text-decoration: none;
+          cursor: default;
         }
+        a:not([href='']):hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+        a[href=''] {
+          pointer-events: none;
+        }
+      }
+      li:first-child {
+        padding-left: 0;
       }
     }
     img {
@@ -80,11 +82,16 @@ export default {};
     }
   }
   .copyright {
-    height: 30px;
+    // height: 30px;
     background: #125688;
     span {
+      margin-bottom: 10px;
+      width: 1240px;
+      display: block;
       color: #fff;
       line-height: 30px;
+      margin: auto;
+      font-size: 12px;
     }
   }
 }
@@ -116,7 +123,7 @@ export default {};
         display: block;
       }
     }
-    .copyright{
+    .copyright {
       text-align: center;
     }
   }
