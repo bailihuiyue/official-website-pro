@@ -1,10 +1,12 @@
 <template>
-  <div class="logo">
-    <i class="el-icon-s-unfold" v-if="isMobile" @click="handleDisplayDrawer(true)"></i>
-    <div style="flex:1;overflow:hidden;width: 300px;height: 70px;padding:5px 0">
-      <img :src="$imgserver+logo" alt />
+  <router-link to="/">
+    <div class="logo">
+      <i class="el-icon-s-unfold" v-if="isMobile" @click="handleDisplayDrawer(true)"></i>
+      <div style="flex:1;overflow:hidden;width: 300px;height: 70px;padding:5px 0">
+        <img :src="$imgserver+logo" alt />
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 <script>
 import { getLogo } from './service'

@@ -15,6 +15,10 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">Logo管理</span>
           </el-menu-item>
+          <el-menu-item index="/admin/footer">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">底部管理</span>
+          </el-menu-item>
           <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>
@@ -51,7 +55,7 @@
             <router-view />
           </div>
         </el-main>
-        <el-footer>2019@韭菜版权所有</el-footer>
+        <!-- <el-footer>2019@韭菜版权所有</el-footer> -->
       </el-container>
     </el-container>
   </div>

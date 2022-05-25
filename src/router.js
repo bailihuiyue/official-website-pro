@@ -52,6 +52,7 @@ const router = new Router({
     {
       path: '/admin',
       name: 'admin',
+      redirect:'/admin/user',
       meta: {
         requireAuth: true
       },
@@ -70,6 +71,11 @@ const router = new Router({
           path: '/admin/logo',
           name: 'logo',
           component: () => import('./views/Admin/Logo/index.vue')
+        },
+        {
+          path: '/admin/footer',
+          name: 'footer',
+          component: () => import('./views/Admin/Footer/index.vue')
         },
         {
           path: '/admin/news',

@@ -43,6 +43,19 @@ export default {
       showDrawer: false
     }
   },
+  watch: {
+    $route: {
+      handler: function (val, oldVal) {
+        if (val.path.indexOf('admin') > 0) {
+          this.isShow = false
+        } else {
+          this.isShow = true
+        }
+      },
+      deep: true,
+      immediate: true
+    }
+  },
   // created() {
   //   window.onresize = () => {
   //     window.location.reload();

@@ -102,5 +102,6 @@ module.exports = {
       ],
       copyright: 'Copyright © 2020 Shenzhen PXN Electronic Technology Co., Ltd.'
     }
-  }
+  },
+  'post /footer/set': { data: true }
 }
