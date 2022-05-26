@@ -3,8 +3,8 @@
     <div class="footer-content">
       <ul class="content-nav">
         <li v-for="f in footers.list">
-          <p>{{f.title}}</p>
-          <a v-for="c in f.children" target="_blank" :href="c.href||''">{{c.title}}</a>
+          <p>{{f[$lang]}}</p>
+          <a v-for="c in f.children" target="_blank" style="display: block;" :href="c.href||''">{{c[$lang]}}</a>
         </li>
       </ul>
       <img v-if="footers.img" :src="footers.img" alt />

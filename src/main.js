@@ -3,9 +3,6 @@ import App from "./App.vue";
 import router from "./router";
 import { imgserver, getLang, getToken } from "@/utils/utils";
 
-import JsonViewer from 'vue-json-viewer'
-Vue.use(JsonViewer)
-
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);

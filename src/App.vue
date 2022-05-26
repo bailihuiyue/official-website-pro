@@ -1,19 +1,27 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header :style="{width:isMobile?'':'80%'}">
+    <el-container :style="{backgroundColor:'#000'}">
+      <el-header :style="{width:isMobile?'':'80%',padding:0}">
         <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
-        <Menu mode="horizontal" :handleSelect="handleSelect" v-if="!isMobile" />
+        <HorizontalMenu
+          mode="horizontal"
+          :handleSelect="handleSelect"
+          v-if="!isMobile"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+        />
+        <SearchProduct />
+        <ChangeLocation />
       </el-header>
+      <img src="/line.png" />
       <el-drawer
         :visible="showDrawer"
         direction="ltr"
-        :show-close="false"
-        size="800"
-        :withHeader="false"
         @close="handleDisplayDrawer(false)"
+        custom-class="menuDrawerClass"
       >
-        <Menu mode="vertical" :handleSelect="handleSelect" />
+        <VerticalMenu mode="vertical" :handleSelect="handleSelect" />
       </el-drawer>
       <el-main>
         <router-view />
@@ -25,15 +33,21 @@
 
 <script>
 import device from 'current-device'
-import Menu from '@/components/Menu'
+import HorizontalMenu from '@/components/Menu/Horizontal'
+import VerticalMenu from '@/components/Menu/Vertical'
 import Footer from '@/components/Footer'
 import Logo from '@/components/Logo'
+import ChangeLocation from '@/components/ChangeLocation'
+import SearchProduct from '@/components/SearchProduct'
 
 export default {
   components: {
-    Menu,
+    HorizontalMenu,
+    VerticalMenu,
     Footer,
-    Logo
+    Logo,
+    ChangeLocation,
+    SearchProduct
   },
   data() {
     return {
@@ -98,7 +112,7 @@ body {
   // width: 80%;
   padding: 0;
   //background-color: #fff;
-  height: 70px !important;
+  height: 60px !important;
 }
 .el-main {
   padding: 0 !important;
@@ -111,9 +125,69 @@ body {
       width: 100%;
       img {
         padding-left: 0;
-        width: 100%;
+        // width: 100%;
       }
     }
+  }
+}
+div.el-menu--horizontal {
+  width: 100%;
+  & > ul {
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10%;
+    background-color: #222222 !important;
+    padding-top: 45px !important;
+    li {
+      &.el-menu-item-group {
+        margin-bottom: 25px;
+        .el-menu-item-group__title {
+          padding-left: 0 !important;
+          .subTitle {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 25px;
+            font-weight: bold;
+          }
+          .subThumb {
+            // margin-bottom: 15px;
+          }
+        }
+        ul {
+          flex-direction: column;
+          // margin-top: 10px;
+          li {
+            padding-left: 0 !important;
+            min-width: 245px;
+            background-color: #222222 !important;
+            height: auto !important;
+            padding-bottom: 30px;
+            margin: 5px 0;
+            .subContent {
+              margin: 5px 0;
+              color: #999999 !important;
+              font-weight: 600;
+              font-size: 13px;
+            }
+            .subContent:hover {
+              color: aqua !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.menuDrawerClass {
+  width: 100% !important;
+  height: 100%;
+  background-color: #000 !important;
+  .el-drawer__header > :first-child {
+    flex: 0;
+  }
+  .el-drawer__header {
+    margin-bottom: 0 !important;
   }
 }
 </style>
