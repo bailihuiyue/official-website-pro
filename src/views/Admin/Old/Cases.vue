@@ -1,16 +1,17 @@
 <template>
   <div class="cases">
-    <el-button type="primary" @click="openDialog()">新增用户</el-button>
+    <el-button type="primary" @click="openDialog()">新增案例</el-button>
 
     <el-table border :data="tableData" v-loading="loading" style="width: 100%">
       <el-table-column prop="id" label="序号" width="80"></el-table-column>
-      <el-table-column prop="img" label="荣誉图片" width="220">
+      <el-table-column prop="title" label="案例标题" width="300"></el-table-column>
+      <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgserver+scope.row.img" alt />
         </template>
       </el-table-column>
-      <el-table-column prop="remark" label="荣誉标题"></el-table-column>
-      <el-table-column label="操作" width="180">
+      <el-table-column prop="content" label="案例内容"></el-table-column>
+      <el-table-column label="操作" width="160">
         <template slot-scope="scope">
           <el-button
             type="primary"
@@ -25,22 +26,26 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="合作企业管理" :visible.sync="dialogFormVisible">
+    <el-dialog title="案例编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
-        <el-form-item label="荣誉图片" :label-width="formLabelWidth">
+        <el-form-item label="案例标题" :label-width="formLabelWidth">
+          <el-input v-model="formData.title" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="案例图片" :label-width="formLabelWidth">
+          <!-- :before-upload="beforeAvatarUpload" -->
           <el-upload
             class="avatar-uploader"
-            :action="`${$imgserver}api/Upload/UploadImage`"
+            :action="`${$imgserver}api/upload/uploadImage`"
             :show-file-list="false"
             :on-success="handleSuccess"
             :headers="headers"
           >
-            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgserver + formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
-        <el-form-item label="荣誉标题" :label-width="formLabelWidth">
-          <el-input v-model="formData.remark" autocomplete="off"></el-input>
+        <el-form-item label="案例内容" :label-width="formLabelWidth">
+          <el-input v-model="formData.content" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -53,10 +58,10 @@
 
 <script>
 import {
-  getHonorAll,
-  createHonor,
-  modifiedHonor,
-  deleteHonor
+  getCasesAll,
+  createCases,
+  modifiedCases,
+  deleteCases
 } from "@/services";
 export default {
   data() {
@@ -68,7 +73,9 @@ export default {
       formData: {
         id: 0,
         img: "",
-        remark: "",
+        title: "",
+        content: "",
+        del: "",
         createTime: new Date()
       },
       headers: {
@@ -85,14 +92,14 @@ export default {
         this.formData.img = response.data;
       } else {
         this.$message({
-          message: response.resultMsg || "上传图片失败,请重试!",
+          message: response.resultMsg||"上传图片失败,请重试!",
           type: "error"
         });
       }
     },
     loadData() {
       this.loading = true;
-      getHonorAll()
+      getCasesAll()
         .then(response => {
           this.tableData = response;
           this.loading = false;
@@ -108,7 +115,9 @@ export default {
       // 清除数据
       this.formData.id = 0;
       this.formData.img = "";
-      this.formData.remark = "";
+      this.formData.title = "";
+      this.formData.content = "";
+      this.formData.del = "";
       this.formData.createTime = new Date();
 
       this.dialogFormVisible = true;
@@ -118,7 +127,7 @@ export default {
       if (!this.formData.id) {
         // ID 无效时 视为新增
         this.loading = true;
-        createHonor(this.formData)
+        createCases(this.formData)
           .then(response => {
             this.loading = false;
             this.$message({
@@ -136,7 +145,7 @@ export default {
           });
       } else {
         this.loading = true;
-        modifiedHonor(this.formData)
+        modifiedCases(this.formData)
           .then(response => {
             this.loading = false;
             this.$message({
@@ -168,7 +177,7 @@ export default {
           // 已确认删除
           // 调接口删除
           this.loading = true;
-          deleteHonor(row.id, null)
+          deleteCases(row.id)
             .then(response => {
               this.loading = false;
               this.$message({
@@ -206,3 +215,4 @@ export default {
   margin-top: 20px;
 }
 </style>
+

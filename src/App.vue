@@ -1,23 +1,26 @@
 <template>
-  <div id="app">
-    <el-container :style="{backgroundColor:'#000'}">
-      <el-header :style="{width:isMobile?'':'80%',padding:0,backgroundColor:'#000'}">
-        <i class="menuBtn" v-if="isMobile" @click="handleDisplayDrawer(true)">
-          <img id="menuBtn" src="/menu.svg" />
-        </i>
-        <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
-        <HorizontalMenu
-          mode="horizontal"
-          :handleSelect="handleSelect"
-          v-if="!isMobile"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
-        />
-        <div class="headerButtons">
-          <SearchProduct v-show="!isMobile" />
-          <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
-        </div>
+  <div id="app" style="background-color:#000">
+    <el-container>
+      <!-- 1.header半透明2.兼容手机模式 -->
+      <el-header :class="isMobile?'mobileHeader':'pcHeader'">
+        <!-- <div :style="{width:isMobile?'':'80%'}"> -->
+          <i class="menuBtn" v-if="isMobile" @click="handleDisplayDrawer(true)">
+            <img id="menuBtn" src="/menu.svg" />
+          </i>
+          <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
+          <HorizontalMenu
+            mode="horizontal"
+            :handleSelect="handleSelect"
+            v-if="!isMobile"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+          />
+          <div class="headerButtons">
+            <SearchProduct v-show="!isMobile" />
+            <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
+          </div>
+        <!-- </div> -->
       </el-header>
       <img src="/line.png" />
       <el-drawer
@@ -28,7 +31,7 @@
       >
         <VerticalMenu mode="vertical" :handleSelect="handleSelect" />
       </el-drawer>
-      <el-main>
+      <el-main :style="{marginTop:isMobile?'':'60px'}">
         <router-view />
       </el-main>
       <Footer v-show="isShow" />
@@ -100,6 +103,7 @@ export default {
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 #app {
@@ -107,6 +111,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  width: 100%;
+  height: 100%;
   .headerButtons {
     display: flex;
     align-items: center;
@@ -122,7 +128,6 @@ body {
     }
   }
 }
-
 .el-header {
   display: flex;
   justify-content: space-between;
@@ -132,6 +137,18 @@ body {
   padding: 0;
   //background-color: #fff;
   height: 60px !important;
+  &.pcHeader {
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0 10%;
+  }
+  &.mobileHeader {
+  }
 }
 .el-main {
   padding: 0 !important;
@@ -151,13 +168,14 @@ body {
 }
 div.el-menu--horizontal {
   width: 100%;
+  background-color: #222222;
   & > ul {
     margin-top: 0;
     display: flex;
     flex-direction: row;
     padding: 0 10%;
-    background-color: #222222 !important;
-    padding-top: 45px !important;
+    background-color: transparent !important;
+    padding-top: 30px !important;
     li {
       &.el-menu-item-group {
         margin-bottom: 25px;
@@ -179,7 +197,7 @@ div.el-menu--horizontal {
           li {
             padding-left: 0 !important;
             min-width: 245px;
-            background-color: #222222 !important;
+            background-color: transparent !important;
             height: auto !important;
             padding-bottom: 30px;
             margin: 5px 0;

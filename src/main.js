@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { imgserver, getLang, getToken } from "@/utils/utils";
+import { imgserver, getLang, getToken, getAdminLang } from "@/utils/utils";
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
@@ -34,6 +34,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$imgserver = imgserver;
 
 Vue.prototype.$lang = getLang();
+Vue.prototype.$adminLang = getAdminLang();
 Vue.prototype.$token = getToken();
 
 new Vue({

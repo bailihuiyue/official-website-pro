@@ -1,17 +1,25 @@
 <template>
-  <div class="cases">
-    <el-button type="primary" @click="openDialog()">新增案例</el-button>
+  <div class="news">
+    <el-button type="primary" @click="openDialog()">新增</el-button>
 
-    <el-table border :data="tableData" v-loading="loading" style="width: 100%">
-      <el-table-column prop="id" label="序号" width="80"></el-table-column>
-      <el-table-column prop="title" label="案例标题" width="300"></el-table-column>
+    <el-table :data="tableData" border style="width: 100%" v-loading="loading">
+      <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="title" label="新闻标题" width="300"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgserver+scope.row.img" alt />
+          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
         </template>
       </el-table-column>
-      <el-table-column prop="content" label="案例内容"></el-table-column>
-      <el-table-column label="操作" width="160">
+      <el-table-column prop="content" label="新闻内容">
+        <template slot-scope="scope">
+          <p v-if="scope.row.content && scope.row.content.length > 100">{{scope.row.content.substring(0,100)}} ...</p>
+          <p v-else>{{scope.row.content}}</p>
+        </template>
+      </el-table-column>
+      <el-table-column prop="type" label="新闻类别">
+        <template slot-scope="scope">{{scope.row.type == 1 ? '公司新闻':'行业动态'}}</template>
+      </el-table-column>
+      <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
             type="primary"
@@ -26,26 +34,30 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="案例编辑" :visible.sync="dialogFormVisible">
+    <!--  -->
+    <el-dialog title="新闻编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
-        <el-form-item label="案例标题" :label-width="formLabelWidth">
+        <el-form-item label="新闻名称" :label-width="formLabelWidth">
           <el-input v-model="formData.title" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="案例图片" :label-width="formLabelWidth">
-          <!-- :before-upload="beforeAvatarUpload" -->
+        <el-form-item label="新闻图片" :label-width="formLabelWidth">
           <el-upload
             class="avatar-uploader"
-            :action="`${$imgserver}api/Upload/UploadImage`"
+            :action="`${$imgserver}api/upload/uploadImage`"
             :show-file-list="false"
             :on-success="handleSuccess"
             :headers="headers"
           >
-            <img v-if="formData.img" :src="$imgserver + formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
-        <el-form-item label="案例内容" :label-width="formLabelWidth">
-          <el-input v-model="formData.content" autocomplete="off"></el-input>
+        <el-form-item label="新闻内容" :label-width="formLabelWidth">
+          <el-input type="textarea" :rows="10" v-model="formData.content" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="新闻类别" :label-width="formLabelWidth">
+          <el-radio v-model="formData.type" :label="1">公司新闻</el-radio>
+          <el-radio v-model="formData.type" :label="2">行业动态</el-radio>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -57,27 +69,24 @@
 </template>
 
 <script>
-import {
-  getCasesAll,
-  createCases,
-  modifiedCases,
-  deleteCases
-} from "@/services";
+import { getNewsAll, createNews, modifiedNews, deleteNews } from "@/services";
 export default {
+  name: "loginNews",
   data() {
     return {
-      loading: true,
-      dialogFormVisible: false,
-      formLabelWidth: "120px",
+      options: {},
       tableData: [],
       formData: {
         id: 0,
-        img: "",
         title: "",
+        img: "",
+        type: 1,
         content: "",
-        del: "",
         createTime: new Date()
       },
+      dialogFormVisible: false,
+      formLabelWidth: "120px",
+      loading: true,
       headers: {
         token: window.localStorage.getItem("token")
       }
@@ -92,14 +101,14 @@ export default {
         this.formData.img = response.data;
       } else {
         this.$message({
-          message: response.resultMsg||"上传图片失败,请重试!",
+          message: response.resultMsg || "上传图片失败,请重试!",
           type: "error"
         });
       }
     },
     loadData() {
       this.loading = true;
-      getCasesAll()
+      getNewsAll({ type: 0, num: 10 })
         .then(response => {
           this.tableData = response;
           this.loading = false;
@@ -114,20 +123,18 @@ export default {
     openDialog() {
       // 清除数据
       this.formData.id = 0;
-      this.formData.img = "";
       this.formData.title = "";
+      this.formData.img = "";
+      this.formData.type = 1;
       this.formData.content = "";
-      this.formData.del = "";
       this.formData.createTime = new Date();
 
       this.dialogFormVisible = true;
     },
-    // 新增
     handleCreateOrModify() {
       if (!this.formData.id) {
-        // ID 无效时 视为新增
         this.loading = true;
-        createCases(this.formData)
+        createNews(this.formData)
           .then(response => {
             this.loading = false;
             this.$message({
@@ -145,7 +152,7 @@ export default {
           });
       } else {
         this.loading = true;
-        modifiedCases(this.formData)
+        modifiedNews(this.formData)
           .then(response => {
             this.loading = false;
             this.$message({
@@ -163,12 +170,14 @@ export default {
           });
       }
     },
+    //编辑
     handleEdit(index, row) {
+      //index:第几行   row:这一行的数据
       this.formData = row;
       this.dialogFormVisible = true;
     },
     handleDelete(index, row) {
-      this.$confirm("此操作将永久此条数据, 是否继续?", "提示", {
+      this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
@@ -177,7 +186,7 @@ export default {
           // 已确认删除
           // 调接口删除
           this.loading = true;
-          deleteCases(row.id)
+          deleteNews(row.id, null)
             .then(response => {
               this.loading = false;
               this.$message({
@@ -199,20 +208,13 @@ export default {
             message: "已取消删除"
           });
         });
-    },
-    //时间格式化
-    dateFormat: function(row) {
-      //row 表示一行数据, createTime 表示要格式化的字段名称
-      let t = new Date(row.createTime);
-      return t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate();
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .el-table {
   margin-top: 20px;
 }
 </style>
-

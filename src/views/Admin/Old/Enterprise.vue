@@ -1,16 +1,16 @@
 <template>
-  <div class="Team">
+  <div class="cases">
     <el-button type="primary" @click="openDialog()">新增数据</el-button>
 
     <el-table border :data="tableData" v-loading="loading" style="width: 100%">
       <el-table-column prop="id" label="序号" width="80"></el-table-column>
-      <el-table-column prop="img" label="图片" width="220">
+      <el-table-column prop="img" label="企业Logo" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgserver+scope.row.img" alt />
         </template>
       </el-table-column>
-      <el-table-column prop="remark" label="备注"></el-table-column>
-      <el-table-column label="操作" width="160">
+      <el-table-column prop="remark" label="企业名称"></el-table-column>
+      <el-table-column label="操作" width="180">
         <template slot-scope="scope">
           <el-button
             type="primary"
@@ -25,21 +25,21 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="团队风采编辑" :visible.sync="dialogFormVisible">
+    <el-dialog title="合作企业管理" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
-        <el-form-item label="风采图片" :label-width="formLabelWidth">
+        <el-form-item label="企业Logo" :label-width="formLabelWidth">
           <el-upload
             class="avatar-uploader"
-            :action="`${$imgserver}api/Upload/UploadImage`"
+            :action="`${$imgserver}api/upload/uploadImage`"
+            :headers="headers"
             :show-file-list="false"
             :on-success="handleSuccess"
-            :headers="headers"
           >
             <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
-        <el-form-item label="备注" :label-width="formLabelWidth">
+        <el-form-item label="企业名称" :label-width="formLabelWidth">
           <el-input v-model="formData.remark" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
@@ -52,7 +52,12 @@
 </template>
 
 <script>
-import { getTeamAll, createTeam, modifiedTeam, deleteTeam } from "@/services";
+import {
+  getEnterpriseAll,
+  createDataEnterprise,
+  modifiedEnterprise,
+  deleteEnterprise
+} from "@/services";
 export default {
   data() {
     return {
@@ -66,7 +71,6 @@ export default {
         remark: "",
         createTime: new Date()
       },
-      options: {},
       headers: {
         token: window.localStorage.getItem("token")
       }
@@ -88,7 +92,7 @@ export default {
     },
     loadData() {
       this.loading = true;
-      getTeamAll()
+      getEnterpriseAll()
         .then(response => {
           this.tableData = response;
           this.loading = false;
@@ -114,7 +118,7 @@ export default {
       if (!this.formData.id) {
         // ID 无效时 视为新增
         this.loading = true;
-        createTeam(this.formData)
+        createDataEnterprise(this.formData)
           .then(response => {
             this.loading = false;
             this.$message({
@@ -132,7 +136,7 @@ export default {
           });
       } else {
         this.loading = true;
-        modifiedTeam(this.formData)
+        modifiedEnterprise(this.formData)
           .then(response => {
             this.loading = false;
             this.$message({
@@ -164,7 +168,7 @@ export default {
           // 已确认删除
           // 调接口删除
           this.loading = true;
-          deleteTeam(row.id, null)
+          deleteEnterprise(row.id, null)
             .then(response => {
               this.loading = false;
               this.$message({

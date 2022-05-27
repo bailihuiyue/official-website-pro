@@ -1,33 +1,4 @@
 module.exports = {
-  "post /User/Login": { data: { bRes: true, Ticket: "abc" } },
-  "get /User/GetUserAll": {
-    data: [
-      {
-        id: "@uuid()",
-        LoginName: "@cstr(2,6)",
-        Password: "@str(6,18)",
-        IsAction: "true",
-        createTime: "@time()",
-      },
-      {
-        id: "@uuid()",
-        LoginName: "@cstr(2,6)",
-        Password: "@str(6,18)",
-        IsAction: "true",
-        createTime: "@time()",
-      },
-      {
-        id: "@uuid()",
-        LoginName: "@cstr(2,6)",
-        Password: "@str(6,18)",
-        IsAction: "true",
-        createTime: "@time()",
-      },
-    ],
-  },
-  "post /User/CreateUser": { data: true },
-  "post /User/ModifiedUser": { data: true },
-  "get /User/DeleteUser": { data: true },
   //
   "/Cases/GetCasesAll": {
     data: [
@@ -329,5 +300,4 @@ module.exports = {
   "post /Team/ModifiedTeam": { data: true },
   "post /Team/DeleteTeam": { data: true },
 
-  "post /api/Upload/UploadImage": ()=>"imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg",
 };

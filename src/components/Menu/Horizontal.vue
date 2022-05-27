@@ -3,9 +3,9 @@
     <el-menu
       default-active="/"
       :mode="mode"
-      background-color="#000"
+      background-color="transparent"
       text-color="#fff"
-      active-text-color="#fff"
+      active-text-color="aqua"
     >
       <template v-for="(m,i1) in menus">
         <el-submenu :index="i1+''" v-if="m.children">
@@ -71,6 +71,12 @@ export default {
   flex: 1;
   .el-menu.el-menu--horizontal {
     border: none !important;
+    .el-submenu__title,.el-menu-item{
+      background-color: transparent !important;
+    }
+    .el-submenu__title:hover,.el-menu-item:hover{
+      color: aqua !important;
+    }
   }
 }
 </style>

@@ -1,4 +1,34 @@
 module.exports = {
+  "post /user/login": { data: { bRes: true, Ticket: "abc" } },
+  "get /user/getUserAll": {
+    data: [
+      {
+        id: "@uuid()",
+        LoginName: "@cstr(2,6)",
+        Password: "@str(6,18)",
+        IsAction: "true",
+        createTime: "@time()",
+      },
+      {
+        id: "@uuid()",
+        LoginName: "@cstr(2,6)",
+        Password: "@str(6,18)",
+        IsAction: "true",
+        createTime: "@time()",
+      },
+      {
+        id: "@uuid()",
+        LoginName: "@cstr(2,6)",
+        Password: "@str(6,18)",
+        IsAction: "true",
+        createTime: "@time()",
+      },
+    ],
+  },
+  "post /user/createUser": { data: true },
+  "post /user/modifiedUser": { data: true },
+  "get /user/deleteUser": { data: true },
+  "post /api/upload/uploadImage": () => "imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg",
   "get /menu/getAll": {
     data: [
       {
@@ -187,5 +217,36 @@ module.exports = {
       id: "1",
       content: '<div>fake html</div>'
     }
-  }
+  },
+
+
+
+
+  'get /carousel/getAll': {
+    data: [
+      {
+        id: '0',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg', href: '/product'
+      },
+      {
+        id: '1',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg', href: '/product'
+      },
+      {
+        id: '2',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg', href: '/product'
+      },
+      {
+        id: '3',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg', href: '/product'
+      },
+      {
+        id: '4',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg', href: '/product'
+      }
+    ]
+  },
+  "post /carousel/add": { data: true },
+  "post /carousel/modify": { data: true },
+  "get /carousel/delete": { data: true },
 }

@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { userLogin } from "@/services";
+import { userLogin } from "./service";
 export default {
   data() {
     return {

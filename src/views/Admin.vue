@@ -19,7 +19,11 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">底部管理</span>
           </el-menu-item>
-          <el-menu-item index="/admin/news">
+          <el-menu-item index="/admin/carousel">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">轮播图管理</span>
+          </el-menu-item>
+          <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>
           </el-menu-item>
@@ -46,7 +50,7 @@
           <el-menu-item index="/admin/dictionary">
             <i class="el-icon-setting"></i>
             <span slot="title">数据字典管理</span>
-          </el-menu-item>
+          </el-menu-item> -->
         </el-menu>
       </el-aside>
       <el-container>
@@ -70,6 +74,7 @@ export default {
 <style lang="scss" soped>
 .admin {
   border-top: 1px solid rgb(238, 238, 238);
+  background-color: #fff;
 }
 
 .base-padding {

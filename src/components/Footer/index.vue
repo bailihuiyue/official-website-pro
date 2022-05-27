@@ -37,9 +37,9 @@ export default {
   // overflow: hidden;
   background-color: #14679f;
   &-content {
-    width: 1240px;
+    // width: 1240px;
     margin: 0 auto;
-    padding-top: 10px;
+    padding: 10px 10% 0 10%;
     display: flex;
     justify-content: space-between;
     .content-nav {
@@ -86,7 +86,8 @@ export default {
     background: #125688;
     span {
       margin-bottom: 10px;
-      width: 1240px;
+      // width: 1240px;
+      padding: 0 10%;
       display: block;
       color: #fff;
       line-height: 30px;
@@ -99,7 +100,7 @@ export default {
   .footer {
     height: auto;
     .footer-content {
-      width: 100%;
+      // width: 100%;
       display: block;
       .content-nav {
         display: block;

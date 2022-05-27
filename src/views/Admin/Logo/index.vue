@@ -3,7 +3,7 @@
     <el-alert title="请上传Logo图片" type="info" style="margin-bottom:10px" />
     <el-upload
       class="avatar-uploader"
-      :action="`${$imgserver}api/Upload/UploadImage`"
+      :action="`${$imgserver}api/upload/uploadImage`"
       :show-file-list="false"
       :on-success="handleSuccess"
       :headers="{token:$token}"

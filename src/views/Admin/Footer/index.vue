@@ -36,7 +36,7 @@
         <el-upload
           style="margin-top:20px"
           class="avatar-uploader"
-          :action="`${$imgserver}api/Upload/UploadImage`"
+          :action="`${$imgserver}api/upload/uploadImage`"
           :show-file-list="false"
           :on-success="handleSuccess"
           :headers="{token:$token}"
