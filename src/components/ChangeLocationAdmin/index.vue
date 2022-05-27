@@ -17,7 +17,8 @@ export default {
   methods: {
     onChangeLocation(val) {
       window.localStorage.setItem('adminLang', val)
-      this.$emit('langChanged', val)
+      window.location.reload()
+      // this.$emit('langChanged', val)
     }
   }
 }
