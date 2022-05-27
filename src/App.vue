@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <el-container :style="{backgroundColor:'#000'}">
-      <el-header :style="{width:isMobile?'':'80%',padding:0}">
+      <el-header :style="{width:isMobile?'':'80%',padding:0,backgroundColor:'#000'}">
+        <i class="menuBtn" v-if="isMobile" @click="handleDisplayDrawer(true)">
+          <img id="menuBtn" src="/menu.svg" />
+        </i>
         <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
         <HorizontalMenu
           mode="horizontal"
@@ -11,8 +14,10 @@
           text-color="#fff"
           active-text-color="#ffd04b"
         />
-        <SearchProduct />
-        <ChangeLocation />
+        <div class="headerButtons">
+          <SearchProduct v-show="!isMobile" />
+          <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
+        </div>
       </el-header>
       <img src="/line.png" />
       <el-drawer
@@ -102,6 +107,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  .headerButtons {
+    display: flex;
+    align-items: center;
+  }
+  .menuBtn {
+    font-size: 30px;
+    margin: 5px;
+    color: rgba(0, 0, 0, 0.35);
+    line-height: 50px;
+    #menuBtn {
+      width: 20px;
+      margin-left: 5px;
+    }
+  }
 }
 
 .el-header {

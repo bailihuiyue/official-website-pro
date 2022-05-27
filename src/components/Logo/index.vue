@@ -1,14 +1,11 @@
 <template>
-  <router-link to="/">
-    <div class="logo">
-      <i v-if="isMobile" @click="handleDisplayDrawer(true)">
-        <img id="menuBtn" src="/menu.svg" />
-      </i>
+  <div class="logo" :style="{justifyContent:isMobile?'center':''}">
+    <router-link to="/">
       <div class="imgWrap">
         <img :src="$imgserver+logo" :class="isMobile?'mobileLogo':'pcLogo'" />
       </div>
-    </div>
-  </router-link>
+    </router-link>
+  </div>
 </template>
 <script>
 import { getLogo } from './service'
@@ -41,22 +38,22 @@ export default {
     display: flex;
     align-items: center;
   }
-  #menuBtn {
-    width: 30px;
-    margin-left: 5px;
-  }
+  // #menuBtn {
+  //   width: 20px;
+  //   margin-left: 5px;
+  // }
   .pcLogo,
   .mobileLogo {
     // margin-top: 5px;
     max-height: calc(100% - 10px);
     max-width: calc(100% - 10px);
   }
-  i {
-    font-size: 30px;
-    margin: 5px;
-    color: rgba(0, 0, 0, 0.35);
-    line-height: 50px;
-  }
+  // i {
+  //   font-size: 30px;
+  //   margin: 5px;
+  //   color: rgba(0, 0, 0, 0.35);
+  //   line-height: 50px;
+  // }
 }
 .mobile {
   .logo {
