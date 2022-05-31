@@ -34,7 +34,7 @@
       <el-main :style="{marginTop:isMobile?'':'60px'}">
         <router-view />
       </el-main>
-      <Footer v-show="isShow" />
+      <Footer v-show="isShow" :isMobile="isMobile"/>
     </el-container>
   </div>
 </template>

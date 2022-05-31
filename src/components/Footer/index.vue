@@ -1,13 +1,34 @@
 <template>
   <div class="footer">
-    <div class="footer-content">
+    <div class="footer-content" v-if="!isMobile">
       <ul class="content-nav">
         <li v-for="f in footers.list">
           <p>{{f[$lang]}}</p>
-          <a v-for="c in f.children" target="_blank" style="display: block;" :href="c.href||''">{{c[$lang]}}</a>
+          <a
+            v-for="c in f.children"
+            target="_blank"
+            style="display: block;"
+            :href="c.href||''"
+          >{{c[$lang]}}</a>
         </li>
       </ul>
       <img v-if="footers.img" :src="footers.img" alt />
+    </div>
+    <div v-else>
+      <el-collapse>
+        <el-collapse-item v-for="f in footers.list">
+          <template slot="title">
+            <div style="margin:0 10px">{{f[$lang]}}</div>
+          </template>
+          <a
+            class="collapseItem"
+            v-for="c in f.children"
+            target="_blank"
+            style="display: block;"
+            :href="c.href||''"
+          >{{c[$lang]}}</a>
+        </el-collapse-item>
+      </el-collapse>
     </div>
     <div class="copyright">
       <span>{{footers.copyright}}</span>
@@ -19,6 +40,7 @@
 import { getFooter } from './service'
 
 export default {
+  props: ['isMobile'],
   data() {
     return {
       footers: []
@@ -128,6 +150,29 @@ export default {
     }
     .copyright {
       text-align: center;
+    }
+    .el-collapse {
+      .collapseItem {
+        color: #999;
+        margin: 8px 15px;
+        text-decoration: none;
+      }
+      .collapseItem[href=''] {
+        pointer-events: none;
+      }
+      .el-collapse-item__header {
+        background-color: #000;
+        color: #e5e5e5;
+      }
+      .el-collapse-item__wrap {
+        background-color: #000;
+      }
+      .el-collapse-item__content {
+        padding-bottom: 0;
+      }
+      .el-collapse-item__header.is-active {
+        border-bottom: 2px solid #333;
+      }
     }
   }
 }
