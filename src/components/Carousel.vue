@@ -2,7 +2,9 @@
   <div class="carousel">
     <el-carousel :height="height" arrow="always">
       <el-carousel-item v-for="item in carouselList" :key="item.img">
-        <img :src="item.img" class="img" />
+        <a :href="'#'+item.href">
+          <img :src="item.img" class="img" />
+        </a>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -18,13 +20,14 @@ export default {
   watch: {
     carouselList: {
       handler: function (val, oldVal) {
-        const self=this
+        const self = this
         if (val.length) {
           const clientWidth = document.documentElement.clientWidth
           var img = new Image()
           img.src = val[0].img
           img.onload = function () {
-            self.height = (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'
+            self.height =
+              (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'
           }
         }
       },

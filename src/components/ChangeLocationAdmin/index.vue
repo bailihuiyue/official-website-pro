@@ -11,8 +11,11 @@
 export default {
   data() {
     return {
-      radio: 'cn'
+      radio: ''
     }
+  },
+  created() {
+    this.radio =  window.localStorage.getItem('adminLang')||'cn'
   },
   methods: {
     onChangeLocation(val) {

@@ -2,7 +2,7 @@
   <div class="admin">
     <el-container>
       <el-aside width="200px">
-        <el-menu default-active="2" class="el-menu-vertical-demo" router>
+        <el-menu :default-active="currentRouter" class="el-menu-vertical-demo" router>
           <el-menu-item index="/admin/user">
             <i class="el-icon-star-off"></i>
             <span slot="title">后台用户管理</span>
@@ -22,6 +22,10 @@
           <el-menu-item index="/admin/carousel">
             <i class="el-icon-star-off"></i>
             <span slot="title">轮播图管理</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/productImgs">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">产品大图管理</span>
           </el-menu-item>
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
@@ -50,7 +54,7 @@
           <el-menu-item index="/admin/dictionary">
             <i class="el-icon-setting"></i>
             <span slot="title">数据字典管理</span>
-          </el-menu-item> -->
+          </el-menu-item>-->
         </el-menu>
       </el-aside>
       <el-container>
@@ -59,7 +63,6 @@
             <router-view />
           </div>
         </el-main>
-        <!-- <el-footer>2019@韭菜版权所有</el-footer> -->
       </el-container>
     </el-container>
   </div>
@@ -67,7 +70,21 @@
 
 <script>
 export default {
-  name: 'admin'
+  name: 'admin',
+  data() {
+    return {
+      currentRouter:'/admin/user'
+    }
+  },
+  watch: {
+    $route: {
+      handler: function (val, oldVal) {
+        this.currentRouter = val.path
+      },
+      deep: true,
+      immediate: true
+    }
+  }
 }
 </script>
 

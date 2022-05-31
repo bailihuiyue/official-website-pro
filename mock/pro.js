@@ -28,13 +28,13 @@ module.exports = {
   "post /user/createUser": { data: true },
   "post /user/modifiedUser": { data: true },
   "get /user/deleteUser": { data: true },
-  "post /api/upload/uploadImage": () => "imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg",
+  "post /api/upload/uploadImage": { data: 'logo.png' },
   "get /menu/getAll": {
     data: '[{"title":{"cn":"方向盘","en":"menu1","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"手柄","en":"menu2","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"耳机","en":"menu3","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"飞行摇杆","en":"menu1","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"技术支持","en":"menu2","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"关于公司","en":"menu3","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]}]'
   },
   "post /menu/update": { data: true },
   "get /logo/get": {
-    data: 'imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg'
+    data: 'logo.png'
   },
   'get /footer/get': {
     data: {
@@ -169,4 +169,33 @@ module.exports = {
   "post /carousel/add": { data: true },
   "post /carousel/modify": { data: true },
   "get /carousel/delete": { data: true },
+
+
+  'get /productImgs/getAll': {
+    data: [
+      {
+        id: '0',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg', href: '/product'
+      },
+      {
+        id: '1',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg', href: '/product'
+      },
+      {
+        id: '2',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg', href: '/product'
+      },
+      {
+        id: '3',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg', href: '/product'
+      },
+      {
+        id: '4',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg', href: '/product'
+      }
+    ]
+  },
+  "post /productImgs/add": { data: true },
+  "post /productImgs/modify": { data: true },
+  "get /productImgs/delete": { data: true },
 }

@@ -82,6 +82,11 @@ const router = new Router({
           name: 'footer',
           component: () => import('./views/Admin/Carousel/index.vue')
         },
+        {
+          path: '/admin/productImgs',
+          name: 'footer',
+          component: () => import('./views/Admin/ProductImgs/index.vue')
+        },
         // {
         //   path: '/admin/news',
         //   name: 'new',

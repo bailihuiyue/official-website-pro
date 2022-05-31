@@ -4,3 +4,8 @@ export const getCarousel = lang => {
   const api = `carousel/getAll?lang=${lang}`;
   return baseService.get(api);
 };
+
+export const getProductImgs = lang => {
+  const api = `productImgs/getAll?lang=${lang}`;
+  return baseService.get(api);
+};

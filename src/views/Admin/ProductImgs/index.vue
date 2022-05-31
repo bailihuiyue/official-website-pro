@@ -1,7 +1,7 @@
 <template>
   <div class="news">
     <ChangeLocationAdmin @langChanged="onLangChanged" />
-    <el-button type="primary" @click="openDialog()">新增轮播图</el-button>
+    <el-button type="primary" @click="openDialog()">新增产品大图</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="loading">
       <el-table-column prop="id" label="序号" width="180"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
@@ -15,25 +15,25 @@
           <el-button
             type="primary"
             icon="el-icon-edit"
-            @click="handleEdit(scope.$index, scope.row)"
+            @click="onEdit(scope.$index, scope.row)"
           ></el-button>
           <el-button
             type="danger"
             icon="el-icon-delete"
-            @click="handleDelete(scope.$index, scope.row)"
+            @click="onDelete(scope.$index, scope.row)"
           ></el-button>
         </template>
       </el-table-column>
     </el-table>
     <!--  -->
-    <el-dialog title="轮播图编辑" :visible.sync="dialogFormVisible">
+    <el-dialog title="产品大图编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
-        <el-form-item label="轮播图" :label-width="formLabelWidth">
+        <el-form-item label="产品图" :label-width="formLabelWidth">
           <el-upload
             class="avatar-uploader"
             :action="`${$baseURL}api/upload/uploadImage`"
             :show-file-list="false"
-            :on-success="handleSuccess"
+            :on-success="onSuccess"
             :headers="{token:$token}"
           >
             <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
@@ -46,7 +46,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleCreateOrModify()">确 定</el-button>
+        <el-button type="primary" @click="onCreateOrModify()">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -54,15 +54,15 @@
 
 <script>
 import {
-  getCarousel,
-  addCarousel,
-  modifyCarousel,
-  deleteCarousel
+  getProductImgs,
+  addProductImgs,
+  modifyProductImgs,
+  deleteProductImgs
 } from './service'
 import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
 
 export default {
-  name: 'carouselAdmin',
+  name: 'productImgsAdmin',
   components: {
     ChangeLocationAdmin
   },
@@ -77,16 +77,13 @@ export default {
       dialogFormVisible: false,
       formLabelWidth: '120px',
       loading: true,
-      headers: {
-        token: window.localStorage.getItem('token')
-      }
     }
   },
   mounted() {
     this.loadData()
   },
   methods: {
-    handleSuccess(response) {
+    onSuccess(response) {
       if (response) {
         this.formData.img = response.data
       } else {
@@ -98,7 +95,7 @@ export default {
     },
     loadData() {
       this.loading = true
-      getCarousel(this.$adminLang)
+      getProductImgs(this.$adminLang)
         .then((res) => {
           this.tableData = res
           this.loading = false
@@ -117,10 +114,10 @@ export default {
       this.formData.img = ''
       this.dialogFormVisible = true
     },
-    handleCreateOrModify() {
+    onCreateOrModify() {
       if (!this.formData.id) {
         this.loading = true
-        addCarousel(this.formData)
+        addProductImgs(this.formData)
           .then((response) => {
             this.loading = false
             this.$message({
@@ -138,7 +135,7 @@ export default {
           })
       } else {
         this.loading = true
-        modifyCarousel(this.formData)
+        modifyProductImgs(this.formData)
           .then((response) => {
             this.loading = false
             this.$message({
@@ -157,12 +154,12 @@ export default {
       }
     },
     //编辑
-    handleEdit(index, row) {
+    onEdit(index, row) {
       //index:第几行   row:这一行的数据
       this.formData = row
       this.dialogFormVisible = true
     },
-    handleDelete(index, row) {
+    onDelete(index, row) {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -172,7 +169,7 @@ export default {
           // 已确认删除
           // 调接口删除
           this.loading = true
-          deleteCarousel(row.id, null)
+          deleteProductImgs(row.id, null)
             .then((response) => {
               this.loading = false
               this.$message({

@@ -152,6 +152,7 @@ export default {
       text-align: center;
     }
     .el-collapse {
+      border-top: none;
       .collapseItem {
         color: #999;
         margin: 8px 15px;
