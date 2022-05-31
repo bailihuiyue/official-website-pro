@@ -35,7 +35,7 @@ export default {
   width: 100%;
   // height: 216px;
   // overflow: hidden;
-  background-color: #14679f;
+  background-color: #000;
   &-content {
     // width: 1240px;
     margin: 0 auto;
@@ -52,12 +52,13 @@ export default {
         //justify-content: center;
         align-items: flex-start;
         p {
-          font-size: 20px;
-          color: #d4edff;
+          font-size: 16px;
+          color: #fff;
           padding: 10px 0;
         }
         a {
-          color: #f7f7f7;
+          font-size: 14px;
+          color: #bbb;
           font-weight: 300;
           padding: 5px 0;
           text-decoration: none;
@@ -83,11 +84,12 @@ export default {
   }
   .copyright {
     // height: 30px;
-    background: #125688;
+    background: #000;
+    margin-top: 15px;
     span {
-      margin-bottom: 10px;
+      border-top: 1px solid rgb(83, 82, 82);
       // width: 1240px;
-      padding: 0 10%;
+      padding: 10px 10% 20px 10%;
       display: block;
       color: #fff;
       line-height: 30px;

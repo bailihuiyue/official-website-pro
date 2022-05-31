@@ -5,7 +5,7 @@ export const getMenu = () => {
   return baseService.get(api);
 };
 
-export const setMenu = (menu) => {
-  const api = `menu/set`;
+export const updateMenu = (menu) => {
+  const api = `menu/update`;
   return baseService.post(api, { menu });
 };

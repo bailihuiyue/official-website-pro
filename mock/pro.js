@@ -30,89 +30,9 @@ module.exports = {
   "get /user/deleteUser": { data: true },
   "post /api/upload/uploadImage": () => "imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg",
   "get /menu/getAll": {
-    data: [
-      {
-        'cn': '菜单1',
-        'en': 'menu1',
-        'href': '/product'
-      },
-      {
-        'cn': '菜单2',
-        'en': 'menu2',
-        'children': [{
-          'cn': '子菜单1',
-          'en': 'subMenu1',
-          'img': 'https://www.huion.com/uploadfile/20220523/g930l-index-icon.png',
-          'menuItems': [
-            {
-              'cn': '标题1',
-              'en': 'title1',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题2',
-              'en': 'title2',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题3',
-              'en': 'title3',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题4',
-              'en': 'title4',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题5',
-              'en': 'title5',
-              'href': 'https://www.baidu.com'
-            }
-          ],
-        },
-        {
-          'cn': '子菜单2',
-          'en': 'subMenu2',
-          'img': 'https://www.huion.com/uploadfile/20220523/g930l-index-icon.png',
-          'menuItems': [
-            {
-              'cn': '标题1',
-              'en': 'title1',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题2',
-              'en': 'title2',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题3',
-              'en': 'title3',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题4',
-              'en': 'title4',
-              'href': 'https://www.baidu.com'
-            },
-            {
-              'cn': '标题5',
-              'en': 'title5',
-              'href': 'https://www.baidu.com'
-            }
-          ],
-        }
-        ]
-      },
-      {
-        'cn': '菜单3',
-        'en': 'menu3',
-        'href': '/product'
-      },
-    ]
+    data: '[{"title":{"cn":"方向盘","en":"menu1","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"手柄","en":"menu2","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"耳机","en":"menu3","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"飞行摇杆","en":"menu1","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"技术支持","en":"menu2","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"关于公司","en":"menu3","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]}]'
   },
-  "post /menu/set": { data: true },
+  "post /menu/update": { data: true },
   "get /logo/get": {
     data: 'imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg'
   },

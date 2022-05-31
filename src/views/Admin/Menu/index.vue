@@ -1,70 +1,235 @@
 <template>
-  <div>
-    <el-alert
-      title="菜单编辑功能,请写入正确的json,如果存在children,则表示有二级菜单,如果href包含//,则表示是http开头的外部链接,直接跳转到外部网站"
-      type="warning"
-    ></el-alert>
-    <el-button @click="updateMenu" style="margin:20px 0;" type="primary">保存</el-button>
-    <br />
+  <div class="news" v-loading="loading">
     <div>
-      <div style="float:left;width:500px">
-        <div>当前已保存的内容:</div>
-        <div style="margin-top:5px;font-size:14px;white-space: pre;">
-          <code>{{JSON.stringify(currentTxt , '', 2)}}</code>
-        </div>
-      </div>
-      <div style="float:left">
-        <div style="margin-bottom:5px;">请输入新的内容:</div>
-        <el-input
-          style="width:500px"
-          type="textarea"
-          :rows="20"
-          placeholder="请输入内容"
-          v-model="menuTxt"
-        ></el-input>
-      </div>
+      <span style="margin-right:20px">请选择要编辑的菜单:</span>
+      <el-radio-group v-model="menuIndex">
+        <el-radio :label="0">方向盘</el-radio>
+        <el-radio :label="1">手柄</el-radio>
+        <el-radio :label="2">耳机</el-radio>
+        <el-radio :label="3">飞行摇杆</el-radio>
+        <el-radio :label="4">技术支持</el-radio>
+        <el-radio :label="5">关于公司</el-radio>
+      </el-radio-group>
     </div>
+    <!-- <ChangeLocationAdmin @langChanged="onLangChanged" /> -->
+    <!-- 一级菜单 -->
+    <div style="margin:20px 0 5px 0">一级菜单</div>
+    <el-table :data="[tableData.title]" border style="width: 100%">
+      <el-table-column prop="cn" label="中文" width="180"></el-table-column>
+      <el-table-column prop="en" label="英文" width="180"></el-table-column>
+      <el-table-column prop="href" label="跳转链接"></el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button
+            type="primary"
+            icon="el-icon-edit"
+            @click="onOpenEditModal(scope.$index, scope.row,'l1')"
+          ></el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <!-- 二级菜单 -->
+    <div style="margin:20px 0 5px 0">
+      二级菜单
+      <el-button type="primary" @click="openDialog()" style="margin:15px 0">新增</el-button>
+    </div>
+    <el-table :data="tableData.children" border style="width: 100%">
+      <el-table-column prop="cn" label="中文" width="180"></el-table-column>
+      <el-table-column prop="en" label="英文" width="180"></el-table-column>
+      <el-table-column prop="img" label="图片" width="220">
+        <template slot-scope="scope">
+          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
+        </template>
+      </el-table-column>
+      <el-table-column prop="href" label="跳转链接"></el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button
+            type="primary"
+            icon="el-icon-edit"
+            @click="onOpenEditModal(scope.$index, scope.row,'l2')"
+          ></el-button>
+          <el-button
+            type="danger"
+            icon="el-icon-delete"
+            @click="onDelete(scope.$index, scope.row,'l2')"
+          ></el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <!--  -->
+    <el-dialog title="菜单编辑" :visible.sync="dialogFormVisible">
+      <el-form :model="formData">
+        <el-form-item label="中文名" :label-width="formLabelWidth">
+          <el-input v-model="formData.cn" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="英文名" :label-width="formLabelWidth">
+          <el-input v-model="formData.en" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="跳转链接" :label-width="formLabelWidth">
+          <el-input v-model="formData.href" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="菜单图片" :label-width="formLabelWidth" v-if="menuType==='l2'">
+          <el-upload
+            class="avatar-uploader"
+            :action="`${$imgserver}api/upload/uploadImage`"
+            :show-file-list="false"
+            :on-success="onSaveImgSuccess"
+            :headers="{token:$token}"
+          >
+            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="onCreateOrModify()">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
+
 <script>
-import { getMenu, setMenu } from './service'
+import { getMenu, updateMenu } from './service'
 
 export default {
+  name: 'menulAdmin',
+  components: {},
   data() {
     return {
-      menuTxt: '',
-      currentTxt: ''
+      menuIndex: 0,
+      options: {},
+      tableData: [],
+      totalData: [],
+      editingL2Index: 0,
+      menuType: '',
+      formData: {
+        href: '',
+        img: '',
+        cn: '',
+        en: ''
+      },
+      dialogFormVisible: false,
+      formLabelWidth: '120px',
+      loading: true
     }
   },
-  created() {
-    this.getMenuFun()
+  watch: {
+    menuIndex(val) {
+      this.tableData = this.totalData[val]
+    }
+  },
+  mounted() {
+    this.loadData()
   },
   methods: {
-    getMenuFun() {
-      getMenu().then((res) => (this.currentTxt = res))
+    onSaveImgSuccess(response) {
+      if (response) {
+        this.totalData[this.menuIndex]['children'][this.editingL2Index]['img'] =
+          response.data
+      } else {
+        this.$message({
+          message: response.resultMsg || '上传图片失败,请重试!',
+          type: 'error'
+        })
+      }
     },
-    updateMenu() {
-      try {
-        JSON.parse(this.menuTxt)
-      } catch (error) {
-        this.$message.error('请输入正确的JSON格式!')
-        return false
+    loadData() {
+      this.loading = true
+      getMenu()
+        .then((res) => {
+          res = JSON.parse(res)
+          this.tableData = res[this.menuIndex]
+          this.totalData = res
+          this.loading = false
+        })
+        .catch((e) => {
+          this.$message({
+            message: '网络或程序异常！' + e,
+            type: 'error'
+          })
+        })
+    },
+    openDialog() {
+      // 清除数据
+      this.formData.id = 0
+      this.formData.href = ''
+      this.formData.img = ''
+      this.dialogFormVisible = true
+    },
+    onCreateOrModify() {
+      if (this.menuType === 'l1') {
+        this.totalData[this.menuIndex]['title'] = this.formData
+      } else if (this.menuType === 'l2') {
+        this.totalData[this.menuIndex]['children'][this.editingL2Index] =
+          this.formData
       }
-      
-      if (!Array.isArray(JSON.parse(this.menuTxt))) {
-        this.$message.error('最外层少了[],请查看!')
-        return false
-      }
-
-      setMenu(this.menuTxt).then((res) => {
-        if (res) {
-          this.$message.success('保存成功!')
-          this.getMenuFun()
-        }
+      updateMenu(JSON.parse(this.totalData))
+        .then((response) => {
+          this.loading = false
+          this.$message({
+            message: '创建成功！',
+            type: 'success'
+          })
+          this.dialogFormVisible = false
+          this.loadData(this.$adminLang)
+        })
+        .catch((e) => {
+          this.$message({
+            message: '网络或程序异常！' + e,
+            type: 'error'
+          })
+        })
+    },
+    //编辑
+    onOpenEditModal(index, row, menuType) {
+      this.menuType = menuType
+      this.editingL2Index = index
+      //index:第几行   row:这一行的数据
+      this.formData = row
+      this.dialogFormVisible = true
+    },
+    onDelete(index, row) {
+      this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
+        .then(() => {
+          // 已确认删除
+          // 调接口删除
+          this.loading = true
+          upMenu(row.id, null)
+            .then((response) => {
+              this.loading = false
+              this.$message({
+                message: '删除成功！',
+                type: 'success'
+              })
+              this.loadData()
+            })
+            .catch((e) => {
+              this.$message({
+                message: '网络或程序异常！' + e,
+                type: 'error'
+              })
+            })
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
     }
   }
 }
 </script>
-<style lang="scss">
+
+<style lang="scss" scoped>
+.el-table {
+  margin-top: 20px;
+}
 </style>

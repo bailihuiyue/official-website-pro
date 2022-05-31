@@ -4,22 +4,22 @@
       <!-- 1.header半透明2.兼容手机模式 -->
       <el-header :class="isMobile?'mobileHeader':'pcHeader'">
         <!-- <div :style="{width:isMobile?'':'80%'}"> -->
-          <i class="menuBtn" v-if="isMobile" @click="handleDisplayDrawer(true)">
-            <img id="menuBtn" src="/menu.svg" />
-          </i>
-          <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
-          <HorizontalMenu
-            mode="horizontal"
-            :handleSelect="handleSelect"
-            v-if="!isMobile"
-            background-color="#545c64"
-            text-color="#fff"
-            active-text-color="#ffd04b"
-          />
-          <div class="headerButtons">
-            <SearchProduct v-show="!isMobile" />
-            <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
-          </div>
+        <i class="menuBtn" v-if="isMobile" @click="handleDisplayDrawer(true)">
+          <img id="menuBtn" src="/menu.svg" />
+        </i>
+        <Logo :isMobile="isMobile" :handleDisplayDrawer="handleDisplayDrawer" />
+        <HorizontalMenu
+          mode="horizontal"
+          :handleSelect="handleSelect"
+          v-if="!isMobile"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+        />
+        <div class="headerButtons">
+          <!-- <SearchProduct v-show="!isMobile" /> -->
+          <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
+        </div>
         <!-- </div> -->
       </el-header>
       <img src="/line.png" />
@@ -96,6 +96,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 * {
   padding: 0;
   margin: 0;
@@ -169,6 +171,7 @@ body {
 div.el-menu--horizontal {
   width: 100%;
   background-color: #222222;
+  left: 0 !important;
   & > ul {
     margin-top: 0;
     display: flex;
@@ -176,44 +179,60 @@ div.el-menu--horizontal {
     padding: 0 10%;
     background-color: transparent !important;
     padding-top: 30px !important;
-    li {
-      &.el-menu-item-group {
-        margin-bottom: 25px;
-        .el-menu-item-group__title {
-          padding-left: 0 !important;
-          .subTitle {
-            color: #fff;
-            font-size: 14px;
-            margin-bottom: 25px;
-            font-weight: bold;
-          }
-          .subThumb {
-            // margin-bottom: 15px;
-          }
-        }
-        ul {
-          flex-direction: column;
-          // margin-top: 10px;
-          li {
-            padding-left: 0 !important;
-            min-width: 245px;
-            background-color: transparent !important;
-            height: auto !important;
-            padding-bottom: 30px;
-            margin: 5px 0;
-            .subContent {
-              margin: 5px 0;
-              color: #999999 !important;
-              font-weight: 600;
-              font-size: 13px;
-            }
-            .subContent:hover {
-              color: aqua !important;
-            }
-          }
-        }
+    li.el-menu-item {
+      height: 120px !important;
+      width: 200px;
+      &:hover {
+        background-color: transparent !important;
+        color: $themeColor !important;
+      }
+      .subThumb,
+      .subTitle {
+        width: 120px;
+      }
+      .subTitle {
+        text-align: center;
+        font-size: 13px;
       }
     }
+    // li {
+    //   &.el-menu-item-group {
+    //     margin-bottom: 25px;
+    //     .el-menu-item-group__title {
+    //       padding-left: 0 !important;
+    //       .subTitle {
+    //         color: #fff;
+    //         font-size: 14px;
+    //         margin-bottom: 25px;
+    //         font-weight: bold;
+    //       }
+    //       .subThumb {
+    //         // margin-bottom: 15px;
+    //       }
+    //     }
+    //     ul {
+    //       flex-direction: column;
+    //       // margin-top: 10px;
+    //       li {
+    //         padding-left: 0 !important;
+    //         min-width: 245px;
+    //         background-color: transparent !important;
+    //         height: auto !important;
+    //         padding-bottom: 30px;
+    //         margin: 5px 0;
+    //         .subContent {
+    //           margin: 5px 0;
+    //           color: #999999 !important;
+    //           font-weight: 600;
+    //           font-size: 13px;
+    //         }
+    //         .subContent:hover {
+    //           color: $themeColor !important;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
 .menuDrawerClass {

@@ -7,15 +7,17 @@
       text-color="#fff"
       active-text-color="#fff"
     >
-      <template v-for="(t,i1) in menus">
-        <el-submenu :index="i1+''">
-          <template slot="title">{{t.title[$lang]}}</template>
-          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c.href)">
-            <!-- <img class="subThumb" :src="c.img" /> -->
-            <div class="subTitle">{{c[$lang]}}</div>
-            <!-- <div class="subDesc">{{c[$lang]}}</div> -->
-          </el-menu-item>
+      <template v-for="(m,i1) in menus">
+        <el-submenu :index="i1+''" v-if="m.children">
+          <template slot="title">{{m[$lang]}}</template>
+          <el-menu-item-group :index="i1+'-'+i2+''" v-for="(c,i2) in m.children">
+            <template slot="title">{{c[$lang]}}</template>
+            <el-menu-item v-for="m in c.menuItems">
+              <div @click="jumpTo(m.href)">{{m[$lang]}}</div>
+            </el-menu-item>
+          </el-menu-item-group>
         </el-submenu>
+        <el-menu-item :index="i1+''" v-else @click="jumpTo(m.href)">{{m[$lang]}}</el-menu-item>
       </template>
     </el-menu>
   </div>
@@ -40,7 +42,7 @@ export default {
   },
   created() {
     getMenu().then((res) => {
-      this.menus = JSON.parse(res)
+      this.menus = res
     })
   },
   methods: {
