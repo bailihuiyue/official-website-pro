@@ -1,3 +1,5 @@
+import baseService from "@/services/axios";
+
 export const getUserAll = () => {
   const api = `user/getUserAll`;
   return baseService.get(api);
