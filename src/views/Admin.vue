@@ -27,6 +27,10 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">产品大图管理</span>
           </el-menu-item>
+          <el-menu-item index="/admin/bottomSection">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">底部四图管理</span>
+          </el-menu-item>
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>
@@ -73,7 +77,7 @@ export default {
   name: 'admin',
   data() {
     return {
-      currentRouter:'/admin/user'
+      currentRouter: '/admin/user'
     }
   },
   watch: {
@@ -92,6 +96,9 @@ export default {
 .admin {
   border-top: 1px solid rgb(238, 238, 238);
   background-color: #fff;
+  .el-menu-vertical-demo.el-menu{
+    height: calc(100vh - 63px);
+  }
 }
 
 .base-padding {

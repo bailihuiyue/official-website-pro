@@ -79,14 +79,19 @@ const router = new Router({
         },
         {
           path: '/admin/carousel',
-          name: 'footer',
+          name: 'carousel',
           component: () => import('./views/Admin/Carousel/index.vue')
         },
         {
           path: '/admin/productImgs',
-          name: 'footer',
+          name: 'productImgs',
           component: () => import('./views/Admin/ProductImgs/index.vue')
         },
+        {
+          path: '/admin/bottomSection',
+          name: 'bottomSection',
+          component: () => import('./views/Admin/BottomSection/index.vue')
+        }
         // {
         //   path: '/admin/news',
         //   name: 'new',

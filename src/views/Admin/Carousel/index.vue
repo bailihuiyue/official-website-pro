@@ -15,12 +15,12 @@
           <el-button
             type="primary"
             icon="el-icon-edit"
-            @click="handleEdit(scope.$index, scope.row)"
+            @click="onEdit(scope.$index, scope.row)"
           ></el-button>
           <el-button
             type="danger"
             icon="el-icon-delete"
-            @click="handleDelete(scope.$index, scope.row)"
+            @click="onDelete(scope.$index, scope.row)"
           ></el-button>
         </template>
       </el-table-column>
@@ -33,7 +33,7 @@
             class="avatar-uploader"
             :action="`${$baseURL}api/upload/uploadImage`"
             :show-file-list="false"
-            :on-success="handleSuccess"
+            :on-success="onSuccess"
             :headers="{token:$token}"
           >
             <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
@@ -46,7 +46,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleCreateOrModify()">确 定</el-button>
+        <el-button type="primary" @click="onCreateOrModify()">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -86,7 +86,7 @@ export default {
     this.loadData()
   },
   methods: {
-    handleSuccess(response) {
+    onSuccess(response) {
       if (response) {
         this.formData.img = response.data
       } else {
@@ -117,7 +117,7 @@ export default {
       this.formData.img = ''
       this.dialogFormVisible = true
     },
-    handleCreateOrModify() {
+    onCreateOrModify() {
       if (!this.formData.id) {
         this.loading = true
         addCarousel(this.formData)
@@ -157,12 +157,12 @@ export default {
       }
     },
     //编辑
-    handleEdit(index, row) {
+    onEdit(index, row) {
       //index:第几行   row:这一行的数据
       this.formData = row
       this.dialogFormVisible = true
     },
-    handleDelete(index, row) {
+    onDelete(index, row) {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',

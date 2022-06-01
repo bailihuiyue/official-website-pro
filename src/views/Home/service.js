@@ -9,3 +9,9 @@ export const getProductImgs = lang => {
   const api = `productImgs/getAll?lang=${lang}`;
   return baseService.get(api);
 };
+
+export const getBottomImgs = lang => {
+  const api = `bottomImg/getAll?lang=${lang}`;
+  return baseService.get(api);
+};
+
