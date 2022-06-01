@@ -30,7 +30,7 @@ export default {
   created() {
     getCarousel(this.$lang).then((res) => (this.carouselList = res))
     getProductImgs(this.$lang).then((res) => (this.productImgs = res))
-    getBottomImgs(this.$lang).then((res) => (this.bottomImgs = res))
+    getBottomImgs(this.$lang).then((res) => (this.bottomImgs = JSON.parse(res)))
   }
 }
 </script>

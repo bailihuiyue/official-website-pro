@@ -1,5 +1,5 @@
 <template>
-  <div class="news" v-loading="loading">
+  <div class="menuAdmin" v-loading="loading">
     <div>
       <span style="margin-right:20px">请选择要编辑的菜单:</span>
       <el-radio-group v-model="menuIndex">
@@ -95,7 +95,7 @@
 import { getMenu, updateMenu } from './service'
 
 export default {
-  name: 'menulAdmin',
+  name: 'menuAdmin',
   components: {},
   data() {
     return {
@@ -175,7 +175,7 @@ export default {
         this.totalData[this.menuIndex]['children'][this.selectedL2Index] =
           this.formData
       }
-      updateMenu(this.totalData)
+      updateMenu(JSON.stringify(this.totalData))
         .then((response) => {
           this.loading = false
           this.$message({
@@ -218,7 +218,7 @@ export default {
             this.selectedL2Index,
             1
           )
-          updateMenu(this.totalData)
+          updateMenu(JSON.stringify(this.totalData))
             .then((response) => {
               this.loading = false
               this.$message({
