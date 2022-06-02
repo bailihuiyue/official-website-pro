@@ -36,7 +36,8 @@
               <i class="el-icon-star-off"></i>
               产品管理
             </template>
-            <el-menu-item index="/admin/productType">产品分类管理</el-menu-item>
+            <el-menu-item index="/admin/productType">产品分类</el-menu-item>
+            <el-menu-item index="/admin/productDetail">产品详情</el-menu-item>
           </el-submenu>
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>

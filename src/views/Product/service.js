@@ -11,7 +11,7 @@ export const getProductList = ({ lang, currentPage, pageSize, type, searchTxt })
 };
 
 
-export const getProductType = (lang, txt) => {
+export const getProductType = () => {
   const api = `product/type/getAll`;
   return baseService.get(api);
 };

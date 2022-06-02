@@ -13,3 +13,17 @@ export const getLang = () => window.localStorage.getItem('lang') || 'cn'
 export const getAdminLang = () => window.localStorage.getItem('adminLang') || 'cn'
 export const getToken = () => window.localStorage.getItem('token')
 
+export const createFormData = (formDatas, file) => {
+  const formData = new FormData()
+  if (file.length) {
+    file.map(item => {
+      formData.append('file', item)
+    })
+  } else {
+    formData.append('file', file)
+  }
+  for (const item in formDatas) {
+    formData.append(item, formDatas[item] || '')
+  }
+  return formData
+}

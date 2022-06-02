@@ -1,34 +1,33 @@
 <template>
-  <div class="carouselAdmin">
-    <ChangeLocationAdmin @langChanged="onLangChanged" />
-    <el-button type="primary" @click="openDialog()">新增轮播图</el-button>
+  <div class="productDetailAdmin">
+    <ChangeLocationAdmin />
+    <div style="margin:15px 0">
+      <span style="margin-right:20px">请选择要编辑的菜单:</span>
+      <el-radio-group v-model="selectedProductType">
+        <el-radio :label="t.id" v-for="t in productType" :key="t.id">{{t[$adminLang]}}</el-radio>
+      </el-radio-group>
+    </div>
+    <el-button type="primary" @click="addProductdeatil()">新增产品</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="loading">
       <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="title" label="标题"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgserver + scope.row.img" alt />
         </template>
       </el-table-column>
-      <el-table-column prop="href" label="跳转链接"></el-table-column>
+      <el-table-column prop="sku" label="SKU" />
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button
-            type="primary"
-            icon="el-icon-edit"
-            @click="onEdit(scope.$index, scope.row)"
-          ></el-button>
-          <el-button
-            type="danger"
-            icon="el-icon-delete"
-            @click="onDelete(scope.$index, scope.row)"
-          ></el-button>
+          <el-button type="primary" icon="el-icon-edit" @click="onEdit(scope.$index, scope.row)"></el-button>
+          <el-button type="danger" icon="el-icon-delete" @click="onDelete(scope.$index, scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
     <!--  -->
-    <el-dialog title="轮播图编辑" :visible.sync="dialogFormVisible">
+    <el-dialog title="产品详情编辑" :visible.sync="dialogFormVisible" width="80%">
       <el-form :model="formData">
-        <el-form-item label="轮播图" :label-width="formLabelWidth">
+        <el-form-item label="产品图" :label-width="formLabelWidth">
           <el-upload
             class="avatar-uploader"
             :action="`${$baseURL}api/upload/uploadImage`"
@@ -40,9 +39,37 @@
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
-        <el-form-item label="跳转链接" :label-width="formLabelWidth">
-          <el-input v-model="formData.href" autocomplete="off"></el-input>
+        <el-form-item label="标题" :label-width="formLabelWidth">
+          <el-input v-model="formData.title" autocomplete="off"></el-input>
         </el-form-item>
+
+        <!-- 详情管理 -->
+        <el-tabs v-model="activeTab">
+          <el-tab-pane label="产品详情" name="productDetail">
+            <Tinymce
+              :content="formData.productDetail"
+              :height="500"
+              :menubar="false"
+              ref="productDetailTiny"
+            />
+          </el-tab-pane>
+          <el-tab-pane label="产品参数" name="productParameter">
+            <Tinymce
+              :content="formData.productParameter"
+              :height="500"
+              :menubar="false"
+              ref="productParameterTiny"
+            />
+          </el-tab-pane>
+          <el-tab-pane label="技术支持" name="technicalSupport">
+            <Tinymce
+              :content="formData.technicalSupport"
+              :height="500"
+              :menubar="false"
+              ref="technicalSupportTiny"
+            />
+          </el-tab-pane>
+        </el-tabs>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
@@ -54,36 +81,52 @@
 
 <script>
 import {
-  getCarousel,
-  addCarousel,
-  modifyCarousel,
-  deleteCarousel
+  getProductDetail,
+  addProductDetail,
+  modifyProductDetail,
+  deleteProductDetail,
+  getProductType,
+  getProductList
 } from './service'
 import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
+import Tinymce from '@/components/Tinymce'
 
 export default {
-  name: 'carouselAdmin',
+  name: 'productDetailAdmin',
   components: {
-    ChangeLocationAdmin
+    ChangeLocationAdmin,
+    Tinymce
   },
   data() {
     return {
+      productType: [],
+      selectedProductType: '',
+      productDetail: {},
       options: {},
       tableData: [],
       formData: {
-        href: '',
-        img: ''
+        title: '',
+        img: '',
+        sku: '',
+        productDetail: '',
+        productParameter: '',
+        technicalSupport: ''
       },
       dialogFormVisible: false,
       formLabelWidth: '120px',
       loading: true,
       headers: {
         token: window.localStorage.getItem('token')
-      }
+      },
+      activeTab:'productDetail'
     }
   },
-  mounted() {
-    this.loadData()
+  created() {
+    getProductType().then((res) => {
+      this.productType = res
+      this.selectedProductType = res[0].id
+      this.getProductListApi()
+    })
   },
   methods: {
     onSuccess(response) {
@@ -96,11 +139,16 @@ export default {
         })
       }
     },
-    loadData() {
+    getProductListApi() {
       this.loading = true
-      getCarousel(this.$adminLang)
+      getProductList({
+        lang: this.$adminLang,
+        currentPage: 1,
+        pageSize: 99999,
+        type: this.selectedProductType
+      })
         .then((res) => {
-          this.tableData = res
+          this.tableData = res.list
           this.loading = false
         })
         .catch((e) => {
@@ -110,7 +158,7 @@ export default {
           })
         })
     },
-    openDialog() {
+    addProductdeatil() {
       // 清除数据
       this.formData.id = 0
       this.formData.href = ''
@@ -118,9 +166,10 @@ export default {
       this.dialogFormVisible = true
     },
     onCreateOrModify() {
+      //  const tinyContent = this.$refs.tinymce.getContent()
       if (!this.formData.id) {
         this.loading = true
-        addCarousel(this.formData)
+        addProductDetail(this.formData)
           .then((response) => {
             this.loading = false
             this.$message({
@@ -128,7 +177,7 @@ export default {
               type: 'success'
             })
             this.dialogFormVisible = false
-            this.loadData(this.$adminLang)
+            this.getProductListApi(this.$adminLang)
           })
           .catch((e) => {
             this.$message({
@@ -138,7 +187,7 @@ export default {
           })
       } else {
         this.loading = true
-        modifyCarousel(this.formData)
+        modifyProductDetail(this.formData)
           .then((response) => {
             this.loading = false
             this.$message({
@@ -146,7 +195,7 @@ export default {
               type: 'success'
             })
             this.dialogFormVisible = false
-            this.loadData()
+            this.getProductListApi()
           })
           .catch((e) => {
             this.$message({
@@ -159,7 +208,14 @@ export default {
     //编辑
     onEdit(index, row) {
       //index:第几行   row:这一行的数据
-      this.formData = row
+      getProductDetail(this.$adminLang, this.formData.id).then((res) => {
+        this.formData.title = row.title
+        this.formData.img = row.img
+        this.formData.sku = row.sku
+        this.formData.productDetail = res.productDetail
+        this.formData.productParameter = res.productParameter
+        this.formData.technicalSupport = res.technicalSupport
+      })
       this.dialogFormVisible = true
     },
     onDelete(index, row) {
@@ -172,14 +228,14 @@ export default {
           // 已确认删除
           // 调接口删除
           this.loading = true
-          deleteCarousel(row.id, null)
+          deleteProductDetail(row.id, null)
             .then((response) => {
               this.loading = false
               this.$message({
                 message: '删除成功！',
                 type: 'success'
               })
-              this.loadData()
+              this.getProductListApi()
             })
             .catch((e) => {
               this.$message({

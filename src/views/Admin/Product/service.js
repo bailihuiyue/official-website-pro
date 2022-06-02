@@ -18,3 +18,13 @@ export const deleteProductType = (id) => {
   const api = `productType/delete?id=${id}`;
   return baseService.get(api);
 };
+
+export const getProductList = ({ lang, currentPage, pageSize, type, searchTxt }) => {
+  const api = `product/list?lang=${lang}`;
+  return baseService.post(api, { currentPage, pageSize, type: type || '', searchTxt });
+};
+
+export const getProductDetail = (lang, id) => {
+  const api = `product/detail/getAll?lang=${lang}&id=${id}`;
+  return baseService.get(api);
+};

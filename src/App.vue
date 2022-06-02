@@ -251,4 +251,24 @@ div.el-menu--horizontal {
     margin-bottom: 0 !important;
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
+  // height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  border: none;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  // height: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
 </style>

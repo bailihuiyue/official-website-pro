@@ -101,6 +101,11 @@ const router = new Router({
           path: '/admin/productType',
           name: 'bottomSection',
           component: () => import('./views/Admin/Product/ProductType.vue')
+        },
+        {
+          path: '/admin/productDetail',
+          name: 'bottomSection',
+          component: () => import('./views/Admin/Product/ProductDetail.vue')
         }
         // {
         //   path: '/admin/news',
