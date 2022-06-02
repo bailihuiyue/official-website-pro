@@ -40,7 +40,7 @@ export default {
   },
   created() {
     getMenu().then((res) => {
-      this.menus = JSON.parse(res)
+      this.menus = res
     })
   },
   methods: {

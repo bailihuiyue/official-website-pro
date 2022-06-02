@@ -31,6 +31,13 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">底部四图管理</span>
           </el-menu-item>
+          <el-submenu index="/admin">
+            <template slot="title">
+              <i class="el-icon-star-off"></i>
+              产品管理
+            </template>
+            <el-menu-item index="/admin/productType">产品分类管理</el-menu-item>
+          </el-submenu>
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>
@@ -96,7 +103,7 @@ export default {
 .admin {
   border-top: 1px solid rgb(238, 238, 238);
   background-color: #fff;
-  .el-menu-vertical-demo.el-menu{
+  .el-menu-vertical-demo.el-menu {
     height: calc(100vh - 63px);
   }
 }

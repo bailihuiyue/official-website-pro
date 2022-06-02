@@ -145,7 +145,7 @@ export default {
       this.loading = true
       getMenu()
         .then((res) => {
-          res = JSON.parse(res)
+          res = res
           this.tableData = res[this.menuIndex]
           this.totalData = res
           this.loading = false
@@ -175,7 +175,7 @@ export default {
         this.totalData[this.menuIndex]['children'][this.selectedL2Index] =
           this.formData
       }
-      updateMenu(JSON.stringify(this.totalData))
+      updateMenu(this.totalData)
         .then((response) => {
           this.loading = false
           this.$message({
@@ -218,7 +218,7 @@ export default {
             this.selectedL2Index,
             1
           )
-          updateMenu(JSON.stringify(this.totalData))
+          updateMenu(this.totalData)
             .then((response) => {
               this.loading = false
               this.$message({

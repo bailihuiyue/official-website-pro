@@ -106,7 +106,7 @@ export default {
     },
     handleSuccess(res) {
       if (res) {
-        this.img = res
+        this.img = res.data
         this.$message.success('上传成功,请刷新页面!')
       } else {
         this.$message.error(res.resultMsg || '上传图片失败,请重试!')

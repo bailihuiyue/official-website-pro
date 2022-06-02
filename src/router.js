@@ -19,11 +19,11 @@ const router = new Router({
     //   name: 'newsdetails',
     //   component: () => import('./views/NewsDetails.vue'),
     // },
-    // {
-    //   path: '/product',
-    //   name: 'product',
-    //   component: () => import('./views/Product.vue'),
-    // },
+    {
+      path: '/productList',
+      name: 'productList',
+      component: () => import('./views/Product/ProductList.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -91,6 +91,11 @@ const router = new Router({
           path: '/admin/bottomSection',
           name: 'bottomSection',
           component: () => import('./views/Admin/BottomSection/index.vue')
+        },
+        {
+          path: '/admin/productType',
+          name: 'bottomSection',
+          component: () => import('./views/Admin/Product/ProductType.vue')
         }
         // {
         //   path: '/admin/news',

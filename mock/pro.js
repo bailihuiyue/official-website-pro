@@ -30,7 +30,134 @@ module.exports = {
   "get /user/deleteUser": { data: true },
   "post /api/upload/uploadImage": { data: 'logo.png' },
   "get /menu/getAll": {
-    data: '[{"title":{"cn":"方向盘","en":"menu1","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"手柄","en":"menu2","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"耳机","en":"menu3","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"飞行摇杆","en":"menu1","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"技术支持","en":"menu2","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]},{"title":{"cn":"关于公司","en":"menu3","href":"/product"},"children":[{"cn":"子菜单1","en":"subMenu1","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"},{"cn":"子菜单2","en":"subMenu2","img":"https://www.huion.com/uploadfile/20220523/g930l-index-icon.png","href":"/product"}]}]'
+    data: [
+      {
+        "title": {
+          "cn": "方向盘",
+          "en": "menu1",
+          "href": "/product"
+        },
+        "children": [
+          {
+            "cn": "子菜单1",
+            "en": "subMenu1",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          },
+          {
+            "cn": "子菜单2",
+            "en": "subMenu2",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          }
+        ]
+      },
+      {
+        "title": {
+          "cn": "手柄",
+          "en": "menu2",
+          "href": "/product"
+        },
+        "children": [
+          {
+            "cn": "子菜单1",
+            "en": "subMenu1",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          },
+          {
+            "cn": "子菜单2",
+            "en": "subMenu2",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          }
+        ]
+      },
+      {
+        "title": {
+          "cn": "耳机",
+          "en": "menu3",
+          "href": "/product"
+        },
+        "children": [
+          {
+            "cn": "子菜单1",
+            "en": "subMenu1",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          },
+          {
+            "cn": "子菜单2",
+            "en": "subMenu2",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          }
+        ]
+      },
+      {
+        "title": {
+          "cn": "飞行摇杆",
+          "en": "menu1",
+          "href": "/product"
+        },
+        "children": [
+          {
+            "cn": "子菜单1",
+            "en": "subMenu1",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          },
+          {
+            "cn": "子菜单2",
+            "en": "subMenu2",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          }
+        ]
+      },
+      {
+        "title": {
+          "cn": "技术支持",
+          "en": "menu2",
+          "href": "/product"
+        },
+        "children": [
+          {
+            "cn": "子菜单1",
+            "en": "subMenu1",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          },
+          {
+            "cn": "子菜单2",
+            "en": "subMenu2",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          }
+        ]
+      },
+      {
+        "title": {
+          "cn": "关于公司",
+          "en": "menu3",
+          "href": "/product"
+        },
+        "children": [
+          {
+            "cn": "子菜单1",
+            "en": "subMenu1",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          },
+          {
+            "cn": "子菜单2",
+            "en": "subMenu2",
+            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
+            "href": "/product"
+          }
+        ]
+      }
+    ]
   },
   "post /menu/update": { data: true },
   "get /logo/get": {
@@ -201,10 +328,120 @@ module.exports = {
 
 
   'get /bottomImg/getAll': {
-    data: "[{\"id\":\"0\",\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg\",\"href\":\"/product\"},{\"id\":\"1\",\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg\",\"href\":\"http://www.shkjem.com/video/kj.mp4\"},{\"id\":\"2\",\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg\",\"href\":\"/product\"},{\"id\":\"3\",\"imgs\":[{\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg\",\"href\":\"/product\"},{\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg\",\"href\":\"/product\"},{\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg\",\"href\":\"/product\"},{\"img\":\"https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg\",\"href\":\"/product\"}]}]"
+    data: [
+      {
+        "id": "0",
+        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg",
+        "href": "/product"
+      },
+      {
+        "id": "1",
+        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
+        "href": "http://www.shkjem.com/video/kj.mp4"
+      },
+      {
+        "id": "2",
+        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
+        "href": "/product"
+      },
+      {
+        "id": "3",
+        "imgs": [
+          {
+            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
+            "href": "/product"
+          },
+          {
+            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
+            "href": "/product"
+          },
+          {
+            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
+            "href": "/product"
+          },
+          {
+            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
+            "href": "/product"
+          }
+        ]
+      }
+    ]
   },
   "post /bottomImg/add": { data: true },
   "post /bottomImg/modify": { data: true },
   "get /bottomImg/delete": { data: true },
 
+  'get /product/type/getAll': {
+    data: [
+      {
+        id: '0',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        en: 'shoubing',
+        cn: '手柄',
+        sku: 'sb'
+      },
+      {
+        id: '1',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+        en: 'fangxiangpan',
+        cn: '方向盘',
+        sku: 'fxp'
+      },
+      {
+        id: '2',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg',
+        en: 'erji',
+        cn: '耳机',
+        sku: 'ej'
+      },
+    ]
+  },
+  "post /productType/add": { data: true },
+  "post /productType/modify": { data: true },
+  "get /productType/delete": { data: true },
+
+  "get /product/list": {
+    data: {
+      currentPage: 1,
+      pageSize: 6,
+      total: 7,
+      list: [
+        {
+          id: 0,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        },
+        {
+          id: 1,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        },
+        {
+          id: 2,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        },
+        {
+          id: 3,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        },
+        {
+          id: 4,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        },
+        {
+          id: 5,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        },
+        {
+          id: 6,
+          title: 'p20方向盘',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        }
+      ]
+    }
+  }
 }

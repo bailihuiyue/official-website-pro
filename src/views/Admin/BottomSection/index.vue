@@ -124,7 +124,7 @@ export default {
       this.loading = true
       getBottomImgs(this.$adminLang)
         .then((res) => {
-          this.totalData =JSON.parse(res)
+          this.totalData = res
           this.loading = false
         })
         .catch((e) => {
@@ -151,7 +151,7 @@ export default {
       } else if (this.menuType === 'miniCarouselData') {
         this.totalData[3]['imgs'][this.miniCarouselIndex] = this.formData
       }
-      updateBottomImgs(this.$adminLang, JSON.stringify(this.totalData))
+      updateBottomImgs(this.$adminLang, this.totalData)
         .then((response) => {
           this.loading = false
           this.$message({
@@ -191,7 +191,7 @@ export default {
             return false
           }
           this.totalData[3]['imgs'].splice(this.miniCarouselIndex, 1)
-          updateBottomImgs(this.$adminLang, JSON.stringify(this.totalData))
+          updateBottomImgs(this.$adminLang, this.totalData)
             .then((response) => {
               this.loading = false
               this.$message({
