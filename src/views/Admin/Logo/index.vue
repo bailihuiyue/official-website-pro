@@ -1,9 +1,10 @@
 <template>
   <div class="logoAdmin">
     <el-alert title="请上传Logo图片" type="info" style="margin-bottom:10px" />
+    
     <el-upload
       class="avatar-uploader"
-      :action="`${$imgserver}api/upload/uploadImage`"
+      :action="`${$imgserver}api/upload/uploadLogoImage`"
       :show-file-list="false"
       :on-success="handleSuccess"
       :headers="{token:$token}"
@@ -31,7 +32,7 @@ export default {
   methods: {
     handleSuccess(res) {
       if (res) {
-        this.logo = res
+        this.logo = res.data
         this.$message.success('上传成功,请刷新页面!')
       } else {
         this.$message.error(res.resultMsg || '上传图片失败,请重试!')
