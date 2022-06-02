@@ -443,5 +443,14 @@ module.exports = {
         }
       ]
     }
+  },
+  "get /product/detail/getAll":{
+    data:{
+      id:'1',
+      title:'Redmi 9A',
+      productDetail:'<p style="background:red">productDetail</p>',
+      productParameter:'<p style="background:yellow">productParameter</p>',
+      technicalSupport:'<p style="background:blue">technicalSupport</p>'
+    }
   }
 }
