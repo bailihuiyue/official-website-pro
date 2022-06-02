@@ -1,25 +1,29 @@
 <template>
   <div class="ProductDetail">
-    <el-tabs v-model="activeName">
-      <el-tab-pane :label="detail.title" name="title" disabled class="title" />
-      <el-tab-pane :label="words['technicalSupport'][$lang]" name="technicalSupport">
-        <div class="detailPage" v-html="detail.technicalSupport"></div>
-      </el-tab-pane>
-      <el-tab-pane :label="words['productParameter'][$lang]" name="productParameter">
-        <div class="detailPage" v-html="detail.productParameter"></div>
-      </el-tab-pane>
-      <el-tab-pane :label="words['productDetail'][$lang]" name="productDetail">
-        <div class="detailPage" v-html="detail.productDetail"></div>
-      </el-tab-pane>
-    </el-tabs>
+    <div :class="isMobile?'':'isPC'">
+      <el-tabs v-model="activeName">
+        <el-tab-pane :label="detail.title" name="title" disabled class="title" v-if="!isMobile" />
+        <el-tab-pane :label="words['technicalSupport'][$lang]" name="technicalSupport">
+          <div class="detailPage" v-html="detail.technicalSupport"></div>
+        </el-tab-pane>
+        <el-tab-pane :label="words['productParameter'][$lang]" name="productParameter">
+          <div class="detailPage" v-html="detail.productParameter"></div>
+        </el-tab-pane>
+        <el-tab-pane :label="words['productDetail'][$lang]" name="productDetail">
+          <div class="detailPage" v-html="detail.productDetail"></div>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
   </div>
 </template>
 <script>
 import { getProductDetail } from './service'
+import device from 'current-device'
 
 export default {
   data() {
     return {
+      isMobile: device.mobile(),
       activeName: 'productDetail',
       detail: {},
       words: {
@@ -46,46 +50,94 @@ export default {
 // TODO:1.按钮颜色及样式完全仿照miui;2.兼容手机模式
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .ProductDetail {
-  .el-tabs.el-tabs--top {
+  .isPC {
+    .el-tabs.el-tabs--top {
+      .el-tabs__active-bar.is-top {
+        opacity: 0;
+      }
+      .el-tabs__header.is-top {
+        border-top: 1px solid rgb(57, 61, 64);
+        border-bottom: 1px solid rgb(57, 61, 64);
+        height: 63px;
+      }
+      .el-tabs__nav-wrap::after {
+        background-color: transparent;
+      }
+      .el-tabs__nav-scroll {
+        width: 80% !important;
+        margin-left: 10% !important;
+        .el-tabs__nav.is-top {
+          // float: right;
+          width: 100%;
+          margin-top: 24px;
+        }
+        .is-active {
+          color: $themeColor;
+        }
+        .el-tabs__item {
+          color: #fff;
+        }
+        .el-tabs__item.is-active{
+          color: $themeColor;
+        }
+        .el-tabs__item:hover {
+          color: $themeColor;
+        }
+      }
+    }
+    .detailPage {
+      width: 80%;
+      margin: 10px auto;
+    }
+    #tab-technicalSupport,
+    #tab-productParameter,
+    #tab-productDetail {
+      float: right;
+    }
+    #tab-title,
+    #tab-technicalSupport,
+    #tab-productParameter,
+    #tab-productDetail {
+      height: 20px;
+      line-height: 20px;
+      margin-bottom: 15px;
+    }
+    #tab-technicalSupport {
+      padding-right: 0;
+    }
+    #tab-title {
+      font-size: 18px;
+      color: #fff;
+    }
+    #tab-productDetail {
+      padding-right: 20px;
+    }
+    #tab-productDetail,
+    #tab-productParameter {
+      border-right: 1px solid rgb(48, 52, 54);
+    }
+  }
+}
+.mobile {
+  .ProductDetail {
     .el-tabs__active-bar.is-top {
       opacity: 0;
     }
-    .el-tabs__nav-scroll {
-      width: 80% !important;
-      margin-left: 10% !important;
-      .el-tabs__nav.is-top {
-        // float: right;
-        width: 100%;
-      }
+    .is-active {
+      color: $themeColor;
     }
-  }
-  .detailPage {
-    width: 80%;
-    margin: 10px auto;
-  }
-  #tab-technicalSupport,
-  #tab-productParameter,
-  #tab-productDetail {
-    float: right;
-  }
-  #tab-title,
-  #tab-technicalSupport,
-  #tab-productParameter,
-  #tab-productDetail {
-    height: 20px;
-    line-height: 20px;
-    margin-bottom: 15px;
-  }
-  #tab-title{
-    font-size:18px;
-  }
-  #tab-productDetail {
-    padding-right: 20px;
-  }
-  #tab-productDetail,
-  #tab-productParameter {
-    border-right: 2px solid rgb(212, 209, 203);
+    .el-tabs__item:hover {
+      color: $themeColor;
+    }
+    .el-tabs__nav.is-top {
+      float: none;
+      width: 100%;
+      // margin-top: 20px;
+      text-align: center;
+    }
   }
 }
 </style>

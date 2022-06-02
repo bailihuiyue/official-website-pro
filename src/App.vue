@@ -22,7 +22,7 @@
         </div>
         <!-- </div> -->
       </el-header>
-      <img src="/line.png" />
+      <img :class="isMobile?'':'lineImg'" src="/line.png" />
       <el-drawer
         :visible="showDrawer"
         direction="ltr"
@@ -34,7 +34,7 @@
       <el-main :style="{marginTop:isMobile?'':'60px'}">
         <router-view />
       </el-main>
-      <Footer v-show="isShow" :isMobile="isMobile"/>
+      <Footer v-show="isShow" :isMobile="isMobile" />
     </el-container>
   </div>
 </template>
@@ -151,6 +151,11 @@ body {
   }
   &.mobileHeader {
   }
+}
+.lineImg {
+  position: fixed;
+  top: 60px;
+  width: 100%;
 }
 .el-main {
   padding: 0 !important;
