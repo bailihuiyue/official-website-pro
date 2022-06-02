@@ -1,13 +1,19 @@
 <template>
   <div class="SeatchBar">
     <h3>{{title[$lang]}}</h3>
-    <el-input :placeholder="placeholder[$lang]" prefix-icon="el-icon-search" @change="onSearch"></el-input>
+    <el-input
+      v-model="txt"
+      :placeholder="placeholder[$lang]"
+      prefix-icon="el-icon-search"
+      @change="onSearch"
+    />
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      txt: '',
       title: {
         cn: '我们能帮什么忙?',
         en: 'How can we help'
@@ -21,7 +27,6 @@ export default {
   methods: {
     onSearch(val) {
       this.$emit('onSearch', val)
-      console.log(val)
     }
   }
 }

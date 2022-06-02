@@ -400,7 +400,7 @@ module.exports = {
   "post /productType/modify": { data: true },
   "get /productType/delete": { data: true },
 
-  "get /product/list": {
+  "post /product/list": {
     data: {
       currentPage: 1,
       pageSize: 6,

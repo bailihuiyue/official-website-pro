@@ -1,7 +1,7 @@
 <template>
   <div class="ProductList">
     <SeatchBar @onSearch="onSearch" />
-    <div class="productType">
+    <div class="productType" v-if="!searchTxt">
       <el-tabs v-model="type">
         <el-tab-pane label="用户管理" v-for="pt in productTypes" :key="pt.id" :name="pt.id">
           <template slot="label">
@@ -57,7 +57,7 @@ export default {
     text-align: center;
   }
   .productType {
-    margin-top: 15px;
+    margin-top: 35px;
   }
 }
 .mobile {

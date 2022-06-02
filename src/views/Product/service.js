@@ -5,9 +5,9 @@ export const getProduct = txt => {
   return baseService.get(api);
 };
 
-export const getProductList = (lang, currentPage, pageSize, type) => {
-  const api = `product/list?lang=${lang}&currentPage=${currentPage}&pageSize=${pageSize}&type=${type||''}`;
-  return baseService.get(api);
+export const getProductList = ({ lang, currentPage, pageSize, type, searchTxt }) => {
+  const api = `product/list?lang=${lang}`;
+  return baseService.post(api, { currentPage, pageSize, type: type || '', searchTxt });
 };
 
 

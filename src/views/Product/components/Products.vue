@@ -24,7 +24,7 @@
 <script>
 import { getProductList } from '../service'
 export default {
-  props: ['isMoblie', 'type'],
+  props: ['isMoblie', 'type', 'searchTxt'],
   data() {
     return {
       list: [],
@@ -34,11 +34,20 @@ export default {
     }
   },
   created() {
-    this.getProductListApi(this.currentPage, this.pageSize)
+    this.getProductListApi({
+      currentPage: this.currentPage,
+      pageSize: this.pageSize
+    })
   },
   methods: {
-    getProductListApi(currentPage, pageSize, type) {
-      getProductList(this.$lang, currentPage, pageSize, type).then((res) => {
+    getProductListApi({ currentPage, pageSize, type, searchTxt }) {
+      getProductList({
+        lang: this.$lang,
+        currentPage,
+        pageSize,
+        type,
+        searchTxt
+      }).then((res) => {
         this.list = res.list
         this.currentPage = res.currentPage
         this.pageSize = res.pageSize
@@ -46,7 +55,11 @@ export default {
       })
     },
     onCurrentChange(currentPage) {
-      this.getProductListApi(currentPage, this.pageSize, this.type)
+      this.getProductListApi({
+        currentPage,
+        pageSize: this.pageSize,
+        type: this.type
+      })
     },
     jumpTo(id) {
       this.$router.push({
@@ -59,10 +72,26 @@ export default {
   },
   watch: {
     type(val) {
-      this.getProductListApi(this.currentPage, this.pageSize, val)
+      this.getProductListApi({
+        currentPage: this.currentPage,
+        pageSize: this.pageSize,
+        type: val
+      })
     },
     searchTxt(val) {
-      
+      if (val) {
+        this.getProductListApi({
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
+          searchTxt: val
+        })
+      }else{
+         this.getProductListApi({
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
+          type: this.type
+        })
+      }
     }
   }
 }
@@ -71,6 +100,7 @@ export default {
 @import '../../../styles/color.scss';
 
 .Products {
+  margin-top: 20px;
   .wrap {
     margin-bottom: 20px;
     text-align: center;
