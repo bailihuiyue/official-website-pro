@@ -122,7 +122,7 @@ export default {
       this.dialogFormVisible = true
     },
     onCreateOrModify() {
-      if (!this.formData.id) {
+      if (this.formData.id === null || this.formData.id === undefined || this.formData.id === '') {
         this.loading = true
         addProductType(this.formData)
           .then((response) => {

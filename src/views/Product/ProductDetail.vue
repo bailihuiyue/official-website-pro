@@ -47,7 +47,6 @@ export default {
     getProductDetail(this.$lang, id).then((res) => (this.detail = res))
   }
 }
-// TODO:1.按钮颜色及样式完全仿照miui;2.兼容手机模式
 </script>
 <style lang="scss">
 @import '~@/styles/color.scss';

@@ -132,7 +132,7 @@ export default {
       this.dialogFormVisible = true;
     },
     handleCreateOrModify() {
-      if (!this.formData.id) {
+      if (this.formData.id === null || this.formData.id === undefined || this.formData.id === '') {
         this.loading = true;
         createNews(this.formData)
           .then(response => {

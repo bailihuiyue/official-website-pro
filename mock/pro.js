@@ -410,54 +410,57 @@ module.exports = {
           id: 0,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s1'
+          sku: 's1'
         },
         {
           id: 1,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s2'
+          sku: 's2'
         },
         {
           id: 2,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s3'
+          sku: 's3'
         },
         {
           id: 3,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s4'
+          sku: 's4'
         },
         {
           id: 4,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s5'
+          sku: 's5'
         },
         {
           id: 5,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s6'
+          sku: 's6'
         },
         {
           id: 6,
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku:'s7'
+          sku: 's7'
         }
       ]
     }
   },
-  "get /product/detail/getAll":{
-    data:{
-      id:'1',
-      title:'Redmi 9A',
-      productDetail:'<p style="background:red">productDetail</p>',
-      productParameter:'<p style="background:yellow">productParameter</p>',
-      technicalSupport:'<p style="background:blue">technicalSupport</p>'
+  "get /product/getAll": {
+    data: {
+      id: '1',
+      title: 'Redmi 9A',
+      productDetail: '<p style="background:red">productDetail</p>',
+      productParameter: '<p style="background:yellow">productParameter</p>',
+      technicalSupport: '<p style="background:blue">technicalSupport</p>'
     }
-  }
+  },
+  "post /product/add": { data: true },
+  "post /product/modify": { data: true },
+  "get /product/delete": { data: true },
 }

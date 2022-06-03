@@ -89,7 +89,7 @@ export default {
     },
     // 新增
     handleCreateOrModify() {
-      if (!this.formData.id) {
+      if (this.formData.id === null || this.formData.id === undefined || this.formData.id === '') {
         // ID 无效时 视为新增
         this.loading = true;
         createDictionary(this.formData)

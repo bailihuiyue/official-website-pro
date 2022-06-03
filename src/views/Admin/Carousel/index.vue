@@ -112,13 +112,13 @@ export default {
     },
     openDialog() {
       // 清除数据
-      this.formData.id = 0
+      this.formData.id = null
       this.formData.href = ''
       this.formData.img = ''
       this.dialogFormVisible = true
     },
     onCreateOrModify() {
-      if (!this.formData.id) {
+      if (this.formData.id === null || this.formData.id === undefined || this.formData.id === '') {
         this.loading = true
         addCarousel(this.formData)
           .then((response) => {

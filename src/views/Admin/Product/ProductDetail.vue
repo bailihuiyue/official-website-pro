@@ -24,7 +24,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <!--  -->
+    <!-- 弹窗 -->
     <el-dialog title="产品详情编辑" :visible.sync="dialogFormVisible" width="80%">
       <el-form :model="formData">
         <el-form-item label="产品图" :label-width="formLabelWidth">
@@ -42,7 +42,9 @@
         <el-form-item label="标题" :label-width="formLabelWidth">
           <el-input v-model="formData.title" autocomplete="off"></el-input>
         </el-form-item>
-
+        <el-form-item label="SKU" :label-width="formLabelWidth">
+          <el-input v-model="formData.sku" autocomplete="off"></el-input>
+        </el-form-item>
         <!-- 详情管理 -->
         <el-tabs v-model="activeTab">
           <el-tab-pane label="产品详情" name="productDetail">
@@ -72,7 +74,7 @@
         </el-tabs>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button @click="onCancelEdit()">取 消</el-button>
         <el-button type="primary" @click="onCreateOrModify()">确 定</el-button>
       </div>
     </el-dialog>
@@ -105,6 +107,7 @@ export default {
       options: {},
       tableData: [],
       formData: {
+        id: null,
         title: '',
         img: '',
         sku: '',
@@ -118,7 +121,7 @@ export default {
       headers: {
         token: window.localStorage.getItem('token')
       },
-      activeTab:'productDetail'
+      activeTab: 'productDetail'
     }
   },
   created() {
@@ -160,22 +163,40 @@ export default {
     },
     addProductdeatil() {
       // 清除数据
-      this.formData.id = 0
-      this.formData.href = ''
+      this.formData.id = null
       this.formData.img = ''
+      this.formData.title = ''
+      this.formData.sku = ''
+      this.formData.productDetail = ''
+      this.formData.productParameter = ''
+      this.formData.technicalSupport = ''
       this.dialogFormVisible = true
     },
     onCreateOrModify() {
-      //  const tinyContent = this.$refs.tinymce.getContent()
-      if (!this.formData.id) {
+      this.formData.productDetail = this.$refs.productDetailTiny.getContent()
+      this.formData.productParameter =
+        this.$refs.productParameterTiny.getContent()
+      this.formData.technicalSupport =
+        this.$refs.technicalSupportTiny.getContent()
+      if (
+        this.formData.id === null ||
+        this.formData.id === undefined ||
+        this.formData.id === ''
+      ) {
         this.loading = true
-        addProductDetail(this.formData)
+        addProductDetail(this.$adminLang, {
+          ...this.formData,
+          type: this.selectedProductType
+        })
           .then((response) => {
             this.loading = false
             this.$message({
               message: '创建成功！',
               type: 'success'
             })
+            this.$refs.productDetailTiny.setContent('')
+            this.$refs.productParameterTiny.setContent('')
+            this.$refs.technicalSupportTiny.setContent('')
             this.dialogFormVisible = false
             this.getProductListApi(this.$adminLang)
           })
@@ -187,7 +208,7 @@ export default {
           })
       } else {
         this.loading = true
-        modifyProductDetail(this.formData)
+        modifyProductDetail(this.$adminLang, this.formData)
           .then((response) => {
             this.loading = false
             this.$message({
@@ -208,15 +229,22 @@ export default {
     //编辑
     onEdit(index, row) {
       //index:第几行   row:这一行的数据
-      getProductDetail(this.$adminLang, this.formData.id).then((res) => {
+      getProductDetail(this.$adminLang, row.id).then((res) => {
         this.formData.title = row.title
         this.formData.img = row.img
         this.formData.sku = row.sku
-        this.formData.productDetail = res.productDetail
-        this.formData.productParameter = res.productParameter
-        this.formData.technicalSupport = res.technicalSupport
+        this.formData.id = row.id
+        this.$refs.productDetailTiny.setContent(res.productDetail)
+        this.$refs.productParameterTiny.setContent(res.productDetail)
+        this.$refs.technicalSupportTiny.setContent(res.technicalSupport)
       })
       this.dialogFormVisible = true
+    },
+    onCancelEdit() {
+      this.dialogFormVisible = false
+      this.$refs.productDetailTiny.setContent('')
+      this.$refs.productParameterTiny.setContent('')
+      this.$refs.technicalSupportTiny.setContent('')
     },
     onDelete(index, row) {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
@@ -228,7 +256,7 @@ export default {
           // 已确认删除
           // 调接口删除
           this.loading = true
-          deleteProductDetail(row.id, null)
+          deleteProductDetail(this.$adminLang, row.id)
             .then((response) => {
               this.loading = false
               this.$message({

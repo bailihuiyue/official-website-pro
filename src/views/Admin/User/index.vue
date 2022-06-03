@@ -86,7 +86,7 @@ export default {
     },
     openDialog() {
       // 清除数据
-      this.formData.id = 0;
+      this.formData.id = null;
       this.formData.loginName = "";
       this.formData.password = "";
       this.formData.isAction = true;
@@ -96,7 +96,7 @@ export default {
     },
     // 新增
     handleCreateOrModify() {
-      if (!this.formData.id) {
+      if (this.formData.id === null || this.formData.id === undefined || this.formData.id === '') {
         // ID 无效时 视为新增
         this.loading = true;
         // this.formData.loginName,this.formData.password,this.formData.isAction

@@ -18,6 +18,6 @@ export const getProductType = () => {
 
 
 export const getProductDetail = (lang, id) => {
-  const api = `product/detail/getAll?lang=${lang}&id=${id}`;
+  const api = `product/getAll?lang=${lang}&id=${id}`;
   return baseService.get(api);
 };

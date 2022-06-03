@@ -25,6 +25,24 @@ export const getProductList = ({ lang, currentPage, pageSize, type, searchTxt })
 };
 
 export const getProductDetail = (lang, id) => {
-  const api = `product/detail/getAll?lang=${lang}&id=${id}`;
+  const api = `product/getAll?lang=${lang}&id=${id}`;
   return baseService.get(api);
 };
+
+export const addProductDetail = (lang, data) => {
+  const api = `product/add?lang=${lang}`;
+  return baseService.post(api,data);
+};
+
+export const modifyProductDetail = (lang, data) => {
+  const api = `product/modify?lang=${lang}`;
+  return baseService.post(api,data);
+};
+
+export const deleteProductDetail = (lang, id) => {
+  const api = `product/delete?lang=${lang}&id=${id}`;
+  return baseService.get(api);
+};
+
+
+
