@@ -47,4 +47,11 @@ export default {
     }
   }
 }
+.mobile {
+  .SeatchBar {
+    .el-input {
+      max-width: 80%;
+    }
+  }
+}
 </style>
