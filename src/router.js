@@ -29,6 +29,11 @@ const router = new Router({
       name: 'productDetail',
       component: () => import('./views/Product/ProductDetail.vue'),
     },
+    {
+      path: '/configGuide',
+      name: 'configGuide',
+      component: () => import('./views/ConfigGuide/index.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
