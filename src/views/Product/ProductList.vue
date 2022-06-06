@@ -1,30 +1,25 @@
 <template>
   <div class="ProductList">
     <SeatchBar @onSearch="onSearch" />
-    <div class="productType" v-if="!searchTxt">
-      <el-tabs v-model="type">
-        <el-tab-pane label="用户管理" v-for="pt in productTypes" :key="pt.id" :name="pt.id">
-          <template slot="label">
-            <div>
-              <el-image v-if="!isMoblie" style="width: 100px; height: 100px" :src="pt.img" />
-              <div class="title">{{ pt[$lang] }}</div>
-            </div>
-          </template>
-          <div class="content"></div>
-        </el-tab-pane>
-      </el-tabs>
-    </div>
-    <Products :isMoblie="isMoblie" :type="type" :searchTxt="searchTxt"/>
+    <ButtonGroup
+      :btns="productTypes"
+      type="vertical"
+      @click="onChangeTypes"
+      class="productType"
+      v-if="!searchTxt"
+    />
+    <Products :isMoblie="isMoblie" :type="type" :searchTxt="searchTxt" />
   </div>
 </template>
 <script>
-import SeatchBar from '@/components/SeatchBar.vue'
+import SeatchBar from '@/components/SeatchBar'
 import Products from './components/Products'
 import { getProductType } from './service'
 import device from 'current-device'
+import ButtonGroup from '@/components/ButtonGroup'
 
 export default {
-  components: { SeatchBar, Products },
+  components: { SeatchBar, Products, ButtonGroup },
   data() {
     return {
       productTypes: [],
@@ -40,6 +35,9 @@ export default {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
       this.type = '-1'
+    },
+    onChangeTypes(data) {
+      this.type = data.id
     }
   }
 }

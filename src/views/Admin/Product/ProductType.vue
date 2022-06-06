@@ -5,8 +5,8 @@
     <el-button type="primary" @click="openDialog()">新增产品分类</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="loading">
       <el-table-column prop="id" label="id" width="100"></el-table-column>
-      <el-table-column prop="cn" label="中文" width="200"></el-table-column>
-      <el-table-column prop="en" label="英文" width="200"></el-table-column>
+      <el-table-column prop="title.cn" label="中文" width="200"></el-table-column>
+      <el-table-column prop="title.en" label="英文" width="200"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgserver + scope.row.img" alt />
@@ -24,10 +24,10 @@
     <el-dialog title="产品分类编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="中文名" :label-width="formLabelWidth">
-          <el-input v-model="formData.cn" autocomplete="off"></el-input>
+          <el-input v-model="formData.title.cn" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="英文名" :label-width="formLabelWidth">
-          <el-input v-model="formData.en" autocomplete="off"></el-input>
+          <el-input v-model="formData.title.en" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="产品图" :label-width="formLabelWidth">
           <el-upload
@@ -74,8 +74,10 @@ export default {
       formData: {
         sku: '',
         img: '',
-        cn: '',
-        en: ''
+        title: {
+          cn: '',
+          en: ''
+        }
       },
       dialogFormVisible: false,
       formLabelWidth: '120px',
@@ -117,12 +119,16 @@ export default {
       // 清除数据
       this.formData.sku = ''
       this.formData.img = ''
-      this.formData.cn = ''
-      this.formData.en = ''
+      this.formData.title.cn = ''
+      this.formData.title.en = ''
       this.dialogFormVisible = true
     },
     onCreateOrModify() {
-      if (this.formData.id === null || this.formData.id === undefined || this.formData.id === '') {
+      if (
+        this.formData.id === null ||
+        this.formData.id === undefined ||
+        this.formData.id === ''
+      ) {
         this.loading = true
         addProductType(this.formData)
           .then((response) => {

@@ -1,4 +1,4 @@
-export const configGuide = [
+export const configGuideTypes = [
   {
     id: 0,
     img: 'imgs/configGuide/example.png',

@@ -2,12 +2,12 @@
 //   process.env.NODE_ENV === "development"
 //     ? "http://localhost:9999/"
 //     : "http://shkjgw.shkjem.com/api/";
-export const baseURL = "http://localhost:9999/";
+export const baseURL = window.baseURL;
 // export const baseURL = "http://localhost:8081/";
 // export const imgserver = "http://localhost:8081/";
 // export const imgserver = "http://shkjgw.shkjem.com/";
-export const imgserver = "";
-export const videoURL = "http://www.shkjem.com/video/kj.mp4";
+export const imgserver = window.imgserver;
+export const videoURL = window.videoURL;
 
 export const getLang = () => window.localStorage.getItem('lang') || 'cn'
 export const getAdminLang = () => window.localStorage.getItem('adminLang') || 'cn'

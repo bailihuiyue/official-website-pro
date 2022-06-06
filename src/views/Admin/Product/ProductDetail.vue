@@ -2,9 +2,9 @@
   <div class="productDetailAdmin">
     <ChangeLocationAdmin />
     <div style="margin:15px 0">
-      <span style="margin-right:20px">请选择要编辑的菜单:</span>
+      <span style="margin-right:20px">请选择要编辑的产品类型:</span>
       <el-radio-group v-model="selectedProductType">
-        <el-radio :label="t.id" v-for="t in productType" :key="t.id">{{t[$adminLang]}}</el-radio>
+        <el-radio :label="t.id" v-for="t in productType" :key="t.id">{{t.title[$adminLang]}}</el-radio>
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addProductdeatil()">新增产品</el-button>

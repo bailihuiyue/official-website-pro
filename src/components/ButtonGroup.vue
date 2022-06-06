@@ -1,9 +1,18 @@
 <template>
   <div class="ButtonGroup">
     <el-row>
-      <template v-for="b in btns">
-        <el-link v-if="isMobile">{{b['title'][$lang]}}</el-link>
-        <el-button v-else class="isPC">
+      <template v-for="(b,index) in btns">
+        <el-link
+          v-if="isMobile"
+          :class="clickedIndex===index?'isActive':''"
+          @click="onClickBtn(b,index)"
+        >{{b['title'][$lang]}}</el-link>
+        <el-button
+          v-else
+          class="isPC"
+          @click="onClickBtn(b,index)"
+          :class="clickedIndex===index?'isActive':''"
+        >
           <div v-if="type==='vertical'" class="vertical">
             <div class>
               <img :src="b.img" />
@@ -21,16 +30,24 @@
         </el-button>
       </template>
     </el-row>
+    <hr>
   </div>
 </template>
 <script>
 import device from 'current-device'
 
 export default {
-  props: ['btns', 'type'],
+  props: ['btns', 'type'], //horizontal / vertical
   data() {
     return {
-      isMobile: device.mobile()
+      isMobile: device.mobile(),
+      clickedIndex: -1
+    }
+  },
+  methods: {
+    onClickBtn(data, index) {
+      this.clickedIndex = index
+      this.$emit('click', data)
     }
   }
 }
@@ -42,6 +59,10 @@ export default {
   text-align: center;
   margin-top: 5vh;
   .el-row {
+    margin-bottom: 20px;
+    .isActive{
+      color: $themeColor;
+    }
     .el-button:focus,
     .el-button:hover {
       color: $themeColor;
@@ -52,12 +73,19 @@ export default {
       background-color: #000;
       border: none;
       img {
-        width: 50px;
-        height: 50px;
-      }
-      .vertical {
         width: 100px;
         height: 100px;
+      }
+      .vertical {
+        width: 120px;
+        // height: 120px;
+        .title {
+          margin-top: 10px;
+        }
+        .desc{
+          margin-top: 5px;
+          font-size: 12px;
+        }
       }
       .horizontal {
         width: 200px;
@@ -66,10 +94,10 @@ export default {
         justify-items: center;
         align-items: center;
         .txtWrap {
-          margin-left: 10px;
+          margin-left: 20px;
           text-align: left;
           .desc {
-            margin-top: 5px;
+            margin-top: 20px;
           }
         }
       }
@@ -84,7 +112,7 @@ export default {
     .el-link.el-link--default:visited {
       color: $themeColor !important;
     }
-    .el-link.is-underline:hover:after{
+    .el-link.is-underline:hover:after {
       border-bottom: 1px solid $themeColor;
     }
     margin: 20px 0;

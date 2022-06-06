@@ -1,0 +1,57 @@
+<template>
+  <div class="ConfigGuideDetail">
+    <div class="title">{{title}}</div>
+    <VideoPlayer :videoData="videoData" v-if="title" />
+    <div class="content" v-html="content"></div>
+  </div>
+</template>
+<script>
+import VideoPlayer from '@/components/VideoPlayer.vue'
+import { getConfigGuideDetail } from './service'
+export default {
+  components: { VideoPlayer },
+  data() {
+    return {
+      videoData: {},
+      content: '',
+      title: ''
+    }
+  },
+  created() {
+    getConfigGuideDetail(this.$lang, this.$route.query.id).then((res) => {
+      this.title = res.title
+      this.videoData = res.video
+      this.content = res.content
+    })
+  }
+}
+</script>
+<style lang="scss">
+@import '~@/styles/color.scss';
+
+.ConfigGuideDetail {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  .title {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+    color: $lightWhite;
+  }
+  .videoPlayer {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .content {
+    width: 80%;
+    margin: 20px auto;
+    color: $lightWhite;
+  }
+}
+.mobile{
+  .title {
+    font-size: 16px;
+  }
+}
+</style>

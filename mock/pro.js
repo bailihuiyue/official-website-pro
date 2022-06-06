@@ -29,6 +29,7 @@ module.exports = {
   "post /user/modifiedUser": { data: true },
   "get /user/deleteUser": { data: true },
   "post /api/upload/uploadImage": { data: 'logo.png' },
+  "post /api/upload/uploadfile": { data: 'logo.png' },
   "get /menu/getAll": {
     data: [
       {
@@ -266,9 +267,6 @@ module.exports = {
     }
   },
 
-
-
-
   'get /carousel/getAll': {
     data: [
       {
@@ -297,7 +295,6 @@ module.exports = {
   "post /carousel/modify": { data: true },
   "get /carousel/delete": { data: true },
 
-
   'get /productImgs/getAll': {
     data: [
       {
@@ -325,7 +322,6 @@ module.exports = {
   "post /productImgs/add": { data: true },
   "post /productImgs/modify": { data: true },
   "get /productImgs/delete": { data: true },
-
 
   'get /bottomImg/getAll': {
     data: [
@@ -376,22 +372,28 @@ module.exports = {
       {
         id: '0',
         img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-        en: 'shoubing',
-        cn: '手柄',
+        title: {
+          en: 'shoubing',
+          cn: '手柄',
+        },
         sku: 'sb'
       },
       {
         id: '1',
         img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
-        en: 'fangxiangpan',
-        cn: '方向盘',
+        title: {
+          en: 'fangxiangpan',
+          cn: '方向盘',
+        },
         sku: 'fxp'
       },
       {
         id: '2',
         img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg',
-        en: 'erji',
-        cn: '耳机',
+        title: {
+          en: 'erji',
+          cn: '耳机',
+        },
         sku: 'ej'
       },
     ]
@@ -463,4 +465,80 @@ module.exports = {
   "post /product/add": { data: true },
   "post /product/modify": { data: true },
   "get /product/delete": { data: true },
+
+  "post /configGuide/list": {
+    data: {
+      currentPage: 1,
+      pageSize: 12,
+      total: 13,
+      list: [
+        {
+          id: 0,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 1,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 2,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 3,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 4,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 5,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 6,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 7,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 8,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 9,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 10,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 11,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+        {
+          id: 12,
+          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
+        },
+      ]
+    }
+  },
+  "get /configGuide/detail": {
+    data: {
+      id: '0',
+      title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程',
+      video: {
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+        src: 'http://www.shkjem.com/video/kj.mp4'
+      },
+      content: '<p>13131</p>'
+    }
+  },
+  "post /configGuide/add": { data: true },
+  "post /configGuide/modify": { data: true },
+  "get /configGuide/delete": { data: true },
 }

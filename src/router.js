@@ -34,6 +34,11 @@ const router = new Router({
       name: 'configGuide',
       component: () => import('./views/ConfigGuide/index.vue'),
     },
+    {
+      path: '/configGuideDetail',
+      name: 'configGuideDetail',
+      component: () => import('./views/ConfigGuide/ConfigGuideDetail.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -111,7 +116,12 @@ const router = new Router({
           path: '/admin/productDetail',
           name: 'bottomSection',
           component: () => import('./views/Admin/Product/ProductDetail.vue')
-        }
+        },
+        {
+          path: '/admin/configGuideDetail',
+          name: 'configGuideDetail',
+          component: () => import('./views/Admin/ConfigGuideDetail/index.vue'),
+        },
         // {
         //   path: '/admin/news',
         //   name: 'new',

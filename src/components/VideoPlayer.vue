@@ -52,7 +52,8 @@ export default {
   //   }
   // },
   created() {
-    this.playerOptions.sources[0].src = this.videoData.href
+    this.playerOptions.sources[0].src =
+      this.videoData.href || this.videoData.src
     this.playerOptions.poster = this.videoData.img
   }
 }
