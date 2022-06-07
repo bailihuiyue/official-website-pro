@@ -131,6 +131,11 @@ export default {
       this.getProductListApi()
     })
   },
+  watch: {
+    selectedProductType(val) {
+      this.getProductListApi()
+    }
+  },
   methods: {
     onSuccess(response) {
       if (response) {

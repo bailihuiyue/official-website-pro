@@ -39,6 +39,16 @@ const router = new Router({
       name: 'configGuideDetail',
       component: () => import('./views/ConfigGuide/ConfigGuideDetail.vue'),
     },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: () => import('./views/FAQ/index.vue'),
+    },
+    {
+      path: '/faqDetail',
+      name: 'faqDetail',
+      component: () => import('./views/FAQ/FAQDetail.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -74,53 +84,63 @@ const router = new Router({
       component: () => import('./views/Admin.vue'),
       children: [{
           path: '/admin/user',
-          name: 'user',
+          name: 'adminUser',
           component: () => import('./views/Admin/User/index.vue')
         },
         {
           path: '/admin/menu',
-          name: 'menu',
+          name: 'adminMenu',
           component: () => import('./views/Admin/Menu/index.vue')
         },
         {
           path: '/admin/logo',
-          name: 'logo',
+          name: 'adminLogo',
           component: () => import('./views/Admin/Logo/index.vue')
         },
         {
           path: '/admin/footer',
-          name: 'footer',
+          name: 'adminFooter',
           component: () => import('./views/Admin/Footer/index.vue')
         },
         {
           path: '/admin/carousel',
-          name: 'carousel',
+          name: 'adminCarousel',
           component: () => import('./views/Admin/Carousel/index.vue')
         },
         {
           path: '/admin/productImgs',
-          name: 'productImgs',
+          name: 'adminProductImgs',
           component: () => import('./views/Admin/ProductImgs/index.vue')
         },
         {
           path: '/admin/bottomSection',
-          name: 'bottomSection',
+          name: 'adminBottomSection',
           component: () => import('./views/Admin/BottomSection/index.vue')
         },
         {
           path: '/admin/productType',
-          name: 'bottomSection',
+          name: 'adminProductType',
           component: () => import('./views/Admin/Product/ProductType.vue')
         },
         {
           path: '/admin/productDetail',
-          name: 'bottomSection',
+          name: 'adminProductDetail',
           component: () => import('./views/Admin/Product/ProductDetail.vue')
         },
         {
           path: '/admin/configGuideDetail',
-          name: 'configGuideDetail',
+          name: 'adminConfigGuideDetail',
           component: () => import('./views/Admin/ConfigGuideDetail/index.vue'),
+        },
+        {
+          path: '/admin/faq',
+          name: 'adminFaq',
+          component: () => import('./views/Admin/FAQ/FAQ.vue'),
+        },
+        {
+          path: '/admin/question',
+          name: 'adminQuestion',
+          component: () => import('./views/Admin/FAQ/Question.vue'),
         },
         // {
         //   path: '/admin/news',

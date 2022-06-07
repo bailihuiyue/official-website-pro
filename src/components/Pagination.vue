@@ -5,16 +5,16 @@
       @current-change="onCurrentChange"
       :current-page.sync="currentPageData"
       :page-size="pageSize"
-      :layout="isMoblie?'total, prev, next':'total, prev, pager, next'"
+      :layout="isMobile?'total, prev, next':'total, prev, pager, next'"
       :total="total"
       background
-      :small="isMoblie"
+      :small="isMobile"
     ></el-pagination>
   </div>
 </template>
 <script>
 export default {
-  props: ['pageSize', 'isMoblie', 'total', 'currentPage'],
+  props: ['pageSize', 'isMobile', 'total', 'currentPage'],
   data() {
     return {
       currentPageData: 0
@@ -35,9 +35,17 @@ export default {
 <style lang="scss">
 @import '~@/styles/color.scss';
 
-.Pagination{
-  .active{
+.Pagination {
+  .active {
     background-color: $themeColor !important;
+  }
+  .el-pagination.is-background .btn-next,
+  .el-pagination.is-background .btn-prev,
+  .el-pagination.is-background .el-pager li {
+    background-color: rgb(30, 32, 34);
+  }
+  .el-pagination__total {
+    color: rgb(169, 162, 151);
   }
 }
 </style>

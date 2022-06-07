@@ -15,7 +15,7 @@
       :currentPage="currentPage"
       :pageSize="pageSize"
       :total="total"
-      :isMoblie="isMoblie"
+      :isMobile="isMobile"
     />
   </div>
 </template>
@@ -24,7 +24,7 @@ import { getProductList } from '../service'
 import Pagination from '@/components/Pagination'
 
 export default {
-  props: ['isMoblie', 'type', 'searchTxt'],
+  props: ['isMobile', 'type', 'searchTxt'],
   components: {
     Pagination
   },

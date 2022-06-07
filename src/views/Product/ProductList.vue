@@ -8,7 +8,7 @@
       class="productType"
       v-if="!searchTxt"
     />
-    <Products :isMoblie="isMoblie" :type="type" :searchTxt="searchTxt" />
+    <Products :isMobile="isMobile" :type="type" :searchTxt="searchTxt" />
   </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       productTypes: [],
-      isMoblie: device.mobile(),
+      isMobile: device.mobile(),
       type: '-1',
       searchTxt: ''
     }

@@ -541,4 +541,97 @@ module.exports = {
   "post /configGuide/add": { data: true },
   "post /configGuide/modify": { data: true },
   "get /configGuide/delete": { data: true },
+
+
+
+  "post /faq/list": {
+    data: {
+      currentPage: 1,
+      pageSize: 8,
+      total: 9,
+      list: [
+        {
+          id: 0,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 1,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 2,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 3,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 4,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 5,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 6,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        },
+        {
+          id: 7,
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        }
+      ]
+    }
+  },
+  "get /faq/detail": {
+    data: {
+      id: '@num()',
+      title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+      desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx',
+      content: '<p>常见问题</p>'
+    }
+  },
+  "post /faq/add": { data: true },
+  "post /faq/modify": { data: true },
+  "get /faq/delete": { data: true },
+
+  "get /question/detail": {
+    data: {
+      "id": "@num()",
+      "name": "name",
+      "phone": "phone",
+      "email": "email",
+      "title": "title",
+      "productName": "productName",
+      "detail": "detail\ndetail\ndetail"
+    }
+  },
+  "get /question/list": {
+    data:
+      [{
+        "id": 0,
+        "title": "title1",
+        "productName": "productName",
+      }, {
+        "id": 1,
+        "title": "title2",
+        "productName": "productName",
+      }, {
+        "id": 2,
+        "title": "title3",
+        "productName": "productName",
+      }]
+  },
+  "post /question/add": { data: true },
+  "get /question/delete": { data: true }
 }

@@ -1,13 +1,13 @@
 <template>
-  <div class="GuideList">
+  <div class="faqList">
     <el-row :gutter="30">
-      <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
-        <span class="wrap">
-          <div @click="jumpTo(l.id)">
-            <i class="el-icon-arrow-right"></i>
+      <el-col :span="isMobile?24:6" v-for="l in list" :key="l.id">
+        <el-card class="faqItem" @click.native="jumpTo(l.id)">
+          <div slot="header" class="clearfix">
             <span class="title">{{l.title}}</span>
           </div>
-        </span>
+          <div class="desc">{{l.desc}}</div>
+        </el-card>
       </el-col>
     </el-row>
     <Pagination
@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import { getConfigGuideList } from '../service'
+import { getFAQList } from '../service'
 import device from 'current-device'
 import Pagination from '@/components/Pagination'
 
@@ -31,21 +31,21 @@ export default {
     return {
       list: [],
       currentPage: 1,
-      pageSize: 12,
+      pageSize: 8,
       total: 0,
       isMobile: device.mobile()
     }
   },
   created() {
-    this.getConfigGuideListApi({
+    this.getFAQListApi({
       currentPage: this.currentPage,
       pageSize: this.pageSize,
       type: this.type
     })
   },
   methods: {
-    getConfigGuideListApi({ currentPage, pageSize, type, searchTxt }) {
-      getConfigGuideList({
+    getFAQListApi({ currentPage, pageSize, type, searchTxt }) {
+      getFAQList({
         lang: this.$lang,
         currentPage,
         pageSize,
@@ -61,7 +61,7 @@ export default {
       })
     },
     onCurrentChange(currentPage) {
-      this.getConfigGuideListApi({
+      this.getFAQListApi({
         currentPage,
         pageSize: this.pageSize,
         type: this.type
@@ -69,7 +69,7 @@ export default {
     },
     jumpTo(id) {
       this.$router.push({
-        path: '/configGuideDetail',
+        path: '/FAQDetail',
         query: {
           id
         }
@@ -78,7 +78,7 @@ export default {
   },
   watch: {
     type(val) {
-      this.getConfigGuideListApi({
+      this.getFAQListApi({
         currentPage: this.currentPage,
         pageSize: this.pageSize,
         type: val
@@ -86,13 +86,13 @@ export default {
     },
     searchTxt(val) {
       if (val) {
-        this.getConfigGuideListApi({
+        this.getFAQListApi({
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           searchTxt: val
         })
       } else {
-        this.getConfigGuideListApi({
+        this.getFAQListApi({
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           type: this.type
@@ -103,14 +103,44 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../../../styles/color.scss';
+@import '~@/styles/color.scss';
 
-.GuideList {
+.faqList {
   margin-top: 20px;
   width: 80%;
   margin: 0 auto;
   .el-row {
     margin-top: 40px;
+    .faqItem {
+      margin-top: 20px;
+      border-color: transparent;
+      background-color: $blackBackgroundColor;
+      color: $blackFontColor;
+      cursor: pointer;
+      &:hover {
+        border-color: $blackBorderColor;
+      }
+      .el-card__header {
+        border-bottom-color: $blackBorderColor;
+      }
+      .title {
+        height: 35px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 16px;
+        color: $themeColor;
+      }
+      .desc {
+        height: 35px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 14px;
+      }
+    }
   }
   .wrap {
     // margin-bottom: 20px;
@@ -126,10 +156,6 @@ export default {
       margin-right: 10px;
       font-weight: bold;
       color: #0094ff;
-    }
-    .title {
-      font-size: 16px;
-      margin: 10px 0;
     }
     &:hover {
       color: $themeColor !important;

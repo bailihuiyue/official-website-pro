@@ -36,3 +36,36 @@ export const configGuideTypes = [
     }
   }
 ]
+
+
+export const faqTypes = [
+  {
+    id: 0,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '手柄',
+      en: 'shoubinglei',
+    }
+  },
+  {
+    id: 1,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '方向盘',
+      en: 'fangxiangpan',
+    }
+  },
+  {
+    id: 2,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '耳机',
+      en: 'yaogan',
+    }
+  }
+]
+
+export const questionTypes = {
+  faq: '1',
+  messageFeedback: '2'
+}

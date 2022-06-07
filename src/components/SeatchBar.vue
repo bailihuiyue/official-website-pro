@@ -32,6 +32,8 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .SeatchBar {
   width: 100%;
   text-align: center;
@@ -44,6 +46,9 @@ export default {
     max-width: 450px;
     .el-input__inner {
       border-radius: 50px;
+      background-color: $blackBackgroundColor;
+      border-color: $blackBorderColor;
+      color: $blackFontColor;
     }
   }
 }
