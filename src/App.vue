@@ -150,6 +150,7 @@ body {
     padding: 0 10%;
   }
   &.mobileHeader {
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }
 .lineImg {

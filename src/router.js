@@ -64,6 +64,11 @@ const router = new Router({
       name: 'appDownloadDetail',
       component: () => import('./views/AppDownload/AppDownloadDetail.vue'),
     },
+    {
+      path: '/contactUs',
+      name: 'contactUs',
+      component: () => import('./views/ContactUs/index.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
