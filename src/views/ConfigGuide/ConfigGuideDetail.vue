@@ -37,7 +37,7 @@ export default {
     text-align: center;
     font-size: 30px;
     margin: 20px;
-    color: $lightWhite;
+    // color: $lightWhite;
   }
   .videoPlayer {
     width: 80%;
@@ -46,12 +46,14 @@ export default {
   .content {
     width: 80%;
     margin: 20px auto;
-    color: $lightWhite;
+    // color: $lightWhite;
   }
 }
-.mobile{
-  .title {
-    font-size: 16px;
+.mobile {
+  .ConfigGuideDetail {
+    .title {
+      font-size: 16px;
+    }
   }
 }
 </style>

@@ -537,4 +537,29 @@ module.exports = {
   "post /driver/add": { data: true },
   "post /driver/modify": { data: true },
   "get /driver/delete": { data: true },
+
+  "post /appDownload/list": {
+    data: {
+      currentPage: 1,
+      pageSize: 10,
+      total: 11,
+      "list|10": [
+        {
+          id: "@num()",
+          title: '智玩社区 app_android'
+        }
+      ]
+    }
+  },
+  "get /appDownload/detail": {
+    data: {
+      id: "@num()",
+      title: '智玩社区 app_android',
+      content: '<p>appDownload</p>',
+      appUrl: 'test.exe'
+    }
+  },
+  "post /appDownload/add": { data: true },
+  "post /appDownload/modify": { data: true },
+  "get /appDownload/delete": { data: true },
 }

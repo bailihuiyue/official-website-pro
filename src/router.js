@@ -54,6 +54,16 @@ const router = new Router({
       name: 'driver',
       component: () => import('./views/Driver/index.vue'),
     },
+    {
+      path: '/appDownload',
+      name: 'appDownload',
+      component: () => import('./views/AppDownload/index.vue'),
+    },
+    {
+      path: '/appDownloadDetail',
+      name: 'appDownloadDetail',
+      component: () => import('./views/AppDownload/AppDownloadDetail.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -151,6 +161,11 @@ const router = new Router({
           path: '/admin/driver',
           name: 'adminDriver',
           component: () => import('./views/Admin/Driver/index.vue'),
+        },
+        {
+          path: '/admin/appDownload',
+          name: 'adminAppDownload',
+          component: () => import('./views/Admin/AppDownload/index.vue'),
         },
         // {
         //   path: '/admin/news',

@@ -70,7 +70,7 @@ export const questionTypes = {
   messageFeedback: '2'
 }
 
-export const driverTypes=[
+export const driverTypes = [
   {
     id: 0,
     img: 'imgs/configGuide/example.png',
@@ -100,4 +100,28 @@ export const driverTypes=[
       en: 'shoubinglei',
     }
   },
+]
+export const appDownloadTypes = [
+  {
+    id: 0,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'Android',
+      en: 'Android',
+    }
+  }, {
+    id: 1,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'IOS',
+      en: 'IOS',
+    }
+  }, {
+    id: 2,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'PC',
+      en: 'PC',
+    }
+  }
 ]

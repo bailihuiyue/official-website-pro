@@ -7,7 +7,7 @@
 <script>
 import { getFAQDetail } from './service'
 export default {
-  name:'FAQDetail',
+  name: 'FAQDetail',
   data() {
     return {
       content: '',
@@ -33,17 +33,18 @@ export default {
     text-align: center;
     font-size: 30px;
     margin: 20px;
-    color: $lightWhite;
+    // color: $lightWhite;
   }
   .content {
-    width: 80%;
     margin: 20px auto;
-    color: $lightWhite;
+    // color: $lightWhite;
   }
 }
-.mobile{
-  .title {
-    font-size: 16px;
+.mobile {
+  .FAQDetail {
+    .title {
+      font-size: 16px;
+    }
   }
 }
 </style>
