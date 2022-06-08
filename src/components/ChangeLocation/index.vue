@@ -25,13 +25,13 @@ export default {
   cursor: pointer;
 }
 .el-dropdown-menu.el-popper {
-  background-color: #000;
+  // background-color: #000;
   .popper__arrow {
     display: none !important;
   }
   li:hover {
-    background-color: #202020 !important;
-    color: #606266;
+    // background-color: #202020 !important;
+    // color: #606266;
   }
 }
 </style>

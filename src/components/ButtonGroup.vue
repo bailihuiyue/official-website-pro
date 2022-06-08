@@ -30,7 +30,7 @@
         </el-button>
       </template>
     </el-row>
-    <hr>
+    <hr />
   </div>
 </template>
 <script>
@@ -60,17 +60,18 @@ export default {
   margin-top: 5vh;
   .el-row {
     margin-bottom: 20px;
-    .isActive{
+    .isActive {
       color: $themeColor;
     }
     .el-button:focus,
     .el-button:hover {
-      color: $themeColor;
+      // color: $themeColor;
+      background-color: transparent;
     }
     .isPC {
       margin: 0 30px;
       display: inline-block;
-      background-color: #000;
+      // background-color: #000;
       border: none;
       img {
         width: 100px;
@@ -82,7 +83,7 @@ export default {
         .title {
           margin-top: 10px;
         }
-        .desc{
+        .desc {
           margin-top: 5px;
           font-size: 12px;
         }

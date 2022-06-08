@@ -109,7 +109,7 @@ export default {
     margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
-    color: #e5e5e5;
+    // color: #e5e5e5;
     .title {
       font-size: 18px;
       margin: 15px 0;

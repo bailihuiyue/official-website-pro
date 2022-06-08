@@ -113,15 +113,16 @@ export default {
     margin-top: 40px;
     .faqItem {
       margin-top: 20px;
-      border-color: transparent;
-      background-color: $blackBackgroundColor;
-      color: $blackFontColor;
+      // border-color: transparent;
+      // background-color: $blackBackgroundColor;
+      // color: $blackFontColor;
       cursor: pointer;
       &:hover {
-        border-color: $blackBorderColor;
+        // border-color: $blackBorderColor;
+        border-color:rgba(0,0,0,0.2)
       }
       .el-card__header {
-        border-bottom-color: $blackBorderColor;
+        // border-bottom-color: $blackBorderColor;
       }
       .title {
         height: 35px;

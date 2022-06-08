@@ -39,13 +39,13 @@ export default {
   .active {
     background-color: $themeColor !important;
   }
-  .el-pagination.is-background .btn-next,
-  .el-pagination.is-background .btn-prev,
-  .el-pagination.is-background .el-pager li {
-    background-color: rgb(30, 32, 34);
-  }
-  .el-pagination__total {
-    color: rgb(169, 162, 151);
-  }
+  // .el-pagination.is-background .btn-next,
+  // .el-pagination.is-background .btn-prev,
+  // .el-pagination.is-background .el-pager li {
+  //   background-color: rgb(30, 32, 34);
+  // }
+  // .el-pagination__total {
+  //   color: rgb(169, 162, 151);
+  // }
 }
 </style>

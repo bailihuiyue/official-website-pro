@@ -49,6 +49,11 @@ const router = new Router({
       name: 'faqDetail',
       component: () => import('./views/FAQ/FAQDetail.vue'),
     },
+    {
+      path: '/driver',
+      name: 'driver',
+      component: () => import('./views/Driver/index.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -141,6 +146,11 @@ const router = new Router({
           path: '/admin/question',
           name: 'adminQuestion',
           component: () => import('./views/Admin/FAQ/Question.vue'),
+        },
+        {
+          path: '/admin/driver',
+          name: 'adminDriver',
+          component: () => import('./views/Admin/Driver/index.vue'),
         },
         // {
         //   path: '/admin/news',

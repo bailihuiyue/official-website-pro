@@ -407,48 +407,12 @@ module.exports = {
       currentPage: 1,
       pageSize: 6,
       total: 7,
-      list: [
+      "list|8": [
         {
-          id: 0,
+          id: "@num()",
           title: 'p20方向盘',
           img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
           sku: 's1'
-        },
-        {
-          id: 1,
-          title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku: 's2'
-        },
-        {
-          id: 2,
-          title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku: 's3'
-        },
-        {
-          id: 3,
-          title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku: 's4'
-        },
-        {
-          id: 4,
-          title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku: 's5'
-        },
-        {
-          id: 5,
-          title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku: 's6'
-        },
-        {
-          id: 6,
-          title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
-          sku: 's7'
         }
       ]
     }
@@ -471,59 +435,11 @@ module.exports = {
       currentPage: 1,
       pageSize: 12,
       total: 13,
-      list: [
+      "list|12": [
         {
-          id: 0,
+          id: "@num()",
           title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 1,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 2,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 3,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 4,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 5,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 6,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 7,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 8,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 9,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 10,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 11,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
-        {
-          id: 12,
-          title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程'
-        },
+        }
       ]
     }
   },
@@ -549,44 +465,9 @@ module.exports = {
       currentPage: 1,
       pageSize: 8,
       total: 9,
-      list: [
+      "list|8": [
         {
-          id: 0,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 1,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 2,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 3,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 4,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 5,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 6,
-          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
-          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          id: 7,
+          id: "@num()",
           title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
           desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
         }
@@ -617,21 +498,43 @@ module.exports = {
     }
   },
   "get /question/list": {
-    data:
+    "data|4":
       [{
-        "id": 0,
+        "id": "@num()",
         "title": "title1",
-        "productName": "productName",
-      }, {
-        "id": 1,
-        "title": "title2",
-        "productName": "productName",
-      }, {
-        "id": 2,
-        "title": "title3",
         "productName": "productName",
       }]
   },
   "post /question/add": { data: true },
-  "get /question/delete": { data: true }
+  "get /question/delete": { data: true },
+
+
+  "post /driver/list": {
+    data: {
+      currentPage: 1,
+      pageSize: 10,
+      total: 11,
+      "list|10": [
+        {
+          id: "@num()",
+          title: '莱仕达灵动3 PRO PXN-9613 游戏手柄驱动',
+          desc: '运行环境 XP/Vista/Win7/Win8/Win10',
+          driverUrl: 'test.exe',
+          pdfUrl: 'test.exe'
+        }
+      ]
+    }
+  },
+  "get /driver/detail": {
+    data: {
+      id: '@num()',
+      title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+      desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx',
+      driverUrl: 'test.exe',
+      pdfUrl: 'test.exe'
+    }
+  },
+  "post /driver/add": { data: true },
+  "post /driver/modify": { data: true },
+  "get /driver/delete": { data: true },
 }

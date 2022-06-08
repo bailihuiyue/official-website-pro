@@ -69,3 +69,35 @@ export const questionTypes = {
   faq: '1',
   messageFeedback: '2'
 }
+
+export const driverTypes=[
+  {
+    id: 0,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '手柄驱动',
+      en: 'shoubinglei',
+    }
+  }, {
+    id: 1,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '方向盘驱动',
+      en: 'shoubinglei',
+    }
+  }, {
+    id: 2,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '摇杆驱动',
+      en: 'shoubinglei',
+    }
+  }, {
+    id: 3,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '游戏工具',
+      en: 'shoubinglei',
+    }
+  },
+]

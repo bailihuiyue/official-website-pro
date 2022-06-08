@@ -1,5 +1,5 @@
 <template>
-  <div id="app" style="background-color:#000">
+  <div id="app">
     <el-container>
       <!-- 1.header半透明2.兼容手机模式 -->
       <el-header :class="isMobile?'mobileHeader':'pcHeader'">
@@ -176,7 +176,7 @@ body {
 }
 div.el-menu--horizontal {
   width: 100%;
-  background-color: #222222;
+  background-color: rgba(0,0,0,0.9);
   left: 0 !important;
   & > ul {
     margin-top: 0;
@@ -244,7 +244,7 @@ div.el-menu--horizontal {
 .menuDrawerClass {
   width: 100% !important;
   height: 100%;
-  background-color: #000 !important;
+  // background-color: #000 !important;
   .el-drawer__header > :first-child {
     flex: 0;
   }

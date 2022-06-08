@@ -40,15 +40,15 @@ export default {
   margin-top: 20px;
   h3 {
     margin: 20px 0;
-    color: #fff;
+    // color: #fff;
   }
   .el-input {
     max-width: 450px;
     .el-input__inner {
       border-radius: 50px;
-      background-color: $blackBackgroundColor;
-      border-color: $blackBorderColor;
-      color: $blackFontColor;
+      // background-color: $blackBackgroundColor;
+      // border-color: $blackBorderColor;
+      // color: $blackFontColor;
     }
   }
 }

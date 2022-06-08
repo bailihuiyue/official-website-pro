@@ -54,10 +54,11 @@ export default {
 
 <style lang="scss">
 .footer {
+  background: #111 url('../../../public/imgs/footerBg.png') no-repeat top right;
   width: 100%;
   // height: 216px;
   // overflow: hidden;
-  background-color: #000;
+  // background-color: #000;
   &-content {
     // width: 1240px;
     margin: 0 auto;
@@ -106,7 +107,7 @@ export default {
   }
   .copyright {
     // height: 30px;
-    background: #000;
+    // background: #111;
     margin-top: 15px;
     span {
       border-top: 1px solid rgb(83, 82, 82);

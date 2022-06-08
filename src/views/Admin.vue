@@ -51,6 +51,10 @@
             <el-menu-item index="/admin/faq">编辑常见问题</el-menu-item>
             <el-menu-item index="/admin/question">查看用户提问</el-menu-item>
           </el-submenu>
+          <el-menu-item index="/admin/driver">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">驱动管理</span>
+          </el-menu-item>
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>

@@ -116,7 +116,7 @@ export default {
     // margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
-    color: #e5e5e5;
+    // color: #e5e5e5;
     text-align: left;
     i,
     span {

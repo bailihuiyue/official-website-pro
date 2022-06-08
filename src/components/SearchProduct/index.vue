@@ -17,8 +17,9 @@
           :placeholder="$lang==='cn'?'请输入搜索内容':'Please input search content'"
           :trigger-on-focus="false"
           @select="handleSelect"
-          style="width:100%;backgroundColor:#000"
+          style="width:100%;"
         />
+        <!-- backgroundColor:#000 -->
       </slot>
     </el-popover>
   </div>
@@ -55,16 +56,16 @@ export default {
 }
 .searchProductPopperClass{
   padding: 0 !important;
-  background-color: #000;
+  // background-color: #000;
   .searchProductInput{
     input{
-      background-color: #000;
+      // background-color: #000;
       border: none;
     }
   }
 }
 .el-autocomplete-suggestion{
-  background-color: #000 !important;
+  // background-color: #000 !important;
   .popper__arrow{
     display: none !important;
   }
