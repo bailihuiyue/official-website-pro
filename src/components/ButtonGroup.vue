@@ -37,12 +37,18 @@
 import device from 'current-device'
 
 export default {
-  props: ['btns', 'type'], //horizontal / vertical
+  props: ['btns', 'type', 'defaultClickedBtn'], //horizontal / vertical
   data() {
     return {
       isMobile: device.mobile(),
       clickedIndex: -1
     }
+  },
+  created() {
+    this.clickedIndex =
+      this.defaultClickedBtn >= 0 || this.defaultClickedBtn
+        ? this.defaultClickedBtn
+        : -1
   },
   methods: {
     onClickBtn(data, index) {

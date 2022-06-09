@@ -69,6 +69,11 @@ const router = new Router({
       name: 'contactUs',
       component: () => import('./views/ContactUs/index.vue'),
     },
+    {
+      path: '/aboutCompany',
+      name: 'aboutCompany',
+      component: () => import('./views/AboutCompany/index.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -176,6 +181,11 @@ const router = new Router({
           path: '/admin/contactUs',
           name: 'adminContactUs',
           component: () => import('./views/Admin/ContactUs/Feedback.vue'),
+        },
+        {
+          path: '/admin/aboutCompany',
+          name: 'adminAboutCompany',
+          component: () => import('./views/Admin/AboutCompany/index.vue'),
         },
         // {
         //   path: '/admin/news',

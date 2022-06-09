@@ -49,7 +49,7 @@
               常见问题管理
             </template>
             <el-menu-item index="/admin/faq">编辑常见问题</el-menu-item>
-            <el-menu-item index="/admin/question">查看用户提问</el-menu-item>
+            <el-menu-item index="/admin/question">用户提问管理</el-menu-item>
           </el-submenu>
           <el-menu-item index="/admin/driver">
             <i class="el-icon-star-off"></i>
@@ -61,7 +61,11 @@
           </el-menu-item>
           <el-menu-item index="/admin/contactUs">
             <i class="el-icon-star-off"></i>
-            <span slot="title">查看留言反馈</span>
+            <span slot="title">留言反馈管理</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/aboutCompany">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">关于公司管理</span>
           </el-menu-item>
 
           <!-- <el-menu-item index="/admin/news">

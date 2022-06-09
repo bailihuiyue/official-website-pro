@@ -566,4 +566,13 @@ module.exports = {
   "post /appDownload/add": { data: true },
   "post /appDownload/modify": { data: true },
   "get /appDownload/delete": { data: true },
+
+  "get /aboutCompany/all": {
+    data: {
+      aboutUs: '<p>aboutUs</p>',
+      investmentPolicy: '<p>investmentPolicy</p>',
+      teamPresence: '<p>teamPresence</p>'
+    }
+  },
+  "post /aboutCompany/modify": { data: true },
 }

@@ -202,3 +202,31 @@ export const contactUsData = [
     }
   }
 ]
+
+
+export const aboutCompanyTypes = [
+  {
+    id: 'aboutUs',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '关于我们',
+      en: 'About Us',
+    }
+  },
+  {
+    id: 'investmentPolicy',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '招商政策',
+      en: 'Investment policy',
+    }
+  },
+  {
+    id: 'teamPresence',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '团队风采',
+      en: 'Team presence',
+    }
+  },
+]
