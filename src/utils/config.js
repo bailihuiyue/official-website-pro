@@ -206,7 +206,8 @@ export const contactUsData = [
 
 export const aboutCompanyTypes = [
   {
-    id: 'aboutUs',
+    id:0,
+    type: 'aboutUs',
     img: 'imgs/configGuide/example.png',
     title: {
       cn: '关于我们',
@@ -214,7 +215,8 @@ export const aboutCompanyTypes = [
     }
   },
   {
-    id: 'investmentPolicy',
+    id:1,
+    type: 'investmentPolicy',
     img: 'imgs/configGuide/example.png',
     title: {
       cn: '招商政策',
@@ -222,7 +224,8 @@ export const aboutCompanyTypes = [
     }
   },
   {
-    id: 'teamPresence',
+    id:2,
+    type: 'teamPresence',
     img: 'imgs/configGuide/example.png',
     title: {
       cn: '团队风采',
@@ -265,6 +268,36 @@ export const companyStateTypes = [
     title: {
       cn: '产品动态',
       en: 'Products News',
+    }
+  }
+]
+
+export const recruitmentTypes = [
+  {
+    id:0,
+    type: 'uiengineer',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'UI 工程师',
+      en: 'UI Engineer',
+    }
+  },
+  {
+    id:1,
+    type: 'ecommerceManager',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '跨境电商经理',
+      en: 'E-commerce manager',
+    }
+  },
+  {
+    id:2,
+    type: 'winDeveloper',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'win开发工程师',
+      en: 'Win developer',
     }
   }
 ]

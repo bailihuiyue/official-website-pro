@@ -22,44 +22,34 @@ export default {
   watch: {
     carouselList: {
       handler: function (val, oldVal) {
-        const self = this
-        if (this.carouselList.length) {
-          let clientWidth = ''
-          if (this.useDocumentWidth) {
-            clientWidth = document.documentElement.clientWidth
-          } else {
-            clientWidth = this.$refs.carouselRef.clientWidth
-          }
-          var img = new Image()
-          img.src = this.carouselList[0].img
-          img.onload = function () {
-            self.height =
-              (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'
-          }
-        }
+        this.calcCarouselHeight()
       },
-      deep: true,
-      immediate: true
+      deep: true
+      // immediate: true
     }
   },
-  // mounted() {
-  //   const self = this
-  //   if (this.carouselList.length) {
-  //     let clientWidth = ''
-  //     if (this.useDocumentWidth) {
-  //       clientWidth = document.documentElement.clientWidth
-  //     } else {
-  //       debugger
-  //       clientWidth = this.$refs.carouselRef.clientWidth
-  //     }
-  //     var img = new Image()
-  //     img.src = this.carouselList[0].img
-  //     img.onload = function () {
-  //       self.height =
-  //         (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'
-  //     }
-  //   }
-  // }
+  mounted() {
+    this.calcCarouselHeight()
+  },
+  methods: {
+    calcCarouselHeight() {
+      const self = this
+      if (this.carouselList.length) {
+        let clientWidth = ''
+        if (this.useDocumentWidth) {
+          clientWidth = document.documentElement.clientWidth
+        } else {
+          clientWidth = this.$refs.carouselRef.clientWidth
+        }
+        var img = new Image()
+        img.src = this.carouselList[0].img
+        img.onload = function () {
+          self.height =
+            (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'
+        }
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">

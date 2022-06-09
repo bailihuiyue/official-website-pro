@@ -89,6 +89,11 @@ const router = new Router({
       name: 'companyStateDetail',
       component: () => import('./views/CompanyState/CompanyStateDetail.vue'),
     },
+    {
+      path: '/recruitment',
+      name: 'recruitment',
+      component: () => import('./views/Recruitment/index.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -211,6 +216,11 @@ const router = new Router({
           path: '/admin/companyState',
           name: 'adminCompanyState',
           component: () => import('./views/Admin/CompanyState/index.vue'),
+        },
+        {
+          path: '/admin/adminRecruitment',
+          name: 'adminRecruitment',
+          component: () => import('./views/Admin/Recruitment/index.vue'),
         },
         // {
         //   path: '/admin/news',

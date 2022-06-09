@@ -631,4 +631,14 @@ module.exports = {
   "post /companyState/add": { data: true },
   "post /companyState/modify": { data: true },
   "get /companyState/delete": { data: true },
+
+  "get /recruitment/getAll": {
+    data: {
+      id:'@num()',
+      uiengineer: '<p>uiengineer</p>',
+      ecommerceManager: '<p>ecommerceManager</p>',
+      winDeveloper: '<p>winDeveloper</p>'
+    }
+  },
+  "post /recruitment/modify": { data: true },
 }

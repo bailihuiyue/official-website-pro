@@ -1,6 +1,6 @@
 <template>
   <div class="home" v-loading="loading">
-    <Carousel :carouselList="carouselList" useDocumentWidth v-if="carouselList.length"/>
+    <Carousel :carouselList="carouselList" :useDocumentWidth="true" v-if="carouselList.length"/>
     <ProductImgs :productImgs="productImgs" />
     <BottomSection :bottomImgs="bottomImgs" v-if="bottomImgs.length"/>
   </div>

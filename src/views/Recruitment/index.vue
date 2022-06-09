@@ -1,37 +1,37 @@
 <template>
-  <div class="aboutCompany">
+  <div class="recruitment">
     <ButtonGroup
-      :btns="aboutCompanyTypes"
+      :btns="recruitmentTypes"
       type="vertical"
       @click="onChangeTypes"
       :defaultClickedBtn="0"
     />
     <div
-      v-for="r in aboutCompanyTypes"
+      v-for="r in recruitmentTypes"
       :class="`content ${r.type}`"
       v-if="type===r.type"
-    >{{aboutCompanyData[type]}}</div>
+    >{{recruitmentData[type]}}</div>
   </div>
 </template>
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
-import { aboutCompanyTypes } from '@/utils/config'
-import { getAboutCompanyList } from './service'
+import { recruitmentTypes } from '@/utils/config'
+import { getRecruitmentList } from './service'
 
 export default {
-  name: 'aboutCompany',
+  name: 'recruitment',
   components: {
     ButtonGroup
   },
   data() {
     return {
-      aboutCompanyTypes,
-      aboutCompanyData: {},
-      type: aboutCompanyTypes[0].type
+      recruitmentTypes,
+      recruitmentData: {},
+      type: recruitmentTypes[0].type
     }
   },
   created() {
-    getAboutCompanyList(this.$lang).then((res) => (this.aboutCompanyData = res))
+    getRecruitmentList(this.$lang).then((res) => (this.recruitmentData = res))
   },
   methods: {
     onChangeTypes(data) {
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.aboutCompany {
+.recruitment {
   .ButtonGroup {
     .el-row {
       width: 80%;

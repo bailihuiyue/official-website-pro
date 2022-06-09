@@ -1,10 +1,10 @@
 <template>
-  <div class="AboutCompanyAdmin">
+  <div class="RecruitmentAdmin">
     <ChangeLocationAdmin />
     <el-button type="primary" @click="onUpdate()" style="margin:20px 0;display:block">保存</el-button>
-    <el-tabs :value="aboutCompanyTypes[0].type">
-      <el-tab-pane v-for="a in aboutCompanyTypes" :key="a.type" :label="a.title.cn" :name="a.type">
-        <Tinymce :content="data[a.type]" :height="500" :menubar="false" :ref="`${a.type}Tiny`" />
+    <el-tabs :value="recruitmentTypes[0].type">
+      <el-tab-pane v-for="r in recruitmentTypes" :key="r.type" :label="r.title.cn" :name="r.type">
+        <Tinymce :content="data[r.type]" :height="500" :menubar="false" :ref="`${r.type}Tiny`" />
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -12,46 +12,46 @@
 <script>
 import Tinymce from '@/components/Tinymce'
 import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
-import { getAboutCompanyList, modifyAboutCompany } from './service'
-import { aboutCompanyTypes } from '@/utils/config'
+import { getRecruitmentList, modifyRecruitment } from './service'
+import { recruitmentTypes } from '@/utils/config'
 
 export default {
-  name: 'AboutCompanyAdmin',
+  name: 'RecruitmentAdmin',
   components: {
     Tinymce,
     ChangeLocationAdmin
   },
   data() {
     return {
-      aboutCompanyTypes,
+      recruitmentTypes,
       loading: true,
       data: {}
     }
   },
   created() {
-    this.getAboutCompanyApi()
+    this.getRecruitmentApi()
   },
   methods: {
-    getAboutCompanyApi() {
+    getRecruitmentApi() {
       this.loading = true
-      getAboutCompanyList(this.$adminLang).then((res) => {
+      getRecruitmentList(this.$adminLang).then((res) => {
         this.data = res
         this.loading = false
       })
     },
     onUpdate() {
       this.loading = true
-      aboutCompanyTypes.forEach((item) => {
+      recruitmentTypes.forEach((item) => {
         this.data[item.type] = this.$refs[item.type + 'Tiny'][0].getContent()
       })
-      modifyAboutCompany(this.$adminLang, this.data)
+      modifyRecruitment(this.$adminLang, this.data)
         .then((response) => {
           this.loading = false
           this.$message({
             message: '修改成功！',
             type: 'success'
           })
-          this.getAboutCompanyApi()
+          this.getRecruitmentApi()
         })
         .catch((e) => {
           this.$message({
@@ -64,6 +64,6 @@ export default {
 }
 </script>
 <style lang="scss">
-.AboutCompanyAdmin {
+.RecruitmentAdmin {
 }
 </style>
