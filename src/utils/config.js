@@ -249,3 +249,22 @@ export const companyHonorTypes = [
     }
   }
 ]
+
+export const companyStateTypes = [
+  {
+    id: 0,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '公司新闻',
+      en: 'Company News',
+    }
+  },
+  {
+    id: 1,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '产品动态',
+      en: 'Products News',
+    }
+  }
+]

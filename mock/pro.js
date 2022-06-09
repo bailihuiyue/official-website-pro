@@ -603,4 +603,32 @@ module.exports = {
   "post /companyHonor/modify": { data: true },
   "post /companyHonor/add": { data: true },
   "get /companyHonor/delete": { data: true },
+
+  "post /companyState/list": {
+    data: {
+      currentPage: 1,
+      pageSize: 6,
+      total: 7,
+      "list|6": [
+        {
+          id: "@num()",
+          img:'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
+          title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+          desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
+        }
+      ]
+    }
+  },
+  "get /companyState/detail": {
+    data: {
+      id: '@num()',
+      img:'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
+      title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
+      desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx',
+      content: '<p>companyState</p>'
+    }
+  },
+  "post /companyState/add": { data: true },
+  "post /companyState/modify": { data: true },
+  "get /companyState/delete": { data: true },
 }

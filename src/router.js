@@ -79,6 +79,16 @@ const router = new Router({
       name: 'companyHonor',
       component: () => import('./views/CompanyHonor/index.vue'),
     },
+    {
+      path: '/companyState',
+      name: 'companyState',
+      component: () => import('./views/CompanyState/index.vue'),
+    },
+    {
+      path: '/companyStateDetail',
+      name: 'companyStateDetail',
+      component: () => import('./views/CompanyState/CompanyStateDetail.vue'),
+    },
     // {
     //   path: '/case',
     //   name: 'case',
@@ -196,6 +206,11 @@ const router = new Router({
           path: '/admin/companyHonor',
           name: 'adminCompanyHonor',
           component: () => import('./views/Admin/CompanyHonor/index.vue'),
+        },
+        {
+          path: '/admin/companyState',
+          name: 'adminCompanyState',
+          component: () => import('./views/Admin/CompanyState/index.vue'),
         },
         // {
         //   path: '/admin/news',
