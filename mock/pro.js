@@ -492,9 +492,11 @@ module.exports = {
       "name": "name",
       "phone": "phone",
       "email": "email",
-      "title": "title",
-      "productName": "productName",
-      "detail": "detail\ndetail\ndetail"
+      "title": "title",             //xx
+      "productName": "productName", //xx
+      "detail": "detail\ndetail\ndetail",
+      "companyAddress": "1",
+      "companyName": "1",
     }
   },
   "get /question/list": {
@@ -503,6 +505,8 @@ module.exports = {
         "id": "@num()",
         "title": "title1",
         "productName": "productName",
+        "companyName": 'companyName',
+        "phone": "phone"
       }]
   },
   "post /question/add": { data: true },

@@ -127,80 +127,78 @@ export const appDownloadTypes = [
 ]
 
 
-export const contactUsData = {
-  qrCode: 'imgs/configGuide/example.png',
-  list: [
-    {
-      id: 0,
-      img: 'imgs/configGuide/example.png',
-      title: {
-        cn: 'title',
-        en: 'title'
-      },
-      desc: {
-        cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-        en: 'PC',
-      }
+export const contactUsData = [
+  {
+    id: 0,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'title',
+      en: 'title'
     },
-    {
-      id: 1,
-      img: 'imgs/configGuide/example.png',
-      title: {
-        cn: 'title',
-        en: 'title'
-      },
-      desc: {
-        cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCP',
-        en: 'PC',
-      }
-    },
-    {
-      id: 2,
-      img: 'imgs/configGuide/example.png',
-      title: {
-        cn: 'title',
-        en: 'title'
-      },
-      desc: {
-        cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-        en: 'PC',
-      }
-    },
-    {
-      id: 3,
-      img: 'imgs/configGuide/example.png',
-      title: {
-        cn: 'title',
-        en: 'title'
-      },
-      desc: {
-        cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-        en: 'PC',
-      }
-    },
-    {
-      id: 4,
-      img: 'imgs/configGuide/example.png',
-      title: {
-        cn: 'title',
-        en: 'title'
-      },
-      desc: {
-        cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-        en: 'PC',
-      }
-    },
-    {
-      id: 5,
-      img: 'imgs/configGuide/example.png',
-      title: {
-        cn: 'title',
-        en: 'title'
-      },
-      desc: {
-        cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-        en: 'PC',
-      }
+    desc: {
+      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
+      en: 'PC',
     }
-  ]
-}
+  },
+  {
+    id: 1,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'title',
+      en: 'title'
+    },
+    desc: {
+      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCP',
+      en: 'PC',
+    }
+  },
+  {
+    id: 2,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'title',
+      en: 'title'
+    },
+    desc: {
+      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
+      en: 'PC',
+    }
+  },
+  {
+    id: 3,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'title',
+      en: 'title'
+    },
+    desc: {
+      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
+      en: 'PC',
+    },
+    qrCode: 'imgs/configGuide/example.png',
+  },
+  {
+    id: 4,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'title',
+      en: 'title'
+    },
+    desc: {
+      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
+      en: 'PC',
+    }
+  },
+  {
+    id: 5,
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: 'title',
+      en: 'title'
+    },
+    desc: {
+      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
+      en: 'PC',
+    }
+  }
+]

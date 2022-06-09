@@ -2,8 +2,8 @@
   <div class="ContactUs">
     <h1>{{lang.contactUs[$lang]}}</h1>
     <el-row :gutter="20">
-      <el-col :span="isMobile?24:8" v-for="c in contactUsData.list">
-        <el-card shadow="hover">
+      <el-col :span="isMobile?24:8" v-for="c in contactUsData">
+        <el-card shadow="hover" @click.native="onClick(c.qrCode)">
           <div slot="header">
             <span class="img">
               <img :src="c.img" />
@@ -14,15 +14,23 @@
         </el-card>
       </el-col>
     </el-row>
+    <SubmitQuestion :isFAQ="false" />
+    <el-dialog :visible.sync="dialogVisible" width="300px">
+      <img :src="qrCode" style="width: 100%;" />
+    </el-dialog>
   </div>
 </template>
 <script>
 import { contactUsData } from '@/utils/config'
 import device from 'current-device'
+import SubmitQuestion from '@/components/SubmitQuestion'
 
 export default {
+  components: { SubmitQuestion },
   data() {
     return {
+      dialogVisible: false,
+      qrCode: '',
       contactUsData,
       isMobile: device.mobile(),
       lang: {
@@ -30,6 +38,14 @@ export default {
           cn: '联系我们',
           en: 'Contact Us'
         }
+      }
+    }
+  },
+  methods: {
+    onClick(qrCode) {
+      if (qrCode) {
+        this.qrCode = qrCode
+        this.dialogVisible = true
       }
     }
   }
@@ -50,7 +66,7 @@ export default {
       margin-right: auto;
       margin-bottom: 30px;
       width: 350px;
-      .title{
+      .title {
         font-size: 18px;
         margin-bottom: 15px;
         font-weight: bold;

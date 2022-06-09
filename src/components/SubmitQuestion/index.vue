@@ -2,7 +2,7 @@
   <div class="SubmitQuestion">
     <div class="isPC" v-if="!isMobile" @click="showSubmitForm=true">
       <img src="imgs/ask/headset.svg" />
-      <div class="submitFAQTxt">{{lang['submitFAQTxt'][$lang]}}</div>
+      <div class="submitFAQTxt">{{lang[isFAQ?'submitFAQTxt':'messageFeedbackTxt'][$lang]}}</div>
     </div>
     <div v-else style="margin:20px 0;text-align:center">
       <el-button
@@ -115,6 +115,10 @@ export default {
         submitFAQTxt: {
           en: 'Submit FAQ',
           cn: '提交问题'
+        },
+        messageFeedbackTxt: {
+          cn: '留言反馈',
+          en: 'Message Feedback'
         },
         dialog: {
           submitFAQTitle: {
@@ -261,7 +265,8 @@ export default {
       font-size: 12px;
     }
     &:hover {
-      background-color: $blackBackgroundColor;
+      // background-color: $blackBackgroundColor;
+      background-color: rgba(0, 0, 0, 0.03);
       border-radius: 10px;
     }
   }

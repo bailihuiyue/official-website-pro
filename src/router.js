@@ -172,6 +172,11 @@ const router = new Router({
           name: 'adminAppDownload',
           component: () => import('./views/Admin/AppDownload/index.vue'),
         },
+        {
+          path: '/admin/contactUs',
+          name: 'adminContactUs',
+          component: () => import('./views/Admin/ContactUs/Feedback.vue'),
+        },
         // {
         //   path: '/admin/news',
         //   name: 'new',

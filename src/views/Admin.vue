@@ -59,7 +59,11 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">APP管理</span>
           </el-menu-item>
-          
+          <el-menu-item index="/admin/contactUs">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">查看留言反馈</span>
+          </el-menu-item>
+
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>
             <span slot="title">新闻咨询管理</span>
