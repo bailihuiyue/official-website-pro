@@ -230,3 +230,22 @@ export const aboutCompanyTypes = [
     }
   },
 ]
+
+export const companyHonorTypes = [
+  {
+    id: 'medalOfHonour',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '荣誉勋章',
+      en: 'Medal Of Honour',
+    }
+  },
+  {
+    id: 'honorEvents',
+    img: 'imgs/configGuide/example.png',
+    title: {
+      cn: '荣誉赛事',
+      en: 'Honor events',
+    }
+  }
+]

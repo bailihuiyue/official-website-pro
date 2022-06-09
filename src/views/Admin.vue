@@ -67,6 +67,10 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">关于公司管理</span>
           </el-menu-item>
+          <el-menu-item index="/admin/companyHonor">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">公司荣誉管理</span>
+          </el-menu-item>
 
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>

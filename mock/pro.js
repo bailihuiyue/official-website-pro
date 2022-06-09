@@ -567,7 +567,7 @@ module.exports = {
   "post /appDownload/modify": { data: true },
   "get /appDownload/delete": { data: true },
 
-  "get /aboutCompany/all": {
+  "get /aboutCompany/getAll": {
     data: {
       aboutUs: '<p>aboutUs</p>',
       investmentPolicy: '<p>investmentPolicy</p>',
@@ -575,4 +575,32 @@ module.exports = {
     }
   },
   "post /aboutCompany/modify": { data: true },
+
+  "get /companyHonor/getAll": {
+    data: {
+      'medalOfHonour': [
+        {
+          id: '@num()',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg', href: '/product'
+        },
+        {
+          id: '@num()',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg', href: '/product'
+        }
+      ],
+      'honorEvents': [
+        {
+          id: '@num()',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg', href: '/product'
+        },
+        {
+          id: '@num()',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg', href: '/product'
+        }
+      ],
+    }
+  },
+  "post /companyHonor/modify": { data: true },
+  "post /companyHonor/add": { data: true },
+  "get /companyHonor/delete": { data: true },
 }
