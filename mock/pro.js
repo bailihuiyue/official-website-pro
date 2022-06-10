@@ -1,4 +1,5 @@
 module.exports = {
+  // 后台用户管理
   "post /user/login": { data: { bRes: true, Ticket: "abc" } },
   "get /user/getUserAll": {
     data: [
@@ -28,142 +29,282 @@ module.exports = {
   "post /user/createUser": { data: true },
   "post /user/modifiedUser": { data: true },
   "get /user/deleteUser": { data: true },
+  // 图片上传
   "post /api/upload/uploadImage": { data: 'logo.png' },
+  // 视频,pdf等文件上传
   "post /api/upload/uploadfile": { data: 'logo.png' },
+  // 菜单
   "get /menu/getAll": {
-    data: [
+    "code": 200,
+    "msg": "成功",
+    "data": [
       {
+        "children": [
+          {
+            "id": 2,
+            "pid": 1,
+            "cn": "方向盘2",
+            "en": "subMenu1",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 3,
+            "pid": 1,
+            "cn": "方向盘2",
+            "en": "subMenu2",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          }
+        ],
         "title": {
+          "id": 1,
+          "pid": 0,
           "cn": "方向盘",
           "en": "menu1",
-          "href": "/product"
-        },
-        "children": [
-          {
-            "cn": "子菜单1",
-            "en": "subMenu1",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          },
-          {
-            "cn": "子菜单2",
-            "en": "subMenu2",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          }
-        ]
+          "href": "/productList",
+          "img": null,
+          "children": null,
+          "title": null
+        }
       },
       {
+        "children": [
+          {
+            "id": 5,
+            "pid": 4,
+            "cn": "手柄1",
+            "en": "subMenu1",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 6,
+            "pid": 4,
+            "cn": "手柄2",
+            "en": "subMenu2",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          }
+        ],
         "title": {
+          "id": 4,
+          "pid": 0,
           "cn": "手柄",
           "en": "menu2",
-          "href": "/product"
-        },
-        "children": [
-          {
-            "cn": "子菜单1",
-            "en": "subMenu1",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          },
-          {
-            "cn": "子菜单2",
-            "en": "subMenu2",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          }
-        ]
+          "href": "/productList",
+          "img": null,
+          "children": null,
+          "title": null
+        }
       },
       {
+        "children": [
+          {
+            "id": 8,
+            "pid": 7,
+            "cn": "耳机1",
+            "en": "subMenu1",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 9,
+            "pid": 7,
+            "cn": "耳机2",
+            "en": "subMenu2",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          }
+        ],
         "title": {
+          "id": 7,
+          "pid": 0,
           "cn": "耳机",
           "en": "menu3",
-          "href": "/product"
-        },
-        "children": [
-          {
-            "cn": "子菜单1",
-            "en": "subMenu1",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          },
-          {
-            "cn": "子菜单2",
-            "en": "subMenu2",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          }
-        ]
+          "href": "/productList",
+          "img": null,
+          "children": null,
+          "title": null
+        }
       },
       {
+        "children": [
+          {
+            "id": 11,
+            "pid": 10,
+            "cn": "飞行摇杆2",
+            "en": "subMenu1",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 12,
+            "pid": 10,
+            "cn": "飞行摇杆1",
+            "en": "subMenu2",
+            "href": "/productList",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          }
+        ],
         "title": {
+          "id": 10,
+          "pid": 0,
           "cn": "飞行摇杆",
-          "en": "menu1",
-          "href": "/product"
-        },
-        "children": [
-          {
-            "cn": "子菜单1",
-            "en": "subMenu1",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          },
-          {
-            "cn": "子菜单2",
-            "en": "subMenu2",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          }
-        ]
+          "en": "menu3",
+          "href": "/productList",
+          "img": null,
+          "children": null,
+          "title": null
+        }
       },
       {
+        "children": [
+          {
+            "id": 14,
+            "pid": 13,
+            "cn": "驱动下载",
+            "en": "subMenu1",
+            "href": "/driver",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 15,
+            "pid": 13,
+            "cn": "设置教程",
+            "en": "subMenu1",
+            "href": "/configGuide",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 16,
+            "pid": 13,
+            "cn": "常见问题",
+            "en": "subMenu1",
+            "href": "/faq",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 17,
+            "pid": 13,
+            "cn": "APP下载",
+            "en": "subMenu1",
+            "href": "/appDownload",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 18,
+            "pid": 13,
+            "cn": "联系我们",
+            "en": "subMenu1",
+            "href": "/contactUs",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          }
+        ],
         "title": {
+          "id": 13,
+          "pid": 0,
           "cn": "技术支持",
-          "en": "menu2",
-          "href": "/product"
-        },
-        "children": [
-          {
-            "cn": "子菜单1",
-            "en": "subMenu1",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          },
-          {
-            "cn": "子菜单2",
-            "en": "subMenu2",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          }
-        ]
+          "en": "menu3",
+          "href": "/productList",
+          "img": null,
+          "children": null,
+          "title": null
+        }
       },
       {
+        "children": [
+          {
+            "id": 16,
+            "pid": 16,
+            "cn": "关于公司",
+            "en": "subMenu1",
+            "href": "/aboutCompany",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 17,
+            "pid": 16,
+            "cn": "荣誉勋章",
+            "en": "subMenu1",
+            "href": "/companyHonor",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 18,
+            "pid": 16,
+            "cn": "公司动态",
+            "en": "subMenu2",
+            "href": "/companyState",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          },
+          {
+            "id": 19,
+            "pid": 16,
+            "cn": "招纳精英",
+            "en": "subMenu2",
+            "href": "/recruitment",
+            "img": "logo.png",
+            "children": null,
+            "title": null
+          }
+        ],
         "title": {
+          "id": 16,
+          "pid": 0,
           "cn": "关于公司",
           "en": "menu3",
-          "href": "/product"
-        },
-        "children": [
-          {
-            "cn": "子菜单1",
-            "en": "subMenu1",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          },
-          {
-            "cn": "子菜单2",
-            "en": "subMenu2",
-            "img": "https://www.huion.com/uploadfile/20220523/g930l-index-icon.png",
-            "href": "/product"
-          }
-        ]
+          "href": "/productList",
+          "img": null,
+          "children": null,
+          "title": null
+        }
       }
     ]
   },
-  "post /menu/update": { data: true },
+  "post /menu/add": { data: true },
+  "post /menu/modify": { data: true },
+  "post /menu/delete": { data: true },
+  // Logo
   "get /logo/get": {
-    data: 'logo.png'
+    data: { id: 0, img: 'logo.png' }
   },
+  "post /logo/modify": {
+    data: { data: true }
+  },
+  // 底部
   'get /footer/get': {
     data: {
       img: 'http://shkjgw.shkjem.com/imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg',
@@ -253,20 +394,7 @@ module.exports = {
     }
   },
   'post /footer/set': { data: true },
-  'get /product/search': {
-    data: [
-      { value: '1', id: 'a' },
-      { value: '2', id: 'b' },
-      { value: '3', id: 'c' }
-    ]
-  },
-  'get /product/detail': {
-    data: {
-      id: "1",
-      content: '<div>fake html</div>'
-    }
-  },
-
+  // 轮播图
   'get /carousel/getAll': {
     data: [
       {
@@ -294,7 +422,7 @@ module.exports = {
   "post /carousel/add": { data: true },
   "post /carousel/modify": { data: true },
   "get /carousel/delete": { data: true },
-
+  // 产品大图
   'get /productImgs/getAll': {
     data: [
       {
@@ -322,13 +450,13 @@ module.exports = {
   "post /productImgs/add": { data: true },
   "post /productImgs/modify": { data: true },
   "get /productImgs/delete": { data: true },
-
+  // 底部四图
   'get /bottomImg/getAll': {
     data: [
       {
         "id": "0",
         "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg",
-        "href": "/product"
+        "href": "/productList"
       },
       {
         "id": "1",
@@ -338,26 +466,26 @@ module.exports = {
       {
         "id": "2",
         "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
-        "href": "/product"
+        "href": "/productList"
       },
       {
         "id": "3",
         "imgs": [
           {
             "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
-            "href": "/product"
+            "href": "/productList"
           },
           {
             "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
-            "href": "/product"
+            "href": "/productList"
           },
           {
             "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
-            "href": "/product"
+            "href": "/productList"
           },
           {
             "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
-            "href": "/product"
+            "href": "/productList"
           }
         ]
       }
@@ -366,7 +494,7 @@ module.exports = {
   "post /bottomImg/add": { data: true },
   "post /bottomImg/modify": { data: true },
   "get /bottomImg/delete": { data: true },
-
+  // 产品类型
   'get /product/type/getAll': {
     data: [
       {
@@ -401,7 +529,7 @@ module.exports = {
   "post /productType/add": { data: true },
   "post /productType/modify": { data: true },
   "get /productType/delete": { data: true },
-
+  // 产品管理
   "post /product/list": {
     data: {
       currentPage: 1,
@@ -426,10 +554,23 @@ module.exports = {
       technicalSupport: '<p style="background:blue">technicalSupport</p>'
     }
   },
+  'get /product/search': {
+    data: [
+      { value: '1', id: 'a' },
+      { value: '2', id: 'b' },
+      { value: '3', id: 'c' }
+    ]
+  },
+  'get /product/detail': {
+    data: {
+      id: "1",
+      content: '<div>fake html</div>'
+    }
+  },
   "post /product/add": { data: true },
   "post /product/modify": { data: true },
   "get /product/delete": { data: true },
-
+  // 设置教程
   "post /configGuide/list": {
     data: {
       currentPage: 1,
@@ -457,9 +598,7 @@ module.exports = {
   "post /configGuide/add": { data: true },
   "post /configGuide/modify": { data: true },
   "get /configGuide/delete": { data: true },
-
-
-
+  // 常见问题
   "post /faq/list": {
     data: {
       currentPage: 1,
@@ -485,7 +624,7 @@ module.exports = {
   "post /faq/add": { data: true },
   "post /faq/modify": { data: true },
   "get /faq/delete": { data: true },
-
+  // 留言反馈(用户提问表单)
   "get /question/detail": {
     data: {
       "id": "@num()",
@@ -511,8 +650,7 @@ module.exports = {
   },
   "post /question/add": { data: true },
   "get /question/delete": { data: true },
-
-
+  // 驱动
   "post /driver/list": {
     data: {
       currentPage: 1,
@@ -541,7 +679,7 @@ module.exports = {
   "post /driver/add": { data: true },
   "post /driver/modify": { data: true },
   "get /driver/delete": { data: true },
-
+  // app 下载
   "post /appDownload/list": {
     data: {
       currentPage: 1,
@@ -566,7 +704,7 @@ module.exports = {
   "post /appDownload/add": { data: true },
   "post /appDownload/modify": { data: true },
   "get /appDownload/delete": { data: true },
-
+  // 关于公司
   "get /aboutCompany/getAll": {
     data: {
       aboutUs: '<p>aboutUs</p>',
@@ -575,7 +713,7 @@ module.exports = {
     }
   },
   "post /aboutCompany/modify": { data: true },
-
+  // 公司荣誉
   "get /companyHonor/getAll": {
     data: {
       'medalOfHonour': [
@@ -603,7 +741,7 @@ module.exports = {
   "post /companyHonor/modify": { data: true },
   "post /companyHonor/add": { data: true },
   "get /companyHonor/delete": { data: true },
-
+  // 新闻
   "post /companyState/list": {
     data: {
       currentPage: 1,
@@ -612,7 +750,7 @@ module.exports = {
       "list|6": [
         {
           id: "@num()",
-          img:'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
+          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
           title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
           desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
         }
@@ -622,7 +760,7 @@ module.exports = {
   "get /companyState/detail": {
     data: {
       id: '@num()',
-      img:'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
+      img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
       title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
       desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx',
       content: '<p>companyState</p>'
@@ -631,10 +769,10 @@ module.exports = {
   "post /companyState/add": { data: true },
   "post /companyState/modify": { data: true },
   "get /companyState/delete": { data: true },
-
+  // 招聘
   "get /recruitment/getAll": {
     data: {
-      id:'@num()',
+      id: '@num()',
       uiengineer: '<p>uiengineer</p>',
       ecommerceManager: '<p>ecommerceManager</p>',
       winDeveloper: '<p>winDeveloper</p>'

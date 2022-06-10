@@ -17,11 +17,13 @@
 import ButtonGroup from '@/components/ButtonGroup'
 import { aboutCompanyTypes } from '@/utils/config'
 import { getAboutCompanyList } from './service'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
   name: 'aboutCompany',
   components: {
-    ButtonGroup
+    ButtonGroup,
+    Breadcrumb
   },
   data() {
     return {

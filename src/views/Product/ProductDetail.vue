@@ -58,8 +58,9 @@ export default {
         opacity: 0;
       }
       .el-tabs__header.is-top {
-        border-top: 1px solid rgb(57, 61, 64);
-        border-bottom: 1px solid rgb(57, 61, 64);
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.05);
         height: 63px;
       }
       .el-tabs__nav-wrap::after {
@@ -77,9 +78,9 @@ export default {
           color: $themeColor;
         }
         .el-tabs__item {
-          color: #fff;
+          color: #616161;
         }
-        .el-tabs__item.is-active{
+        .el-tabs__item.is-active {
           color: $themeColor;
         }
         .el-tabs__item:hover {
@@ -109,14 +110,17 @@ export default {
     }
     #tab-title {
       font-size: 18px;
-      color: #fff;
+      // color: #fff;
+      &:hover{
+        color: #616161;
+      }
     }
     #tab-productDetail {
       padding-right: 20px;
     }
     #tab-productDetail,
     #tab-productParameter {
-      border-right: 1px solid rgb(48, 52, 54);
+      border-right: 1px solid #e0e0e0;;
     }
   }
 }

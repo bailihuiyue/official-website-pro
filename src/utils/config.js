@@ -206,7 +206,7 @@ export const contactUsData = [
 
 export const aboutCompanyTypes = [
   {
-    id:0,
+    id: 0,
     type: 'aboutUs',
     img: 'imgs/configGuide/example.png',
     title: {
@@ -215,7 +215,7 @@ export const aboutCompanyTypes = [
     }
   },
   {
-    id:1,
+    id: 1,
     type: 'investmentPolicy',
     img: 'imgs/configGuide/example.png',
     title: {
@@ -224,7 +224,7 @@ export const aboutCompanyTypes = [
     }
   },
   {
-    id:2,
+    id: 2,
     type: 'teamPresence',
     img: 'imgs/configGuide/example.png',
     title: {
@@ -274,7 +274,7 @@ export const companyStateTypes = [
 
 export const recruitmentTypes = [
   {
-    id:0,
+    id: 0,
     type: 'uiengineer',
     img: 'imgs/configGuide/example.png',
     title: {
@@ -283,7 +283,7 @@ export const recruitmentTypes = [
     }
   },
   {
-    id:1,
+    id: 1,
     type: 'ecommerceManager',
     img: 'imgs/configGuide/example.png',
     title: {
@@ -292,7 +292,7 @@ export const recruitmentTypes = [
     }
   },
   {
-    id:2,
+    id: 2,
     type: 'winDeveloper',
     img: 'imgs/configGuide/example.png',
     title: {

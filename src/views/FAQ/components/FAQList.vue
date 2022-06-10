@@ -69,7 +69,7 @@ export default {
     },
     jumpTo(id) {
       this.$router.push({
-        path: '/FAQDetail',
+        path: '/faqDetail',
         query: {
           id
         }

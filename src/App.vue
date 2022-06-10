@@ -32,6 +32,7 @@
         <VerticalMenu mode="vertical" :handleSelect="handleSelect" />
       </el-drawer>
       <el-main :style="{marginTop:isMobile?'':'60px'}">
+        <Breadcrumb/>
         <router-view />
       </el-main>
       <Footer v-show="isShow" :isMobile="isMobile" />
@@ -47,6 +48,7 @@ import Footer from '@/components/Footer'
 import Logo from '@/components/Logo'
 import ChangeLocation from '@/components/ChangeLocation'
 import SearchProduct from '@/components/SearchProduct'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
   components: {
@@ -55,7 +57,8 @@ export default {
     Footer,
     Logo,
     ChangeLocation,
-    SearchProduct
+    SearchProduct,
+    Breadcrumb
   },
   data() {
     return {

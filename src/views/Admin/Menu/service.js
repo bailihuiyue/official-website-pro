@@ -6,6 +6,16 @@ export const getMenu = () => {
 };
 
 export const updateMenu = (menu) => {
-  const api = `menu/update`;
-  return baseService.post(api, { menu });
+  const api = `menu/modify`;
+  return baseService.post(api, menu);
+};
+
+export const addMenu = (menu) => {
+  const api = `menu/add`;
+  return baseService.post(api, menu);
+};
+
+export const deleteMenu = (menu) => {
+  const api = `menu/delete`;
+  return baseService.post(api, menu);
 };
