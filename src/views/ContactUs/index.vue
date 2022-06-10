@@ -2,7 +2,7 @@
   <div class="ContactUs">
     <h1>{{lang.contactUs[$lang]}}</h1>
     <el-row :gutter="20">
-      <el-col :span="isMobile?24:8" v-for="c in contactUsData">
+      <el-col :span="isMobile?24:8" v-for="c in contactUsData" :key="c.id">
         <el-card shadow="hover" @click.native="onClick(c.qrCode)">
           <div slot="header">
             <span class="img">
@@ -66,6 +66,11 @@ export default {
       margin-right: auto;
       margin-bottom: 30px;
       width: 350px;
+      .el-card__header {
+        img {
+          width: 100%;
+        }
+      }
       .title {
         font-size: 18px;
         margin-bottom: 15px;

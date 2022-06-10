@@ -1,7 +1,7 @@
 export const configGuideTypes = [
   {
     id: 0,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/productType/shoubing.webp',
     title: {
       cn: '手柄类游戏设置',
       en: 'shoubinglei',
@@ -13,7 +13,7 @@ export const configGuideTypes = [
   },
   {
     id: 1,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/productType/fangxiangpan.webp',
     title: {
       cn: '方向盘游戏设置',
       en: 'fangxiangpan',
@@ -25,7 +25,7 @@ export const configGuideTypes = [
   },
   {
     id: 2,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/productType/erji.webp',
     title: {
       cn: '摇杆类游戏设置',
       en: 'yaogan',
@@ -37,11 +37,10 @@ export const configGuideTypes = [
   }
 ]
 
-
 export const faqTypes = [
   {
     id: 0,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/productType/shoubing.webp',
     title: {
       cn: '手柄',
       en: 'shoubinglei',
@@ -49,7 +48,7 @@ export const faqTypes = [
   },
   {
     id: 1,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/productType/fangxiangpan.webp',
     title: {
       cn: '方向盘',
       en: 'fangxiangpan',
@@ -57,10 +56,10 @@ export const faqTypes = [
   },
   {
     id: 2,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/productType/erji.webp',
     title: {
       cn: '耳机',
-      en: 'yaogan',
+      en: 'erji',
     }
   }
 ]
@@ -73,52 +72,53 @@ export const questionTypes = {
 export const driverTypes = [
   {
     id: 0,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/driver/shoubing.webp',
     title: {
       cn: '手柄驱动',
       en: 'shoubinglei',
     }
   }, {
     id: 1,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/driver/fangxiangpan.webp',
     title: {
       cn: '方向盘驱动',
       en: 'shoubinglei',
     }
   }, {
     id: 2,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/driver/yaogan.webp',
     title: {
       cn: '摇杆驱动',
       en: 'shoubinglei',
     }
   }, {
     id: 3,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/driver/gongju.webp',
     title: {
       cn: '游戏工具',
       en: 'shoubinglei',
     }
   },
 ]
+
 export const appDownloadTypes = [
   {
     id: 0,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/appDownload/android.webp',
     title: {
       cn: 'Android',
       en: 'Android',
     }
   }, {
     id: 1,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/appDownload/ios.webp',
     title: {
       cn: 'IOS',
       en: 'IOS',
     }
   }, {
     id: 2,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/appDownload/pc.webp',
     title: {
       cn: 'PC',
       en: 'PC',
@@ -126,11 +126,10 @@ export const appDownloadTypes = [
   }
 ]
 
-
 export const contactUsData = [
   {
     id: 0,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/contactUs/contactUs1.webp',
     title: {
       cn: 'title',
       en: 'title'
@@ -142,7 +141,7 @@ export const contactUsData = [
   },
   {
     id: 1,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/contactUs/contactUs2.webp',
     title: {
       cn: 'title',
       en: 'title'
@@ -154,7 +153,7 @@ export const contactUsData = [
   },
   {
     id: 2,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/contactUs/contactUs3.webp',
     title: {
       cn: 'title',
       en: 'title'
@@ -166,7 +165,7 @@ export const contactUsData = [
   },
   {
     id: 3,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/contactUs/contactUs4.webp',
     title: {
       cn: 'title',
       en: 'title'
@@ -175,11 +174,11 @@ export const contactUsData = [
       cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
       en: 'PC',
     },
-    qrCode: 'imgs/configGuide/example.png',
+    qrCode: 'imgs/contactUs/contactUs5.webp',
   },
   {
     id: 4,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/contactUs/contactUs5.webp',
     title: {
       cn: 'title',
       en: 'title'
@@ -191,7 +190,7 @@ export const contactUsData = [
   },
   {
     id: 5,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/contactUs/contactUs5.webp',
     title: {
       cn: 'title',
       en: 'title'
@@ -203,12 +202,11 @@ export const contactUsData = [
   }
 ]
 
-
 export const aboutCompanyTypes = [
   {
     id: 0,
     type: 'aboutUs',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/aboutCompany/aboutUs.webp',
     title: {
       cn: '关于我们',
       en: 'About Us',
@@ -217,7 +215,7 @@ export const aboutCompanyTypes = [
   {
     id: 1,
     type: 'investmentPolicy',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/aboutCompany/investmentPolicy.webp',
     title: {
       cn: '招商政策',
       en: 'Investment policy',
@@ -226,7 +224,7 @@ export const aboutCompanyTypes = [
   {
     id: 2,
     type: 'teamPresence',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/aboutCompany/teamPresence.webp',
     title: {
       cn: '团队风采',
       en: 'Team presence',
@@ -237,7 +235,7 @@ export const aboutCompanyTypes = [
 export const companyHonorTypes = [
   {
     id: 'medalOfHonour',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/companyHonor/honorEvents.webp',
     title: {
       cn: '荣誉勋章',
       en: 'Medal Of Honour',
@@ -245,7 +243,7 @@ export const companyHonorTypes = [
   },
   {
     id: 'honorEvents',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/companyHonor/medalOfHonour.webp',
     title: {
       cn: '荣誉赛事',
       en: 'Honor events',
@@ -256,7 +254,7 @@ export const companyHonorTypes = [
 export const companyStateTypes = [
   {
     id: 0,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/companyState/companyNews.webp',
     title: {
       cn: '公司新闻',
       en: 'Company News',
@@ -264,7 +262,7 @@ export const companyStateTypes = [
   },
   {
     id: 1,
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/companyState/productsNews.webp',
     title: {
       cn: '产品动态',
       en: 'Products News',
@@ -276,7 +274,7 @@ export const recruitmentTypes = [
   {
     id: 0,
     type: 'uiengineer',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/recruitment/uiEngineer.webp',
     title: {
       cn: 'UI 工程师',
       en: 'UI Engineer',
@@ -285,7 +283,7 @@ export const recruitmentTypes = [
   {
     id: 1,
     type: 'ecommerceManager',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/recruitment/eCommerceManager.webp',
     title: {
       cn: '跨境电商经理',
       en: 'E-commerce manager',
@@ -294,7 +292,7 @@ export const recruitmentTypes = [
   {
     id: 2,
     type: 'winDeveloper',
-    img: 'imgs/configGuide/example.png',
+    img: 'imgs/recruitment/winDeveloper.webp',
     title: {
       cn: 'win开发工程师',
       en: 'Win developer',
