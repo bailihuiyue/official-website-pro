@@ -120,7 +120,7 @@ export default {
     },
     addAppDownloadDetail() {
       // 清除数据
-      this.$refs.downloadTiny.setContent('')
+      setTimeout(() => this.$refs.downloadTiny.setContent(''),100)
       this.formData.id = undefined
       this.formData.title = undefined
       this.formData.content = undefined

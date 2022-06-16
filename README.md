@@ -7,8 +7,6 @@
 6.已完成的功能:首页菜单,轮播图,footer,logo,多语言,以及他们的admin,主要样式参考https://www.huion.com
 7.图片地址是imgserver+接口返回拼接成的
 
-TODO: 1.把菜单和页面连接起来 2.改bug 3.admin菜单改图标
-
 <div>
 <img src="https://gitee.com/Onces/images/raw/master/money.png" width=200>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://gitee.com/Onces/images/raw/master/zhifubaohongbao.jpg" width=200>
