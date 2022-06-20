@@ -32,7 +32,7 @@
         <VerticalMenu mode="vertical" :handleSelect="handleSelect" />
       </el-drawer>
       <el-main :style="{marginTop:isMobile?'':'60px'}">
-        <Breadcrumb/>
+        <Breadcrumb v-if="isShow"/>
         <router-view />
       </el-main>
       <Footer v-show="isShow" :isMobile="isMobile" />
