@@ -452,44 +452,36 @@ module.exports = {
   "get /productImgs/delete": { data: true },
   // 底部四图
   'get /bottomImg/getAll': {
-    data: [
-      {
-        "id": "0",
-        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg",
-        "href": "/productList"
-      },
-      {
-        "id": "1",
+    "code": 200,
+    "msg": "成功",
+    "data": [{
+      "href": "/product",
+      "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg",
+      "id": 10000
+    }, {
+      "href": "http://www.shkjem.com/video/kj.mp4",
+      "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg",
+      "id": 10001
+    }, {
+      "href": "/product",
+      "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
+      "id": 10002
+    }, {
+      "imgs": [{
+        "href": "/product",
+        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg",
+        "id": 10003
+      }, {
+        "href": "/product",
+        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg",
+        "id": 10004
+      }, {
+        "href": "/product",
         "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
-        "href": "http://www.shkjem.com/video/kj.mp4"
-      },
-      {
-        "id": "2",
-        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
-        "href": "/productList"
-      },
-      {
-        "id": "3",
-        "imgs": [
-          {
-            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
-            "href": "/productList"
-          },
-          {
-            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
-            "href": "/productList"
-          },
-          {
-            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
-            "href": "/productList"
-          },
-          {
-            "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
-            "href": "/productList"
-          }
-        ]
-      }
-    ]
+        "id": 10006
+      }],
+      "id": 4
+    }]
   },
   "post /bottomImg/add": { data: true },
   "post /bottomImg/modify": { data: true },

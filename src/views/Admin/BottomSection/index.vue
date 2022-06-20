@@ -6,6 +6,7 @@
     <el-alert title="请注意,'三个图片'区域中,1,3两行为静态图片,第2行请上传视频" type="warning" style="margin:10px 0" />
     <el-table :data="[totalData[0],totalData[1],totalData[2]]" border style="width: 100%">
       <el-table-column type="index" width="50" label="行号"></el-table-column>
+      <el-table-column prop="id" width="100" label="id"></el-table-column>
       <el-table-column prop="img" label="图片/视频封面" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgserver + scope.row.img" alt />
@@ -17,7 +18,7 @@
           <el-button
             type="primary"
             icon="el-icon-edit"
-            @click="onOpenEditModal(scope.$index, scope.row,'threeData')"
+            @click="onOpenEditModal(scope.$index, scope.row)"
           ></el-button>
         </template>
       </el-table-column>
@@ -29,6 +30,7 @@
       <el-button type="primary" @click="onAddMiniCarousel()" style="margin:15px 0">新增</el-button>
     </div>
     <el-table :data="totalData[3].imgs" border style="width: 100%">
+      <el-table-column prop="id" width="100" label="id"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgserver + scope.row.img" alt />
@@ -40,13 +42,9 @@
           <el-button
             type="primary"
             icon="el-icon-edit"
-            @click="onOpenEditModal(scope.$index, scope.row,'miniCarouselData')"
+            @click="onOpenEditModal(scope.$index, scope.row)"
           ></el-button>
-          <el-button
-            type="danger"
-            icon="el-icon-delete"
-            @click="onDelete(scope.$index, scope.row,'miniCarouselData')"
-          ></el-button>
+          <el-button type="danger" icon="el-icon-delete" @click="onDelete(scope.$index, scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -78,7 +76,12 @@
 </template>
 
 <script>
-import { getBottomImgs, updateBottomImgs } from './service'
+import {
+  getBottomImgs,
+  updateBottomImgs,
+  addBottomImgs,
+  deleteBottomImgs
+} from './service'
 import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
 
 export default {
@@ -91,7 +94,6 @@ export default {
       options: {},
       totalData: [{}, {}, {}, {}],
       currentIndex: 0,
-      menuType: '',
       formData: {
         href: '',
         img: ''
@@ -107,12 +109,7 @@ export default {
   methods: {
     onSaveImgSuccess(response) {
       if (response) {
-        if (this.miniCarouselIndex === -1) {
-          this.formData.img = response.data
-        } else {
-          this.totalData['children'][this.miniCarouselIndex]['img'] =
-            response.data
-        }
+        this.formData.img = response.data
       } else {
         this.$message({
           message: response.resultMsg || '上传图片失败,请重试!',
@@ -136,43 +133,57 @@ export default {
     },
     onAddMiniCarousel() {
       // 清除数据
+      this.formData.id = undefined
       this.formData.href = ''
       this.formData.img = ''
       this.dialogFormVisible = true
-      this.miniCarouselIndex = -1
-      this.menuType = 'miniCarouselData'
+    },
+    resetData() {
+      this.formData.id = undefined
+      this.formData.href = ''
+      this.formData.img = ''
     },
     onCreateOrModify() {
-      // -1表示新增
-      if (this.miniCarouselIndex === -1) {
-        this.totalData[3]['imgs'].push(this.formData)
-      } else if (this.menuType === 'threeData') {
-        this.totalData[this.currentIndex] = this.formData
-      } else if (this.menuType === 'miniCarouselData') {
-        this.totalData[3]['imgs'][this.miniCarouselIndex] = this.formData
+      console.log(11)
+      if (this.formData.id === undefined) {
+        addBottomImgs(this.$adminLang, this.formData)
+          .then((response) => {
+            this.loading = false
+            this.$message({
+              message: '创建成功！',
+              type: 'success'
+            })
+            this.dialogFormVisible = false
+            this.loadData(this.$adminLang)
+          })
+          .catch((e) => {
+            this.$message({
+              message: '网络或程序异常！' + e,
+              type: 'error'
+            })
+          })
+      } else {
+        updateBottomImgs(this.$adminLang, this.formData)
+          .then((response) => {
+            this.loading = false
+            this.$message({
+              message: '修改成功！',
+              type: 'success'
+            })
+            this.dialogFormVisible = false
+            this.loadData(this.$adminLang)
+          })
+          .catch((e) => {
+            this.$message({
+              message: '网络或程序异常！' + e,
+              type: 'error'
+            })
+          })
       }
-      updateBottomImgs(this.$adminLang, this.totalData)
-        .then((response) => {
-          this.loading = false
-          this.$message({
-            message: '创建成功！',
-            type: 'success'
-          })
-          this.dialogFormVisible = false
-          this.loadData(this.$adminLang)
-        })
-        .catch((e) => {
-          this.$message({
-            message: '网络或程序异常！' + e,
-            type: 'error'
-          })
-        })
     },
     //编辑
-    onOpenEditModal(currentIndex, row, menuType) {
-      this.menuType = menuType
+    onOpenEditModal(currentIndex, row) {
       this.currentIndex = currentIndex
-      //index:第几行   row:这一行的数据
       this.formData = row
       this.dialogFormVisible = true
     },
@@ -183,15 +194,8 @@ export default {
         type: 'warning'
       })
         .then(() => {
-          // 已确认删除
-          // 调接口删除
           this.loading = true
-          if (!this.menuType === 'threeData') {
-            this.$message.error('系统错误,请刷新页面重试!')
-            return false
-          }
-          this.totalData[3]['imgs'].splice(this.miniCarouselIndex, 1)
-          updateBottomImgs(this.$adminLang, this.totalData)
+          deleteBottomImgs(this.$adminLang, row.id)
             .then((response) => {
               this.loading = false
               this.$message({
