@@ -34,10 +34,10 @@
         <el-form-item label="密码" :label-width="formLabelWidth">
           <el-input v-model="formData.password" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="是否启用" :label-width="formLabelWidth">
+        <!-- <el-form-item label="是否启用" :label-width="formLabelWidth">
           <el-radio v-model="formData.isAction" :label="true" border>是</el-radio>
           <el-radio v-model="formData.isAction" :label="false" border>否</el-radio>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>

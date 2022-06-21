@@ -2,7 +2,7 @@
   <div class="bottomSection">
     <div class="section s1">
       <a :href="bottomImgs[0].href">
-        <el-image class="img" :src="bottomImgs[0].img" />
+        <el-image class="img" :src="$baseURL+bottomImgs[0].img" />
       </a>
     </div>
     <div class="section s2">
@@ -10,7 +10,7 @@
     </div>
     <div class="section s3">
       <a :href="bottomImgs[2].href">
-        <el-image class="img" :src="bottomImgs[2].img" />
+        <el-image class="img" :src="$baseURL+bottomImgs[2].img" />
       </a>
     </div>
     <div class="section s4">

@@ -1,3 +1,4 @@
 window.baseURL='http://localhost:9999/'
-window.imgserver = "";
-window.videoURL = "http://www.shkjem.com/video/kj.mp4";
+window.imgserver = "http://localhost:9999/";
+window.videoURL = "http://localhost:9999/";
+// http://10.109.69.13:8085/

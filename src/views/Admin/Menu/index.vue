@@ -2,8 +2,12 @@
   <div class="menuAdmin" v-loading="loading">
     <div>
       <span style="margin-right:20px">请选择要编辑的菜单:</span>
-      <el-radio-group v-model="menuIndex" v-if="totalData.length">
-        <el-radio :label="i" v-for="(t,i) in totalData" :key="t.title.id">{{t.title[$lang]}}</el-radio>
+      <el-radio-group v-model="menuId" v-if="totalData.length">
+        <el-radio
+          :label="t.title.id"
+          v-for="(t,i) in totalData"
+          :key="t.title.id"
+        >{{t.title[$lang]}}</el-radio>
       </el-radio-group>
     </div>
     <!-- <ChangeLocationAdmin @langChanged="onLangChanged" /> -->
@@ -82,7 +86,7 @@ export default {
   components: {},
   data() {
     return {
-      menuIndex: 0,
+      menuId: 0,
       options: {},
       tableData: [],
       totalData: [],
@@ -100,8 +104,13 @@ export default {
     }
   },
   watch: {
-    menuIndex(val) {
-      this.tableData = this.totalData[val]
+    menuId(val) {
+      for (let i = 0; i < this.totalData.length; i++) {
+        if (this.totalData[i].title.id === val) {
+          this.tableData = this.totalData[i]
+          return
+        }
+      }
     }
   },
   mounted() {
@@ -123,10 +132,10 @@ export default {
       getMenu()
         .then((res) => {
           res = res
-          this.tableData = res[this.menuIndex]
+          this.tableData = res[0]
           this.totalData = res
           this.loading = false
-          // this.menuIndex = res[0].title.id
+          this.menuId = res[0].title.id
         })
         .catch((e) => {
           this.$message({
@@ -148,11 +157,11 @@ export default {
     onCreateOrModify() {
       this.loading = true
       if (this.formData.id === undefined) {
-        addMenu({ ...this.formData, pid: this.menuIndex })
+        addMenu({ ...this.formData, pid: this.menuId })
           .then((res) => {
             this.loading = false
             this.$message({
-              message: '修改成功！',
+              message: '添加成功！',
               type: 'success'
             })
             this.dialogFormVisible = false

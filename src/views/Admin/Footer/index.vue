@@ -59,7 +59,8 @@ export default {
       footerList: '',
       currentList: '',
       copyright: '',
-      img: ''
+      img: '',
+      id: ''
     }
   },
   created() {
@@ -71,6 +72,7 @@ export default {
         this.currentList = res.list
         this.copyright = res.copyright
         this.img = res.img
+        this.id = res.id
       })
     },
     updateFooter() {
@@ -94,7 +96,8 @@ export default {
       const data = {
         img: this.img,
         list: this.footerList,
-        copyright: this.copyright
+        copyright: this.copyright,
+        id: this.id
       }
 
       setFooter(data).then((res) => {

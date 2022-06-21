@@ -3,7 +3,7 @@
     <ChangeLocationAdmin />
     <!-- 三个图片 -->
     <div style="margin:20px 0 5px 0">三个图片</div>
-    <el-alert title="请注意,'三个图片'区域中,1,3两行为静态图片,第2行请上传视频" type="warning" style="margin:10px 0" />
+    <el-alert title="请注意,'三个图片'区域中,1,3两行为静态图片,第2行请上传视频, *并且上传的所有图片尺寸必须一致,否则页面错乱,切记切记!!!" type="warning" style="margin:10px 0" />
     <el-table :data="[totalData[0],totalData[1],totalData[2]]" border style="width: 100%">
       <el-table-column type="index" width="50" label="行号"></el-table-column>
       <el-table-column prop="id" width="100" label="id"></el-table-column>
@@ -144,7 +144,6 @@ export default {
       this.formData.img = ''
     },
     onCreateOrModify() {
-      console.log(11)
       if (this.formData.id === undefined) {
         addBottomImgs(this.$adminLang, this.formData)
           .then((response) => {

@@ -23,11 +23,13 @@ export default {
   props: ['isMobile', 'handleDisplayDrawer'],
   data() {
     return {
-      logo: {}
+      logo: {
+        img: ''
+      }
     }
   },
   created() {
-    getLogo().then((res) => (this.logo = res))
+    getLogo().then((res) => (this.logo.img = res))
   },
   methods: {
     handleSuccess(res) {

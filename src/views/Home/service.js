@@ -6,7 +6,7 @@ export const getCarousel = lang => {
 };
 
 export const getProductImgs = lang => {
-  const api = `productImgs/getAll?lang=${lang}`;
+  const api = `ProductImgs/getAll?lang=${lang}`;
   return baseService.get(api);
 };
 

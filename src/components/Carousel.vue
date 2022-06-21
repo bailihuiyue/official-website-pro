@@ -4,7 +4,7 @@
       <el-carousel-item v-for="item in carouselList" :key="item.id">
         <a :href="'#'+item.href">
           <!-- <el-image :src="item.img" fit="contain"/> -->
-          <img :src="item.img" class="img" />
+          <img :src="$baseURL+item.img" class="img" />
         </a>
       </el-carousel-item>
     </el-carousel>
@@ -42,7 +42,7 @@ export default {
           clientWidth = this.$refs.carouselRef.clientWidth
         }
         var img = new Image()
-        img.src = this.carouselList[0].img
+        img.src = this.$baseURL + this.carouselList[0].img
         img.onload = function () {
           self.height =
             (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'

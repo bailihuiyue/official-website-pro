@@ -1,7 +1,7 @@
 <template>
   <div class="productImgs">
     <a :href="'#'+item.href" v-for="item in productImgs" :key="item.img">
-      <img :src="item.img" class="img" />
+      <img :src="$baseURL+item.img" class="img" />
     </a>
   </div>
 </template>
