@@ -114,7 +114,7 @@ export default {
     }
   },
   mounted() {
-    this.loadData()
+    this.loadData(true)
   },
   methods: {
     onSaveImgSuccess(response) {
@@ -127,15 +127,16 @@ export default {
         })
       }
     },
-    loadData() {
+    loadData(isInit) {
       this.loading = true
       getMenu()
         .then((res) => {
-          res = res
-          this.tableData = res[0]
           this.totalData = res
           this.loading = false
-          this.menuId = res[0].title.id
+          if (isInit) {
+            this.tableData = res[0]
+            this.menuId = res[0].title.id
+          }
         })
         .catch((e) => {
           this.$message({
