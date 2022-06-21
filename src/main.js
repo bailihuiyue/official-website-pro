@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { imgserver, getLang, getToken, getAdminLang, baseURL } from "@/utils/utils";
+import { imgserver, getLang, getToken, getAdminLang, baseURL, videoURL } from "@/utils/utils";
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
@@ -32,12 +32,12 @@ Vue.config.productionTip = false;
 
 // 图片服务器地址
 Vue.prototype.$imgserver = imgserver;
+Vue.prototype.$baseURL = baseURL;
+Vue.prototype.$videoURL = videoURL;
 
 Vue.prototype.$lang = getLang();
 Vue.prototype.$adminLang = getAdminLang();
 Vue.prototype.$token = getToken();
-Vue.prototype.$baseURL = baseURL;
-
 new Vue({
   router,
   render: (h) => h(App),

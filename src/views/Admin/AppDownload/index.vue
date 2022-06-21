@@ -19,7 +19,7 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog title="设置教程详情编辑" :visible.sync="dialogFormVisible" width="80%">
+    <el-dialog title="APP详情编辑" :visible.sync="dialogFormVisible" width="80%">
       <el-form :model="formData">
         <el-form-item label="标题" :label-width="formLabelWidth">
           <el-input v-model="formData.title" autocomplete="off"></el-input>
@@ -38,7 +38,7 @@
           <a
             style="margin-left:30px"
             target="_blank"
-            :href="formData.appUrl"
+            :href="$baseURL+formData.appUrl"
             v-if="formData.appUrl"
           >点击查看</a>
         </el-form-item>

@@ -42,7 +42,7 @@
           <a
             style="margin-left:30px"
             target="_blank"
-            :href="formData.driverUrl"
+            :href="$baseURL+formData.driverUrl"
             v-if="formData.driverUrl"
           >点击查看</a>
         </el-form-item>
@@ -60,7 +60,7 @@
           <a
             style="margin-left:30px"
             target="_blank"
-            :href="formData.pdfUrl"
+            :href="$baseURL+formData.pdfUrl"
             v-if="formData.pdfUrl"
           >点击查看</a>
         </el-form-item>

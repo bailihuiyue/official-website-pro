@@ -38,6 +38,10 @@ export default {
   .content {
     margin: 20px auto;
     // color: $lightWhite;
+    img {
+      width: 100%;
+      display: block;
+    }
   }
 }
 .mobile {
