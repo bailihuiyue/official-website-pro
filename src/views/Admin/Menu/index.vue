@@ -136,6 +136,12 @@ export default {
           if (isInit) {
             this.tableData = res[0]
             this.menuId = res[0].title.id
+          } else {
+            const id = this.menuId
+            this.menuId = -1
+            this.$nextTick(() => {
+              this.menuId = id
+            })
           }
         })
         .catch((e) => {
@@ -166,7 +172,7 @@ export default {
               type: 'success'
             })
             this.dialogFormVisible = false
-            this.loadData(this.$adminLang)
+            this.loadData()
           })
           .catch((e) => {
             this.$message({
@@ -183,7 +189,7 @@ export default {
               type: 'success'
             })
             this.dialogFormVisible = false
-            this.loadData(this.$adminLang)
+            this.loadData()
           })
           .catch((e) => {
             this.$message({

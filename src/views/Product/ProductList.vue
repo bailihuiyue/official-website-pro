@@ -29,7 +29,12 @@ export default {
     }
   },
   created() {
-    getProductType().then((res) => (this.productTypes = res))
+    getProductType().then((res) => {
+      res.forEach((item) => {
+        item.img = this.$baseURL + item.img
+      })
+      this.productTypes = res
+    })
   },
   methods: {
     onSearch(searchTxt) {

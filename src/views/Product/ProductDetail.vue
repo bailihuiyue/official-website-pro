@@ -62,6 +62,7 @@ export default {
         border-bottom: 1px solid #e0e0e0;
         box-shadow: 0 5px 5px rgba(0,0,0,0.05);
         height: 63px;
+        margin-bottom: 0;
       }
       .el-tabs__nav-wrap::after {
         background-color: transparent;
@@ -89,8 +90,9 @@ export default {
       }
     }
     .detailPage {
-      width: 80%;
-      margin: 10px auto;
+      // width: 80%;
+      margin: 0px auto;
+      font-size: 0;
     }
     #tab-technicalSupport,
     #tab-productParameter,

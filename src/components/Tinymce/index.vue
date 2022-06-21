@@ -191,7 +191,7 @@ export default {
             .then((res) => {
               if (res) {
                 self.$message.success('上传成功!')
-                success(res)
+                success(this.$baseURL + res)
                 // self.imageSuccessCBK(res)
               } else {
                 self.$message.error('上传失败!')
@@ -202,7 +202,7 @@ export default {
               const error =
                 err.response && err.response.data && err.response.data.enMsg
               progress(100)
-              failure(self.$t('common.uploadFail') + '\r\n' + error)
+              failure('上传失败!' + '\r\n' + error)
               console.log(err)
               return false
             })
@@ -245,7 +245,7 @@ export default {
   .mce-path.mce-flow-layout-item.mce-first {
     display: none !important;
   }
-  .mce-tinymce.mce-container.mce-panel{
+  .mce-tinymce.mce-container.mce-panel {
     width: auto !important;
   }
 }

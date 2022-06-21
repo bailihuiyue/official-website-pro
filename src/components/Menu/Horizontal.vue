@@ -13,7 +13,7 @@
             <span @click="jumpTo(t.href)">{{t.title[$lang]}}</span>
           </template>
           <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c.href)">
-            <img class="subThumb" :src="c.img" />
+            <img class="subThumb" :src="$baseURL+c.img" />
             <div class="subTitle">{{c[$lang]}}</div>
             <!-- <div class="subDesc">{{c[$lang]}}</div> -->
           </el-menu-item>

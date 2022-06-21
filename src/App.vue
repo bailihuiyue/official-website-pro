@@ -190,7 +190,7 @@ div.el-menu--horizontal {
     background-color: transparent !important;
     padding-top: 30px !important;
     li.el-menu-item {
-      height: 120px !important;
+      height: 150px !important;
       width: 200px;
       &:hover {
         background-color: transparent !important;
@@ -198,7 +198,7 @@ div.el-menu--horizontal {
       }
       .subThumb,
       .subTitle {
-        width: 120px;
+        width: 90px;
       }
       .subTitle {
         text-align: center;

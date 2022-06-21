@@ -1,4 +1,6 @@
-window.baseURL='http://localhost:9999/'
-window.imgserver = "http://localhost:9999/";
-window.videoURL = "http://localhost:9999/";
-// http://10.109.69.13:8085/
+const back = 'http://10.109.69.13:8085/'
+const ali = 'http://118.190.209.120:8085/'
+const local= 'http://localhost:9999/'
+window.baseURL = ali
+window.imgserver = ali;
+window.videoURL = ali;
