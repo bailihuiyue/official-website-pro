@@ -6,7 +6,7 @@
       <el-table-column prop="id" label="序号" width="80"></el-table-column>
       <el-table-column prop="img" label="企业Logo" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgserver+scope.row.img" alt />
+          <img style="width:200px" :src="$imgServer+scope.row.img" alt />
         </template>
       </el-table-column>
       <el-table-column prop="remark" label="企业名称"></el-table-column>
@@ -30,12 +30,12 @@
         <el-form-item label="企业Logo" :label-width="formLabelWidth">
           <el-upload
             class="avatar-uploader"
-            :action="`${$imgserver}api/upload/uploadImage`"
+            :action="`${$imgServer}api/upload/uploadImage`"
             :headers="headers"
             :show-file-list="false"
             :on-success="handleSuccess"
           >
-            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>

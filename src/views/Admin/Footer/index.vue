@@ -12,7 +12,7 @@
           <div style="float:left;width:500px">
             <div>当前已保存的内容:</div>
             <div style="margin-top:5px;font-size:14px;white-space: pre;">
-              <code>{{JSON.stringify(currentList , '', 2)}}</code>
+              <code>{{JSON.stringify(JSON.parse(currentList) , '', 2)}}</code>
             </div>
           </div>
           <div style="float:left">
@@ -36,13 +36,13 @@
         <el-upload
           style="margin-top:20px"
           class="avatar-uploader"
-          :action="`${$imgserver}api/upload/uploadImage`"
+          :action="`${$imgServer}api/upload/uploadImage`"
           :show-file-list="false"
           :on-success="handleSuccess"
           :headers="{token:$token}"
         >
           <div class="avatar">
-            <img v-if="img" :src="$imgserver+img" />
+            <img v-if="img" :src="$imgServer+img" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </div>
         </el-upload>

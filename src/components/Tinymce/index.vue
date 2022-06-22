@@ -191,7 +191,7 @@ export default {
             .then((res) => {
               if (res) {
                 self.$message.success('上传成功!')
-                success(this.$baseURL + res)
+                success(this.$imgServer + res)
                 // self.imageSuccessCBK(res)
               } else {
                 self.$message.error('上传失败!')

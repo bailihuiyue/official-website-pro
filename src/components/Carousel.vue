@@ -4,7 +4,7 @@
       <el-carousel-item v-for="item in carouselList" :key="item.id">
         <a :href="'#'+item.href">
           <!-- <el-image :src="item.img" fit="contain"/> -->
-          <img :src="$baseURL+item.img" class="img" />
+          <img :src="$imgServer+item.img" class="img" />
         </a>
       </el-carousel-item>
     </el-carousel>

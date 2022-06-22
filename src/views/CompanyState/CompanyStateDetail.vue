@@ -37,6 +37,9 @@ export default {
   }
   .content {
     margin: 20px auto;
+    img{
+      width: 100%;
+    }
     // color: $lightWhite;
   }
 }

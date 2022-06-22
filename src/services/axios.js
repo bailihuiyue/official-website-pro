@@ -52,7 +52,7 @@ axios.interceptors.response.use(
     const result = error.response;
     if (result && result.data) {
       const { data } = result;
-      Message.error(data);
+      Message.error(data.data||data.msg);
     } else if (msg) {
       if (msg === "Network Error") {
         Message.error("网络错误,请检查网络!");

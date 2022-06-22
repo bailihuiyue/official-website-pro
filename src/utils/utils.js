@@ -4,9 +4,9 @@
 //     : "http://shkjgw.shkjem.com/api/";
 export const baseURL = window.baseURL;
 // export const baseURL = "http://localhost:8081/";
-// export const imgserver = "http://localhost:8081/";
-// export const imgserver = "http://shkjgw.shkjem.com/";
-export const imgserver = window.imgserver;
+// export const imgServer = "http://localhost:8081/";
+// export const imgServer = "http://shkjgw.shkjem.com/";
+export const imgServer = window.imgServer;
 export const videoURL = window.videoURL;
 
 export const getLang = () => window.localStorage.getItem('lang') || 'cn'

@@ -9,7 +9,7 @@
       <el-table-column prop="id" width="100" label="id"></el-table-column>
       <el-table-column prop="img" label="图片/视频封面" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
+          <img style="width:200px" :src="$imgServer + scope.row.img" alt />
         </template>
       </el-table-column>
       <el-table-column prop="href" label="跳转链接/视频地址"></el-table-column>
@@ -33,7 +33,7 @@
       <el-table-column prop="id" width="100" label="id"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
+          <img style="width:200px" :src="$imgServer + scope.row.img" alt />
         </template>
       </el-table-column>
       <el-table-column prop="href" label="跳转链接"></el-table-column>
@@ -59,7 +59,7 @@
             :on-success="onSaveImgSuccess"
             :headers="{token:$token}"
           >
-            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>

@@ -48,8 +48,8 @@ export default {
 <style lang="scss">
 .companyHonor {
   .carousel {
-    width: 80%;
-    margin: 20px auto;
+    // width: 80%;
+    // margin: 20px auto;
   }
 }
 .mobile {

@@ -10,7 +10,8 @@
       v-for="r in aboutCompanyTypes"
       :class="`content ${r.type}`"
       v-if="type===r.type"
-    >{{aboutCompanyData[type]}}</div>
+      v-html="aboutCompanyData[type]"
+    ></div>
   </div>
 </template>
 <script>
@@ -59,6 +60,9 @@ export default {
   .content {
     width: 80%;
     margin: 20px auto;
+    img{
+      width: 100%;
+    }
   }
 }
 </style>

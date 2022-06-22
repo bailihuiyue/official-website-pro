@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { imgserver, getLang, getToken, getAdminLang, baseURL, videoURL } from "@/utils/utils";
+import { imgServer, getLang, getToken, getAdminLang, baseURL, videoURL } from "@/utils/utils";
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
@@ -31,7 +31,7 @@ Vue.use(VueLazyload, {
 Vue.config.productionTip = false;
 
 // 图片服务器地址
-Vue.prototype.$imgserver = imgserver;
+Vue.prototype.$imgServer = imgServer;
 Vue.prototype.$baseURL = baseURL;
 Vue.prototype.$videoURL = videoURL;
 

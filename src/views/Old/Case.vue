@@ -4,7 +4,7 @@
     <div class="case-section" v-loading="loading">
       <div class="case-section-content">
         <div class="case-section-content-list" v-for="(cas,index) in caseList" :key="index">
-          <img v-lazy="$imgserver+cas.img" />
+          <img v-lazy="$imgServer+cas.img" />
           <div class="content-list-abstract" :class="{'abstract-active' : index%2!=1}">
             <p class="abstract-title">{{cas.title}}</p>
             <p class="abstract-content">{{cas.content}}</p>

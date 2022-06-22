@@ -54,7 +54,7 @@ export default {
   created() {
     this.playerOptions.sources[0].src =
       this.videoData.href || this.videoData.src
-    this.playerOptions.poster = this.$baseURL + this.videoData.img
+    this.playerOptions.poster = this.$videoURL + this.videoData.img
   }
 }
 </script>

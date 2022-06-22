@@ -9,7 +9,7 @@
       <el-table-column prop="title.en" label="英文" width="200"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
+          <img style="width:200px" :src="$imgServer + scope.row.img" alt />
         </template>
       </el-table-column>
       <el-table-column prop="sku" label="SKU"></el-table-column>
@@ -37,7 +37,7 @@
             :on-success="onSuccess"
             :headers="{token:$token}"
           >
-            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>

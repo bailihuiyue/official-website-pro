@@ -12,7 +12,7 @@
           >{{c[$lang]}}</a>
         </li>
       </ul>
-      <img v-if="footers.img" :src="footers.img" alt />
+      <img v-if="footers.img" :src="$imgServer+footers.img" alt />
     </div>
     <div v-else>
       <el-collapse>
@@ -43,11 +43,14 @@ export default {
   props: ['isMobile'],
   data() {
     return {
-      footers: []
+      footers: {}
     }
   },
   created() {
-    getFooter().then((res) => (this.footers = res))
+    getFooter().then((res) => {
+      this.footers = res
+      this.footers.list=JSON.parse(res.list)
+    })
   }
 }
 </script>

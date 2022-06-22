@@ -22,7 +22,7 @@
 
         <div class="content-nav-item">
           <div class="item-list" v-for="(item,index) in newsList" :key="index">
-            <div class="item-img" v-lazy:background-image="$imgserver + item.img"></div>
+            <div class="item-img" v-lazy:background-image="$imgServer + item.img"></div>
 
             <p class="item-list-title">{{item.title}}</p>
             <p class="item-list-content">{{item.content}}</p>

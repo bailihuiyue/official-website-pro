@@ -28,7 +28,7 @@
           <el-upload
             class="upload-demo"
             style="display:inline-block"
-            :action="`${$baseURL}api/upload/uploadfile`"
+            :action="`${$imgServer}api/upload/uploadfile`"
             :show-file-list="false"
             :on-success="onUploadFileSuccess"
             :headers="{token:$token}"

@@ -31,7 +31,7 @@ export default {
   created() {
     getProductType().then((res) => {
       res.forEach((item) => {
-        item.img = this.$baseURL + item.img
+        item.img = this.$imgServer + item.img
       })
       this.productTypes = res
     })

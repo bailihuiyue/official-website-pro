@@ -4,7 +4,7 @@
       <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
         <el-card class="companyStateItem" @click.native="jumpTo(l.id)">
           <div slot="header" class="clearfix">
-            <img style="width:100%" :src="l.img" />
+            <img style="width:100%" :src="$imgServer+l.img" />
           </div>
           <span class="title">{{l.title}}</span>
           <div class="desc">{{l.desc}}</div>

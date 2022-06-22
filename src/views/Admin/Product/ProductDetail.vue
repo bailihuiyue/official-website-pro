@@ -13,7 +13,7 @@
       <el-table-column prop="title" label="标题"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgserver + scope.row.img" alt />
+          <img style="width:200px" :src="$imgServer + scope.row.img" alt />
         </template>
       </el-table-column>
       <el-table-column prop="sku" label="SKU" />
@@ -35,7 +35,7 @@
             :on-success="onSuccess"
             :headers="{token:$token}"
           >
-            <img v-if="formData.img" :src="$imgserver+formData.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
@@ -176,6 +176,11 @@ export default {
       this.formData.productParameter = ''
       this.formData.technicalSupport = ''
       this.dialogFormVisible = true
+      this.$nextTick(() => {
+        this.$refs.productDetailTiny.setContent('')
+        this.$refs.productParameterTiny.setContent('')
+        this.$refs.technicalSupportTiny.setContent('')
+      })
     },
     onCreateOrModify() {
       this.formData.productDetail = this.$refs.productDetailTiny.getContent()
@@ -220,6 +225,9 @@ export default {
               message: '修改成功！',
               type: 'success'
             })
+            this.$refs.productDetailTiny.setContent('')
+            this.$refs.productParameterTiny.setContent('')
+            this.$refs.technicalSupportTiny.setContent('')
             this.dialogFormVisible = false
             this.getProductListApi()
           })
@@ -239,9 +247,9 @@ export default {
         this.formData.img = row.img
         this.formData.sku = row.sku
         this.formData.id = row.id
-        this.$refs.productDetailTiny.setContent(res.productDetail)
-        this.$refs.productParameterTiny.setContent(res.productDetail)
-        this.$refs.technicalSupportTiny.setContent(res.technicalSupport)
+        this.$refs.productDetailTiny.setContent(res.productDetail || '')
+        this.$refs.productParameterTiny.setContent(res.productDetail || '')
+        this.$refs.technicalSupportTiny.setContent(res.technicalSupport || '')
       })
       this.dialogFormVisible = true
     },

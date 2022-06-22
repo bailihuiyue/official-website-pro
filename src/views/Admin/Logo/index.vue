@@ -10,7 +10,7 @@
       :headers="{token:$token}"
     >
       <div class="avatar">
-        <img v-if="logo.img" :src="$imgserver+logo.img" />
+        <img v-if="logo.img" :src="$imgServer+logo.img" />
         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
       </div>
     </el-upload>

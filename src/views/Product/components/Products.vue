@@ -4,7 +4,7 @@
       <el-col :span="12" v-for="l in list" :key="l.id">
         <div class="wrap">
           <div @click="jumpTo(l.id)">
-            <el-image :src="l.img" style="width:100%;height:100%" />
+            <el-image :src="$imgServer+l.img" style="width:100%;height:100%" />
             <div class="title">{{l.title}}</div>
           </div>
         </div>
