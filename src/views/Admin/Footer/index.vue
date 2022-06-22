@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       footerList: '',
-      currentList: '',
+      currentList: '{"test":1}',
       copyright: '',
       img: '',
       id: ''

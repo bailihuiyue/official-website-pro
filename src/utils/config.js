@@ -299,3 +299,30 @@ export const recruitmentTypes = [
     }
   }
 ]
+
+// 分类管理:1.驱动2.设置教程3.app 4.常见问题 classifyTypes和classifyTypesEnum对应
+export const classifyTypes = [
+  {
+    title: '驱动',
+    type: '1'
+  },
+  {
+    title: '设置教程',
+    type: '2'
+  },
+  {
+    title: 'APP',
+    type: '3'
+  },
+  {
+    title: '常见问题',
+    type: '4'
+  },
+]
+
+export const classifyTypesEnum = {
+  driver: '1',
+  configGuide: '2',
+  app: '3',
+  faq: '4'
+}

@@ -3,15 +3,16 @@
     <SeatchBar @onSearch="onSearch" />
     <ButtonGroup :btns="faqTypes" type="vertical" @click="onChangeTypes" v-show="!searchTxt" />
     <FAQList :searchTxt="searchTxt" :type="type" />
-    <SubmitQuestion @submit="onSubmit" :isFAQ="true"/>
+    <SubmitQuestion @submit="onSubmit" :isFAQ="true" />
   </div>
 </template>
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
-import { faqTypes } from '@/utils/config'
 import SeatchBar from '@/components/SeatchBar'
 import FAQList from './components/FAQList'
 import SubmitQuestion from '@/components/SubmitQuestion'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'faqGuide',
@@ -23,20 +24,24 @@ export default {
   },
   data() {
     return {
-      faqTypes,
+      faqTypes:[],
       searchTxt: '',
       type: ''
     }
+  },
+  created() {
+    getClassify(classifyTypesEnum.faq).then((res) => {
+      this.faqTypes = res
+    })
   },
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
     },
     onChangeTypes(data) {
-      this.type = data.id
+      this.type = data.typeNo
     },
-    onSubmit(data) {
-    }
+    onSubmit(data) {}
   }
 }
 </script>

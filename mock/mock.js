@@ -299,7 +299,7 @@ module.exports = {
   "post /menu/delete": { data: true },
   // Logo
   "get /logo/get": {
-    data: { id: 0, img: 'logo.png' }
+    data: 'logo.png'
   },
   "post /logo/modify": {
     data: { data: true }
@@ -308,88 +308,7 @@ module.exports = {
   'get /footer/get': {
     data: {
       img: 'http://shkjgw.shkjem.com/imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg',
-      list: [
-        {
-          'cn': '企业信息',
-          'en': 'q',
-          children: [{
-            'cn': '发展历程',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '企业文化',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '资质荣誉',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '合作伙伴',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          }]
-        },
-        {
-          'cn': '新闻资讯',
-          'en': 'q',
-          children: [{
-            'cn': '公司新闻',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '行业动态',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          }]
-        },
-        {
-          'cn': '产品中心',
-          'en': 'q',
-          children: [{
-            'cn': '介绍视频',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '管理模式',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '平台目标',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          },
-          {
-            'cn': '功能模块',
-            'en': 'q',
-            href: 'https://www.baidu.com'
-          }]
-        },
-        {
-          'cn': '联系我们',
-          'en': 'q',
-          children: [{
-            'cn': '邮箱：websitelml@163.com',
-            'en': 'q',
-          },
-          {
-            'cn': '电话：021-55802368',
-            'en': 'q',
-            href: ''
-          },
-          {
-            'cn': '地址：上海市杨浦区翔殷路128号12号楼101',
-            'en': 'q',
-            href: ''
-          }]
-        }
-      ],
+      list: `[{"cn":"企业信息","en":"q","children":[{"cn":"发展历程","en":"q","href":"https://www.baidu.com"},{"cn":"企业文化","en":"q","href":"https://www.baidu.com"},{"cn":"资质荣誉","en":"q","href":"https://www.baidu.com"},{"cn":"合作伙伴","en":"q","href":"https://www.baidu.com"}]},{"cn":"新闻资讯","en":"q","children":[{"cn":"公司新闻","en":"q","href":"https://www.baidu.com"},{"cn":"行业动态","en":"q","href":"https://www.baidu.com"}]},{"cn":"产品中心","en":"q","children":[{"cn":"介绍视频","en":"q","href":"https://www.baidu.com"},{"cn":"管理模式","en":"q","href":"https://www.baidu.com"},{"cn":"平台目标","en":"q","href":"https://www.baidu.com"},{"cn":"功能模块","en":"q","href":"https://www.baidu.com"}]},{"cn":"联系我们","en":"q","children":[{"cn":"邮箱：websitelml@163.com","en":"q"},{"cn":"电话：021-55802368","en":"q","href":""},{"cn":"地址：上海市杨浦区翔殷路128号12号楼101","en":"q","href":""}]}]`,
       copyright: 'Copyright © 2020 Shenzhen PXN Electronic Technology Co., Ltd.'
     }
   },
@@ -771,4 +690,39 @@ module.exports = {
     }
   },
   "post /recruitment/modify": { data: true },
+  // 分类管理:1.驱动2.设置教程3.app 4.常见问题
+  'get /classify/getAll': {
+    data: [
+      {
+        id: '0',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        title: {
+          en: 'shoubing',
+          cn: '手柄',
+        },
+        typeNo:'0'
+      },
+      {
+        id: '1',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+        title: {
+          en: 'fangxiangpan',
+          cn: '方向盘',
+        },
+        typeNo:'1'
+      },
+      {
+        id: '2',
+        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg',
+        title: {
+          en: 'erji',
+          cn: '耳机',
+        },
+        typeNo:'2'
+      },
+    ]
+  },
+  "post /classify/add": { data: true },
+  "post /classify/modify": { data: true },
+  "get /classify/delete": { data: true },
 }

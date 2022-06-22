@@ -222,6 +222,11 @@ const router = new Router({
           name: 'adminRecruitment',
           component: () => import('./views/Admin/Recruitment/index.vue'),
         },
+        {
+          path: '/admin/classify',
+          name: 'classify',
+          component: () => import('./views/Admin/Classify/index.vue'),
+        },
         // {
         //   path: '/admin/news',
         //   name: 'new',

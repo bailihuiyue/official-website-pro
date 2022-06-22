@@ -31,6 +31,10 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">底部四图管理</span>
           </el-menu-item>
+          <el-menu-item index="/admin/classify">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">分类管理</span>
+          </el-menu-item>
           <el-submenu index="/admin">
             <template slot="title">
               <i class="el-icon-star-off"></i>

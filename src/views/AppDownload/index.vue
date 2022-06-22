@@ -1,15 +1,21 @@
 <template>
   <div class="appDownload">
     <SeatchBar @onSearch="onSearch" />
-    <ButtonGroup :btns="appDownloadTypes" type="vertical" @click="onChangeTypes" v-show="!searchTxt" />
+    <ButtonGroup
+      :btns="appDownloadTypes"
+      type="vertical"
+      @click="onChangeTypes"
+      v-show="!searchTxt"
+    />
     <AppDownloadList :searchTxt="searchTxt" :type="type" />
   </div>
 </template>
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
-import { appDownloadTypes } from '@/utils/config'
 import SeatchBar from '@/components/SeatchBar.vue'
 import AppDownloadList from './components/AppDownloadList'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'appDownload',
@@ -20,17 +26,22 @@ export default {
   },
   data() {
     return {
-      appDownloadTypes,
+      appDownloadTypes: [],
       searchTxt: '',
       type: ''
     }
+  },
+  created() {
+    getClassify(classifyTypesEnum.app).then((res) => {
+      this.appDownloadTypes = res
+    })
   },
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
     },
     onChangeTypes(data) {
-      this.type = data.id
+      this.type = data.typeNo
     }
   }
 }

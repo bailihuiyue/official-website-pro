@@ -4,7 +4,11 @@
     <div style="margin:15px 0">
       <span style="margin-right:20px">请选择要编辑的教程类型:</span>
       <el-radio-group v-model="selectedConfigGuideType">
-        <el-radio :label="c.id" v-for="c in configGuideTypes" :key="c.id">{{c.title[$adminLang]}}</el-radio>
+        <el-radio
+          :label="c.typeNo"
+          v-for="c in configGuideTypes"
+          :key="c.typeNo"
+        >{{c.title[$adminLang]}}</el-radio>
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addConfigGuideDetail()" style="margin:10px 0">新增设置教程</el-button>
@@ -32,7 +36,7 @@
             :on-success="onUploadImgSuccess"
             :headers="{token:$token}"
           >
-            <img v-if="formData.video.img" :src="$imgserver+formData.video.img" class="avatar" />
+            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
@@ -50,8 +54,8 @@
           <a
             style="margin-left:30px"
             target="_blank"
-            :href="formData.video.src"
-            v-if="formData.video.src"
+            :href="$videoURL+formData.video"
+            v-if="formData.video"
           >点击查看</a>
         </el-form-item>
         <el-form-item label="内容" :label-width="formLabelWidth">
@@ -80,7 +84,8 @@ import {
   deleteConfigGuideDetail,
   getConfigGuideList
 } from './service'
-import { configGuideTypes } from '@/utils/config'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'configGuideDetailAdmin',
@@ -90,17 +95,15 @@ export default {
   },
   data() {
     return {
-      configGuideTypes,
-      selectedConfigGuideType: configGuideTypes[0].id,
+      configGuideTypes: [],
+      selectedConfigGuideType: 0,
       configGuideDetail: {},
       list: [],
       formData: {
         id: '',
         title: '',
-        video: {
-          img: '',
-          src: ''
-        },
+        video: '',
+        img: '',
         content: ''
       },
       dialogFormVisible: false,
@@ -109,7 +112,11 @@ export default {
     }
   },
   created() {
-    this.getConfigGuideListApi()
+    getClassify(classifyTypesEnum.configGuide).then((res) => {
+      this.configGuideTypes = res
+      this.selectedConfigGuideType = res[0].typeNo
+      this.getConfigGuideListApi(res[0].typeNo)
+    })
   },
   watch: {
     selectedConfigGuideType(val) {
@@ -117,12 +124,12 @@ export default {
     }
   },
   methods: {
-    getConfigGuideListApi() {
+    getConfigGuideListApi(typeNo) {
       getConfigGuideList({
         lang: this.$adminLang,
         currentPage: 1,
         pageSize: 9999,
-        type: this.selectedConfigGuideType
+        type: typeNo || this.selectedConfigGuideType
       }).then((res) => {
         this.list = res.list
         this.loading = false
@@ -130,7 +137,7 @@ export default {
     },
     onUploadImgSuccess(response) {
       if (response) {
-        this.formData.video.img = response.data
+        this.formData.img = response.data
       } else {
         this.$message({
           message: response.resultMsg || '上传图片失败,请重试!',
@@ -140,7 +147,7 @@ export default {
     },
     onUploadFileSuccess(response) {
       if (response) {
-        this.formData.video.src = response.data
+        this.formData.video = response.data
       } else {
         this.$message({
           message: response.resultMsg || '上传文件失败,请重试!',
@@ -151,8 +158,8 @@ export default {
     addConfigGuideDetail() {
       // 清除数据
       this.formData.id = undefined
-      this.formData.video.img = ''
-      this.formData.video.src = ''
+      this.formData.img = ''
+      this.formData.video = ''
       this.formData.title = ''
       this.formData.content = ''
       this.dialogFormVisible = true
@@ -210,8 +217,8 @@ export default {
       //index:第几行   row:这一行的数据
       getConfigGuideDetail(this.$adminLang, row.id).then((res) => {
         this.formData.title = res.title
-        this.formData.video.img = res.video.img
-        this.formData.video.src = res.video.src
+        this.formData.img = res.img
+        this.formData.video = res.video
         this.formData.id = res.id
         this.$refs.configGuideDetailTiny.setContent(res.content)
       })
@@ -220,7 +227,7 @@ export default {
     onCancelEdit() {
       this.dialogFormVisible = false
       this.$refs.configGuideDetailTiny.setContent('')
-      this.formData.video.src = ''
+      this.formData.video = ''
     },
     onDelete(index, row) {
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {

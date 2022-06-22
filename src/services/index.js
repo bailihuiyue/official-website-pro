@@ -1,6 +1,9 @@
-import base from "@/services/axios";
+import baseService from "@/services/axios";
 
-export const baseService = base;
+export const getClassify = (type) => {
+  const api = `classify/getAll?type=${type}`;
+  return baseService.get(api);
+};
 
 export const getCasesById = (pid) => {
   const api = `Cases/GetCasesById/${pid}`;

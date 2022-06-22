@@ -3,7 +3,21 @@
     <ChangeLocationAdmin />
     <!-- 三个图片 -->
     <div style="margin:20px 0 5px 0">三个图片</div>
-    <el-alert title="请注意,'三个图片'区域中,1,3两行为静态图片,第2行请上传视频, *并且上传的所有图片尺寸必须一致,否则页面错乱,切记切记!!!" type="warning" style="margin:10px 0" />
+    <el-alert
+      title="请注意,'三个图片'区域中,1,3两行为静态图片,第2行请上传视频, *并且上传的所有图片尺寸必须一致,否则页面错乱,切记切记!!!"
+      type="warning"
+      style="margin:10px 0"
+    />
+    <el-upload
+      class="upload-demo"
+      style="display:inline-block"
+      :action="`${$baseURL}api/upload/uploadfile`"
+      :show-file-list="false"
+      :on-success="onUploadFileSuccess"
+      :headers="{token:$token}"
+    >
+      <el-button size="small" type="primary">上传第2行的视频</el-button>
+    </el-upload>
     <el-table :data="[totalData[0],totalData[1],totalData[2]]" border style="width: 100%">
       <el-table-column type="index" width="50" label="行号"></el-table-column>
       <el-table-column prop="id" width="100" label="id"></el-table-column>
@@ -216,6 +230,23 @@ export default {
             message: '已取消删除'
           })
         })
+    },
+    onUploadFileSuccess(response) {
+      if (response) {
+        const data = this.totalData[1]
+        data.href = response.data
+        this.loading = true
+        updateBottomImgs(this.$adminLang, data).then((response) => {
+          this.loading = false
+          this.$message.success('修改成功！')
+          this.loadData(this.$adminLang)
+        })
+      } else {
+        this.$message({
+          message: response.resultMsg || '上传文件失败,请重试!',
+          type: 'error'
+        })
+      }
     }
   }
 }

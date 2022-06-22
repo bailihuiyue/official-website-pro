@@ -49,7 +49,8 @@ import {
   deleteFAQDetail,
   getFAQList
 } from './service'
-import { faqTypes } from '@/utils/config'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'FAQAdmin',
@@ -59,8 +60,8 @@ export default {
   },
   data() {
     return {
-      faqTypes,
-      selectedFAQType: faqTypes[0].id,
+      faqTypes: [],
+      selectedFAQType: 0,
       list: [],
       formData: {
         id: '',
@@ -74,7 +75,11 @@ export default {
     }
   },
   created() {
-    this.getFAQListApi()
+    getClassify(classifyTypesEnum.faq).then((res) => {
+      this.faqTypes = res
+      this.selectedFAQType = res[0].typeNo
+      this.getFAQListApi(res[0].typeNo)
+    })
   },
   watch: {
     selectedFAQType(val) {
@@ -82,12 +87,12 @@ export default {
     }
   },
   methods: {
-    getFAQListApi() {
+    getFAQListApi(typeNo) {
       getFAQList({
         lang: this.$adminLang,
         currentPage: 1,
         pageSize: 9999,
-        type: this.selectedFAQType
+        type: typeNo || this.selectedFAQType
       }).then((res) => {
         this.list = res.list
         this.loading = false

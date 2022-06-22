@@ -28,7 +28,7 @@
           <el-upload
             class="upload-demo"
             style="display:inline-block"
-            :action="`${$imgServer}api/upload/uploadfile`"
+            :action="`${$baseURL}api/upload/uploadfile`"
             :show-file-list="false"
             :on-success="onUploadFileSuccess"
             :headers="{token:$token}"
@@ -63,7 +63,8 @@ import {
   deleteAppDownloadDetail,
   getAppDownloadList
 } from './service'
-import { appDownloadTypes } from '@/utils/config'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'appDownloadAdmin',
@@ -73,8 +74,8 @@ export default {
   },
   data() {
     return {
-      appDownloadTypes,
-      selectedAppDownloadType: appDownloadTypes[0].id,
+      appDownloadTypes: [],
+      selectedAppDownloadType: 0,
       appDownload: {},
       list: [],
       formData: {
@@ -89,7 +90,11 @@ export default {
     }
   },
   created() {
-    this.getAppDownloadListApi()
+    getClassify(classifyTypesEnum.app).then((res) => {
+      this.appDownloadTypes = res
+      this.selectedAppDownloadType = res[0].typeNo
+      this.getAppDownloadListApi(res[0].typeNo)
+    })
   },
   watch: {
     selectedAppDownloadType(val) {
@@ -97,12 +102,12 @@ export default {
     }
   },
   methods: {
-    getAppDownloadListApi() {
+    getAppDownloadListApi(typeNo) {
       getAppDownloadList({
         lang: this.$adminLang,
         currentPage: 1,
         pageSize: 9999,
-        type: this.selectedAppDownloadType
+        type: typeNo || this.selectedAppDownloadType
       }).then((res) => {
         this.list = res.list
         this.loading = false
@@ -120,7 +125,7 @@ export default {
     },
     addAppDownloadDetail() {
       // 清除数据
-      setTimeout(() => this.$refs.downloadTiny.setContent(''),100)
+      setTimeout(() => this.$refs.downloadTiny.setContent(''), 100)
       this.formData.id = undefined
       this.formData.title = undefined
       this.formData.content = undefined

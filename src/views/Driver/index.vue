@@ -7,9 +7,10 @@
 </template>
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
-import { driverTypes } from '@/utils/config'
 import SeatchBar from '@/components/SeatchBar'
 import DriverList from './DriverList'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'driver',
@@ -20,18 +21,23 @@ export default {
   },
   data() {
     return {
-      driverTypes,
+      driverTypes:[],
       searchTxt: '',
       type: ''
     }
+  },
+  created() {
+    getClassify(classifyTypesEnum.driver).then((res) => {
+      this.driverTypes = res
+    })
   },
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
     },
     onChangeTypes(data) {
-      this.type = data.id
-    },
+      this.type = data.typeNo
+    }
   }
 }
 </script>

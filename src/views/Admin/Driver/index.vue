@@ -4,7 +4,7 @@
     <div style="margin:15px 0">
       <span style="margin-right:20px">请选择要编辑的驱动类型:</span>
       <el-radio-group v-model="selectedDriverType">
-        <el-radio :label="d.id" v-for="d in driverTypes" :key="d.id">{{d.title[$adminLang]}}</el-radio>
+        <el-radio :label="d.typeNo" v-for="d in driverTypes" :key="d.typeNo">{{d.title[$adminLang]}}</el-radio>
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addDriverDetail()" style="margin:10px 0">新增驱动</el-button>
@@ -81,7 +81,8 @@ import {
   deleteDriverDetail,
   getDriverList
 } from './service'
-import { driverTypes } from '@/utils/config'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'driverAdmin',
@@ -90,8 +91,8 @@ export default {
   },
   data() {
     return {
-      driverTypes,
-      selectedDriverType: driverTypes[0].id,
+      driverTypes: [],
+      selectedDriverType: 0,
       driverDetail: {},
       list: [],
       formData: {
@@ -107,7 +108,11 @@ export default {
     }
   },
   created() {
-    this.getDriverListApi()
+    getClassify(classifyTypesEnum.driver).then((res) => {
+      this.driverTypes = res
+      this.selectedDriverType = res[0].typeNo
+      this.getDriverListApi(res[0].typeNo)
+    })
   },
   watch: {
     selectedDriverType(val) {
@@ -115,12 +120,12 @@ export default {
     }
   },
   methods: {
-    getDriverListApi() {
+    getDriverListApi(typeNo) {
       getDriverList({
         lang: this.$adminLang,
         currentPage: 1,
         pageSize: 9999,
-        type: this.selectedDriverType
+        type: typeNo || this.selectedDriverType
       }).then((res) => {
         this.list = res.list
         this.loading = false

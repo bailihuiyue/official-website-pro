@@ -7,9 +7,10 @@
 </template>
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
-import { configGuideTypes } from '@/utils/config'
 import SeatchBar from '@/components/SeatchBar.vue'
 import GuideList from './components/GuideList'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'configGuide',
@@ -20,17 +21,22 @@ export default {
   },
   data() {
     return {
-      configGuide: configGuideTypes,
+      configGuide: [],
       searchTxt: '',
       type: ''
     }
+  },
+  created() {
+    getClassify(classifyTypesEnum.configGuide).then((res) => {
+      this.configGuide = res
+    })
   },
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
     },
     onChangeTypes(data) {
-      this.type = data.id
+      this.type = data.typeNo
     }
   }
 }
