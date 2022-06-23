@@ -1,6 +1,7 @@
 <template>
   <div class="menuAdmin" v-loading="loading">
     <div>
+      <el-alert title="一级菜单名称(包括中英文)为空或者为'placeHolder'的时候菜单不显示,是为了以后扩展菜单而留空的" type="warning" style="margin-bottom:10px" />
       <span style="margin-right:20px">请选择要编辑的菜单:</span>
       <!-- <el-radio-group v-model="menuId" v-if="productTypes.length">
         <el-radio
