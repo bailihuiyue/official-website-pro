@@ -2,6 +2,13 @@
   <div class="menuAdmin" v-loading="loading">
     <div>
       <span style="margin-right:20px">请选择要编辑的菜单:</span>
+      <!-- <el-radio-group v-model="menuId" v-if="productTypes.length">
+        <el-radio
+          :label="t.id"
+          v-for="(t,i) in productTypes"
+          :key="t.id"
+        >{{t.title[$lang]}}</el-radio>
+      </el-radio-group>-->
       <el-radio-group v-model="menuId" v-if="totalData.length">
         <el-radio
           :label="t.title.id"
@@ -79,7 +86,13 @@
 </template>
 
 <script>
-import { getMenu, updateMenu, addMenu, deleteMenu } from './service'
+import {
+  getMenu,
+  updateMenu,
+  addMenu,
+  deleteMenu,
+  getProductType
+} from './service'
 
 export default {
   name: 'menuAdmin',
@@ -98,6 +111,7 @@ export default {
         cn: undefined,
         en: undefined
       },
+      productTypes: [],
       dialogFormVisible: false,
       formLabelWidth: '120px',
       loading: true
@@ -114,6 +128,9 @@ export default {
     }
   },
   mounted() {
+    // getProductType().then((res) => {
+    //   this.productTypes = res
+    // })
     this.loadData(true)
   },
   methods: {

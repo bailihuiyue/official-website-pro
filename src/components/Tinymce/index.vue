@@ -183,7 +183,7 @@ export default {
           const self = this
           const blob = blobInfo.blob()
           if (blob.size > 50 * 1024 * 1024) {
-            failure(self.$t('common.largeImage'))
+            failure('图片过大,不要超过5mb')
             return false
           }
           const file = createFormData(null, blob)
@@ -191,8 +191,8 @@ export default {
             .then((res) => {
               if (res) {
                 self.$message.success('上传成功!')
-                success(this.$imgServer + res)
-                // self.imageSuccessCBK(res)
+                self.imageSuccessCBK(this.$imgServer + res)
+                success(null)
               } else {
                 self.$message.error('上传失败!')
               }
@@ -225,13 +225,18 @@ export default {
     getContent() {
       return window.tinymce.get(this.tinymceId).getContent()
     },
-    imageSuccessCBK(arr) {
-      const _this = this
-      arr.forEach((v) => {
-        window.tinymce
-          .get(_this.tinymceId)
-          .insertContent(`<img class="wscnph" src="${v}" >`)
-      })
+    // imageSuccessCBK(arr) {
+    //   const _this = this
+    //   arr.forEach((v) => {
+    //     window.tinymce
+    //       .get(_this.tinymceId)
+    //       .insertContent(`<img class="tyinImg" style="width:100%" src="${v}" >`)
+    //   })
+    // }
+    imageSuccessCBK(res) {
+      window.tinymce
+        .get(this.tinymceId)
+        .insertContent(`<img class="tyinImg" style="width:100%" src="${res}" >`)
     }
   }
 }
@@ -248,6 +253,11 @@ export default {
   .mce-tinymce.mce-container.mce-panel {
     width: auto !important;
   }
+  // #tinymce {
+  //   img {
+  //     width: 100%;
+  //   }
+  // }
 }
 // .tinymce-container >>> .mce-fullscreen {
 //   z-index: 10000;

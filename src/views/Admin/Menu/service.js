@@ -19,3 +19,8 @@ export const deleteMenu = (menu) => {
   const api = `menu/delete`;
   return baseService.post(api, menu);
 };
+
+export const getProductType = () => {
+  const api = `product/type/getAll`;
+  return baseService.get(api);
+};

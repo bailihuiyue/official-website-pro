@@ -499,10 +499,8 @@ module.exports = {
     data: {
       id: '0',
       title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程',
-      video: {
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
-        src: 'http://www.shkjem.com/video/kj.mp4'
-      },
+      img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+      video: 'http://www.shkjem.com/video/kj.mp4',
       content: '<p>13131</p>'
     }
   },
@@ -550,14 +548,15 @@ module.exports = {
     }
   },
   "get /question/list": {
-    "data|4":
-      [{
+    data:{
+      "list|4":[{
         "id": "@num()",
         "title": "title1",
         "productName": "productName",
         "companyName": 'companyName',
         "phone": "phone"
       }]
+    }
   },
   "post /question/add": { data: true },
   "get /question/delete": { data: true },
@@ -700,7 +699,7 @@ module.exports = {
           en: 'shoubing',
           cn: '手柄',
         },
-        typeNo:'0'
+        typeNo: '0'
       },
       {
         id: '1',
@@ -709,7 +708,7 @@ module.exports = {
           en: 'fangxiangpan',
           cn: '方向盘',
         },
-        typeNo:'1'
+        typeNo: '1'
       },
       {
         id: '2',
@@ -718,7 +717,7 @@ module.exports = {
           en: 'erji',
           cn: '耳机',
         },
-        typeNo:'2'
+        typeNo: '2'
       },
     ]
   },

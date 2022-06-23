@@ -50,6 +50,7 @@ export default {
       } else {
         this.$router.push(href)
       }
+      this.$emit('closeMenu')
     }
   }
 }

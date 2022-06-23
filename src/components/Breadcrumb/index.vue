@@ -1,5 +1,5 @@
 <template>
-  <div class="Breadcrumb" v-if="this.$route.path!=='/'">
+  <div class="Breadcrumb" v-if="breadcrumbList[this.$route.path]">
     <el-breadcrumb separator="/">
       <el-breadcrumb-item
         :to="{ path:b.path }"

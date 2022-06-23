@@ -83,7 +83,7 @@ export default {
         lang: this.$adminLang,
         type: questionTypes.messageFeedback
       }).then((res) => {
-        this.list = res
+        this.list = res.list
         this.loading = false
       })
     },

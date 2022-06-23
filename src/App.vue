@@ -29,10 +29,10 @@
         @close="handleDisplayDrawer(false)"
         custom-class="menuDrawerClass"
       >
-        <VerticalMenu mode="vertical" :handleSelect="handleSelect" />
+        <VerticalMenu mode="vertical" :handleSelect="handleSelect" @closeMenu="handleDisplayDrawer(false)"/>
       </el-drawer>
       <el-main :style="{marginTop:isMobile?'':'60px'}">
-        <Breadcrumb v-if="isShow"/>
+        <Breadcrumb/>
         <router-view />
       </el-main>
       <Footer v-show="isShow" :isMobile="isMobile" />
