@@ -1,7 +1,11 @@
 <template>
   <div class="menuAdmin" v-loading="loading">
     <div>
-      <el-alert title="一级菜单名称(包括中英文)为空或者为'placeHolder'的时候菜单不显示,是为了以后扩展菜单而留空的" type="warning" style="margin-bottom:10px" />
+      <el-alert
+        title="一级菜单名称(包括中英文)为空或者为'placeHolder'的时候菜单不显示,是为了以后扩展菜单而留空的"
+        type="warning"
+        style="margin-bottom:10px"
+      />
       <span style="margin-right:20px">请选择要编辑的菜单:</span>
       <!-- <el-radio-group v-model="menuId" v-if="productTypes.length">
         <el-radio
@@ -23,8 +27,9 @@
     <div style="margin:20px 0 5px 0">一级菜单</div>
     <el-table :data="[tableData.title]" border style="width: 100%">
       <el-table-column prop="cn" label="中文" width="180"></el-table-column>
+      <el-table-column prop="hrefcn" label="中文跳转链接"></el-table-column>
       <el-table-column prop="en" label="英文" width="180"></el-table-column>
-      <el-table-column prop="href" label="跳转链接"></el-table-column>
+      <el-table-column prop="hrefen" label="英文跳转链接"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button type="primary" icon="el-icon-edit" @click="onOpenEditModal(scope.row,'l1')"></el-button>
@@ -39,13 +44,14 @@
     </div>
     <el-table :data="tableData.children" border style="width: 100%">
       <el-table-column prop="cn" label="中文" width="180"></el-table-column>
+      <el-table-column prop="hrefcn" label="中文跳转链接"></el-table-column>
       <el-table-column prop="en" label="英文" width="180"></el-table-column>
+      <el-table-column prop="hrefen" label="英文跳转链接"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgServer + scope.row.img" alt />
         </template>
       </el-table-column>
-      <el-table-column prop="href" label="跳转链接"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button type="primary" icon="el-icon-edit" @click="onOpenEditModal(scope.row,'l2')"></el-button>
@@ -59,11 +65,14 @@
         <el-form-item label="中文名" :label-width="formLabelWidth">
           <el-input v-model="formData.cn" autocomplete="off"></el-input>
         </el-form-item>
+        <el-form-item label="中文跳转链接" :label-width="formLabelWidth">
+          <el-input v-model="formData.hrefcn" autocomplete="off"></el-input>
+        </el-form-item>
         <el-form-item label="英文名" :label-width="formLabelWidth">
           <el-input v-model="formData.en" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="跳转链接" :label-width="formLabelWidth">
-          <el-input v-model="formData.href" autocomplete="off"></el-input>
+        <el-form-item label="英文跳转链接" :label-width="formLabelWidth">
+          <el-input v-model="formData.hrefen" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="菜单图片" :label-width="formLabelWidth" v-if="menuType==='l2'">
           <el-upload
@@ -107,7 +116,8 @@ export default {
       menuType: '',
       formData: {
         id: undefined,
-        href: undefined,
+        hrefcn: undefined,
+        hrefen: undefined,
         img: undefined,
         cn: undefined,
         en: undefined
@@ -171,7 +181,8 @@ export default {
     },
     onAddL2Menu() {
       // 清除数据
-      this.formData.href = undefined
+      this.formData.hrefcn = undefined
+      this.formData.hrefen = undefined
       this.formData.id = undefined
       this.formData.img = undefined
       this.formData.cn = undefined

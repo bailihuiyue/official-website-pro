@@ -10,7 +10,7 @@
       <template v-for="(t,i1) in menus">
         <el-submenu :index="i1+''">
           <template slot="title">{{t.title[$lang]}}</template>
-          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c.href)">
+          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c[`href${$lang}`])">
             <!-- <img class="subThumb" :src="c.img" /> -->
             <div class="subTitle">{{c[$lang]}}</div>
             <!-- <div class="subDesc">{{c[$lang]}}</div> -->

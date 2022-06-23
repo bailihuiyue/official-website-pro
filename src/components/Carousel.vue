@@ -42,7 +42,7 @@ export default {
           clientWidth = this.$refs.carouselRef.clientWidth
         }
         var img = new Image()
-        img.src = this.$baseURL + this.carouselList[0].img
+        img.src = this.$imgServer + this.carouselList[0].img
         img.onload = function () {
           self.height =
             (clientWidth * img.naturalHeight) / img.naturalWidth + 'px'

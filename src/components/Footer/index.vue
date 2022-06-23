@@ -4,12 +4,12 @@
       <ul class="content-nav">
         <li v-for="f in footers.list">
           <p>{{f[$lang]}}</p>
-          <a
+          <router-link
             v-for="c in f.children"
             target="_blank"
             style="display: block;"
-            :href="c.href||''"
-          >{{c[$lang]}}</a>
+            :to="c.href||''"
+          >{{c[$lang]}}</router-link>
         </li>
       </ul>
       <img v-if="footers.img" :src="$imgServer+footers.img" alt />

@@ -2,9 +2,9 @@
   <div class="FAQAdmin">
     <ChangeLocationAdmin />
     <div style="margin:15px 0">
-      <span style="margin-right:20px">请选择要编辑的教程类型:</span>
+      <span style="margin-right:20px">请选择要编辑的问题类型:</span>
       <el-radio-group v-model="selectedFAQType">
-        <el-radio :label="f.id" v-for="f in faqTypes" :key="f.id">{{f.title[$adminLang]}}</el-radio>
+        <el-radio :label="f.typeNo" v-for="f in faqTypes" :key="f.typeNo">{{f.title[$adminLang]}}</el-radio>
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addFAQDetail()" style="margin:10px 0">新增问题</el-button>

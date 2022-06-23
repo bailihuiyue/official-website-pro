@@ -15,13 +15,13 @@
         >
           <div v-if="type==='vertical'" class="vertical">
             <div class>
-              <img :src="b.img" />
+              <img :src="(useLocalImg?'':$imgServer)+b.img" />
               <div class="title">{{b['title'][$lang]}}</div>
               <div class="desc" v-if="b.desc">{{b['desc'][$lang]}}</div>
             </div>
           </div>
           <div class="horizontal" v-else>
-            <img :src="b.img" />
+            <img :src="(useLocalImg?'':$imgServer)+b.img" />
             <div class="txtWrap">
               <div class="title">{{b['title'][$lang]}}</div>
               <div class="desc" v-if="b.desc">{{b['desc'][$lang]}}</div>
@@ -37,7 +37,7 @@
 import device from 'current-device'
 
 export default {
-  props: ['btns', 'type', 'defaultClickedBtn'], //horizontal / vertical
+  props: ['btns', 'type', 'defaultClickedBtn', 'useLocalImg'], //horizontal / vertical
   data() {
     return {
       isMobile: device.mobile(),

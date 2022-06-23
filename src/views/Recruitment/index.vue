@@ -5,6 +5,7 @@
       type="vertical"
       @click="onChangeTypes"
       :defaultClickedBtn="0"
+      :useLocalImg="true"
     />
     <div
       v-for="r in recruitmentTypes"

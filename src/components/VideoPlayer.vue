@@ -60,10 +60,21 @@ export default {
 </script>
 <style lang="scss">
 .videoPlayer {
+  height: 100%;
   .p-video {
+    height: 100%;
     // width: 1000px;
     // margin: 0 auto;
     // padding: 60px 0;
+    .video-player {
+      height: 100%;
+      .vjs-poster{
+        background-color: rgb(28, 30, 31);
+      }
+      .vjs-fluid {
+        height: 100%;
+      }
+    }
   }
 }
 .mobile {

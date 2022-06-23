@@ -12,7 +12,7 @@
         <el-radio :label="c.type" v-for="c in classifyTypes" :key="c.type">{{c.title}}</el-radio>
       </el-radio-group>
     </div>
-    <el-button type="primary" @click="openDialog()">新增分类名称</el-button>
+    <el-button type="primary" @click="onAddDriver()">新增分类名称</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="loading">
       <el-table-column prop="id" label="id" width="100"></el-table-column>
       <el-table-column prop="title.cn" label="中文" width="200"></el-table-column>
@@ -132,11 +132,13 @@ export default {
           })
         })
     },
-    openDialog() {
+    onAddDriver() {
       // 清除数据
-      this.formData.img = ''
-      this.formData.title.cn = ''
-      this.formData.title.en = ''
+      this.formData.id = undefined
+      this.formData.typeNo = undefined
+      this.formData.img = undefined
+      this.formData.title.cn = undefined
+      this.formData.title.en = undefined
       this.dialogFormVisible = true
     },
     onCreateOrModify() {

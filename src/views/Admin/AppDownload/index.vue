@@ -4,7 +4,7 @@
     <div style="margin:15px 0">
       <span style="margin-right:20px">请选择要编辑的APP类型:</span>
       <el-radio-group v-model="selectedAppDownloadType">
-        <el-radio :label="a.id" v-for="a in appDownloadTypes" :key="a.id">{{a.title[$adminLang]}}</el-radio>
+        <el-radio :label="a.typeNo" v-for="a in appDownloadTypes" :key="a.typeNo">{{a.title[$adminLang]}}</el-radio>
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addAppDownloadDetail()" style="margin:10px 0">新增APP</el-button>

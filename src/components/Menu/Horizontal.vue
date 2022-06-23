@@ -10,9 +10,9 @@
       <template v-for="(t,i1) in menus">
         <el-submenu :index="i1+''" v-if="t.title[$lang]&&t.title[$lang]!=='placeHolder'">
           <template slot="title">
-            <span @click="jumpTo(t.href)">{{t.title[$lang]}}</span>
+            <span @click="jumpTo(t[`href${$lang}`]||t[`href`])">{{t.title[$lang]}}</span>
           </template>
-          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c.href)">
+          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c[`href${$lang}`]||c[`href`])">
             <img class="subThumb" :src="$imgServer+c.img" />
             <div class="subTitle">{{c[$lang]}}</div>
             <!-- <div class="subDesc">{{c[$lang]}}</div> -->
@@ -53,6 +53,8 @@ export default {
         if (href.indexOf('//') > 0) {
           window.location.href = href
         } else {
+          // window.location.href = window.location.origin + '#' + href
+          // window.location.reload()
           this.$router.push(href)
         }
       }

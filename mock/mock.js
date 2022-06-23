@@ -45,7 +45,8 @@ module.exports = {
             "pid": 1,
             "cn": "方向盘2",
             "en": "subMenu1",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -55,7 +56,8 @@ module.exports = {
             "pid": 1,
             "cn": "方向盘2",
             "en": "subMenu2",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -66,7 +68,8 @@ module.exports = {
           "pid": 0,
           "cn": "方向盘",
           "en": "menu1",
-          "href": "/productList",
+          "hrefcn": "/productList",
+          "hrefen": "/productList",
           "img": null,
           "children": null,
           "title": null
@@ -79,7 +82,8 @@ module.exports = {
             "pid": 4,
             "cn": "手柄1",
             "en": "subMenu1",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -89,7 +93,8 @@ module.exports = {
             "pid": 4,
             "cn": "手柄2",
             "en": "subMenu2",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -100,7 +105,8 @@ module.exports = {
           "pid": 0,
           "cn": "手柄",
           "en": "menu2",
-          "href": "/productList",
+          "hrefcn": "/productList",
+          "hrefen": "/productList",
           "img": null,
           "children": null,
           "title": null
@@ -113,7 +119,8 @@ module.exports = {
             "pid": 7,
             "cn": "耳机1",
             "en": "subMenu1",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -123,7 +130,8 @@ module.exports = {
             "pid": 7,
             "cn": "耳机2",
             "en": "subMenu2",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -134,7 +142,8 @@ module.exports = {
           "pid": 0,
           "cn": "耳机",
           "en": "menu3",
-          "href": "/productList",
+          "hrefcn": "/productList",
+          "hrefen": "/productList",
           "img": null,
           "children": null,
           "title": null
@@ -147,7 +156,8 @@ module.exports = {
             "pid": 10,
             "cn": "飞行摇杆2",
             "en": "subMenu1",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -157,7 +167,8 @@ module.exports = {
             "pid": 10,
             "cn": "飞行摇杆1",
             "en": "subMenu2",
-            "href": "/productList",
+            "hrefcn": "/productList",
+            "hrefen": "/productList",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -168,7 +179,8 @@ module.exports = {
           "pid": 0,
           "cn": "飞行摇杆",
           "en": "menu3",
-          "href": "/productList",
+          "hrefcn": "/productList",
+          "hrefen": "/productList",
           "img": null,
           "children": null,
           "title": null
@@ -181,7 +193,8 @@ module.exports = {
             "pid": 13,
             "cn": "驱动下载",
             "en": "subMenu1",
-            "href": "/driver",
+            "hrefcn": "/driver",
+            "hrefen": "/driver",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -191,7 +204,8 @@ module.exports = {
             "pid": 13,
             "cn": "设置教程",
             "en": "subMenu1",
-            "href": "/configGuide",
+            "hrefcn": "/configGuide",
+            "hrefen": "/configGuide",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -201,7 +215,8 @@ module.exports = {
             "pid": 13,
             "cn": "常见问题",
             "en": "subMenu1",
-            "href": "/faq",
+            "hrefcn": "/faq",
+            "hrefen": "/faq",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -211,7 +226,8 @@ module.exports = {
             "pid": 13,
             "cn": "APP下载",
             "en": "subMenu1",
-            "href": "/appDownload",
+            "hrefcn": "/appDownload",
+            "hrefen": "/appDownload",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -221,7 +237,8 @@ module.exports = {
             "pid": 13,
             "cn": "联系我们",
             "en": "subMenu1",
-            "href": "/contactUs",
+            "hrefcn": "/contactUs",
+            "hrefen": "/contactUs",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -232,7 +249,8 @@ module.exports = {
           "pid": 0,
           "cn": "技术支持",
           "en": "menu3",
-          "href": "/productList",
+          "hrefcn": "/contactUs",
+          "hrefen": "/contactUs",
           "img": null,
           "children": null,
           "title": null
@@ -245,7 +263,8 @@ module.exports = {
             "pid": 16,
             "cn": "关于公司",
             "en": "subMenu1",
-            "href": "/aboutCompany",
+            "hrefcn": "/aboutCompany",
+            "hrefen": "/aboutCompany",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -255,7 +274,8 @@ module.exports = {
             "pid": 16,
             "cn": "荣誉勋章",
             "en": "subMenu1",
-            "href": "/companyHonor",
+            "hrefcn": "/companyHonor",
+            "hrefen": "/companyHonor",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -265,7 +285,8 @@ module.exports = {
             "pid": 16,
             "cn": "公司动态",
             "en": "subMenu2",
-            "href": "/companyState",
+            "hrefcn": "/companyState",
+            "hrefen": "/companyState",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -275,7 +296,8 @@ module.exports = {
             "pid": 16,
             "cn": "招纳精英",
             "en": "subMenu2",
-            "href": "/recruitment",
+            "hrefcn": "/recruitment",
+            "hrefen": "/recruitment",
             "img": "logo.png",
             "children": null,
             "title": null
@@ -286,7 +308,8 @@ module.exports = {
           "pid": 0,
           "cn": "关于公司",
           "en": "menu3",
-          "href": "/productList",
+          "hrefcn": "/productList",
+          "hrefen": "/productList",
           "img": null,
           "children": null,
           "title": null
@@ -548,8 +571,8 @@ module.exports = {
     }
   },
   "get /question/list": {
-    data:{
-      "list|4":[{
+    data: {
+      "list|4": [{
         "id": "@num()",
         "title": "title1",
         "productName": "productName",

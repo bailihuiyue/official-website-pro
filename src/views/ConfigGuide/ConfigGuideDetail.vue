@@ -1,7 +1,7 @@
 <template>
   <div class="ConfigGuideDetail">
     <div class="title">{{title}}</div>
-    <VideoPlayer :videoData="videoData" v-if="title" />
+    <VideoPlayer :videoData="videoData" v-if="videoData" />
     <div class="content" v-html="content"></div>
   </div>
 </template>

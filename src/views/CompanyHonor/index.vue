@@ -5,6 +5,7 @@
       type="vertical"
       @click="onChangeTypes"
       :defaultClickedBtn="0"
+      :useLocalImg="true"
     />
     <div class="carousel">
       <Carousel :carouselList="medalOfHonour" v-if="type==='medalOfHonour'" />
@@ -48,8 +49,8 @@ export default {
 <style lang="scss">
 .companyHonor {
   .carousel {
-    // width: 80%;
-    // margin: 20px auto;
+    width: 80%;
+    margin: 20px auto;
   }
 }
 .mobile {

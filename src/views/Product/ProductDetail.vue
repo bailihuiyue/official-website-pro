@@ -4,13 +4,13 @@
       <el-tabs v-model="activeName">
         <el-tab-pane :label="detail.title" name="title" disabled class="title" v-if="!isMobile" />
         <el-tab-pane :label="words['technicalSupport'][$lang]" name="technicalSupport">
-          <div class="detailPage" v-html="detail.technicalSupport"></div>
+          <div class="technicalSupport" v-html="detail.technicalSupport"></div>
         </el-tab-pane>
         <el-tab-pane :label="words['productParameter'][$lang]" name="productParameter">
-          <div class="detailPage" v-html="detail.productParameter"></div>
+          <div class="productParameter" v-html="detail.productParameter"></div>
         </el-tab-pane>
         <el-tab-pane :label="words['productDetail'][$lang]" name="productDetail">
-          <div class="detailPage" v-html="detail.productDetail"></div>
+          <div class="productPage" v-html="detail.productDetail"></div>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -42,9 +42,14 @@ export default {
       }
     }
   },
-  created() {
-    const id = this.$route.query.id
-    getProductDetail(this.$lang, id).then((res) => (this.detail = res))
+  watch: {
+    '$route.query.id': {
+      handler: function (val) {
+        getProductDetail(this.$lang, val).then((res) => (this.detail = res))
+      },
+      deep: true,
+      immediate: true
+    }
   }
 }
 </script>
@@ -60,7 +65,7 @@ export default {
       .el-tabs__header.is-top {
         border-top: 1px solid #e0e0e0;
         border-bottom: 1px solid #e0e0e0;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.05);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
         height: 63px;
         margin-bottom: 0;
       }
@@ -89,10 +94,15 @@ export default {
         }
       }
     }
-    .detailPage {
+    .productPage {
       // width: 80%;
       margin: 0px auto;
       font-size: 0;
+    }
+    .productParameter,
+    .technicalSupport {
+      width: 60%;
+      margin: 5px auto;
     }
     #tab-technicalSupport,
     #tab-productParameter,
@@ -113,7 +123,7 @@ export default {
     #tab-title {
       font-size: 18px;
       // color: #fff;
-      &:hover{
+      &:hover {
         color: #616161;
       }
     }
@@ -122,7 +132,7 @@ export default {
     }
     #tab-productDetail,
     #tab-productParameter {
-      border-right: 1px solid #e0e0e0;;
+      border-right: 1px solid #e0e0e0;
     }
   }
 }
