@@ -17,14 +17,14 @@
             <div class>
               <img :src="(useLocalImg?'':$imgServer)+b.img" />
               <div class="title">{{b['title'][$lang]}}</div>
-              <div class="desc" v-if="b.desc">{{b['desc'][$lang]}}</div>
+              <div class="desc" v-if="extraData[$lang]">{{extraData[$lang]}}</div>
             </div>
           </div>
           <div class="horizontal" v-else>
             <img :src="(useLocalImg?'':$imgServer)+b.img" />
             <div class="txtWrap">
               <div class="title">{{b['title'][$lang]}}</div>
-              <div class="desc" v-if="b.desc">{{b['desc'][$lang]}}</div>
+              <div class="desc" v-if="extraData[$lang]">{{extraData[$lang]}}</div>
             </div>
           </div>
         </el-button>
@@ -37,7 +37,7 @@
 import device from 'current-device'
 
 export default {
-  props: ['btns', 'type', 'defaultClickedBtn', 'useLocalImg'], //horizontal / vertical
+  props: ['btns', 'type', 'defaultClickedBtn', 'useLocalImg', 'extraData'], //horizontal / vertical
   data() {
     return {
       isMobile: device.mobile(),
@@ -125,7 +125,7 @@ export default {
     margin: 20px 0;
     .el-row {
       text-align: left;
-      a{
+      a {
         margin-bottom: 10px;
       }
       .el-link--inner {

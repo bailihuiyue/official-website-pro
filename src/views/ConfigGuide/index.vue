@@ -1,7 +1,13 @@
 <template>
   <div class="configGuide">
     <SeatchBar @onSearch="onSearch" />
-    <ButtonGroup :btns="configGuide" type="horizontal" @click="onChangeTypes" v-show="!searchTxt" />
+    <ButtonGroup
+      :btns="configGuide"
+      type="horizontal"
+      @click="onChangeTypes"
+      v-show="!searchTxt"
+      :extraData="extraData"
+    />
     <GuideList :searchTxt="searchTxt" :type="type" />
   </div>
 </template>
@@ -23,7 +29,11 @@ export default {
     return {
       configGuide: [],
       searchTxt: '',
-      type: ''
+      type: '',
+      extraData: {
+        cn: '了解更多',
+        en: 'Learn More'
+      }
     }
   },
   created() {
