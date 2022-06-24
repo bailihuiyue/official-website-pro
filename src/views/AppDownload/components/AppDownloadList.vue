@@ -2,12 +2,12 @@
   <div class="AppDownloadList">
     <el-row :gutter="30">
       <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
-        <span class="wrap">
+        <div class="wrap">
           <div @click="jumpTo(l.id)">
             <i class="el-icon-arrow-right"></i>
             <span class="title">{{l.title}}</span>
           </div>
-        </span>
+        </div>
       </el-col>
     </el-row>
     <Pagination
@@ -113,6 +113,7 @@ export default {
     margin-top: 40px;
   }
   .wrap {
+    height: 40px;
     // margin-bottom: 20px;
     text-align: center;
     cursor: pointer;

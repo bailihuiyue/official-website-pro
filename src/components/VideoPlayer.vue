@@ -42,20 +42,17 @@ export default {
       }
     }
   },
-  // watch: {
-  //   videoUrl: {
-  //     handler: function (val, oldVal) {
-  //       val && (this.playerOptions.sources.src = val)
-  //       console.log(val)
-  //     },
-  //     immediate: true
-  //   }
-  // },
-  created() {
-    this.playerOptions.sources[0].src =
-      this.videoData.href || this.videoData.src
-    this.playerOptions.poster = this.$videoURL + this.videoData.img
-  }
+  watch: {
+    videoData: {
+      handler: function (val) {
+        this.playerOptions.sources[0].src = val.href || val.src
+        this.playerOptions.poster = this.$videoURL + val.img
+      },
+      deep: true,
+      immediate: true
+    }
+  },
+  // created() {}
 }
 </script>
 <style lang="scss">
@@ -68,7 +65,7 @@ export default {
     // padding: 60px 0;
     .video-player {
       height: 100%;
-      .vjs-poster{
+      .vjs-poster {
         background-color: rgb(28, 30, 31);
       }
       .vjs-fluid {

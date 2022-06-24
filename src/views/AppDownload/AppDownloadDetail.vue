@@ -3,7 +3,13 @@
     <div class="title">{{title}}</div>
     <!-- <VideoPlayer :videoData="videoData" v-if="title" /> -->
     <div class="content" v-html="content"></div>
-    <el-link type="primary" class="downHref">{{lang.clickToDownload[$lang]}}</el-link>
+    <el-link
+      type="primary"
+      class="downHref"
+      target="_blank"
+      :href="$baseURL+appUrl"
+      v-if="appUrl"
+    >{{lang.clickToDownload[$lang]}}</el-link>
   </div>
 </template>
 <script>
@@ -48,7 +54,7 @@ export default {
   }
   .content {
     margin: 20px auto;
-    img{
+    img {
       width: 100%;
       display: block;
     }

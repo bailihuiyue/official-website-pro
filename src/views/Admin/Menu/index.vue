@@ -19,7 +19,7 @@
           :label="t.title.id"
           v-for="(t,i) in totalData"
           :key="t.title.id"
-        >{{t.title[$lang]}}</el-radio>
+        >{{t.title['cn']==='placeHolder'?'空':t.title['cn']}}</el-radio>
       </el-radio-group>
     </div>
     <!-- <ChangeLocationAdmin @langChanged="onLangChanged" /> -->

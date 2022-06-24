@@ -35,7 +35,7 @@
             <i class="el-icon-star-off"></i>
             <span slot="title">分类管理</span>
           </el-menu-item>
-          <el-submenu index="/admin">
+          <el-submenu index="/adminp">
             <template slot="title">
               <i class="el-icon-star-off"></i>
               产品管理
@@ -43,11 +43,15 @@
             <el-menu-item index="/admin/productType">产品分类</el-menu-item>
             <el-menu-item index="/admin/productDetail">产品详情</el-menu-item>
           </el-submenu>
+          <el-menu-item index="/admin/driver">
+            <i class="el-icon-star-off"></i>
+            <span slot="title">驱动管理</span>
+          </el-menu-item>
           <el-menu-item index="/admin/configGuideDetail">
             <i class="el-icon-star-off"></i>
             <span slot="title">设置教程管理</span>
           </el-menu-item>
-          <el-submenu index="/admin">
+          <el-submenu index="/adminf">
             <template slot="title">
               <i class="el-icon-star-off"></i>
               常见问题管理
@@ -55,10 +59,6 @@
             <el-menu-item index="/admin/faq">编辑常见问题</el-menu-item>
             <el-menu-item index="/admin/question">用户提问管理</el-menu-item>
           </el-submenu>
-          <el-menu-item index="/admin/driver">
-            <i class="el-icon-star-off"></i>
-            <span slot="title">驱动管理</span>
-          </el-menu-item>
           <el-menu-item index="/admin/appDownload">
             <i class="el-icon-star-off"></i>
             <span slot="title">APP管理</span>
@@ -149,7 +149,7 @@ export default {
   border-top: 1px solid rgb(238, 238, 238);
   background-color: #fff;
   .el-menu-vertical-demo.el-menu {
-    height: calc(100vh - 63px);
+    // height: calc(100vh - 63px);
   }
 }
 

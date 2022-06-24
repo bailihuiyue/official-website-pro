@@ -125,7 +125,7 @@ export default {
         // border-bottom-color: $blackBorderColor;
       }
       .title {
-        height: 35px;
+        // height: 35px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
@@ -134,7 +134,7 @@ export default {
         color: $themeColor;
       }
       .desc {
-        height: 35px;
+        // height: 35px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
