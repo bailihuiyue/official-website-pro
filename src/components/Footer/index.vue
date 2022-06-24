@@ -4,12 +4,13 @@
       <ul class="content-nav">
         <li v-for="f in footers.list">
           <p>{{f[$lang]}}</p>
-          <router-link
+          <div
             v-for="c in f.children"
             target="_blank"
-            style="display: block;"
-            :to="c.href||''"
-          >{{c[$lang]}}</router-link>
+            style="display: block"
+            :class="c.href?'hasUnderLine':'noUnderLine'"
+            @click="jumpTo(c.href)"
+          >{{c[$lang]}}</div>
         </li>
       </ul>
       <img v-if="footers.img" :src="$imgServer+footers.img" alt />
@@ -20,13 +21,13 @@
           <template slot="title">
             <div style="margin:0 10px">{{f[$lang]}}</div>
           </template>
-          <router-link
+          <a
             class="collapseItem"
             v-for="c in f.children"
             target="_blank"
             style="display: block;"
-            :to="c.href||''"
-          >{{c[$lang]}}</router-link>
+            @click="jumpTo(c.href)"
+          >{{c[$lang]}}</a>
         </el-collapse-item>
       </el-collapse>
     </div>
@@ -49,8 +50,19 @@ export default {
   created() {
     getFooter().then((res) => {
       this.footers = res
-      this.footers.list=JSON.parse(res.list)
+      this.footers.list = JSON.parse(res.list)
     })
+  },
+  methods: {
+    jumpTo(href) {
+      if (href) {
+        if (href.indexOf('//') > 0) {
+          window.location.href = href
+        } else {
+          this.$router.push(href)
+        }
+      }
+    }
   }
 }
 </script>
@@ -82,7 +94,8 @@ export default {
           color: #fff;
           padding: 10px 0;
         }
-        a {
+        .hasUnderLine,
+        .noUnderLine {
           font-size: 14px;
           color: #bbb;
           font-weight: 300;
@@ -90,11 +103,18 @@ export default {
           text-decoration: none;
           cursor: default;
         }
-        a:not([href='']):hover {
+        // a:not([href='']):hover {
+        //   text-decoration: underline;
+        //   cursor: pointer;
+        // }
+        // a[href=''] {
+        //   pointer-events: none;
+        // }
+        .hasUnderLine:hover {
           text-decoration: underline;
           cursor: pointer;
         }
-        a[href=''] {
+        .noUnderLine:hover {
           pointer-events: none;
         }
       }
