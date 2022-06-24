@@ -30,9 +30,6 @@ export default {
   },
   created() {
     getProductType().then((res) => {
-      res.forEach((item) => {
-        item.img = this.$imgServer + item.img
-      })
       this.productTypes = res
     })
   },
@@ -58,6 +55,11 @@ export default {
   .title {
     margin-bottom: 15px;
     text-align: center;
+    height: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
   }
   .productType {
     margin-top: 35px;
