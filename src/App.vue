@@ -248,12 +248,14 @@ div.el-menu--horizontal {
 .menuDrawerClass {
   width: 100% !important;
   height: 100%;
+  background-color: #000 !important;
   // background-color: #000 !important;
   .el-drawer__header > :first-child {
     flex: 0;
   }
   .el-drawer__header {
     margin-bottom: 0 !important;
+    padding-top: 15px;
   }
 }
 

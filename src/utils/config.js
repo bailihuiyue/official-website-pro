@@ -1,130 +1,129 @@
-export const configGuideTypes = [
-  {
-    id: 0,
-    img: 'imgs/productType/shoubing.webp',
-    title: {
-      cn: '手柄类游戏设置',
-      en: 'shoubinglei',
-    },
-    desc: {
-      cn: '了解更多',
-      en: 'Learn More'
-    }
-  },
-  {
-    id: 1,
-    img: 'imgs/productType/fangxiangpan.webp',
-    title: {
-      cn: '方向盘游戏设置',
-      en: 'fangxiangpan',
-    },
-    desc: {
-      cn: '了解更多',
-      en: 'Learn More'
-    }
-  },
-  {
-    id: 2,
-    img: 'imgs/productType/erji.webp',
-    title: {
-      cn: '摇杆类游戏设置',
-      en: 'yaogan',
-    },
-    desc: {
-      cn: '了解更多',
-      en: 'Learn More'
-    }
-  }
-]
+// export const configGuideTypes = [
+//   {
+//     id: 0,
+//     img: 'imgs/productType/shoubing.webp',
+//     title: {
+//       cn: '手柄类游戏设置',
+//       en: 'shoubinglei',
+//     },
+//     desc: {
+//       cn: '了解更多',
+//       en: 'Learn More'
+//     }
+//   },
+//   {
+//     id: 1,
+//     img: 'imgs/productType/fangxiangpan.webp',
+//     title: {
+//       cn: '方向盘游戏设置',
+//       en: 'fangxiangpan',
+//     },
+//     desc: {
+//       cn: '了解更多',
+//       en: 'Learn More'
+//     }
+//   },
+//   {
+//     id: 2,
+//     img: 'imgs/productType/erji.webp',
+//     title: {
+//       cn: '摇杆类游戏设置',
+//       en: 'yaogan',
+//     },
+//     desc: {
+//       cn: '了解更多',
+//       en: 'Learn More'
+//     }
+//   }
+// ]
 
-export const faqTypes = [
-  {
-    id: 0,
-    img: 'imgs/productType/shoubing.webp',
-    title: {
-      cn: '手柄',
-      en: 'shoubinglei',
-    }
-  },
-  {
-    id: 1,
-    img: 'imgs/productType/fangxiangpan.webp',
-    title: {
-      cn: '方向盘',
-      en: 'fangxiangpan',
-    }
-  },
-  {
-    id: 2,
-    img: 'imgs/productType/erji.webp',
-    title: {
-      cn: '耳机',
-      en: 'erji',
-    }
-  }
-]
+// export const faqTypes = [
+//   {
+//     id: 0,
+//     img: 'imgs/productType/shoubing.webp',
+//     title: {
+//       cn: '手柄',
+//       en: 'shoubinglei',
+//     }
+//   },
+//   {
+//     id: 1,
+//     img: 'imgs/productType/fangxiangpan.webp',
+//     title: {
+//       cn: '方向盘',
+//       en: 'fangxiangpan',
+//     }
+//   },
+//   {
+//     id: 2,
+//     img: 'imgs/productType/erji.webp',
+//     title: {
+//       cn: '耳机',
+//       en: 'erji',
+//     }
+//   }
+// ]
 
+// export const driverTypes = [
+//   {
+//     id: 0,
+//     img: 'imgs/driver/shoubing.webp',
+//     title: {
+//       cn: '手柄驱动',
+//       en: 'shoubinglei',
+//     }
+//   }, {
+//     id: 1,
+//     img: 'imgs/driver/fangxiangpan.webp',
+//     title: {
+//       cn: '方向盘驱动',
+//       en: 'shoubinglei',
+//     }
+//   }, {
+//     id: 2,
+//     img: 'imgs/driver/yaogan.webp',
+//     title: {
+//       cn: '摇杆驱动',
+//       en: 'shoubinglei',
+//     }
+//   }, {
+//     id: 3,
+//     img: 'imgs/driver/gongju.webp',
+//     title: {
+//       cn: '游戏工具',
+//       en: 'shoubinglei',
+//     }
+//   },
+// ]
+
+// export const appDownloadTypes = [
+//   {
+//     id: 0,
+//     img: 'imgs/appDownload/android.webp',
+//     title: {
+//       cn: 'Android',
+//       en: 'Android',
+//     }
+//   }, {
+//     id: 1,
+//     img: 'imgs/appDownload/ios.webp',
+//     title: {
+//       cn: 'IOS',
+//       en: 'IOS',
+//     }
+//   }, {
+//     id: 2,
+//     img: 'imgs/appDownload/pc.webp',
+//     title: {
+//       cn: 'PC',
+//       en: 'PC',
+//     }
+//   }
+// ]
 export const questionTypes = {
   faq: '1',
   messageFeedback: '2'
 }
-
-export const driverTypes = [
-  {
-    id: 0,
-    img: 'imgs/driver/shoubing.webp',
-    title: {
-      cn: '手柄驱动',
-      en: 'shoubinglei',
-    }
-  }, {
-    id: 1,
-    img: 'imgs/driver/fangxiangpan.webp',
-    title: {
-      cn: '方向盘驱动',
-      en: 'shoubinglei',
-    }
-  }, {
-    id: 2,
-    img: 'imgs/driver/yaogan.webp',
-    title: {
-      cn: '摇杆驱动',
-      en: 'shoubinglei',
-    }
-  }, {
-    id: 3,
-    img: 'imgs/driver/gongju.webp',
-    title: {
-      cn: '游戏工具',
-      en: 'shoubinglei',
-    }
-  },
-]
-
-export const appDownloadTypes = [
-  {
-    id: 0,
-    img: 'imgs/appDownload/android.webp',
-    title: {
-      cn: 'Android',
-      en: 'Android',
-    }
-  }, {
-    id: 1,
-    img: 'imgs/appDownload/ios.webp',
-    title: {
-      cn: 'IOS',
-      en: 'IOS',
-    }
-  }, {
-    id: 2,
-    img: 'imgs/appDownload/pc.webp',
-    title: {
-      cn: 'PC',
-      en: 'PC',
-    }
-  }
-]
 
 export const contactUsData = [
   {

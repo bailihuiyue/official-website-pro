@@ -1,8 +1,9 @@
 <template>
   <div class="ProductDetail">
-    <div :class="isMobile?'':'isPC'">
+    <!-- pc模式 -->
+    <div class="isPC" v-if="!isMobile">
       <el-tabs v-model="activeName">
-        <el-tab-pane :label="detail.title" name="title" disabled class="title" v-if="!isMobile" />
+        <el-tab-pane :label="detail.title" name="title" disabled class="title" />
         <el-tab-pane :label="words['technicalSupport'][$lang]" name="technicalSupport">
           <div class="technicalSupport" v-html="detail.technicalSupport"></div>
         </el-tab-pane>
@@ -14,6 +15,18 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+    <!-- 手机模式 -->
+    <el-tabs v-model="activeName" v-else>
+      <el-tab-pane :label="words['productDetail'][$lang]" name="productDetail">
+        <div class="productPage" v-html="detail.productDetail"></div>
+      </el-tab-pane>
+      <el-tab-pane :label="words['productParameter'][$lang]" name="productParameter">
+        <div class="productParameter" v-html="detail.productParameter"></div>
+      </el-tab-pane>
+      <el-tab-pane :label="words['technicalSupport'][$lang]" name="technicalSupport">
+        <div class="technicalSupport" v-html="detail.technicalSupport"></div>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 <script>
@@ -97,10 +110,17 @@ export default {
     .productPage {
       // width: 80%;
       margin: 0px auto;
-      font-size: 0;
+      img {
+        display: block;
+        width: 100%;
+      }
     }
     .productParameter,
     .technicalSupport {
+      img {
+        display: block;
+        width: 100%;
+      }
       width: 60%;
       margin: 5px auto;
     }
@@ -138,6 +158,14 @@ export default {
 }
 .mobile {
   .ProductDetail {
+    .productPage,
+    .productParameter,
+    .technicalSupport {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
     .el-tabs__active-bar.is-top {
       opacity: 0;
     }

@@ -20,13 +20,13 @@
           <template slot="title">
             <div style="margin:0 10px">{{f[$lang]}}</div>
           </template>
-          <a
+          <router-link
             class="collapseItem"
             v-for="c in f.children"
             target="_blank"
             style="display: block;"
-            :href="c.href||''"
-          >{{c[$lang]}}</a>
+            :to="c.href||''"
+          >{{c[$lang]}}</router-link>
         </el-collapse-item>
       </el-collapse>
     </div>

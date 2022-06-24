@@ -5,7 +5,7 @@
         <div class="driverItem">
           <div class="txt">
             <div class="icon">
-              <img src="imgs/driver/download.png" />
+              <img src="imgs/download.png" />
             </div>
             <div class="words">
               <div class="title">{{l.title}}</div>

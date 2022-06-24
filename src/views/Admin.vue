@@ -4,83 +4,83 @@
       <el-aside width="200px">
         <el-menu :default-active="currentRouter" class="el-menu-vertical-demo" router>
           <el-menu-item index="/admin/user">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-user-solid"></i>
             <span slot="title">后台用户管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/menu">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-s-grid"></i>
             <span slot="title">菜单管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/logo">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-picture-outline-round"></i>
             <span slot="title">Logo管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/footer">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-bottom"></i>
             <span slot="title">底部管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/carousel">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-postcard"></i>
             <span slot="title">轮播图管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/productImgs">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-coordinate"></i>
             <span slot="title">产品大图管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/bottomSection">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-menu"></i>
             <span slot="title">底部四图管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/classify">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-files"></i>
             <span slot="title">分类管理</span>
           </el-menu-item>
           <el-submenu index="/adminp">
             <template slot="title">
-              <i class="el-icon-star-off"></i>
+              <i class="el-icon-truck"></i>
               产品管理
             </template>
             <el-menu-item index="/admin/productType">产品分类</el-menu-item>
             <el-menu-item index="/admin/productDetail">产品详情</el-menu-item>
           </el-submenu>
           <el-menu-item index="/admin/driver">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-s-promotion"></i>
             <span slot="title">驱动管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/configGuideDetail">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-s-tools"></i>
             <span slot="title">设置教程管理</span>
           </el-menu-item>
           <el-submenu index="/adminf">
             <template slot="title">
-              <i class="el-icon-star-off"></i>
+              <i class="el-icon-question"></i>
               常见问题管理
             </template>
             <el-menu-item index="/admin/faq">编辑常见问题</el-menu-item>
             <el-menu-item index="/admin/question">用户提问管理</el-menu-item>
           </el-submenu>
           <el-menu-item index="/admin/appDownload">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-s-goods"></i>
             <span slot="title">APP管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/contactUs">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-chat-line-round"></i>
             <span slot="title">留言反馈管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/aboutCompany">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-office-building"></i>
             <span slot="title">关于公司管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/companyHonor">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-trophy-1"></i>
             <span slot="title">公司荣誉管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/companyState">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-document-copy"></i>
             <span slot="title">新闻管理</span>
           </el-menu-item>
           <el-menu-item index="/admin/adminRecruitment">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-goblet-square-full"></i>
             <span slot="title">招纳精英管理</span>
           </el-menu-item>
           <!-- <el-menu-item index="/admin/news">

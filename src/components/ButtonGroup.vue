@@ -124,6 +124,10 @@ export default {
     }
     margin: 20px 0;
     .el-row {
+      text-align: left;
+      a{
+        margin-bottom: 10px;
+      }
       .el-link--inner {
         margin: 0 10px;
       }

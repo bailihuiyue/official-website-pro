@@ -54,8 +54,12 @@ export default {
 }
 .mobile {
   .ConfigGuideDetail {
+    width: 100%;
     .title {
       font-size: 16px;
+    }
+    img{
+      width: 100%;
     }
   }
 }
