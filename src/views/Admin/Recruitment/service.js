@@ -1,7 +1,7 @@
 import baseService from "@/services/axios";
 
-export const getRecruitmentList = (lang) => {
-  const api = `recruitment/getAll?lang=${lang}`;
+export const getRecruitment = (typeNo, lang) => {
+  const api = `recruitment/getAll?lang=${lang}&type=${typeNo}`;
   return baseService.get(api);
 };
 

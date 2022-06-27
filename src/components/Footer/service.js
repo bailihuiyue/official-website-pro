@@ -1,6 +1,6 @@
 import baseService from "@/services/axios";
 
-export const getFooter = () => {
-  const api = `footer/get`;
+export const getFooter = (lang) => {
+  const api = `footer/get?lang=${lang}`;
   return baseService.get(api);
 };

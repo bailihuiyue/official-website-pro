@@ -1,5 +1,7 @@
 <template>
   <div class="footerAdmin">
+    <ChangeLocationAdmin />
+    <br/>
     <el-button @click="updateFooter" style="margin:20px 0;" type="primary">保存</el-button>
     <el-tabs value="footerList">
       <el-tab-pane label="底部菜单" name="footerList">
@@ -68,8 +70,10 @@
 </template>
 <script>
 import { getFooter, setFooter } from './service'
+import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
 
 export default {
+  components: { ChangeLocationAdmin },
   data() {
     return {
       footerList: '',
@@ -77,7 +81,7 @@ export default {
       copyright: '',
       img: '',
       id: '',
-      uploadImg:''
+      uploadImg: ''
     }
   },
   created() {
@@ -85,7 +89,7 @@ export default {
   },
   methods: {
     getFooterFun() {
-      getFooter().then((res) => {
+      getFooter(this.$adminLang).then((res) => {
         this.currentList = res.list
         this.copyright = res.copyright
         this.img = res.img
@@ -117,7 +121,7 @@ export default {
         id: this.id
       }
 
-      setFooter(data).then((res) => {
+      setFooter(this.$adminLang, data).then((res) => {
         if (res) {
           this.$message.success('保存成功!')
           this.getFooterFun()
@@ -136,8 +140,8 @@ export default {
 }
 </script>
 <style lang="scss">
-.footerAdmin{
-  .uploadMiniPic{
+.footerAdmin {
+  .uploadMiniPic {
     margin-bottom: 25px;
   }
 }

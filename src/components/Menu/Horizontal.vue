@@ -8,7 +8,7 @@
       :active-text-color="themeColor"
     >
       <template v-for="(t,i1) in menus">
-        <el-submenu :index="i1+''" v-if="t.title[$lang]&&t.title[$lang]!=='placeHolder'">
+        <el-submenu :index="i1+''" v-if="t.title[$lang]&&t.title[$lang]!=='placeholder'">
           <template slot="title">
             <span @click="jumpTo(t[`href${$lang}`]||t[`href`])">{{t.title[$lang]}}</span>
           </template>

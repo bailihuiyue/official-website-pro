@@ -15,7 +15,7 @@
       </el-col>
     </el-row>
     <SubmitQuestion :isFAQ="false" />
-    <el-dialog :close-on-click-modal="false" :visible.sync="dialogVisible" width="300px">
+    <el-dialog :visible.sync="dialogVisible" width="300px">
       <img :src="qrCode" style="width: 100%;" />
     </el-dialog>
   </div>
@@ -65,7 +65,7 @@ export default {
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 30px;
-      width: 350px;
+      width: 250px;
       .el-card__header {
         img {
           width: 100%;

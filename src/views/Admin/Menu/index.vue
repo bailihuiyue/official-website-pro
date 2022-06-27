@@ -2,7 +2,7 @@
   <div class="menuAdmin" v-loading="loading">
     <div>
       <el-alert
-        title="一级菜单名称(包括中英文)为空或者为'placeHolder'的时候菜单不显示,是为了以后扩展菜单而留空的"
+        title="一级菜单名称(包括中英文)为空或者为'placeholder'的时候菜单不显示,是为了以后扩展菜单而留空的"
         type="warning"
         style="margin-bottom:10px"
       />
@@ -19,7 +19,7 @@
           :label="t.title.id"
           v-for="(t,i) in totalData"
           :key="t.title.id"
-        >{{t.title['cn']==='placeHolder'?'空':t.title['cn']}}</el-radio>
+        >{{t.title['cn']==='placeholder'?'空':t.title['cn']}}</el-radio>
       </el-radio-group>
     </div>
     <!-- <ChangeLocationAdmin @langChanged="onLangChanged" /> -->

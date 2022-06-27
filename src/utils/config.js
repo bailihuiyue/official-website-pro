@@ -317,11 +317,16 @@ export const classifyTypes = [
     title: '常见问题',
     type: '4'
   },
+  {
+    title: '招纳精英',
+    type: '5'
+  },
 ]
 
 export const classifyTypesEnum = {
   driver: '1',
   configGuide: '2',
   app: '3',
-  faq: '4'
+  faq: '4',
+  recruitment: '5'
 }

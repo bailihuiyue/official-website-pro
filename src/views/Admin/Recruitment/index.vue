@@ -1,19 +1,26 @@
 <template>
   <div class="RecruitmentAdmin">
     <ChangeLocationAdmin />
+    <div style="margin:15px 0">
+      <span style="margin-right:20px">请选择要编辑的招聘类型:</span>
+      <el-radio-group v-model="selectedRecruitmentType">
+        <el-radio
+          :label="r.typeNo"
+          v-for="r in recruitmentTypes"
+          :key="r.typeNo"
+        >{{r.title[$adminLang]}}</el-radio>
+      </el-radio-group>
+    </div>
     <el-button type="primary" @click="onUpdate()" style="margin:20px 0;display:block">保存</el-button>
-    <el-tabs :value="recruitmentTypes[0].type">
-      <el-tab-pane v-for="r in recruitmentTypes" :key="r.type" :label="r.title.cn" :name="r.type">
-        <Tinymce :content="data[r.type]" :height="500" :menubar="false" :ref="`${r.type}Tiny`" />
-      </el-tab-pane>
-    </el-tabs>
+    <Tinymce :content="data.content" :height="500" :menubar="false" ref="recruitmentTiny" />
   </div>
 </template>
 <script>
 import Tinymce from '@/components/Tinymce'
 import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
-import { getRecruitmentList, modifyRecruitment } from './service'
-import { recruitmentTypes } from '@/utils/config'
+import { getRecruitment, modifyRecruitment } from './service'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'RecruitmentAdmin',
@@ -23,35 +30,47 @@ export default {
   },
   data() {
     return {
-      recruitmentTypes,
+      recruitmentTypes: [],
+      selectedRecruitmentType: 0,
       loading: true,
       data: {}
     }
   },
   created() {
-    this.getRecruitmentApi()
+    getClassify(classifyTypesEnum.recruitment).then((res) => {
+      this.recruitmentTypes = res
+      this.typeNo = res[0].typeNo
+      this.selectedRecruitmentType = res[0].typeNo
+      this.getRecruitmentApi(res[0].typeNo)
+    })
+  },
+  watch: {
+    selectedRecruitmentType(val) {
+      this.getRecruitmentApi(val)
+    }
   },
   methods: {
-    getRecruitmentApi() {
+    getRecruitmentApi(typeNo) {
       this.loading = true
-      getRecruitmentList(this.$adminLang).then((res) => {
+      getRecruitment(typeNo, this.$adminLang).then((res) => {
         this.data = res
         this.loading = false
       })
     },
     onUpdate() {
       this.loading = true
-      recruitmentTypes.forEach((item) => {
-        this.data[item.type] = this.$refs[item.type + 'Tiny'][0].getContent()
+      this.data.content = this.$refs.recruitmentTiny.getContent()
+      modifyRecruitment(this.$adminLang, {
+        ...this.data,
+        type: this.selectedRecruitmentType
       })
-      modifyRecruitment(this.$adminLang, this.data)
         .then((response) => {
           this.loading = false
           this.$message({
             message: '修改成功！',
             type: 'success'
           })
-          this.getRecruitmentApi()
+          this.getRecruitmentApi(this.selectedRecruitmentType)
         })
         .catch((e) => {
           this.$message({

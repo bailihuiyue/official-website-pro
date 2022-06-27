@@ -61,7 +61,7 @@ export default {
     }
   },
   created() {
-    getFooter().then((res) => {
+    getFooter(this.$lang).then((res) => {
       this.footers = res
       this.footers.list = JSON.parse(res.list)
       this.footers.img = JSON.parse(res.img)
