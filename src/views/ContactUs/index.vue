@@ -15,7 +15,7 @@
       </el-col>
     </el-row>
     <SubmitQuestion :isFAQ="false" />
-    <el-dialog :visible.sync="dialogVisible" width="300px">
+    <el-dialog :close-on-click-modal="false" :visible.sync="dialogVisible" width="300px">
       <img :src="qrCode" style="width: 100%;" />
     </el-dialog>
   </div>

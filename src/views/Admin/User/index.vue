@@ -26,7 +26,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="用户信息操作" :visible.sync="dialogFormVisible">
+    <el-dialog :close-on-click-modal="false" title="用户信息操作" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="登录名" :label-width="formLabelWidth">
           <el-input v-model="formData.loginName" autocomplete="off"></el-input>

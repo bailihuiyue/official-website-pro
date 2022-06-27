@@ -16,7 +16,7 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog title="问题详情查看" :visible.sync="dialogFormVisible" width="600px">
+    <el-dialog :close-on-click-modal="false" title="问题详情查看" :visible.sync="dialogFormVisible" width="600px">
       <el-form :model="formData">
         <el-form-item label="姓名" :label-width="formLabelWidth">
           <div>{{formData.name}}</div>

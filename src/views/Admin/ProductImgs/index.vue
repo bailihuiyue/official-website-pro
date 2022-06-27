@@ -26,7 +26,7 @@
       </el-table-column>
     </el-table>
     <!--  -->
-    <el-dialog title="产品大图编辑" :visible.sync="dialogFormVisible">
+    <el-dialog :close-on-click-modal="false" title="产品大图编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="产品图" :label-width="formLabelWidth">
           <el-upload

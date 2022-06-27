@@ -21,7 +21,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="案例编辑" :visible.sync="dialogFormVisible">
+    <el-dialog :close-on-click-modal="false" title="案例编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="数据键" :label-width="formLabelWidth">
           <el-input v-model="formData.dictKey" autocomplete="off"></el-input>

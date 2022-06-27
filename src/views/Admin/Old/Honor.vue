@@ -25,7 +25,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="合作企业管理" :visible.sync="dialogFormVisible">
+    <el-dialog :close-on-click-modal="false" title="合作企业管理" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="荣誉图片" :label-width="formLabelWidth">
           <el-upload

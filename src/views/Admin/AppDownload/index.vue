@@ -4,7 +4,11 @@
     <div style="margin:15px 0">
       <span style="margin-right:20px">请选择要编辑的APP类型:</span>
       <el-radio-group v-model="selectedAppDownloadType">
-        <el-radio :label="a.typeNo" v-for="a in appDownloadTypes" :key="a.typeNo">{{a.title[$adminLang]}}</el-radio>
+        <el-radio
+          :label="a.typeNo"
+          v-for="a in appDownloadTypes"
+          :key="a.typeNo"
+        >{{a.title[$adminLang]}}</el-radio>
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addAppDownloadDetail()" style="margin:10px 0">新增APP</el-button>
@@ -19,7 +23,12 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog title="APP详情编辑" :visible.sync="dialogFormVisible" width="80%">
+    <el-dialog
+      :close-on-click-modal="false"
+      title="APP详情编辑"
+      :visible.sync="dialogFormVisible"
+      width="80%"
+    >
       <el-form :model="formData">
         <el-form-item label="标题" :label-width="formLabelWidth">
           <el-input v-model="formData.title" autocomplete="off"></el-input>

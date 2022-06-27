@@ -11,7 +11,7 @@ import plugins from './plugins'
 import toolbar from './toolbar'
 // import load from './dynamicLoadScript'
 // import { USER_INFO } from '@/store/mutation-types'
-import { uploadImg } from './service'
+import { uploadImg, uploadFile } from './service'
 import { createFormData } from '@/utils/utils'
 
 // const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
@@ -67,7 +67,13 @@ export default {
         es: 'es_MX',
         ja: 'ja'
       },
-      loadingTiny: false
+      loadingTiny: false,
+      lang: {
+        clickDownload: {
+          cn: '点击下载',
+          en: 'Click To Download'
+        }
+      }
       // userinfo: this.$ls.get(USER_INFO)
     }
   },
@@ -206,6 +212,77 @@ export default {
               console.log(err)
               return false
             })
+        },
+        file_picker_callback: (callback, value, meta) => {
+          let accept = ''
+          if (meta.filetype == 'image') {
+            accept = '.jpg,.png,.webp'
+          } else if (meta.filetype === 'media') {
+            accept = '.mp4'
+          } else if (meta.filetype == 'file') {
+            accept = '.pdf'
+          }
+          const self = this
+          // 动态创建上传input，并进行模拟点击上传操作，达到本地上传视频效果。
+          let input = document.createElement('input') //创建一个隐藏的input
+          input.setAttribute('type', 'file')
+          input.setAttribute('accept', accept)
+          input.onchange = function () {
+            const file = createFormData(null, this.files[0])
+            if (meta.filetype == 'image') {
+              // 上传图片
+              // const self = this
+              // if (blob.size > 50 * 1024 * 1024) {
+              //   failure('图片过大,不要超过5mb')
+              //   return false
+              // }
+              uploadImg(file)
+                .then((res) => {
+                  if (res) {
+                    // self.$message.success('上传成功!')
+                    self.imageSuccessCBK(self.$imgServer + res)
+                  } else {
+                    self.$message.error('上传失败!')
+                  }
+                })
+                .catch((err) => {
+                  const error =
+                    err.response && err.response.data && err.response.data.enMsg
+                  self.$message.error('上传失败!' + '\r\n' + error)
+                  console.log(err)
+                  return false
+                })
+            } else {
+              uploadFile(file)
+                .then((res) => {
+                  if (res) {
+                    self.$message.success('上传成功!')
+                    // 上传视频
+                    if (meta.filetype === 'media') {
+                      self.videoSuccessCBK(self.$videoURL + res)
+                    } else if (meta.filetype == 'file') {
+                      // 上传文件
+                      // self.fileSuccessCBK(self.$baseURL + res)
+                      callback(self.$baseURL + res, {
+                        text: self.lang.clickDownload[self.$lang],
+                        rel: ''
+                      })
+                    }
+                  } else {
+                    self.$message.error('上传失败!')
+                  }
+                })
+                .catch((err) => {
+                  const error =
+                    err.response && err.response.data && err.response.data.enMsg
+                  self.$message.error('上传失败!' + '\r\n' + error)
+                  console.log(err)
+                  return false
+                })
+            }
+          }
+          //触发点击
+          input.click()
         }
       })
     },
@@ -225,14 +302,22 @@ export default {
     getContent() {
       return window.tinymce.get(this.tinymceId).getContent()
     },
-    // imageSuccessCBK(arr) {
-    //   const _this = this
-    //   arr.forEach((v) => {
-    //     window.tinymce
-    //       .get(_this.tinymceId)
-    //       .insertContent(`<img class="tyinImg" style="width:100%" src="${v}" >`)
-    //   })
-    // }
+    videoSuccessCBK(res) {
+      window.tinymce
+        .get(this.tinymceId)
+        .insertContent(
+          `<video class="tinyVideo" controls="controls"><source src="${res}" type="video/mp4" /></video>`
+        )
+    },
+    fileSuccessCBK(res) {
+      window.tinymce
+        .get(this.tinymceId)
+        .insertContent(
+          `<a href="${res}" target="_blank" class="tinyLink">${
+            this.lang.clickDownload[this.$lang]
+          }<a/>`
+        )
+    },
     imageSuccessCBK(res) {
       window.tinymce
         .get(this.tinymceId)
@@ -252,6 +337,12 @@ export default {
   }
   .mce-tinymce.mce-container.mce-panel {
     width: auto !important;
+  }
+  .tinyVideo {
+    margin: 15px auto;
+    width: auto;
+    height: 300px;
+    display: block;
   }
   // #tinymce {
   //   img {

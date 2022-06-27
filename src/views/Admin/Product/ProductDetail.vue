@@ -25,7 +25,7 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog title="产品详情编辑" :visible.sync="dialogFormVisible" width="80%">
+    <el-dialog :close-on-click-modal="false" title="产品详情编辑" :visible.sync="dialogFormVisible" width="80%">
       <el-form :model="formData">
         <el-form-item label="产品图" :label-width="formLabelWidth">
           <el-upload

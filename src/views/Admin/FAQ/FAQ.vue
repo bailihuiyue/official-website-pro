@@ -20,7 +20,7 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog title="问题详情编辑" :visible.sync="dialogFormVisible" width="80%">
+    <el-dialog :close-on-click-modal="false" title="问题详情编辑" :visible.sync="dialogFormVisible" width="80%">
       <el-form :model="formData">
         <el-form-item label="标题" :label-width="formLabelWidth">
           <el-input v-model="formData.title" autocomplete="off"></el-input>

@@ -63,7 +63,7 @@
       </el-table-column>
     </el-table>
     <!-- 弹出框 -->
-    <el-dialog title="底部图片编辑" :visible.sync="dialogFormVisible">
+    <el-dialog :close-on-click-modal="false" title="底部图片编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="图片/视频封面" :label-width="formLabelWidth">
           <el-upload

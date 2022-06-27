@@ -70,7 +70,7 @@
         <!-- 公司荣誉 -->
         <div class="content-honor">
           <div class="honor-big-img">
-            <el-dialog :title="dialogTitle" :visible.sync="dialogTableVisible">
+            <el-dialog :close-on-click-modal="false" :title="dialogTitle" :visible.sync="dialogTableVisible">
               <img v-lazy="dialogUrl" alt />
             </el-dialog>
           </div>

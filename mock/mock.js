@@ -502,9 +502,16 @@ module.exports = {
     data: {
       id: '1',
       title: 'Redmi 9A',
-      productDetail: '<p style="background:red">productDetail</p>',
+      productDetail: `<video class="tinyVideo" src="http://www.shkjem.com/video/kj.mp4" controls="controls">
+      您的浏览器不支持 video 标签。
+      </video>
+      <a href=\"http://localhost:9999/logo.png\" target=\"_blank\" rel=\"noopener\">点击下载</a>
+      <p style="background:red">productDetail</p>`,
       productParameter: '<p style="background:yellow">productParameter</p>',
-      technicalSupport: '<p style="background:blue">technicalSupport</p>'
+      technicalSupport: `<video class="tinyVideo" src="http://www.shkjem.com/video/kj.mp4" controls="controls">
+      您的浏览器不支持 video 标签。
+      </video>
+      <a href=\"http://localhost:9999/logo.png\" target=\"_blank\" rel=\"noopener\">点击下载</a><p style="background:blue">technicalSupport</p>`
     }
   },
   'get /product/search': {
@@ -517,7 +524,10 @@ module.exports = {
   'get /product/detail': {
     data: {
       id: "1",
-      content: '<div>fake html</div>'
+      content: `<div>fake html</div>
+      <video class="tinyVideo" src="http://www.shkjem.com/video/kj.mp4" controls="controls">
+      您的浏览器不支持 video 标签。
+      </video>`
     }
   },
   "post /product/add": { data: true },

@@ -13,6 +13,7 @@
       >{{lang['submitFAQTxt'][$lang]}}</el-button>
     </div>
     <el-dialog
+      :close-on-click-modal="false"
       :title="lang.dialog[isFAQ?'submitFAQTitle':'messageFeedbackTitle'][$lang]"
       :visible.sync="showSubmitForm"
       :width="isMobile?'100%':'500px'"

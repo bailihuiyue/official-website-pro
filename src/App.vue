@@ -29,10 +29,14 @@
         @close="handleDisplayDrawer(false)"
         custom-class="menuDrawerClass"
       >
-        <VerticalMenu mode="vertical" :handleSelect="handleSelect" @closeMenu="handleDisplayDrawer(false)"/>
+        <VerticalMenu
+          mode="vertical"
+          :handleSelect="handleSelect"
+          @closeMenu="handleDisplayDrawer(false)"
+        />
       </el-drawer>
       <el-main :style="{marginTop:isMobile?'':'60px'}">
-        <Breadcrumb/>
+        <Breadcrumb />
         <router-view />
       </el-main>
       <Footer v-show="isShow" :isMobile="isMobile" />
@@ -132,6 +136,21 @@ body {
       margin-left: 5px;
     }
   }
+  .tinyVideo {
+    margin: 15px auto;
+    width: auto;
+    height: 350px;
+    display: block;
+  }
+  a[rel='noopener'] {
+    margin: 10px 0;
+    display: inline-block;
+    color: $themeColor;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 .el-header {
   display: flex;
@@ -177,10 +196,16 @@ body {
       }
     }
   }
+  .tinyVideo {
+    margin: 15px auto;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
 }
 div.el-menu--horizontal {
   width: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   left: 0 !important;
   & > ul {
     margin-top: 0;
@@ -258,7 +283,6 @@ div.el-menu--horizontal {
     padding-top: 15px;
   }
 }
-
 
 ::-webkit-scrollbar {
   width: 6px;
