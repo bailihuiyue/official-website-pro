@@ -1,17 +1,17 @@
 <template>
   <div class="bottomSection">
     <div class="section s1">
-      <a :href="bottomImgs[0].href">
+      <router-link :to="bottomImgs[0].href">
         <el-image class="img" :src="$imgServer+bottomImgs[0].img" />
-      </a>
+      </router-link>
     </div>
     <div class="section s2">
       <VideoPlayer :videoData="bottomImgs[1]" />
     </div>
     <div class="section s3">
-      <a :href="bottomImgs[2].href">
+      <router-link :to="bottomImgs[2].href">
         <el-image class="img" :src="$imgServer+bottomImgs[2].img" />
-      </a>
+      </router-link>
     </div>
     <div class="section s4">
       <Carousel :carouselList="bottomImgs[3].imgs" />

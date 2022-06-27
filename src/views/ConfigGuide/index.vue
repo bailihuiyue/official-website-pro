@@ -73,7 +73,7 @@ export default {
       width: 80%;
       margin-left: auto;
       margin-right: auto;
-      text-align: left;
+      // text-align: left;
       .isPC:first-child {
         margin-left: 0;
         padding-left: 0;

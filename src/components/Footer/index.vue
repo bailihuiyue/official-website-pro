@@ -13,7 +13,14 @@
           >{{c[$lang]}}</div>
         </li>
       </ul>
-      <img v-if="footers.img" :src="$imgServer+footers.img" alt />
+      <div class="followUs">
+        <h3>{{lang.followUs[$lang]}}</h3>
+        <div class="miniPic">
+          <a :href="fi.href" v-for="fi in footers.img" :key="fi.img" target="_blank">
+            <img :src="fi.img" />
+          </a>
+        </div>
+      </div>
     </div>
     <div v-else>
       <el-collapse>
@@ -44,13 +51,20 @@ export default {
   props: ['isMobile'],
   data() {
     return {
-      footers: {}
+      footers: {},
+      lang: {
+        followUs: {
+          en: 'Follow Us',
+          cn: '关注我们'
+        }
+      }
     }
   },
   created() {
     getFooter().then((res) => {
       this.footers = res
       this.footers.list = JSON.parse(res.list)
+      this.footers.img = JSON.parse(res.img)
     })
   },
   methods: {
@@ -122,10 +136,26 @@ export default {
         padding-left: 0;
       }
     }
-    img {
-      width: 170px;
-      height: 170px;
-      padding: 10px;
+    .followUs {
+      width: 250px;
+      h3 {
+        color: #fff;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .miniPic {
+        a {
+          margin: 10px;
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
   }
   .copyright {

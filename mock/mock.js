@@ -330,8 +330,27 @@ module.exports = {
   // 底部
   'get /footer/get': {
     data: {
-      img: 'http://shkjgw.shkjem.com/imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg',
-      list: `[{"cn":"企业信息","en":"q","children":[{"cn":"发展历程","en":"q","href":"https://www.baidu.com"},{"cn":"企业文化","en":"q","href":"https://www.baidu.com"},{"cn":"资质荣誉","en":"q","href":"https://www.baidu.com"},{"cn":"合作伙伴","en":"q","href":"https://www.baidu.com"}]},{"cn":"新闻资讯","en":"q","children":[{"cn":"公司新闻","en":"q","href":"https://www.baidu.com"},{"cn":"行业动态","en":"q","href":"https://www.baidu.com"}]},{"cn":"产品中心","en":"q","children":[{"cn":"介绍视频","en":"q","href":"https://www.baidu.com"},{"cn":"管理模式","en":"q","href":"https://www.baidu.com"},{"cn":"平台目标","en":"q","href":"https://www.baidu.com"},{"cn":"功能模块","en":"q","href":"https://www.baidu.com"}]},{"cn":"联系我们","en":"q","children":[{"cn":"邮箱：websitelml@163.com","en":"q"},{"cn":"电话：021-55802368","en":"q","href":""},{"cn":"地址：上海市杨浦区翔殷路128号12号楼101","en":"q","href":""}]}]`,
+      img: `[{
+        "img":"http://118.190.209.120:8085/pms/20220627101406.png",
+        "href":"https://www.baidu.com"
+        },
+        {
+        "img":"http://118.190.209.120:8085/pms/20220627101432.png",
+        "href":"https://www.baidu.com"
+        },
+        {
+        "img":"http://118.190.209.120:8085/pms/20220627101441.png",
+        "href":"https://www.baidu.com"
+        },
+        {
+        "img":"http://118.190.209.120:8085/pms/20220627101450.png",
+        "href":"https://www.baidu.com"
+        },
+        {
+        "img":"http://118.190.209.120:8085/pms/20220627101459.png",
+        "href":"https://www.baidu.com"
+        }]`,
+      list: `[{"cn":"产品","en":"Products","children":[{"cn":"方向盘","en":"fxp","href":"/productDetail?id=17"},{"cn":"游戏手柄","en":"yxsb","href":"/productDetail?id=16"},{"cn":"PXN耳机","en":"pxnej","href":"/productDetail?id=23"},{"cn":"飞行摇杆","en":"fxyg","href":"/productDetail?id=22"},{"cn":"格斗摇杆","en":"gdyg","href":"/productDetail?id=22"}]},{"cn":"技术支持","en":"Technical Support","children":[{"cn":"驱动下载","en":"Driver Download","href":"/driver"},{"cn":"设置教程","en":"Config Guide","href":"/configGuide"},{"cn":"FAQ","en":"FAQ","href":"/faq"},{"cn":"APP下载","en":"APP Download","href":"/appDownload"},{"cn":"联系我们","en":"Contact Us","href":"/contactUs"}]},{"cn":"莱仕达","en":"About us","children":[{"cn":"关于公司","en":"About Company","href":"/aboutCompany"},{"cn":"荣誉勋章","en":"Company Honor","href":"/companyHonor"},{"cn":"公司动态","en":"Company State","href":"/companyState"},{"cn":"招纳精英","en":"Recruitment","href":"/recruitment"}]}]`,
       copyright: 'Copyright © 2020 Shenzhen PXN Electronic Technology Co., Ltd.'
     }
   },

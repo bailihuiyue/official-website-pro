@@ -31,21 +31,37 @@
         <el-alert title="版权信息维护" type="warning" />
         <el-input style="margin-top:20px" v-model="copyright" placeholder="请输入最底部版权信息" />
       </el-tab-pane>
-      <el-tab-pane label="二维码" name="img">
+      <el-tab-pane label="关注我们" name="img">
         <el-alert title="点击上传最右边图片" type="warning" />
-        <el-upload
-          style="margin-top:20px"
-          class="avatar-uploader"
-          :action="`${$imgServer}api/upload/uploadImage`"
-          :show-file-list="false"
-          :on-success="handleSuccess"
-          :headers="{token:$token}"
-        >
-          <div class="avatar">
-            <img v-if="img" :src="$imgServer+img" />
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        <div class="uploadMiniPic">
+          <el-upload
+            style="margin-top:20px"
+            class="avatar-uploader"
+            :action="`${$imgServer}api/upload/uploadImage`"
+            :show-file-list="false"
+            :on-success="handleSuccess"
+            :headers="{token:$token}"
+          >
+            <el-button size="small" type="primary">点击上传小图标</el-button>
+          </el-upload>
+          <span>已上传的地址: {{$imgServer+uploadImg}}</span>
+        </div>
+        <div style="float:left;width:500px">
+          <div>当前已保存的内容:</div>
+          <div style="margin-top:5px;font-size:14px;white-space: pre;">
+            <code>{{img}}</code>
           </div>
-        </el-upload>
+        </div>
+        <div style="float:left">
+          <div style="margin-bottom:5px;">请输入新的内容:</div>
+          <el-input
+            style="width:500px"
+            type="textarea"
+            :rows="30"
+            placeholder="请输入内容"
+            v-model="img"
+          ></el-input>
+        </div>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -60,7 +76,8 @@ export default {
       currentList: '{"test":1}',
       copyright: '',
       img: '',
-      id: ''
+      id: '',
+      uploadImg:''
     }
   },
   created() {
@@ -109,7 +126,7 @@ export default {
     },
     handleSuccess(res) {
       if (res) {
-        this.img = res.data
+        this.uploadImg = res.data
         this.$message.success('上传成功,请刷新页面!')
       } else {
         this.$message.error(res.resultMsg || '上传图片失败,请重试!')
@@ -119,4 +136,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.footerAdmin{
+  .uploadMiniPic{
+    margin-bottom: 25px;
+  }
+}
 </style>
