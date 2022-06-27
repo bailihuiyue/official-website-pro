@@ -2,7 +2,7 @@
   <div class="Driver">
     <SeatchBar @onSearch="onSearch" />
     <ButtonGroup :btns="driverTypes" type="vertical" @click="onChangeTypes" v-show="!searchTxt" />
-    <DriverList :searchTxt="searchTxt" :type="type" />
+    <DriverList :searchTxt="searchTxt" :type="type" v-if="showList" />
   </div>
 </template>
 <script>
@@ -21,9 +21,10 @@ export default {
   },
   data() {
     return {
-      driverTypes:[],
+      driverTypes: [],
       searchTxt: '',
-      type: ''
+      type: '',
+      showList: true
     }
   },
   created() {
@@ -37,6 +38,20 @@ export default {
     },
     onChangeTypes(data) {
       this.type = data.typeNo
+    }
+  },
+  watch: {
+    type(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    },
+    searchTxt(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
     }
   }
 }

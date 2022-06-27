@@ -7,7 +7,7 @@
       @click="onChangeTypes"
       v-show="!searchTxt"
     />
-    <AppDownloadList :searchTxt="searchTxt" :type="type" />
+    <AppDownloadList :searchTxt="searchTxt" :type="type" v-if="showList" />
   </div>
 </template>
 <script>
@@ -28,7 +28,8 @@ export default {
     return {
       appDownloadTypes: [],
       searchTxt: '',
-      type: ''
+      type: '',
+      showList: true
     }
   },
   created() {
@@ -42,6 +43,20 @@ export default {
     },
     onChangeTypes(data) {
       this.type = data.typeNo
+    }
+  },
+  watch: {
+    type(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    },
+    searchTxt(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
     }
   }
 }

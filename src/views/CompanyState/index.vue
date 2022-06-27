@@ -7,7 +7,7 @@
       :defaultClickedBtn="0"
       :useLocalImg="true"
     />
-    <CompanyStateList :type="type" />
+    <CompanyStateList :type="type" v-if="showList" />
   </div>
 </template>
 <script>
@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       companyStateTypes,
-      type: 0
+      type: 0,
+      showList: true
     }
   },
   methods: {
@@ -34,6 +35,14 @@ export default {
       this.type = data.id
     },
     onSubmit(data) {}
+  },
+  watch: {
+    type(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    }
   }
 }
 </script>

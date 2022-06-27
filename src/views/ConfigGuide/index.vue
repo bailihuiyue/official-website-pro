@@ -8,7 +8,7 @@
       v-show="!searchTxt"
       :extraData="extraData"
     />
-    <GuideList :searchTxt="searchTxt" :type="type" />
+    <GuideList :searchTxt="searchTxt" :type="type" v-if="showList" />
   </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
   components: {
     ButtonGroup,
     SeatchBar,
-    GuideList
+    GuideList,
   },
   data() {
     return {
@@ -33,7 +33,8 @@ export default {
       extraData: {
         cn: '了解更多',
         en: 'Learn More'
-      }
+      },
+      showList: true
     }
   },
   created() {
@@ -47,6 +48,20 @@ export default {
     },
     onChangeTypes(data) {
       this.type = data.typeNo
+    }
+  },
+  watch: {
+    type(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    },
+    searchTxt(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
     }
   }
 }

@@ -17,14 +17,14 @@
             <div class>
               <img :src="(useLocalImg?'':$imgServer)+b.img" />
               <div class="title">{{b['title'][$lang]}}</div>
-              <div class="desc" v-if="extraData[$lang]">{{extraData[$lang]}}</div>
+              <div class="desc" v-if="extraData&&extraData[$lang]">{{extraData[$lang]}}</div>
             </div>
           </div>
           <div class="horizontal" v-else>
             <img :src="(useLocalImg?'':$imgServer)+b.img" />
             <div class="txtWrap">
               <div class="title">{{b['title'][$lang]}}</div>
-              <div class="desc" v-if="extraData[$lang]">{{extraData[$lang]}}</div>
+              <div class="desc" v-if="extraData&&extraData[$lang]">{{extraData[$lang]}}</div>
             </div>
           </div>
         </el-button>

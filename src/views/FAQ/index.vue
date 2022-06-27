@@ -2,7 +2,7 @@
   <div class="faqGuide">
     <SeatchBar @onSearch="onSearch" />
     <ButtonGroup :btns="faqTypes" type="vertical" @click="onChangeTypes" v-show="!searchTxt" />
-    <FAQList :searchTxt="searchTxt" :type="type" />
+    <FAQList :searchTxt="searchTxt" :type="type" v-if="showList" />
     <SubmitQuestion @submit="onSubmit" :isFAQ="true" />
   </div>
 </template>
@@ -24,9 +24,10 @@ export default {
   },
   data() {
     return {
-      faqTypes:[],
+      faqTypes: [],
       searchTxt: '',
-      type: ''
+      type: '',
+      showList: true
     }
   },
   created() {
@@ -42,6 +43,20 @@ export default {
       this.type = data.typeNo
     },
     onSubmit(data) {}
+  },
+  watch: {
+    type(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    },
+    searchTxt(val) {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    }
   }
 }
 </script>

@@ -174,6 +174,7 @@ export default {
             -webkit-line-clamp: 1;
             overflow: hidden;
             word-break: break-all;
+            height: 20px;
           }
         }
       }
