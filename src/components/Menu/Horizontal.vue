@@ -57,13 +57,13 @@ export default {
     '$route.path': {
       handler: function (val) {
         // if (!window._calcMenu) {
-          const id = this.$route.query.id
-          let key = val
-          if (id) {
-            key = `${val}?id=${id}`
-          }
-          this.active = this.menuTreeKey[key] || '/'
-          // window._calcMenu = true
+        const id = this.$route.query.id
+        let key = val
+        if (id) {
+          key = `${val}?id=${id}`
+        }
+        this.active = this.menuTreeKey[key] || '/'
+        // window._calcMenu = true
         // }
       }
     }
@@ -88,7 +88,9 @@ export default {
     // 对应第一次进入页面时如果不是首页,菜单没有选中状态,
     // 但是每个菜单设置的key必须唯一
     calcActiveMenu(key, path) {
-      this.menuTreeKey[path] = key
+      if (path) {
+        this.menuTreeKey[path] = key
+      }
       return key
     }
   }
