@@ -6,22 +6,24 @@
       :destroy-on-close="true"
       :show-close="false"
       :visible.sync="showVideoModal"
-      width="60%"
+      :width="isMobile?'100%':'60%'"
       custom-class="videoModal"
     >
-      <VideoPlayer :videoData="data" :autoplay="true" v-if="showVideoModal"/>
+      <VideoPlayer :videoData="data" :autoplay="true" v-if="showVideoModal" />
     </el-dialog>
   </div>
 </template>
 <script>
 import VideoPlayer from '@/components/VideoPlayer.vue'
+import device from 'current-device'
 
 export default {
   props: ['data'],
   components: { VideoPlayer },
   data() {
     return {
-      showVideoModal: false
+      showVideoModal: false,
+      isMobile: device.mobile()
     }
   },
   methods: {
@@ -56,6 +58,15 @@ export default {
     .el-dialog__header,
     .el-dialog__body {
       padding: 0;
+    }
+  }
+}
+.mobile {
+  .playVideoWithModal {
+    .playButton {
+      width: 15vw;
+      height: 15vw;
+      background-image: url('../../public/imgs/video/playing.png');
     }
   }
 }
