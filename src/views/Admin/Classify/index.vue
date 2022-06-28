@@ -1,7 +1,7 @@
 <template>
   <div class="classify">
     <el-alert
-      title="类型编号在单个分类中必须唯一,且一旦添加不可修改,此为查找对应类型内容的唯一标识!"
+      title="类型编号必填且在单个分类中必须唯一,且一旦添加不可修改,此为查找对应类型内容的唯一标识!"
       type="warning"
       style="margin-bottom:10px"
     />
@@ -17,6 +17,7 @@
       <el-table-column prop="id" label="id" width="100"></el-table-column>
       <el-table-column prop="title.cn" label="中文" width="200"></el-table-column>
       <el-table-column prop="title.en" label="英文" width="200"></el-table-column>
+      <el-table-column prop="typeNo" label="类型编号" width="200"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgServer + scope.row.img" alt />
