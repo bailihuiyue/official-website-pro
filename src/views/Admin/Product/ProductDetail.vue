@@ -119,7 +119,7 @@ export default {
       formLabelWidth: '120px',
       loading: true,
       headers: {
-        token: window.localStorage.getItem('token')
+        token: window.sessionStorage.getItem("token")
       },
       activeTab: 'productDetail'
     }

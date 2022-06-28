@@ -2,7 +2,7 @@
   <div class="login">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>韭菜后台登录入口</span>
+        <span>莱仕达官网管理后台</span>
       </div>
       <div>
         <el-form
@@ -68,7 +68,7 @@ export default {
                   message: "登录成功",
                   type: "success"
                 });
-                localStorage.setItem("token", response.Ticket);
+                sessionStorage.setItem("token", response.Ticket);
                 this.$router.push({ name: "admin" });
               }
             })

@@ -276,7 +276,7 @@ router.beforeEach((to, from, next) => {
   // 判断是否需要登录权限
   if (to.matched.some(res => res.meta.requireAuth)) {
     // 判断是否登录
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
       next()
     } else {
       // 没登录则跳转到登录界面

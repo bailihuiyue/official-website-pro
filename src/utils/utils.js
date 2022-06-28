@@ -11,7 +11,7 @@ export const videoURL = window.videoURL;
 
 export const getLang = () => window.localStorage.getItem('lang') || 'cn'
 export const getAdminLang = () => window.localStorage.getItem('adminLang') || 'cn'
-export const getToken = () => window.localStorage.getItem('token')
+export const getToken = () => window.sessionStorage.getItem("token")
 
 export const createFormData = (formDatas, file) => {
   const formData = new FormData()

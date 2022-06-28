@@ -79,7 +79,7 @@ export default {
         createTime: new Date()
       },
       headers: {
-        token: window.localStorage.getItem("token")
+        token: window.sessionStorage.getItem("token")
       }
     };
   },

@@ -68,7 +68,7 @@ export default {
       },
       options: {},
       headers: {
-        token: window.localStorage.getItem("token")
+        token: window.sessionStorage.getItem("token")
       }
     };
   },
