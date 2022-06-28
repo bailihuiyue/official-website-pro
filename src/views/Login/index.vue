@@ -63,13 +63,15 @@ export default {
             password: this.loginform.pass
           })
             .then(response => {
-              if (response.bRes) {
+              if (response.Ticket) {
                 this.$message({
                   message: "登录成功",
                   type: "success"
                 });
                 sessionStorage.setItem("token", response.Ticket);
                 this.$router.push({ name: "admin" });
+              }else{
+                this.$message.error('用户名或密码错误');
               }
             })
             .catch(e => {
