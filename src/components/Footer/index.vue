@@ -1,5 +1,6 @@
 <template>
   <div class="footer" v-if="list&&list.length">
+    <div v-if="!isMobile" :class="isIndexPage?'':'hasMarginTop'"></div>
     <div class="footer-content" v-if="!isMobile">
       <ul class="content-nav">
         <li v-for="l in list">
@@ -51,9 +52,10 @@ export default {
   props: ['isMobile'],
   data() {
     return {
+      isIndexPage: '',
       list: [],
-      img:[],
-      copyright:'',
+      img: [],
+      copyright: '',
       lang: {
         followUs: {
           en: 'Follow Us',
@@ -79,12 +81,26 @@ export default {
         }
       }
     }
+  },
+  watch: {
+    '$route.path': {
+      handler: function (val) {
+        this.isIndexPage = val === '/'
+      },
+      deep: true,
+      immediate: true
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .footer {
+  .hasMarginTop{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+  }
   background: #111 url('../../../public/imgs/footerBg.png') no-repeat top right;
   width: 100%;
   // height: 216px;
