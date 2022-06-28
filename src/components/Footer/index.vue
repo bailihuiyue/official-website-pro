@@ -142,7 +142,7 @@ export default {
       width: 250px;
       h3 {
         color: #fff;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         margin-top: 10px;
         margin-left: 10px;
       }

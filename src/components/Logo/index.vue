@@ -2,7 +2,7 @@
   <div class="logo" :style="{justifyContent:isMobile?'center':''}">
     <router-link to="/">
       <div class="imgWrap">
-        <img :src="$imgServer+logo" :class="isMobile?'mobileLogo':'pcLogo'" />
+        <img :src="$imgServer+logo" :class="isMobile?'mobileLogo':'pcLogo'" v-if="logo"/>
       </div>
     </router-link>
   </div>
