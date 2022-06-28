@@ -58,7 +58,18 @@ export default {
   watch: {
     '$route.query.id': {
       handler: function (val) {
-        getProductDetail(this.$lang, val).then((res) => (this.detail = res))
+        if (val) {
+          getProductDetail(this.$lang, val).then((res) => {
+            if (res) {
+              this.detail = res
+            } else {
+              this.detail = {
+                productDetail:
+                  '<img style="width:50%;margin:30px auto" src="/imgs/404.jpg"/>'
+              }
+            }
+          })
+        }
       },
       deep: true,
       immediate: true

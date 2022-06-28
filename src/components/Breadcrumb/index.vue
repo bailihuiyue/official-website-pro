@@ -2,7 +2,7 @@
   <div class="Breadcrumb" v-if="breadcrumbList[this.$route.path]">
     <el-breadcrumb separator="/">
       <el-breadcrumb-item
-        :to="{ path:b.path }"
+        :to="b.path?{ path:b.path }:null"
         v-for="b in breadcrumbList[this.$route.path]"
         :key="b.path"
       >{{b.title[$lang]}}</el-breadcrumb-item>

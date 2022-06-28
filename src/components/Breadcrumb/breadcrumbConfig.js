@@ -15,7 +15,6 @@ const productList = {
 }
 
 const productDetail = {
-  path: '/productDetail',
   title: {
     cn: '产品详情',
     en: 'Product Detail'
