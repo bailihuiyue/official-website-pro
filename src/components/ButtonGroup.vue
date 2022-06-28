@@ -71,7 +71,7 @@ export default {
     }
     .el-button:focus,
     .el-button:hover {
-      // color: $themeColor;
+      color: $themeColor;
       background-color: transparent;
     }
     .isPC {

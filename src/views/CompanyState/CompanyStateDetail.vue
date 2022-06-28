@@ -26,7 +26,7 @@ export default {
 @import '~@/styles/color.scss';
 
 .CompanyStateDetail {
-  width: 80%;
+  width: $contentWidth;
   margin: 0 auto;
   margin-top: 30px;
   .title {

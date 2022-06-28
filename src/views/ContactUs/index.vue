@@ -52,8 +52,10 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .ContactUs {
-  width: 80%;
+  width: $contentWidth;
   margin: 0 auto;
   h1 {
     margin: 30px;
@@ -93,7 +95,7 @@ export default {
 .mobile {
   .ContactUs {
     .el-card {
-      width: 80%;
+      width: $contentWidth;
     }
   }
 }

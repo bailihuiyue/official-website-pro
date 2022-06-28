@@ -1,2 +1,2 @@
-export const themeColor = 'rgb(0, 81, 166)';
+export const themeColor = '#ED6A00';
 export const lightWhite = '#fff';

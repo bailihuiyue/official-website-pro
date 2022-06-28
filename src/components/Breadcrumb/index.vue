@@ -23,8 +23,10 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .Breadcrumb {
-  width: 80%;
+  width: $contentWidth;
   margin: 10px auto;
   background-color: #e9ecef;
   border-radius: 5px;

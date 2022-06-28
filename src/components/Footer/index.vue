@@ -95,6 +95,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .footer {
   .hasMarginTop{
     width: 100%;
@@ -143,7 +145,7 @@ export default {
         //   pointer-events: none;
         // }
         .hasUnderLine:hover {
-          text-decoration: underline;
+          color: $themeColor;
           cursor: pointer;
         }
         .noUnderLine:hover {
@@ -202,7 +204,7 @@ export default {
         display: block;
         li {
           display: block;
-          width: 90%;
+          width: $contentWidth;
           margin: auto;
           padding: 0 10px;
           span {

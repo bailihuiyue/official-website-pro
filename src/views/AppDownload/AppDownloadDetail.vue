@@ -43,7 +43,7 @@ export default {
 @import '~@/styles/color.scss';
 
 .AppDownloadDetail {
-  width: 80%;
+  width: $contentWidth;
   margin: 0 auto;
   margin-top: 30px;
   .title {

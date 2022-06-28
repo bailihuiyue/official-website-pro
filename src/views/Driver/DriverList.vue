@@ -129,7 +129,7 @@ export default {
 
 .driverList {
   margin-top: 20px;
-  width: 80%;
+  width: $contentWidth;
   margin: 0 auto;
   .el-row {
     margin-top: 40px;

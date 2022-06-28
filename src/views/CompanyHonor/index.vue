@@ -47,9 +47,11 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .companyHonor {
   .carousel {
-    width: 80%;
+    width: $contentWidth;
     margin: 20px auto;
   }
 }

@@ -45,9 +45,11 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .ProductList {
   margin: 20px auto;
-  width: 80%;
+  width: $contentWidth;
   .el-tabs__item {
     line-height: unset;
     height: 135px;

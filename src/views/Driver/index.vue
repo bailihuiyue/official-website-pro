@@ -57,10 +57,12 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .Driver {
   .ButtonGroup {
     .el-row {
-      width: 80%;
+      width: $contentWidth;
       margin-left: auto;
       margin-right: auto;
       // text-align: left;

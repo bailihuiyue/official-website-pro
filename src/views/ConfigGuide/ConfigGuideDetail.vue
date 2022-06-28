@@ -33,7 +33,7 @@ export default {
 @import '~@/styles/color.scss';
 
 .ConfigGuideDetail {
-  width: 80%;
+  width: $contentWidth;
   margin: 0 auto;
   margin-top: 30px;
   .title {
@@ -43,11 +43,11 @@ export default {
     // color: $lightWhite;
   }
   .videoPlayer {
-    width: 80%;
+    width: $contentWidth;
     margin: 0 auto;
   }
   .content {
-    width: 80%;
+    width: $contentWidth;
     margin: 20px auto;
     // color: $lightWhite;
   }

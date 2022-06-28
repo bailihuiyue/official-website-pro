@@ -97,8 +97,8 @@ export default {
         background-color: transparent;
       }
       .el-tabs__nav-scroll {
-        width: 80% !important;
-        margin-left: 10% !important;
+        width: $contentWidth !important;
+        margin-left: 5% !important;
         .el-tabs__nav.is-top {
           // float: right;
           width: 100%;
@@ -119,7 +119,7 @@ export default {
       }
     }
     .productPage {
-      // width: 80%;
+      width: $contentWidth;
       margin: 0px auto;
       img {
         display: block;
@@ -132,7 +132,7 @@ export default {
         display: block;
         width: 100%;
       }
-      width: 60%;
+      width: $contentWidth;
       margin: 5px auto;
     }
     #tab-technicalSupport,
