@@ -4,7 +4,7 @@
     <el-button type="primary" @click="onUpdate()" style="margin:20px 0;display:block">保存</el-button>
     <el-tabs :value="aboutCompanyTypes[0].type">
       <el-tab-pane v-for="a in aboutCompanyTypes" :key="a.type" :label="a.title.cn" :name="a.type">
-        <Tinymce :content="data[a.type]" :height="500" :menubar="false" :ref="`${a.type}Tiny`" />
+        <Tinymce :content="data[a.type]||''" :height="500" :menubar="false" :ref="`${a.type}Tiny`" />
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -35,7 +35,13 @@ export default {
     getAboutCompanyApi() {
       this.loading = true
       getAboutCompanyList(this.$adminLang).then((res) => {
-        this.data = res
+        if (!res) {
+          this.data.aboutUs = ''
+          this.data.investmentPolicy = ''
+          this.data.teamPresence = ''
+        } else {
+          this.data = res
+        }
         this.loading = false
       })
     },

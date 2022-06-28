@@ -5,20 +5,15 @@
       type="vertical"
       @click="onChangeTypes"
       :defaultClickedBtn="0"
-      :useLocalImg="true"
     />
-    <div
-      v-for="r in recruitmentTypes"
-      :class="`content ${r.type}`"
-      v-if="type===r.type"
-      v-html="recruitmentData[type]"
-    ></div>
+    <div class="content" v-html="recruitmentData.content"></div>
   </div>
 </template>
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
-import { recruitmentTypes } from '@/utils/config'
-import { getRecruitmentList } from './service'
+import { getRecruitment } from './service'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
 
 export default {
   name: 'recruitment',
@@ -27,17 +22,28 @@ export default {
   },
   data() {
     return {
-      recruitmentTypes,
+      recruitmentTypes: [],
       recruitmentData: {},
-      type: recruitmentTypes[0].type
+      type: 0
     }
   },
   created() {
-    getRecruitmentList(this.$lang).then((res) => (this.recruitmentData = res))
+    getClassify(classifyTypesEnum.recruitment).then((res) => {
+      this.recruitmentTypes = res
+      this.type = res[0].typeNo
+      this.getRecruitmentApi(res[0].typeNo)
+    })
   },
   methods: {
     onChangeTypes(data) {
-      this.type = data.type
+      this.getRecruitmentApi(data.typeNo)
+    },
+    getRecruitmentApi(typeNo) {
+      this.loading = true
+      getRecruitment(typeNo, this.$lang).then((res) => {
+        this.recruitmentData = res
+        this.loading = false
+      })
     }
   }
 }
@@ -59,7 +65,7 @@ export default {
   .content {
     width: 80%;
     margin: 20px auto;
-    img{
+    img {
       width: 100%;
     }
   }

@@ -20,7 +20,7 @@ axios.interceptors.request.use(
   (config) => {
     config.headers["Content-Type"] =
       ContentType[config.data instanceof FormData ? "formData" : "json"];
-    config.headers["token"] =window.localStorage.getItem("token");
+    config.headers["token"] = window.localStorage.getItem("token");
     return config;
   },
   (error) => {
@@ -34,7 +34,9 @@ axios.interceptors.response.use(
       if (res.data.data) {
         return res.data.data;
       } else {
-        Message.error(res.data.resultMsg);
+        if (res.data.resultMsg) {
+          Message.error(res.data.resultMsg);
+        }
         return false;
       }
     } else if (res.status === 401 || res.status === 403) {
@@ -52,7 +54,7 @@ axios.interceptors.response.use(
     const result = error.response;
     if (result && result.data) {
       const { data } = result;
-      Message.error(data.data||data.msg);
+      Message.error(data.data || data.msg);
     } else if (msg) {
       if (msg === "Network Error") {
         Message.error("网络错误,请检查网络!");

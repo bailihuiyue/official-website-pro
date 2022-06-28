@@ -234,7 +234,7 @@ export default {
     onUploadFileSuccess(response) {
       if (response) {
         const data = this.totalData[1]
-        data.href = response.data
+        data.href = this.$videoURL + response.data
         this.loading = true
         updateBottomImgs(this.$adminLang, data).then((response) => {
           this.loading = false

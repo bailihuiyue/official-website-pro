@@ -1,22 +1,22 @@
 <template>
-  <div class="footer">
+  <div class="footer" v-if="list&&list.length">
     <div class="footer-content" v-if="!isMobile">
       <ul class="content-nav">
-        <li v-for="f in footers.list">
-          <p>{{f[$lang]}}</p>
+        <li v-for="l in list">
+          <p>{{l[$lang]}}</p>
           <div
-            v-for="c in f.children"
+            v-for="c in l.children"
             target="_blank"
             style="display: block"
-            :class="c.href?'hasUnderLine':'noUnderLine'"
-            @click="jumpTo(c.href)"
+            :class="c[`href${$lang}`]?'hasUnderLine':'noUnderLine'"
+            @click="jumpTo(c[`href${$lang}`])"
           >{{c[$lang]}}</div>
         </li>
       </ul>
       <div class="followUs">
         <h3>{{lang.followUs[$lang]}}</h3>
         <div class="miniPic">
-          <a :href="fi.href" v-for="fi in footers.img" :key="fi.img" target="_blank">
+          <a :href="fi.href" v-for="fi in img" :key="fi.img" target="_blank">
             <img :src="fi.img" />
           </a>
         </div>
@@ -24,7 +24,7 @@
     </div>
     <div v-else>
       <el-collapse>
-        <el-collapse-item v-for="f in footers.list">
+        <el-collapse-item v-for="f in list">
           <template slot="title">
             <div style="margin:0 10px">{{f[$lang]}}</div>
           </template>
@@ -39,7 +39,7 @@
       </el-collapse>
     </div>
     <div class="copyright">
-      <span>{{footers.copyright}}</span>
+      <span>{{copyright}}</span>
     </div>
   </div>
 </template>
@@ -51,7 +51,9 @@ export default {
   props: ['isMobile'],
   data() {
     return {
-      footers: {},
+      list: [],
+      img:[],
+      copyright:'',
       lang: {
         followUs: {
           en: 'Follow Us',
@@ -61,10 +63,10 @@ export default {
     }
   },
   created() {
-    getFooter(this.$lang).then((res) => {
-      this.footers = res
-      this.footers.list = JSON.parse(res.list)
-      this.footers.img = JSON.parse(res.img)
+    getFooter().then((res) => {
+      this.list = JSON.parse(res.list)
+      this.img = JSON.parse(res.img)
+      this.copyright = res.copyright
     })
   },
   methods: {

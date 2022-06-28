@@ -46,7 +46,7 @@
           >
             <el-button size="small" type="primary">点击上传小图标</el-button>
           </el-upload>
-          <span>已上传的地址: {{$imgServer+uploadImg}}</span>
+          <span>已上传的地址: {{uploadImg&&($imgServer+uploadImg)}}</span>
         </div>
         <div style="float:left;width:500px">
           <div>当前已保存的内容:</div>

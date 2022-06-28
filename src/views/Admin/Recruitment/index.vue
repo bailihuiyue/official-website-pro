@@ -46,6 +46,7 @@ export default {
   },
   watch: {
     selectedRecruitmentType(val) {
+      this.$refs.recruitmentTiny.setContent('')
       this.getRecruitmentApi(val)
     }
   },
@@ -53,7 +54,12 @@ export default {
     getRecruitmentApi(typeNo) {
       this.loading = true
       getRecruitment(typeNo, this.$adminLang).then((res) => {
-        this.data = res
+        if (!res) {
+          this.data = { id: undefined, content: '' }
+        } else {
+          this.data = res
+          this.$refs.recruitmentTiny.setContent(res.content)
+        }
         this.loading = false
       })
     },
