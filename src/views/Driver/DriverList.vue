@@ -14,14 +14,12 @@
           </div>
           <div class="download">
             <el-link
-              target="_blank"
               type="primary"
               :href="$baseURL+l.driverUrl"
               class="downDriver"
               icon="el-icon-download"
             >{{lang.downDriver[$lang]}}</el-link>
             <el-link
-              target="_blank"
               type="primary"
               :href="$baseURL+l.pdfUrl"
               class="downPDF"
