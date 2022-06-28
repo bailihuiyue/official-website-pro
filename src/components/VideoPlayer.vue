@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  props: ['videoData'],
+  props: ['videoData', 'autoplay'],
   data() {
     return {
       playerOptions: {
@@ -52,7 +52,11 @@ export default {
       immediate: true
     }
   },
-  // created() {}
+  created() {
+    if (this.autoplay) {
+      this.playerOptions.autoplay = this.autoplay
+    }
+  }
 }
 </script>
 <style lang="scss">

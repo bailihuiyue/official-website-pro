@@ -158,6 +158,7 @@ export default {
         .words {
           flex: 1;
           .title {
+            height: 22px;
             font-size: 16px;
             color: $themeColor;
             margin-bottom: 5px;

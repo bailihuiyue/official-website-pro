@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <div class="section s2">
-      <VideoPlayer :videoData="bottomImgs[1]" />
+      <PlayVideoWithModal :data="bottomImgs[1]"/>
     </div>
     <div class="section s3">
       <router-link :to="bottomImgs[2].href">
@@ -19,13 +19,13 @@
   </div>
 </template>
 <script>
-import VideoPlayer from '../VideoPlayer.vue'
 import Carousel from '../Carousel.vue'
+import PlayVideoWithModal from '@/components/PlayVideoWithModal'
 
 export default {
   props: ['bottomImgs'],
   components: {
-    VideoPlayer,
+    PlayVideoWithModal,
     Carousel
   }
 }
