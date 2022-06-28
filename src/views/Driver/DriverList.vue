@@ -71,7 +71,8 @@ export default {
     this.getDriverListApi({
       currentPage: this.currentPage,
       pageSize: this.pageSize,
-      type: this.type
+      type: this.type,
+      searchTxt: this.searchTxt || undefined
     })
   },
   methods: {
@@ -137,7 +138,7 @@ export default {
     .driverItem {
       margin-top: 20px;
       border: 2px solid transparent;
-      background-color: rgba(0,0,0,0.02);
+      background-color: rgba(0, 0, 0, 0.02);
       // color: $blackFontColor;
       padding: 10px;
       border-radius: 5px;

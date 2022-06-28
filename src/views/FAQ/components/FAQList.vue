@@ -40,7 +40,8 @@ export default {
     this.getFAQListApi({
       currentPage: this.currentPage,
       pageSize: this.pageSize,
-      type: this.type
+      type: this.type,
+      searchTxt: this.searchTxt || undefined
     })
   },
   methods: {
