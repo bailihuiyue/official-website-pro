@@ -13,14 +13,12 @@
 <script>
 import ButtonGroup from '@/components/ButtonGroup'
 import { companyStateTypes } from '@/utils/config'
-import SeatchBar from '@/components/SeatchBar'
 import CompanyStateList from './components/CompanyStateList'
 
 export default {
   name: 'companyState',
   components: {
     ButtonGroup,
-    SeatchBar,
     CompanyStateList
   },
   data() {

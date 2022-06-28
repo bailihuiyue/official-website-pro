@@ -51,7 +51,7 @@ import VerticalMenu from '@/components/Menu/Vertical'
 import Footer from '@/components/Footer'
 import Logo from '@/components/Logo'
 import ChangeLocation from '@/components/ChangeLocation'
-import SearchProduct from '@/components/SearchProduct'
+// import SearchProduct from '@/components/SearchProduct'
 import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
@@ -61,7 +61,7 @@ export default {
     Footer,
     Logo,
     ChangeLocation,
-    SearchProduct,
+    // SearchProduct,
     Breadcrumb
   },
   data() {
@@ -74,7 +74,7 @@ export default {
   },
   watch: {
     $route: {
-      handler: function (val, oldVal) {
+      handler: function (val) {
         if (val.path.indexOf('admin') > 0) {
           this.isShow = false
         } else {

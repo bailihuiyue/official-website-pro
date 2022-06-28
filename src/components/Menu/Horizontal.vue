@@ -1,18 +1,25 @@
 <template>
   <div class="golbalMenu">
     <el-menu
-      default-active="/"
+      :default-active="active"
       :mode="mode"
       background-color="transparent"
       text-color="#fff"
       :active-text-color="themeColor"
     >
       <template v-for="(t,i1) in menus">
-        <el-submenu :index="i1+''" v-if="t.title[$lang]&&t.title[$lang]!=='placeholder'">
+        <el-submenu
+          :index="calcActiveMenu(i1+'',t.title[`href${$lang}`])"
+          v-if="t.title[$lang]&&t.title[$lang]!=='placeholder'"
+        >
           <template slot="title">
-            <span @click="jumpTo(t[`href${$lang}`]||t[`href`])">{{t.title[$lang]}}</span>
+            <span @click="jumpTo(t.title[`href${$lang}`],i1+'')">{{t.title[$lang]}}</span>
           </template>
-          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c[`href${$lang}`]||c[`href`])">
+          <el-menu-item
+            :index="calcActiveMenu(i1+'-'+i2+'',c[`href${$lang}`])"
+            v-for="(c,i2) in t.children"
+            @click="jumpTo(c[`href${$lang}`],i1+'-'+i2+'')"
+          >
             <img class="subThumb" :src="$imgServer+c.img" />
             <div class="subTitle">{{c[$lang]}}</div>
             <!-- <div class="subDesc">{{c[$lang]}}</div> -->
@@ -39,7 +46,26 @@ export default {
   data() {
     return {
       menus: [],
-      themeColor
+      themeColor,
+      active: '/',
+      menuTreeKey: {}
+    }
+  },
+  watch: {
+    // 对应第一次进入页面时如果不是首页,菜单没有选中状态,
+    // 但是每个菜单设置的key必须唯一
+    '$route.path': {
+      handler: function (val) {
+        // if (!window._calcMenu) {
+          const id = this.$route.query.id
+          let key = val
+          if (id) {
+            key = `${val}?id=${id}`
+          }
+          this.active = this.menuTreeKey[key] || '/'
+          // window._calcMenu = true
+        // }
+      }
     }
   },
   created() {
@@ -58,6 +84,12 @@ export default {
           this.$router.push(href)
         }
       }
+    },
+    // 对应第一次进入页面时如果不是首页,菜单没有选中状态,
+    // 但是每个菜单设置的key必须唯一
+    calcActiveMenu(key, path) {
+      this.menuTreeKey[path] = key
+      return key
     }
   }
 }

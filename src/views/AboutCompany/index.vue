@@ -12,6 +12,7 @@
       :class="`content ${r.type}`"
       v-if="type===r.type"
       v-html="aboutCompanyData[type]"
+      :key="r.type"
     ></div>
   </div>
 </template>
@@ -19,13 +20,13 @@
 import ButtonGroup from '@/components/ButtonGroup'
 import { aboutCompanyTypes } from '@/utils/config'
 import { getAboutCompanyList } from './service'
-import Breadcrumb from '@/components/Breadcrumb'
+// import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
   name: 'aboutCompany',
   components: {
     ButtonGroup,
-    Breadcrumb
+    // Breadcrumb
   },
   data() {
     return {

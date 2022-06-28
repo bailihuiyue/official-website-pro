@@ -46,13 +46,13 @@ export default {
     }
   },
   watch: {
-    type(val) {
+    type() {
       this.showList = false
       this.$nextTick(() => {
         this.showList = true
       })
     },
-    searchTxt(val) {
+    searchTxt() {
       this.showList = false
       this.$nextTick(() => {
         this.showList = true

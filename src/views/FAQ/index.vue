@@ -42,16 +42,16 @@ export default {
     onChangeTypes(data) {
       this.type = data.typeNo
     },
-    onSubmit(data) {}
+    onSubmit() {}
   },
   watch: {
-    type(val) {
+    type() {
       this.showList = false
       this.$nextTick(() => {
         this.showList = true
       })
     },
-    searchTxt(val) {
+    searchTxt() {
       this.showList = false
       this.$nextTick(() => {
         this.showList = true

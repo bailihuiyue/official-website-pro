@@ -25,7 +25,7 @@
     </div>
     <div v-else>
       <el-collapse>
-        <el-collapse-item v-for="f in list">
+        <el-collapse-item v-for="f in list" :key="f.en">
           <template slot="title">
             <div style="margin:0 10px">{{f[$lang]}}</div>
           </template>
@@ -35,6 +35,7 @@
             target="_blank"
             style="display: block;"
             @click="jumpTo(c.href)"
+            :key="c.en"
           >{{c[$lang]}}</a>
         </el-collapse-item>
       </el-collapse>
