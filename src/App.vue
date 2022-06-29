@@ -37,7 +37,9 @@
       </el-drawer>
       <el-main :style="{marginTop:isMobile?'':'90px'}">
         <Breadcrumb />
-        <router-view />
+        <transition>
+          <router-view />
+        </transition>
       </el-main>
       <Footer v-show="isShow" :isMobile="isMobile" />
     </el-container>
@@ -122,6 +124,18 @@ body {
   color: #2c3e50;
   // width: 100%;
   // height: 100%;
+
+  // 切换路由的过渡动画
+  .v-enter {
+    opacity: 0;
+  }
+  .v-enter-active {
+    transition: all 0.5s;
+  }
+  .v-enter-to {
+    opacity: 1;
+  }
+
   .headerButtons {
     display: flex;
     align-items: center;
@@ -170,10 +184,11 @@ body {
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.9);
     padding: 0 10%;
-    padding-top: 15px;
+    // padding-top: 15px;
   }
   &.mobileHeader {
     background-color: rgba(0, 0, 0, 0.9);
+    height: 60px !important;
   }
 }
 .lineImg {
@@ -208,8 +223,9 @@ div.el-menu--horizontal {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   left: 0 !important;
+  top: 92px !important;
   & > ul {
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     width: 600px;
     margin-top: 0;
     // display: flex;

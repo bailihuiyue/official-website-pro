@@ -1,5 +1,5 @@
 <template>
-  <div class="golbalMenu">
+  <div class="horizontalGolbalMenu">
     <el-menu
       :default-active="active"
       :mode="mode"
@@ -15,7 +15,7 @@
           <template slot="title">
             <span @click="jumpTo(t.title[`href${$lang}`],i1+'')">{{t.title[$lang]}}</span>
           </template>
-          <el-row>
+          <el-row style="margin-top:30px">
             <el-col :span="6" v-for="(c,i2) in t.children">
               <el-menu-item
                 :index="calcActiveMenu(i1+'-'+i2+'',c[`href${$lang}`])"
@@ -103,7 +103,8 @@ export default {
 <style lang="scss">
 @import '../../styles/color.scss';
 
-.golbalMenu {
+.horizontalGolbalMenu {
+  margin-top: 15px;
   flex: 1;
   .el-menu.el-menu--horizontal {
     border: none !important;

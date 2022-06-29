@@ -2,7 +2,7 @@
   <div class="logo" :style="{justifyContent:isMobile?'center':''}">
     <router-link to="/">
       <div class="imgWrap">
-        <img :src="$imgServer+logo" :class="isMobile?'mobileLogo':'pcLogo'" v-if="logo"/>
+        <img :src="$imgServer+logo" :class="isMobile?'mobileLogo':'pcLogo'" v-if="logo" />
       </div>
     </router-link>
   </div>
@@ -24,6 +24,7 @@ export default {
 </script>
 <style lang="scss">
 .logo {
+  margin-top: 15px;
   max-width: 350px;
   max-height: 60px;
   display: flex;
@@ -57,6 +58,7 @@ export default {
 }
 .mobile {
   .logo {
+    margin-top: 0;
     .imgWrap {
       justify-content: center;
     }

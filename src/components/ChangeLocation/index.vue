@@ -22,6 +22,7 @@ export default {
 <style lang="scss">
 .changeLocation {
   // margin-top: 18px;
+  height: 20px;
   cursor: pointer;
 }
 .el-dropdown-menu.el-popper {
