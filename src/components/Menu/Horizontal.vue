@@ -15,15 +15,18 @@
           <template slot="title">
             <span @click="jumpTo(t.title[`href${$lang}`],i1+'')">{{t.title[$lang]}}</span>
           </template>
-          <el-menu-item
-            :index="calcActiveMenu(i1+'-'+i2+'',c[`href${$lang}`])"
-            v-for="(c,i2) in t.children"
-            @click="jumpTo(c[`href${$lang}`],i1+'-'+i2+'')"
-          >
-            <img class="subThumb" :src="$imgServer+c.img" />
-            <div class="subTitle">{{c[$lang]}}</div>
-            <!-- <div class="subDesc">{{c[$lang]}}</div> -->
-          </el-menu-item>
+          <el-row>
+            <el-col :span="6" v-for="(c,i2) in t.children">
+              <el-menu-item
+                :index="calcActiveMenu(i1+'-'+i2+'',c[`href${$lang}`])"
+                @click="jumpTo(c[`href${$lang}`],i1+'-'+i2+'')"
+              >
+                <img class="subThumb" :src="$imgServer+c.img" />
+                <div class="subTitle">{{c[$lang]}}</div>
+                <!-- <div class="subDesc">{{c[$lang]}}</div> -->
+              </el-menu-item>
+            </el-col>
+          </el-row>
         </el-submenu>
       </template>
     </el-menu>

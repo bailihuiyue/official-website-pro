@@ -35,7 +35,7 @@
           @closeMenu="handleDisplayDrawer(false)"
         />
       </el-drawer>
-      <el-main :style="{marginTop:isMobile?'':'60px'}">
+      <el-main :style="{marginTop:isMobile?'':'90px'}">
         <Breadcrumb />
         <router-view />
       </el-main>
@@ -160,7 +160,7 @@ body {
   // width: 80%;
   padding: 0;
   //background-color: #fff;
-  height: 60px !important;
+  height: 90px !important;
   &.pcHeader {
     width: 100%;
     position: fixed;
@@ -170,6 +170,7 @@ body {
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.9);
     padding: 0 10%;
+    padding-top: 15px;
   }
   &.mobileHeader {
     background-color: rgba(0, 0, 0, 0.9);
@@ -177,7 +178,7 @@ body {
 }
 .lineImg {
   position: fixed;
-  top: 60px;
+  top: 90px;
   width: 100%;
   z-index: 3;
 }
@@ -208,21 +209,27 @@ div.el-menu--horizontal {
   background-color: rgba(0, 0, 0, 0.9);
   left: 0 !important;
   & > ul {
+    margin-bottom: 50px;
+    width: 600px;
     margin-top: 0;
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
     padding: 0 10%;
     background-color: transparent !important;
     padding-top: 30px !important;
     li.el-menu-item {
-      height: 150px !important;
-      width: 200px;
+      height: 130px !important;
+      width: 150px;
       &:hover {
         background-color: transparent !important;
         color: $themeColor !important;
       }
-      .subThumb,
+      .subThumb {
+        width: 70px;
+        margin-left: 10px;
+      }
       .subTitle {
+        // margin-top: 5px;
         width: 90px;
       }
       .subTitle {

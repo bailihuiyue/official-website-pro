@@ -118,14 +118,15 @@ export default {
         }
       }
     }
-    .productPage {
-      width: $contentWidth;
-      margin: 0px auto;
-      img {
-        display: block;
-        width: 100%;
-      }
-    }
+    // .productPage {
+    //   width: $contentWidth;
+    //   margin: 0px auto;
+    //   img {
+    //     display: block;
+    //     width: 100%;
+    //   }
+    // }
+    .productPage,
     .productParameter,
     .technicalSupport {
       img {
@@ -134,6 +135,7 @@ export default {
       }
       width: $contentWidth;
       margin: 5px auto;
+      margin-top: 70px;
     }
     #tab-technicalSupport,
     #tab-productParameter,
@@ -172,6 +174,10 @@ export default {
     .productPage,
     .productParameter,
     .technicalSupport {
+      video{
+        width: 100%;
+        max-height: 300px;
+      }
       img {
         display: block;
         width: 100%;
