@@ -62,7 +62,7 @@ export default {
     // 但是每个菜单设置的key必须唯一
     '$route.path': {
       handler: function (val) {
-        this.$nextTick(() => {
+        setTimeout(() => {
           // if (!window._calcMenu) {
           const id = this.$route.query.id
           let key = val
@@ -72,7 +72,7 @@ export default {
           this.active = this.menuTreeKey[key] || '/'
           // window._calcMenu = true
           // }
-        })
+        },200)
       }
     }
   },
