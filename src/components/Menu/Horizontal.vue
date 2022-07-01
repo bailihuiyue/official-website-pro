@@ -13,7 +13,10 @@
           v-if="t.title[$lang]&&t.title[$lang]!=='placeholder'"
         >
           <template slot="title">
-            <span @click="jumpTo(t.title[`href${$lang}`],i1+'')">{{t.title[$lang]}}</span>
+            <span
+              style="padding: 25px 0;"
+              @click="jumpTo(t.title[`href${$lang}`],i1+'')"
+            >{{t.title[$lang]}}</span>
           </template>
           <el-row style="margin-top:30px">
             <el-col :span="6" v-for="(c,i2) in t.children">
@@ -59,15 +62,17 @@ export default {
     // 但是每个菜单设置的key必须唯一
     '$route.path': {
       handler: function (val) {
-        // if (!window._calcMenu) {
-        const id = this.$route.query.id
-        let key = val
-        if (id) {
-          key = `${val}?id=${id}`
-        }
-        this.active = this.menuTreeKey[key] || '/'
-        // window._calcMenu = true
-        // }
+        this.$nextTick(() => {
+          // if (!window._calcMenu) {
+          const id = this.$route.query.id
+          let key = val
+          if (id) {
+            key = `${val}?id=${id}`
+          }
+          this.active = this.menuTreeKey[key] || '/'
+          // window._calcMenu = true
+          // }
+        })
       }
     }
   },
