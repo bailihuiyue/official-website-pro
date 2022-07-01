@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     onClickBtn(data, index) {
-      this.clickedId = data.id
+      this.clickedId = data.id + ''
       this.$emit('click', data)
     }
   }
