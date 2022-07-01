@@ -3,10 +3,8 @@
     <el-row :gutter="30">
       <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
         <span class="wrap">
-          <div @click="jumpTo(l.id)">
-            <i class="el-icon-arrow-right"></i>
-            <span class="title">{{l.title}}</span>
-          </div>
+          <i class="el-icon-arrow-right"></i>
+          <span class="title" @click="jumpTo(l.id)">{{l.title}}</span>
         </span>
       </el-col>
     </el-row>
@@ -116,9 +114,17 @@ export default {
   .wrap {
     // margin-bottom: 20px;
     text-align: center;
-    cursor: pointer;
     // color: #e5e5e5;
     text-align: left;
+
+
+    height: 20px;
+    margin-top: 35px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
     i,
     span {
       display: inline-block;
@@ -131,9 +137,11 @@ export default {
     .title {
       font-size: 16px;
       margin: 10px 0;
+      display: inline;
     }
-    &:hover {
+    .title:hover {
       color: $themeColor !important;
+      cursor: pointer;
       // border: 1px solid rgba(255,255,255,0.5);
     }
   }

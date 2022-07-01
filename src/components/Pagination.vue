@@ -1,7 +1,7 @@
 <template>
   <div class="Pagination">
     <el-pagination
-      style="text-align: center;margin:20px 0"
+      style="text-align: center"
       @current-change="onCurrentChange"
       :current-page.sync="currentPageData"
       :page-size="pageSize"
@@ -36,6 +36,8 @@ export default {
 @import '~@/styles/color.scss';
 
 .Pagination {
+  margin-top: 100px;
+  margin-bottom: 20px;
   .active {
     background-color: $themeColor !important;
   }
@@ -47,5 +49,10 @@ export default {
   // .el-pagination__total {
   //   color: rgb(169, 162, 151);
   // }
+}
+.mobile{
+  .Pagination{
+    margin-top: 30px;
+  }
 }
 </style>
