@@ -203,7 +203,7 @@ export const contactUsData = [
 
 export const aboutCompanyTypes = [
   {
-    id: 0,
+    id: '0',
     type: 'aboutUs',
     img: 'imgs/aboutCompany/aboutUs.webp',
     title: {
@@ -212,7 +212,7 @@ export const aboutCompanyTypes = [
     }
   },
   {
-    id: 1,
+    id: '1',
     type: 'investmentPolicy',
     img: 'imgs/aboutCompany/investmentPolicy.webp',
     title: {
@@ -221,7 +221,7 @@ export const aboutCompanyTypes = [
     }
   },
   {
-    id: 2,
+    id: '2',
     type: 'teamPresence',
     img: 'imgs/aboutCompany/teamPresence.webp',
     title: {
@@ -252,7 +252,7 @@ export const companyHonorTypes = [
 
 export const companyStateTypes = [
   {
-    id: 0,
+    id: '0',
     img: 'imgs/companyState/companyNews.webp',
     title: {
       cn: '公司新闻',
@@ -260,7 +260,7 @@ export const companyStateTypes = [
     }
   },
   {
-    id: 1,
+    id: '1',
     img: 'imgs/companyState/productsNews.webp',
     title: {
       cn: '产品动态',

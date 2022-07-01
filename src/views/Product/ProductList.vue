@@ -7,6 +7,7 @@
       @click="onChangeTypes"
       class="productType"
       v-if="!searchTxt"
+      :defaultClickedBtn="defaultClickedBtn"
     />
     <Products :isMobile="isMobile" :type="type" :searchTxt="searchTxt" />
   </div>
@@ -25,13 +26,43 @@ export default {
       productTypes: [],
       isMobile: device.mobile(),
       type: '-1',
-      searchTxt: ''
+      searchTxt: '',
+      defaultClickedBtn: null
     }
   },
   created() {
     getProductType().then((res) => {
       this.productTypes = res
+
+      const id = this.$route.query.id
+      if (id) {
+        this.defaultClickedBtn = id
+        res.forEach((item) => {
+          if (item.id === id) {
+            this.type = item.id
+          }
+        })
+      }
     })
+  },
+  watch: {
+    '$route.query.id': {
+      handler: function (val) {
+        let hasSetType = false
+        this.defaultClickedBtn = val
+        this.productTypes.forEach((item) => {
+          if (item.id + '' === val) {
+            this.type = item.id
+            hasSetType = true
+          }
+        })
+        if (!hasSetType) {
+          this.type = '-1'
+        }
+      },
+      deep: true
+      // immediate: true
+    }
   },
   methods: {
     onSearch(searchTxt) {

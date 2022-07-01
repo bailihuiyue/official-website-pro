@@ -6,7 +6,7 @@
 5.后台admin写组件在每个页面别忘加上ChangeLocationAdmin组件,后台页面用$adminLang表示admin要操作的语言环境,别混了,切换完了调接口时就会给接口传数据,?lang=xxx,这时再读接口,接口就会返回指定语言的内容,做到了国际化,没用i18n,
 6.已完成的功能:首页菜单,轮播图,footer,logo,多语言,以及他们的admin,主要样式参考https://www.huion.com
 7.图片地址是imgServer+接口返回拼接成的
-
+8.ButtonGroup的默认选中状态靠数据的id判断,各种list(product.,app等)的分类搜索条件靠sku或者typeNo区分
 <div>
 <img src="https://gitee.com/Onces/images/raw/master/money.png" width=200>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://gitee.com/Onces/images/raw/master/zhifubaohongbao.jpg" width=200>

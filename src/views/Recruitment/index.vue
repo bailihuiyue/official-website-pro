@@ -4,7 +4,7 @@
       :btns="recruitmentTypes"
       type="vertical"
       @click="onChangeTypes"
-      :defaultClickedBtn="0"
+      :defaultClickedBtn="defaultClickedBtn"
     />
     <div class="content" v-html="recruitmentData.content"></div>
   </div>
@@ -24,13 +24,15 @@ export default {
     return {
       recruitmentTypes: [],
       recruitmentData: {},
-      type: 0
+      type: 0,
+      defaultClickedBtn: 0
     }
   },
   created() {
     getClassify(classifyTypesEnum.recruitment).then((res) => {
       this.recruitmentTypes = res
       this.type = res[0].typeNo
+      this.defaultClickedBtn = res[0].id + ''
       this.getRecruitmentApi(res[0].typeNo)
     })
   },

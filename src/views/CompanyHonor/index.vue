@@ -4,7 +4,7 @@
       :btns="companyHonorTypes"
       type="vertical"
       @click="onChangeTypes"
-      :defaultClickedBtn="0"
+      defaultClickedBtn="medalOfHonour"
       :useLocalImg="true"
     />
     <div class="carousel">

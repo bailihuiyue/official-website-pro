@@ -4,17 +4,17 @@
       <template v-for="(b,index) in btns">
         <el-link
           v-if="isMobile"
-          :class="clickedIndex===index?'isActive':''"
+          :class="b.id+''===clickedId?'isActive':''"
           @click="onClickBtn(b,index)"
         >{{b['title'][$lang]}}</el-link>
         <el-button
           v-else
           class="isPC"
           @click="onClickBtn(b,index)"
-          :class="clickedIndex===index?'isActive':''"
+          :class="b.id+''===clickedId?'isActive':''"
         >
           <div v-if="type==='vertical'" class="vertical">
-            <div class>
+            <div>
               <img :src="(useLocalImg?'':$imgServer)+b.img" />
               <div class="title">{{b['title'][$lang]}}</div>
               <div class="desc" v-if="extraData&&extraData[$lang]">{{extraData[$lang]}}</div>
@@ -41,18 +41,24 @@ export default {
   data() {
     return {
       isMobile: device.mobile(),
-      clickedIndex: -1
+      clickedId: null
     }
   },
-  created() {
-    this.clickedIndex =
-      this.defaultClickedBtn >= 0 || this.defaultClickedBtn
-        ? this.defaultClickedBtn
-        : -1
+  // created() {
+  //   this.clickedId = this.defaultClickedBtn
+  // },
+  watch: {
+    defaultClickedBtn: {
+      handler: function (val) {
+        this.clickedId = val
+      },
+      deep: true,
+      immediate: true
+    }
   },
   methods: {
     onClickBtn(data, index) {
-      this.clickedIndex = index
+      this.clickedId = data.id
       this.$emit('click', data)
     }
   }

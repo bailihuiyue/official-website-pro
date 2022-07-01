@@ -4,7 +4,7 @@
       :btns="aboutCompanyTypes"
       type="vertical"
       @click="onChangeTypes"
-      :defaultClickedBtn="0"
+      defaultClickedBtn="0"
       :useLocalImg="true"
     />
     <div
