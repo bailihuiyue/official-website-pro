@@ -133,6 +133,7 @@ export default {
         overflow: hidden;
         font-size: 16px;
         color: $themeColor;
+        height: 42px;
       }
       .desc {
         // height: 35px;
@@ -141,6 +142,7 @@ export default {
         -webkit-line-clamp: 2;
         overflow: hidden;
         font-size: 14px;
+        height: 40px;
       }
     }
   }
