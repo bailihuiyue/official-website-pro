@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="loadingTiny">
+  <div v-loading="loadingTiny" class="tinyEditor">
     <div :class="{fullscreen:fullscreen}" :style="{width:containerWidth}" class="tinymce-container">
       <textarea :id="tinymceId" class="tinymce-textarea" />
     </div>
@@ -125,6 +125,7 @@ export default {
     initTinymce() {
       const _this = this
       window.tinymce.init({
+        media_live_embeds: true,
         branding: false,
         elementpath: false,
         selector: `#${this.tinymceId}`,
@@ -184,35 +185,35 @@ export default {
         //   }, 0);
         //   return img
         // },
-        images_upload_handler: (blobInfo, success, failure, progress) => {
-          progress(0)
-          const self = this
-          const blob = blobInfo.blob()
-          if (blob.size > 50 * 1024 * 1024) {
-            failure('图片过大,不要超过5mb')
-            return false
-          }
-          const file = createFormData(null, blob)
-          uploadImg(file)
-            .then((res) => {
-              if (res) {
-                self.$message.success('上传成功!')
-                self.imageSuccessCBK(this.$imgServer + res)
-                success(null)
-              } else {
-                self.$message.error('上传失败!')
-              }
-              progress(100)
-            })
-            .catch((err) => {
-              const error =
-                err.response && err.response.data && err.response.data.enMsg
-              progress(100)
-              failure('上传失败!' + '\r\n' + error)
-              console.log(err)
-              return false
-            })
-        },
+        // images_upload_handler: (blobInfo, success, failure, progress) => {
+        //   progress(0)
+        //   const self = this
+        //   const blob = blobInfo.blob()
+        //   if (blob.size > 50 * 1024 * 1024) {
+        //     failure('图片过大,不要超过5mb')
+        //     return false
+        //   }
+        //   const file = createFormData(null, blob)
+        //   uploadImg(file)
+        //     .then((res) => {
+        //       if (res) {
+        //         self.$message.success('上传成功!')
+        //         self.imageSuccessCBK(this.$imgServer + res)
+        //         success(null)
+        //       } else {
+        //         self.$message.error('上传失败!')
+        //       }
+        //       progress(100)
+        //     })
+        //     .catch((err) => {
+        //       const error =
+        //         err.response && err.response.data && err.response.data.enMsg
+        //       progress(100)
+        //       failure('上传失败!' + '\r\n' + error)
+        //       console.log(err)
+        //       return false
+        //     })
+        // },
         file_picker_callback: (callback, value, meta) => {
           let accept = ''
           if (meta.filetype == 'image') {
@@ -227,6 +228,8 @@ export default {
           let input = document.createElement('input') //创建一个隐藏的input
           input.setAttribute('type', 'file')
           input.setAttribute('accept', accept)
+          //触发点击
+          input.click()
           input.onchange = function () {
             const file = createFormData(null, this.files[0])
             if (meta.filetype == 'image') {
@@ -259,7 +262,8 @@ export default {
                     self.$message.success('上传成功!')
                     // 上传视频
                     if (meta.filetype === 'media') {
-                      self.videoSuccessCBK(self.$videoURL + res)
+                      // self.videoSuccessCBK(self.$videoURL + res)
+                      callback(self.$videoURL + res)
                     } else if (meta.filetype == 'file') {
                       // 上传文件
                       // self.fileSuccessCBK(self.$baseURL + res)
@@ -281,9 +285,42 @@ export default {
                 })
             }
           }
-          //触发点击
-          input.click()
         }
+        // video_template_callback: function (data) {
+        //   debugger
+        //   return (
+        //     `<span
+        //     class="mce-preview-object mce-object-video"
+        //     contenteditable="false"
+        //     data-mce-object="video"
+        //     data-mce-p-allowfullscreen="allowfullscreen"
+        //     data-mce-p-frameborder="no"
+        //     data-mce-p-scrolling="no"
+        //     data-mce-p-src=${data.source1}
+        //     data-mce-p-width=${data.width}
+        //     data-mce-p-height=${data.height}
+        //     data-mce-p-controls="controls">
+        //       <video width=${data.width} height=${data.height} controls="controls">
+        //         <source src=${data.source1} type=${data.sourcemime}> </source>
+        //       </video>
+        //     </span>`
+        //   )
+        // }
+        // media_url_resolver: function (data, resolve) {
+        //   try {
+        //     let embedHtml = `
+        //          <div
+        //         data-mce-object="video"
+        //         data-mce-p-src=${data.url} >
+        //         <video class="tinyVideo" controls="controls" width="" height="">
+        //         <source src="${data.url}" type="video/mp4" />
+        //         </video>
+        //       </div>`
+        //     resolve({ html: embedHtml })
+        //   } catch (e) {
+        //     resolve({ html: '' })
+        //   }
+        // }
       })
     },
     destroyTinymce() {
@@ -321,7 +358,7 @@ export default {
     imageSuccessCBK(res) {
       window.tinymce
         .get(this.tinymceId)
-        .insertContent(`<img class="tyinImg" style="width:100%" src="${res}" >`)
+        .insertContent(`<img class="tinyImg" style="width:100%" src="${res}" >`)
     }
   }
 }
@@ -386,6 +423,15 @@ export default {
 //   }
 //   .mce-dropzone.mce-abs-layout-item.mce-last {
 //     width: 400px;
+//   }
+// }
+// .mce-container.mce-panel.mce-floatpanel.mce-window.mce-in {
+//   width: 80% !important;
+//   left: 50% !important;
+//   top: 100px !important;
+//   transform: translate(-50%, 0);
+//   .mce-container-body.mce-window-body.mce-abs-layout {
+//     width: 100% !important;
 //   }
 // }
 </style>
