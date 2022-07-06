@@ -2,7 +2,7 @@
   <div class="menuAdmin" v-loading="loading">
     <div>
       <el-alert
-        title="一级菜单名称(包括中英文)为空或者为'placeholder'的时候菜单不显示,是为了以后扩展菜单而留空的"
+        title="一级菜单名称(包括中英文)为'placeholder'的时候菜单不显示,是为了以后扩展菜单而留空的"
         type="warning"
         style="margin-bottom:10px"
       />

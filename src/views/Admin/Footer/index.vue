@@ -22,7 +22,7 @@
             <el-input
               style="width:500px"
               type="textarea"
-              :rows="30"
+              :autosize="{ minRows: 5, maxRows: 200 }"
               placeholder="请输入内容"
               v-model="footerList"
             ></el-input>
@@ -59,7 +59,7 @@
           <el-input
             style="width:500px"
             type="textarea"
-            :rows="30"
+            :autosize="{ minRows: 5, maxRows: 100 }"
             placeholder="请输入内容"
             v-model="img"
           ></el-input>
