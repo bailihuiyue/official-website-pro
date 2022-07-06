@@ -13,7 +13,7 @@
     </div>
     <el-button type="primary" @click="addAppDownloadDetail()" style="margin:10px 0">新增APP</el-button>
     <el-table :data="list" border style="width: 100%" v-loading="loading">
-      <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="id" label="id" width="180"></el-table-column>
       <el-table-column prop="title" label="标题"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">

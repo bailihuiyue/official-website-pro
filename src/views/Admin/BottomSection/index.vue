@@ -19,8 +19,12 @@
       <el-button size="small" type="primary">上传第2行的视频</el-button>
     </el-upload>
     <el-table :data="[totalData[0],totalData[1],totalData[2]]" border style="width: 100%">
-      <el-table-column type="index" width="50" label="行号"></el-table-column>
-      <el-table-column prop="id" width="100" label="id"></el-table-column>
+      <el-table-column prop="id" width="50" label="id"></el-table-column>
+      <el-table-column width="100" label="类型">
+        <template slot-scope="scope">
+          <span :style="{color:(scope.$index+1===2)?'#E6A23C':'black'}">{{(scope.$index+1===2)?'视频':'图片'}}</span>
+        </template>
+      </el-table-column>
       <el-table-column prop="img" label="图片/视频封面" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgServer + scope.row.img" alt />

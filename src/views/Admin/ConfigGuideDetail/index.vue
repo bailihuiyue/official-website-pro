@@ -13,7 +13,7 @@
     </div>
     <el-button type="primary" @click="addConfigGuideDetail()" style="margin:10px 0">新增设置教程</el-button>
     <el-table :data="list" border style="width: 100%" v-loading="loading">
-      <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="id" label="id" width="180"></el-table-column>
       <el-table-column prop="title" label="标题"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
@@ -23,7 +23,12 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog :close-on-click-modal="false" title="设置教程详情编辑" :visible.sync="dialogFormVisible" width="80%">
+    <el-dialog
+      :close-on-click-modal="false"
+      title="设置教程详情编辑"
+      :visible.sync="dialogFormVisible"
+      width="80%"
+    >
       <el-form :model="formData">
         <el-form-item label="标题" :label-width="formLabelWidth">
           <el-input v-model="formData.title" autocomplete="off"></el-input>
@@ -51,12 +56,15 @@
           >
             <el-button size="small" type="primary">点击上传</el-button>
           </el-upload>
-          <a
-            style="margin-left:30px"
-            target="_blank"
-            :href="$videoURL+formData.video"
-            v-if="formData.video"
-          >点击查看</a>
+          <span v-if="formData.video">
+            <a
+              style="margin-left:30px"
+              target="_blank"
+              :href="$videoURL+formData.video"
+              v-if="formData.video"
+            >点击查看</a>
+            <a style="margin-left:30px" href='javascript:void(0)' @click="()=>this.formData.video=null">删除视频</a>
+          </span>
         </el-form-item>
         <el-form-item label="内容" :label-width="formLabelWidth">
           <Tinymce

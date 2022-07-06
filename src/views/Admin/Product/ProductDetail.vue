@@ -9,7 +9,7 @@
     </div>
     <el-button type="primary" @click="addProductdeatil()">新增产品</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="loading">
-      <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="id" label="id" width="180"></el-table-column>
       <el-table-column prop="title" label="标题"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">

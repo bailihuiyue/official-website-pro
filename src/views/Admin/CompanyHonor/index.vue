@@ -9,7 +9,7 @@
     </div>
     <el-button type="primary" @click="openDialog()">新增轮播图</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="loading">
-      <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="id" label="id" width="180"></el-table-column>
       <el-table-column prop="img" label="图片" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgServer + scope.row.img" alt />

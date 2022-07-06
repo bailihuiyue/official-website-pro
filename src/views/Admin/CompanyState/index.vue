@@ -9,7 +9,7 @@
     </div>
     <el-button type="primary" @click="addCompanyStateDetail()" style="margin:10px 0">新增新闻</el-button>
     <el-table :data="list" border style="width: 100%" v-loading="loading">
-      <el-table-column prop="id" label="序号" width="180"></el-table-column>
+      <el-table-column prop="id" label="id" width="180"></el-table-column>
       <el-table-column prop="img" label="封面" width="220">
         <template slot-scope="scope">
           <img style="width:200px" :src="$imgServer + scope.row.img" alt />
