@@ -14,7 +14,7 @@
           <div style="float:left;width:500px">
             <div>当前已保存的内容:</div>
             <div style="margin-top:5px;font-size:14px;white-space: pre;">
-              <code>{{JSON.stringify(JSON.parse(currentList) , '', 2)}}</code>
+              <code>{{footerList}}</code>
             </div>
           </div>
           <div style="float:left">
@@ -77,7 +77,6 @@ export default {
   data() {
     return {
       footerList: '',
-      currentList: '{"test":1}',
       copyright: '',
       img: '',
       id: '',
@@ -90,7 +89,7 @@ export default {
   methods: {
     getFooterFun() {
       getFooter(this.$adminLang).then((res) => {
-        this.currentList = res.list
+        this.footerList = res.list
         this.copyright = res.copyright
         this.img = res.img
         this.id = res.id

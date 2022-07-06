@@ -68,6 +68,7 @@ export default {
                   '<img style="width:50%;margin:30px auto" src="/imgs/404.jpg"/>'
               }
             }
+            this.activeName = 'productDetail'
           })
         }
       },
@@ -174,7 +175,7 @@ export default {
     .productPage,
     .productParameter,
     .technicalSupport {
-      video{
+      video {
         width: 100%;
         max-height: 300px;
       }
