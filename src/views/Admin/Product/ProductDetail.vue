@@ -25,7 +25,12 @@
       </el-table-column>
     </el-table>
     <!-- 弹窗 -->
-    <el-dialog :close-on-click-modal="false" title="产品详情编辑" :visible.sync="dialogFormVisible" width="80%">
+    <el-dialog
+      :close-on-click-modal="false"
+      title="产品详情编辑"
+      :visible.sync="dialogFormVisible"
+      width="80%"
+    >
       <el-form :model="formData">
         <el-form-item label="产品图" :label-width="formLabelWidth">
           <el-upload
@@ -119,7 +124,7 @@ export default {
       formLabelWidth: '120px',
       loading: true,
       headers: {
-        token: window.sessionStorage.getItem("token")
+        token: window.sessionStorage.getItem('token')
       },
       activeTab: 'productDetail'
     }
@@ -176,6 +181,7 @@ export default {
       this.formData.productParameter = ''
       this.formData.technicalSupport = ''
       this.dialogFormVisible = true
+      this.activeTab = 'productDetail'
       this.$nextTick(() => {
         this.$refs.productDetailTiny.setContent('')
         this.$refs.productParameterTiny.setContent('')
@@ -241,6 +247,7 @@ export default {
     },
     //编辑
     onEdit(index, row) {
+      this.activeTab = 'productDetail'
       //index:第几行   row:这一行的数据
       getProductDetail(this.$adminLang, row.id).then((res) => {
         this.formData.title = row.title
@@ -248,7 +255,7 @@ export default {
         this.formData.sku = row.sku
         this.formData.id = row.id
         this.$refs.productDetailTiny.setContent(res.productDetail || '')
-        this.$refs.productParameterTiny.setContent(res.productDetail || '')
+        this.$refs.productParameterTiny.setContent(res.productParameter || '')
         this.$refs.technicalSupportTiny.setContent(res.technicalSupport || '')
       })
       this.dialogFormVisible = true

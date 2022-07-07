@@ -166,54 +166,7 @@ export default {
             _this.fullscreen = e.state
           })
         },
-        // it will try to keep these URLs intact
-        // https://www.tiny.cloud/docs-3x/reference/configuration/Configuration3x@convert_urls/
-        // https://stackoverflow.com/questions/5196205/disable-tinymce-absolute-to-relative-url-conversions
         convert_urls: false,
-        // 整合七牛上传
-        // images_dataimg_filter(img) {
-        //   setTimeout(() => {
-        //     const $image = $(img);
-        //     $image.removeAttr('width');
-        //     $image.removeAttr('height');
-        //     if ($image[0].height && $image[0].width) {
-        //       $image.attr('data-wscntype', 'image');
-        //       $image.attr('data-wscnh', $image[0].height);
-        //       $image.attr('data-wscnw', $image[0].width);
-        //       $image.addClass('wscnph');
-        //     }
-        //   }, 0);
-        //   return img
-        // },
-        // images_upload_handler: (blobInfo, success, failure, progress) => {
-        //   progress(0)
-        //   const self = this
-        //   const blob = blobInfo.blob()
-        //   if (blob.size > 50 * 1024 * 1024) {
-        //     failure('图片过大,不要超过5mb')
-        //     return false
-        //   }
-        //   const file = createFormData(null, blob)
-        //   uploadImg(file)
-        //     .then((res) => {
-        //       if (res) {
-        //         self.$message.success('上传成功!')
-        //         self.imageSuccessCBK(this.$imgServer + res)
-        //         success(null)
-        //       } else {
-        //         self.$message.error('上传失败!')
-        //       }
-        //       progress(100)
-        //     })
-        //     .catch((err) => {
-        //       const error =
-        //         err.response && err.response.data && err.response.data.enMsg
-        //       progress(100)
-        //       failure('上传失败!' + '\r\n' + error)
-        //       console.log(err)
-        //       return false
-        //     })
-        // },
         file_picker_callback: (callback, value, meta) => {
           let accept = ''
           if (meta.filetype == 'image') {
