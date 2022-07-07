@@ -120,6 +120,37 @@
 //     }
 //   }
 // ]
+
+// export const recruitmentTypes = [
+//   {
+//     id: 0,
+//     type: 'uiengineer',
+//     img: 'imgs/recruitment/uiEngineer.webp',
+//     title: {
+//       cn: 'UI 工程师',
+//       en: 'UI Engineer',
+//     }
+//   },
+//   {
+//     id: 1,
+//     type: 'ecommerceManager',
+//     img: 'imgs/recruitment/eCommerceManager.webp',
+//     title: {
+//       cn: '跨境电商经理',
+//       en: 'E-commerce manager',
+//     }
+//   },
+//   {
+//     id: 2,
+//     type: 'winDeveloper',
+//     img: 'imgs/recruitment/winDeveloper.webp',
+//     title: {
+//       cn: 'win开发工程师',
+//       en: 'Win developer',
+//     }
+//   }
+// ]
+
 export const questionTypes = {
   faq: '1',
   messageFeedback: '2'
@@ -265,36 +296,6 @@ export const companyStateTypes = [
     title: {
       cn: '产品动态',
       en: 'Products News',
-    }
-  }
-]
-
-export const recruitmentTypes = [
-  {
-    id: 0,
-    type: 'uiengineer',
-    img: 'imgs/recruitment/uiEngineer.webp',
-    title: {
-      cn: 'UI 工程师',
-      en: 'UI Engineer',
-    }
-  },
-  {
-    id: 1,
-    type: 'ecommerceManager',
-    img: 'imgs/recruitment/eCommerceManager.webp',
-    title: {
-      cn: '跨境电商经理',
-      en: 'E-commerce manager',
-    }
-  },
-  {
-    id: 2,
-    type: 'winDeveloper',
-    img: 'imgs/recruitment/winDeveloper.webp',
-    title: {
-      cn: 'win开发工程师',
-      en: 'Win developer',
     }
   }
 ]

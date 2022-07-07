@@ -1,7 +1,7 @@
 <template>
   <div class="SubmitQuestion">
     <div class="isPC" v-if="!isMobile" @click="showSubmitForm=true">
-      <img src="imgs/ask/headset.svg" />
+      <img src="imgs/headset.svg" />
       <div class="submitFAQTxt">{{lang[isFAQ?'submitFAQTxt':'messageFeedbackTxt'][$lang]}}</div>
     </div>
     <div v-else style="margin:20px 0;text-align:center">
