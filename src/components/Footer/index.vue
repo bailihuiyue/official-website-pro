@@ -185,18 +185,18 @@ export default {
           // margin-top: 10px;
           // margin-left: 10px;
           display: inline-block;
-          height: 24px;
+          height: 30px;
           margin-right: 10px;
         }
         .miniPic {
           display: inline-block;
-          height: 24px;
+          height: 30px;
           vertical-align: middle;
           a {
             // margin: 10px;
             margin-right: 20px;
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             display: inline-block;
             img {
               width: 100%;

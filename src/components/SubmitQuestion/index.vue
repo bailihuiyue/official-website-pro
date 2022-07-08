@@ -269,6 +269,7 @@ export default {
       // background-color: $blackBackgroundColor;
       background-color: rgba(0, 0, 0, 0.03);
       border-radius: 10px;
+      color: $themeColor !important;
     }
   }
 }
