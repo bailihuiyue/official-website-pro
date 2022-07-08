@@ -10,7 +10,14 @@
             </span>
           </div>
           <div class="title">{{c.title[$lang]}}</div>
-          <div class="desc">{{c.desc[$lang]}}</div>
+          <div class="desc" :title="c.desc[$lang]">
+            <el-link
+              :href="c.desc[$lang]"
+              v-if="c.desc[$lang].indexOf('http')>=0"
+              target="_blank"
+            >{{c.desc[$lang]}}</el-link>
+            <span v-else>{{c.desc[$lang]}}</span>
+          </div>
         </el-card>
       </el-col>
     </el-row>
@@ -43,7 +50,7 @@ export default {
   },
   methods: {
     onClick(qrCode) {
-      if (qrCode) {
+      if (qrCode && this.$lang === 'cn') {
         this.qrCode = qrCode
         this.dialogVisible = true
       }
@@ -67,7 +74,7 @@ export default {
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 30px;
-      width: 250px;
+      width: 300px;
       .el-card__header {
         img {
           width: 100%;
@@ -88,6 +95,7 @@ export default {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
         overflow: hidden;
+        white-space: pre-wrap;
       }
     }
   }

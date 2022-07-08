@@ -159,75 +159,75 @@ export const questionTypes = {
 export const contactUsData = [
   {
     id: 0,
-    img: 'imgs/contactUs/contactUs1.webp',
+    img: 'imgs/contactUs/contactUs1.png',
     title: {
-      cn: 'title',
-      en: 'title'
+      cn: '联系电话',
+      en: 'Support'
     },
     desc: {
-      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-      en: 'PC',
+      cn: '0755-27960680\r\n技术支持邮箱：support@e-pxn.com ',
+      en: 'support@e-pxn.com',
     }
   },
   {
     id: 1,
-    img: 'imgs/contactUs/contactUs2.webp',
+    img: 'imgs/contactUs/contactUs2.png',
     title: {
-      cn: 'title',
-      en: 'title'
+      cn: '销售邮箱',
+      en: 'Sales'
     },
     desc: {
-      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCP',
-      en: 'PC',
+      cn: 'zoey@e-pxn.com',
+      en: 'zoey@e-pxn.com',
     }
   },
   {
     id: 2,
-    img: 'imgs/contactUs/contactUs3.webp',
+    img: 'imgs/contactUs/contactUs3.png',
     title: {
-      cn: 'title',
-      en: 'title'
+      cn: '联系地址',
+      en: 'Address'
     },
     desc: {
-      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-      en: 'PC',
+      cn: '中国广东省深圳市宝安区西乡街道中熙ECO国际17楼莱仕达电子科技有限公司',
+      en: `Laishida Electronic Technology Co., Ltd., 17th floor, Zhongxi eco international, Xixiang street, Bao'an District, Shenzhen, Guangdong, China`,
     }
   },
   {
     id: 3,
-    img: 'imgs/contactUs/contactUs4.webp',
+    img: 'imgs/contactUs/contactUs4.png',
     title: {
-      cn: 'title',
-      en: 'title'
+      cn: '微信名',
+      en: 'Instagram'
     },
     desc: {
-      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-      en: 'PC',
+      cn: '点击显示微信图片',
+      en: 'https://www.instagram.com/pxngame/',
     },
-    qrCode: 'imgs/contactUs/contactUs5.webp',
+    qrCode: 'imgs/contactUs/qrCode.jpg',
   },
   {
     id: 4,
-    img: 'imgs/contactUs/contactUs5.webp',
+    img: 'imgs/contactUs/contactUs5.png',
     title: {
-      cn: 'title',
-      en: 'title'
+      cn: 'Facebook',
+      en: 'Facebook'
     },
     desc: {
-      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-      en: 'PC',
+      cn: 'https://www.facebook.com/pxngame',
+      en: 'https://www.facebook.com/pxngame',
     }
   },
   {
     id: 5,
-    img: 'imgs/contactUs/contactUs5.webp',
+    img: 'imgs/contactUs/contactUs5.png',
     title: {
-      cn: 'title',
-      en: 'title'
+      cn: 'Twitter',
+      en: 'Twitter'
     },
     desc: {
-      cn: 'PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC',
-      en: 'PC',
+      cn: 'https://twitter.com/PXNgame',
+      en: 'https://twitter.com/PXNgame',
     }
   }
 ]
@@ -236,7 +236,7 @@ export const aboutCompanyTypes = [
   {
     id: '0',
     type: 'aboutUs',
-    img: 'imgs/aboutCompany/aboutUs.webp',
+    img: 'imgs/aboutCompany/aboutUs.png',
     title: {
       cn: '关于我们',
       en: 'About Us',
@@ -245,7 +245,7 @@ export const aboutCompanyTypes = [
   {
     id: '1',
     type: 'investmentPolicy',
-    img: 'imgs/aboutCompany/investmentPolicy.webp',
+    img: 'imgs/aboutCompany/investmentPolicy.png',
     title: {
       cn: '招商政策',
       en: 'Investment policy',
@@ -254,7 +254,7 @@ export const aboutCompanyTypes = [
   {
     id: '2',
     type: 'teamPresence',
-    img: 'imgs/aboutCompany/teamPresence.webp',
+    img: 'imgs/aboutCompany/teamPresence.png',
     title: {
       cn: '团队风采',
       en: 'Team presence',
@@ -265,7 +265,7 @@ export const aboutCompanyTypes = [
 export const companyHonorTypes = [
   {
     id: 'medalOfHonour',
-    img: 'imgs/companyHonor/honorEvents.webp',
+    img: 'imgs/companyHonor/honorEvents.png',
     title: {
       cn: '荣誉勋章',
       en: 'Medal Of Honour',
@@ -273,7 +273,7 @@ export const companyHonorTypes = [
   },
   {
     id: 'honorEvents',
-    img: 'imgs/companyHonor/medalOfHonour.webp',
+    img: 'imgs/companyHonor/medalOfHonour.png',
     title: {
       cn: '荣誉赛事',
       en: 'Honor events',
@@ -284,7 +284,7 @@ export const companyHonorTypes = [
 export const companyStateTypes = [
   {
     id: '0',
-    img: 'imgs/companyState/companyNews.webp',
+    img: 'imgs/companyState/companyNews.png',
     title: {
       cn: '公司新闻',
       en: 'Company News',
@@ -292,7 +292,7 @@ export const companyStateTypes = [
   },
   {
     id: '1',
-    img: 'imgs/companyState/productsNews.webp',
+    img: 'imgs/companyState/productsNews.png',
     title: {
       cn: '产品动态',
       en: 'Products News',

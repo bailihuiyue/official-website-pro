@@ -58,24 +58,34 @@ export default {
     }
   },
   watch: {
-    // 对应第一次进入页面时如果不是首页,菜单没有选中状态,
-    // 但是每个菜单设置的key必须唯一
     '$route.path': {
       handler: function (val) {
-        setTimeout(() => {
-          // if (!window._calcMenu) {
-          const id = this.$route.query.id
-          let key = val
-          if (id) {
-            key = `${val}?id=${id}`
-          }
-          this.active = this.menuTreeKey[key] || '/'
-          // window._calcMenu = true
-          // }
-        },200)
+        if (val === '/') {
+          // TODO:bug不知道为什么active设置为'/'不可以
+          this.active = new Date()
+        }
       }
     }
   },
+  // watch: {
+  //   // 对应第一次进入页面时如果不是首页,菜单没有选中状态,
+  //   // 但是每个菜单设置的key必须唯一
+  //   '$route.path': {
+  //     handler: function (val) {
+  //       setTimeout(() => {
+  //         // if (!window._calcMenu) {
+  //         const id = this.$route.query.id
+  //         let key = val
+  //         if (id) {
+  //           key = `${val}?id=${id}`
+  //         }
+  //         this.active = this.menuTreeKey[key] || '/'
+  //         // window._calcMenu = true
+  //         // }
+  //       },200)
+  //     }
+  //   }
+  // },
   created() {
     getMenu().then((res) => {
       this.menus = res
@@ -110,7 +120,7 @@ export default {
 
 .horizontalGolbalMenu {
   margin-top: 15px;
-  flex: 1;
+  flex: 1 0 auto;
   .el-menu.el-menu--horizontal {
     border: none !important;
     .el-submenu__title,
@@ -120,6 +130,13 @@ export default {
     .el-submenu__title:hover,
     .el-menu-item:hover {
       color: $themeColor !important;
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+    // flex: 0 0 auto;
+    .el-submenu__title {
+      padding: 0 10px;
     }
   }
 }

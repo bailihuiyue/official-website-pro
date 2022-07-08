@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-// 解决当目标跳转的路径路径和当前路由页面路径一致的时候，重复点击浏览器报错:NavigationDuplicated: Avoided redundant navigation to current location
+// todo:info:解决当目标跳转的路径路径和当前路由页面路径一致的时候，重复点击浏览器报错:NavigationDuplicated: Avoided redundant navigation to current location
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   // 调用回调方法 让浏览器不再报出这个错误
