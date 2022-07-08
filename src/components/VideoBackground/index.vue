@@ -19,7 +19,7 @@
       muted="muted"
       v-if="!reloadBgVideo"
     >
-      <source :src="videoData.videoBg" />
+      <source :src="$videoURL+videoData.videoBg" />
     </video>
     <el-dialog
       :show-close="false"
@@ -29,7 +29,7 @@
       @close="onVideoModalClose"
     >
       <video preload="auto" controls="controls" autoplay id="videoBackgroundId">
-        <source :src="videoData.videoPop" />
+        <source :src="$videoURL+videoData.videoPop" />
       </video>
     </el-dialog>
   </div>

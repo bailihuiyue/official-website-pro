@@ -8,7 +8,7 @@
       </el-radio-group>
     </div>
     <el-button type="primary" @click="addDriverDetail()" style="margin:10px 0">新增驱动</el-button>
-    <el-table :data="list" border style="width: 100%" v-loading="loading">
+    <el-table :data="list" border style="width: 100%">
       <el-table-column prop="id" label="id" width="180"></el-table-column>
       <el-table-column prop="title" label="标题"></el-table-column>
       <el-table-column prop="desc" label="描述"></el-table-column>
@@ -36,8 +36,9 @@
             :show-file-list="false"
             :on-success="(response, file, fileList) => onUploadFileSuccess(response, file, fileList, 'driverUrl')"
             :headers="{token:$token}"
+            :before-upload="onBeginUpload"
           >
-            <el-button size="small" type="primary">点击上传</el-button>
+            <el-button :loading="loading" size="small" type="primary">点击上传</el-button>
           </el-upload>
           <a
             style="margin-left:30px"
@@ -54,8 +55,9 @@
             :show-file-list="false"
             :on-success="(response, file, fileList) => onUploadFileSuccess(response, file, fileList, 'pdfUrl')"
             :headers="{token:$token}"
+            :before-upload="onBeginUpload"
           >
-            <el-button size="small" type="primary">点击上传</el-button>
+            <el-button :loading="loading" size="small" type="primary">点击上传</el-button>
           </el-upload>
           <a
             style="margin-left:30px"
@@ -104,7 +106,7 @@ export default {
       },
       dialogFormVisible: false,
       formLabelWidth: '120px',
-      loading: true
+      loading: false
     }
   },
   created() {
@@ -132,15 +134,20 @@ export default {
       })
     },
     onUploadFileSuccess(response, file, fileList, type) {
-      console.log(response, type)
       if (response) {
         this.formData[type] = response.data
+        this.$message.success('上传成功!')
       } else {
         this.$message({
           message: response.resultMsg || '上传图片失败,请重试!',
           type: 'error'
         })
       }
+      this.loading = false
+    },
+    onBeginUpload() {
+      this.loading = true
+      return true
     },
     addDriverDetail() {
       // 清除数据

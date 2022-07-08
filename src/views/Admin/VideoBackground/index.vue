@@ -1,10 +1,10 @@
 <template>
-  <div class="adminVideoBackground" v-loading="loading">
+  <div class="adminVideoBackground">
     <ChangeLocationAdmin />
     <br />
     <br />
     <br />
-    <el-form :model="formData">
+    <el-form :model="formData" :loding="loading">
       <el-form-item label="标题" :label-width="formLabelWidth">
         <el-input v-model="formData.title" autocomplete="off"></el-input>
       </el-form-item>
@@ -19,8 +19,9 @@
           :show-file-list="false"
           :on-success="(response, file, fileList) => onUploadFileSuccess(response, file, fileList, 'videoBg')"
           :headers="{token:$token}"
+          :before-upload="onBeginUpload"
         >
-          <el-button size="small" type="primary">点击上传</el-button>
+          <el-button :loading="loading" size="small" type="primary">点击上传</el-button>
         </el-upload>
         <a
           style="margin-left:30px"
@@ -37,9 +38,10 @@
           :action="`${$baseURL}api/upload/uploadfile`"
           :show-file-list="false"
           :on-success="(response, file, fileList) => onUploadFileSuccess(response, file, fileList, 'videoPop')"
+          :before-upload="onBeginUpload"
           :headers="{token:$token}"
         >
-          <el-button size="small" type="primary">点击上传</el-button>
+          <el-button :loading="loading" size="small" type="primary">点击上传</el-button>
         </el-upload>
         <a
           style="margin-left:30px"
@@ -75,7 +77,7 @@ export default {
         videoPop: undefined
       },
       formLabelWidth: '160px',
-      loading: true
+      loading: false
     }
   },
   created() {
@@ -91,15 +93,21 @@ export default {
         this.loading = false
       })
     },
+    onBeginUpload() {
+      this.loading = true
+      return true
+    },
     onUploadFileSuccess(response, file, fileList, type) {
       if (response) {
         this.formData[type] = response.data
+        this.$message.success('上传成功!')
       } else {
         this.$message({
           message: response.resultMsg || '上传图片失败,请重试!',
           type: 'error'
         })
       }
+      this.loading = false
     },
     onModify() {
       modifyVideoBackground(this.formData).then((res) => {

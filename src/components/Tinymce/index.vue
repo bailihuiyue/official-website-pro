@@ -3,6 +3,10 @@
     <div :class="{fullscreen:fullscreen}" :style="{width:containerWidth}" class="tinymce-container">
       <textarea :id="tinymceId" class="tinymce-textarea" />
     </div>
+    <div class="tinyUploadLoading" v-if="loading">
+      <img src="imgs/loading.gif" />
+      <div>上传中...</div>
+    </div>
   </div>
 </template>
 
@@ -73,7 +77,8 @@ export default {
           cn: '点击下载',
           en: 'Click To Download'
         }
-      }
+      },
+      loading: false
       // userinfo: this.$ls.get(USER_INFO)
     }
   },
@@ -192,6 +197,7 @@ export default {
               //   failure('图片过大,不要超过5mb')
               //   return false
               // }
+              self.loading = true
               uploadImg(file)
                 .then((res) => {
                   if (res) {
@@ -200,8 +206,10 @@ export default {
                   } else {
                     self.$message.error('上传失败!')
                   }
+                  self.loading = false
                 })
                 .catch((err) => {
+                  self.loading = false
                   const error =
                     err.response && err.response.data && err.response.data.enMsg
                   self.$message.error('上传失败!' + '\r\n' + error)
@@ -209,6 +217,7 @@ export default {
                   return false
                 })
             } else {
+              self.loading = true
               uploadFile(file)
                 .then((res) => {
                   if (res) {
@@ -228,12 +237,14 @@ export default {
                   } else {
                     self.$message.error('上传失败!')
                   }
+                  self.loading = false
                 })
                 .catch((err) => {
                   const error =
                     err.response && err.response.data && err.response.data.enMsg
                   self.$message.error('上传失败!' + '\r\n' + error)
                   console.log(err)
+                  self.loading = false
                   return false
                 })
             }
@@ -318,6 +329,14 @@ export default {
 </script>
 
 <style lang="scss">
+.tinyEditor {
+  .tinyUploadLoading {
+    position: absolute;
+    top: 120px;
+    left: 25%;
+    z-index: 999999999;
+  }
+}
 .tinymce-container {
   position: relative;
   line-height: normal;

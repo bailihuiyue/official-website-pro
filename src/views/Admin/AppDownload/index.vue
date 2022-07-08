@@ -41,8 +41,9 @@
             :show-file-list="false"
             :on-success="onUploadFileSuccess"
             :headers="{token:$token}"
+            :before-upload="onBeginUpload"
           >
-            <el-button size="small" type="primary">点击上传</el-button>
+            <el-button :loading="loading" size="small" type="primary">点击上传</el-button>
           </el-upload>
           <a
             style="margin-left:30px"
@@ -95,7 +96,7 @@ export default {
       },
       dialogFormVisible: false,
       formLabelWidth: '120px',
-      loading: true
+      loading: false
     }
   },
   created() {
@@ -125,12 +126,18 @@ export default {
     onUploadFileSuccess(response) {
       if (response) {
         this.formData.appUrl = response.data
+        this.$message.success('上传成功!')
       } else {
         this.$message({
           message: response.resultMsg || '上传文件失败,请重试!',
           type: 'error'
         })
       }
+      this.loading = false
+    },
+    onBeginUpload() {
+      this.loading = true
+      return true
     },
     addAppDownloadDetail() {
       // 清除数据

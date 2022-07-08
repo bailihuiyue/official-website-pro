@@ -1,5 +1,5 @@
 <template>
-  <div class="menuAdmin" v-loading="loading">
+  <div class="menuAdmin">
     <ChangeLocationAdmin />
     <!-- 三个图片 -->
     <div style="margin:20px 0 5px 0">三个图片</div>
@@ -15,14 +15,17 @@
       :show-file-list="false"
       :on-success="onUploadFileSuccess"
       :headers="{token:$token}"
+      :before-upload="onBeginUpload"
     >
-      <el-button size="small" type="primary">上传第2行的视频</el-button>
+      <el-button size="small" type="primary" :loading="loading">上传第2行的视频</el-button>
     </el-upload>
     <el-table :data="[totalData[0],totalData[1],totalData[2]]" border style="width: 100%">
       <el-table-column prop="id" width="50" label="id"></el-table-column>
       <el-table-column width="100" label="类型">
         <template slot-scope="scope">
-          <span :style="{color:(scope.$index+1===2)?'#E6A23C':'black'}">{{(scope.$index+1===2)?'视频':'图片'}}</span>
+          <span
+            :style="{color:(scope.$index+1===2)?'#E6A23C':'black'}"
+          >{{(scope.$index+1===2)?'视频':'图片'}}</span>
         </template>
       </el-table-column>
       <el-table-column prop="img" label="图片/视频封面" width="220">
@@ -67,7 +70,7 @@
       </el-table-column>
     </el-table>
     <!-- 弹出框 -->
-    <el-dialog :close-on-click-modal="false" title="底部图片编辑" :visible.sync="dialogFormVisible">
+    <el-dialog :loading="loading" :close-on-click-modal="false" title="底部图片编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="图片/视频封面" :label-width="formLabelWidth">
           <el-upload
@@ -87,7 +90,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="onCreateOrModify()">确 定</el-button>
+        <el-button type="primary" :loading="loading" @click="onCreateOrModify()">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -118,7 +121,7 @@ export default {
       },
       dialogFormVisible: false,
       formLabelWidth: '120px',
-      loading: true
+      loading: false
     }
   },
   mounted() {
@@ -162,6 +165,7 @@ export default {
       this.formData.img = ''
     },
     onCreateOrModify() {
+      this.loading = true
       if (this.formData.id === undefined) {
         addBottomImgs(this.$adminLang, this.formData)
           .then((response) => {
@@ -239,7 +243,6 @@ export default {
       if (response) {
         const data = this.totalData[1]
         data.href = this.$videoURL + response.data
-        this.loading = true
         updateBottomImgs(this.$adminLang, data).then((response) => {
           this.loading = false
           this.$message.success('修改成功！')
@@ -250,7 +253,12 @@ export default {
           message: response.resultMsg || '上传文件失败,请重试!',
           type: 'error'
         })
+        this.loading = false
       }
+    },
+    onBeginUpload() {
+      this.loading = true
+      return true
     }
   }
 }

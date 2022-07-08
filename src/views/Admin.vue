@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
-    <el-container>
-      <el-aside width="200px">
+    <el-container style="height: calc(100vh - 90px);">
+      <el-aside width="220px">
         <el-menu :default-active="currentRouter" class="el-menu-vertical-demo" router>
           <el-menu-item index="/admin/user">
             <i class="el-icon-user-solid"></i>
@@ -163,6 +163,7 @@ export default {
 
 .base-padding {
   padding: 20px;
+  margin-bottom: 80px;
 }
 
 .el-footer {
