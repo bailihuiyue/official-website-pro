@@ -23,6 +23,10 @@
             <i class="el-icon-postcard"></i>
             <span slot="title">轮播图管理</span>
           </el-menu-item>
+           <el-menu-item index="/admin/videoBackground">
+            <i class="el-icon-video-camera-solid"></i>
+            <span slot="title">视频墙管理</span>
+          </el-menu-item>
           <el-menu-item index="/admin/productImgs">
             <i class="el-icon-coordinate"></i>
             <span slot="title">产品大图管理</span>

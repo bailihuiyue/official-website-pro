@@ -774,4 +774,15 @@ module.exports = {
   "post /classify/add": { data: true },
   "post /classify/modify": { data: true },
   "get /classify/delete": { data: true },
+  // 视频墙
+  "get /videoBackground/getAll": {
+    data: {
+      id: '@num()',
+      title: 'MOZA Mini MX',
+      desc: '简易拍 拍易剪',
+      videoBg: 'https://www.gudsen.com/home_en/img/img_cn/PromotionVideo.mp4?v1',
+      videoPop: 'https://www.gudsen.com/home_en/img/img_cn/PromotionVideo.mp4?v1'
+    }
+  },
+  "post /videoBackground/modify": { data: true },
 }

@@ -15,3 +15,7 @@ export const getBottomImgs = lang => {
   return baseService.get(api);
 };
 
+export const getVideoBackground = lang => {
+  const api = `videoBackground/getAll?lang=${lang}`;
+  return baseService.get(api);
+};

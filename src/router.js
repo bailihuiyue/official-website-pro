@@ -231,8 +231,13 @@ const router = new Router({
     },
     {
       path: '/admin/classify',
-      name: 'classify',
+      name: 'adminClassify',
       component: () => import('./views/Admin/Classify/index.vue'),
+    },
+    {
+      path: '/admin/videoBackground',
+      name: 'adminVideoBackground',
+      component: () => import('./views/Admin/VideoBackground/index.vue'),
     },
       // {
       //   path: '/admin/news',
