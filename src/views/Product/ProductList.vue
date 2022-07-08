@@ -43,6 +43,11 @@ export default {
           }
         })
       }
+
+      const searchTxt = this.$route.query.searchTxt
+      if (searchTxt) {
+        this.onSearch(searchTxt)
+      }
     })
   },
   watch: {

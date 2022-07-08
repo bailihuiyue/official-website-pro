@@ -14,13 +14,16 @@
           >{{c[$lang]}}</div>
         </li>
       </ul>
-      <div class="followUs">
-        <h3>{{lang.followUs[$lang]}}</h3>
-        <div class="miniPic">
-          <a :href="fi.href" v-for="fi in img" :key="fi.img" target="_blank">
-            <img :src="fi.img" />
-          </a>
+      <div class="middleFooterContent">
+        <div class="followUs">
+          <span class="followUsTitle">{{lang.followUs[$lang]}}：</span>
+          <span class="miniPic">
+            <a :href="fi.href" v-for="fi in img" :key="fi.img" target="_blank">
+              <img :src="fi.img" />
+            </a>
+          </span>
         </div>
+        <el-link class="backToTop" @click="backToTop">{{lang.backToTop[$lang]}}</el-link>
       </div>
     </div>
     <div v-else>
@@ -41,7 +44,7 @@
       </el-collapse>
     </div>
     <div class="copyright">
-      <span>{{copyright}}</span>
+      <a>{{copyright}}</a>
     </div>
   </div>
 </template>
@@ -61,6 +64,10 @@ export default {
         followUs: {
           en: 'Follow Us',
           cn: '关注我们'
+        },
+        backToTop: {
+          en: 'Back To Top',
+          cn: '回到顶部'
         }
       }
     }
@@ -81,6 +88,9 @@ export default {
           this.$router.push(href)
         }
       }
+    },
+    backToTop() {
+      window.scrollTo(0, 0)
     }
   },
   watch: {
@@ -99,7 +109,7 @@ export default {
 @import '~@/styles/color.scss';
 
 .footer {
-  .hasMarginTop{
+  .hasMarginTop {
     width: 100%;
     height: 80px;
     background-color: #fff;
@@ -113,12 +123,11 @@ export default {
     // width: 1240px;
     margin: 0 auto;
     padding: 10px 10% 0 10%;
-    display: flex;
-    justify-content: space-between;
     .content-nav {
       display: flex;
-      justify-content: space-around;
+      // justify-content: space-around;
       li {
+        margin-right: 150px;
         display: flex;
         flex-direction: column;
         padding: 0 20px;
@@ -134,7 +143,7 @@ export default {
           font-size: 14px;
           color: #bbb;
           font-weight: 300;
-          padding: 5px 0;
+          padding: 10px 0;
           text-decoration: none;
           cursor: default;
         }
@@ -157,25 +166,49 @@ export default {
         padding-left: 0;
       }
     }
-    .followUs {
-      width: 250px;
-      h3 {
-        color: #fff;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        margin-left: 10px;
+    .middleFooterContent {
+      &:after {
+        content: '';
+        clear: both;
+        display: block;
+        width: 0;
+        height: 0;
+        visibility: hidden;
       }
-      .miniPic {
-        a {
-          margin: 10px;
-          width: 30px;
-          height: 30px;
+      .followUs {
+        float: left;
+        // width: 250px;
+        margin: 35px 0;
+        .followUsTitle {
+          color: #fff;
+          // margin-bottom: 10px;
+          // margin-top: 10px;
+          // margin-left: 10px;
           display: inline-block;
-          img {
-            width: 100%;
-            height: 100%;
+          height: 24px;
+          margin-right: 10px;
+        }
+        .miniPic {
+          display: inline-block;
+          height: 24px;
+          vertical-align: middle;
+          a {
+            // margin: 10px;
+            margin-right: 20px;
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
         }
+      }
+      .backToTop {
+        float: right;
+        color: #bbb;
+        margin: 35px 0;
       }
     }
   }
@@ -188,7 +221,7 @@ export default {
       // width: 1240px;
       padding: 10px 10% 20px 10%;
       display: block;
-      color: #fff;
+      color: #bbb;
       line-height: 30px;
       margin: auto;
       font-size: 12px;

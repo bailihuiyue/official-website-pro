@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+  props: ['defaultSearchTxt'],
   data() {
     return {
       txt: '',
@@ -22,6 +23,12 @@ export default {
         cn: '请输入内容',
         en: 'Enter your search item here...'
       }
+    }
+  },
+  created() {
+    const searchTxt = this.$route.query.searchTxt
+    if (searchTxt) {
+      this.txt = searchTxt
     }
   },
   methods: {

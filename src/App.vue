@@ -17,6 +17,14 @@
           active-text-color="#ffd04b"
         />
         <div class="headerButtons">
+          <el-input
+            class="menuSearch"
+            :placeholder="lang.placeholder[$lang]"
+            suffix-icon="el-icon-search"
+            v-model="searchTxt"
+            @change="onSearchProd"
+            v-if="!isMobile&&showMenuSearch"
+          ></el-input>
           <!-- <SearchProduct v-show="!isMobile" /> -->
           <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
         </div>
@@ -71,7 +79,15 @@ export default {
       defaultActive: '/',
       isShow: true,
       isMobile: device.mobile(),
-      showDrawer: false
+      showDrawer: false,
+      searchTxt: '',
+      lang: {
+        placeholder: {
+          cn: '搜索产品',
+          en: 'Search Product'
+        }
+      },
+      showMenuSearch: true
     }
   },
   watch: {
@@ -82,6 +98,7 @@ export default {
         } else {
           this.isShow = true
         }
+        this.showMenuSearch = val.name !== 'productList'
       },
       deep: true,
       immediate: true
@@ -99,6 +116,15 @@ export default {
     },
     handleDisplayDrawer(isShowDrawer) {
       this.showDrawer = isShowDrawer
+    },
+    onSearchProd() {
+      this.$router.push({
+        path: '/productList',
+        query: {
+          searchTxt: this.searchTxt
+        }
+      })
+      this.searchTxt = ''
     }
   }
 }
@@ -163,6 +189,23 @@ body {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+    }
+  }
+  .menuSearch {
+    margin-right: 30px;
+    .el-input__inner {
+      border-radius: 50px;
+      height: 36px;
+
+      background-color: rgb(24, 26, 27);
+      border-color: rgb(56, 61, 64);
+      color: rgb(169, 162, 151);
+    }
+    .el-input__suffix {
+      right: 8px;
+      .el-input__icon {
+        line-height: 36px;
+      }
     }
   }
 }

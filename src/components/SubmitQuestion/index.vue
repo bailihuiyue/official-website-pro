@@ -254,7 +254,7 @@ export default {
     width: 60px;
     height: 90px;
     position: fixed;
-    right: 40px;
+    right: 8px;
     bottom: 300px;
     cursor: pointer;
     text-align: center;

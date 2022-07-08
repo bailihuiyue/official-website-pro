@@ -1,8 +1,9 @@
 <template>
   <div class="home" v-loading="loading">
-    <Carousel :carouselList="carouselList" :useDocumentWidth="true" v-if="carouselList.length"/>
+    <Carousel :carouselList="carouselList" :useDocumentWidth="true" v-if="carouselList.length" />
     <ProductImgs :productImgs="productImgs" />
-    <BottomSection :bottomImgs="bottomImgs" v-if="bottomImgs.length"/>
+    <BottomSection :bottomImgs="bottomImgs" v-if="bottomImgs.length" />
+    <SubmitQuestion v-if="!isMobile" :isFAQ="true" />
   </div>
 </template>
  
@@ -11,20 +12,24 @@ import { getCarousel, getProductImgs, getBottomImgs } from './service'
 import Carousel from '@/components/Carousel'
 import ProductImgs from '@/components/ProductImgs'
 import BottomSection from '@/components/BottomSection'
+import SubmitQuestion from '@/components/SubmitQuestion'
+import device from 'current-device'
 
 export default {
   name: 'HelloWorld',
   components: {
     Carousel,
     ProductImgs,
-    BottomSection
+    BottomSection,
+    SubmitQuestion
   },
   data() {
     return {
       loading: false,
       carouselList: [],
       productImgs: [],
-      bottomImgs: []
+      bottomImgs: [],
+      isMobile: device.mobile(),
     }
   },
   created() {
@@ -35,5 +40,14 @@ export default {
 }
 </script>
  
-<style lang="scss" scoped>
+<style lang="scss">
+.home {
+  .SubmitQuestion {
+    .isPC {
+      z-index: 9999;
+      right: 40px !important;
+      color: #e8e8e8;
+    }
+  }
+}
 </style>

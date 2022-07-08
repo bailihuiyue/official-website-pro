@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <div class="section s2">
-      <PlayVideoWithModal :data="bottomImgs[1]"/>
+      <PlayVideoWithModal :data="bottomImgs[1]" />
     </div>
     <div class="section s3">
       <router-link :to="bottomImgs[2].href">
@@ -49,17 +49,25 @@ export default {
     max-width: 48%;
     &.s1,
     &.s2 {
-      margin-top:1%;
+      margin-top: 1%;
     }
     &.s1,
     &.s3 {
-      margin-left:1%;
+      margin-left: 1%;
       margin-right: 1%;
     }
     &.s3,
     &.s4 {
       margin-top: 1%;
       margin-bottom: 1%;
+    }
+    .el-image {
+      img {
+        transition: all 0.5s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 }

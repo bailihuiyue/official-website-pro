@@ -7,12 +7,11 @@
 </template>
 <script>
 export default {
-  name:'productImgs',
+  name: 'productImgs',
   props: ['productImgs'],
   data() {
-    return {
-    }
-  },
+    return {}
+  }
 }
 </script>
 <style lang="scss">
@@ -21,6 +20,10 @@ export default {
     max-width: 100%;
     max-height: 100%;
     display: block;
+    transition: all 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 </style>
