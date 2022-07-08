@@ -23,7 +23,7 @@
             <i class="el-icon-postcard"></i>
             <span slot="title">轮播图管理</span>
           </el-menu-item>
-           <el-menu-item index="/admin/videoBackground">
+          <el-menu-item index="/admin/videoBackground">
             <i class="el-icon-video-camera-solid"></i>
             <span slot="title">视频墙管理</span>
           </el-menu-item>
@@ -86,6 +86,10 @@
           <el-menu-item index="/admin/adminRecruitment">
             <i class="el-icon-goblet-square-full"></i>
             <span slot="title">招纳精英管理</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/offlineStore">
+            <i class="el-icon-school"></i>
+            <span slot="title">体验店管理</span>
           </el-menu-item>
           <!-- <el-menu-item index="/admin/news">
             <i class="el-icon-news"></i>

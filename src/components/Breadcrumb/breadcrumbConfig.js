@@ -125,6 +125,14 @@ const recruitment = {
   }
 }
 
+const offlineStore = {
+  path: '/offlineStore',
+  title: {
+    cn: '体验店',
+    en: 'Offline Store'
+  }
+}
+
 
 export const breadcrumbList = {
   '/productList': [home, productList],
@@ -142,4 +150,5 @@ export const breadcrumbList = {
   '/companyState': [home, companyState],
   '/companyStateDetail': [home, companyState, companyStateDetail],
   '/recruitment': [home, recruitment],
+  '/offlineStore': [home, offlineStore],
 }

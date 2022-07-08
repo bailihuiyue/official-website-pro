@@ -301,6 +301,17 @@ module.exports = {
             "img": "logo.png",
             "children": null,
             "title": null
+          },
+          {
+            "id": 20,
+            "pid": 16,
+            "cn": "线下体验店",
+            "en": "Offline Store",
+            "hrefcn": "/offlineStore",
+            "hrefen": "/offlineStore",
+            "img": "logo.png",
+            "children": null,
+            "title": null
           }
         ],
         "title": {
@@ -785,4 +796,12 @@ module.exports = {
     }
   },
   "post /videoBackground/modify": { data: true },
+  // 体验店
+  "get /offlineStore/detail":{
+    data:{
+      id: '@num()',
+      content:'<p style="font-size:16px">@cstr(2000,5000)</p>'
+    }
+  },
+  "post /offlineStore/modify": { data: true },
 }

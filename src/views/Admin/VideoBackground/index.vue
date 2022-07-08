@@ -85,7 +85,9 @@ export default {
     getVideoBackgroundApi() {
       this.loading = true
       getVideoBackground().then((res) => {
-        this.formData = res
+        if (res) {
+          this.formData = res
+        }
         this.loading = false
       })
     },

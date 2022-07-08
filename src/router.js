@@ -101,6 +101,11 @@ const router = new Router({
     name: 'recruitment',
     component: () => import('./views/Recruitment/index.vue'),
   },
+  {
+    path: '/offlineStore',
+    name: 'offlineStore',
+    component: () => import('./views/OfflineStore/index.vue'),
+  },
   // {
   //   path: '/case',
   //   name: 'case',
@@ -238,6 +243,11 @@ const router = new Router({
       path: '/admin/videoBackground',
       name: 'adminVideoBackground',
       component: () => import('./views/Admin/VideoBackground/index.vue'),
+    },
+    {
+      path: '/admin/offlineStore',
+      name: 'adminOfflineStore',
+      component: () => import('./views/Admin/OfflineStore/index.vue'),
     },
       // {
       //   path: '/admin/news',
