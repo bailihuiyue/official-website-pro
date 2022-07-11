@@ -4,7 +4,7 @@
     <VideoBackground :videoData="videoData" v-if="videoData.id" />
     <ProductImgs :productImgs="productImgs" />
     <BottomSection :bottomImgs="bottomImgs" v-if="bottomImgs.length" />
-    <SubmitQuestion v-if="!isMobile" :isFAQ="true" />
+    <SubmitQuestion v-if="!isMobile" :isFAQ="true" :hasQQ="true"/>
   </div>
 </template>
  

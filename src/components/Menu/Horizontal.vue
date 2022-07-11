@@ -8,9 +8,18 @@
       :active-text-color="themeColor"
     >
       <template v-for="(t,i1) in menus">
+        <el-menu-item
+          :index="calcActiveMenu(i1+'',t.title[`href${$lang}`])"
+          v-if="!t.children.length&&t.title[$lang]!=='placeholder'"
+        >
+          <span
+            style="padding: 25px 0;"
+            @click="jumpTo(t.title[`href${$lang}`],i1+'')"
+          >{{t.title[$lang]}}</span>
+        </el-menu-item>
         <el-submenu
           :index="calcActiveMenu(i1+'',t.title[`href${$lang}`])"
-          v-if="t.title[$lang]&&t.title[$lang]!=='placeholder'"
+          v-else-if="t.title[$lang]&&t.title[$lang]!=='placeholder'"
         >
           <template slot="title">
             <span
@@ -62,7 +71,7 @@ export default {
       handler: function (val) {
         if (val === '/') {
           // TODO:bug不知道为什么active设置为'/'不可以
-          this.active = new Date()
+          this.active = new Date()+''
         }
       }
     }

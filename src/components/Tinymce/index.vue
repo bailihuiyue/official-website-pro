@@ -154,6 +154,12 @@ export default {
         link_title: false,
         nonbreaking_force_tab: true, // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
         // images_upload_url: '/demo/upimg.php',
+        // 图片默认class名
+        // image_class_list: [
+        //   { title: 'tinyImg', value: 'tinyImg' }
+        // ],
+        // 可覆盖tiny的css样式,只是控制在tiny中的显示样式,实际style不会保存起来
+        // content_style: 'img{width:100%;height:auto;}',
         init_instance_callback: (editor) => {
           _this.loadingTiny = false
           if (_this.content) {
@@ -203,6 +209,8 @@ export default {
                   if (res) {
                     // self.$message.success('上传成功!')
                     self.imageSuccessCBK(self.$imgServer + res)
+                    // // TODO:靠 { width: '100%' }设置宽高
+                    // callback(self.$imgServer + res, { width: '100%' })
                   } else {
                     self.$message.error('上传失败!')
                   }

@@ -44,7 +44,8 @@
       </el-collapse>
     </div>
     <div class="copyright">
-      <a>{{copyright}}</a>
+      <div class="footerLine"></div>
+      <span>{{copyright}}</span>
     </div>
   </div>
 </template>
@@ -178,7 +179,8 @@ export default {
       .followUs {
         float: left;
         // width: 250px;
-        margin: 35px 0;
+        margin-top: 35px;
+        margin-bottom: 20px;
         .followUsTitle {
           color: #fff;
           // margin-bottom: 10px;
@@ -208,7 +210,7 @@ export default {
       .backToTop {
         float: right;
         color: #bbb;
-        margin: 35px 0;
+        margin-top: 35px;
       }
     }
   }
@@ -216,15 +218,17 @@ export default {
     // height: 30px;
     // background: #111;
     margin-top: 15px;
+    border-top: 1px solid rgb(83, 82, 82);
+    width: 80%;
+    margin: auto;
     span {
-      border-top: 1px solid rgb(83, 82, 82);
       // width: 1240px;
-      padding: 10px 10% 20px 10%;
+      padding: 10px 0;
       display: block;
       color: #bbb;
       line-height: 30px;
       margin: auto;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }
