@@ -102,7 +102,7 @@ export default {
       .imgItem {
         text-decoration: none;
         flex: 0 1 auto;
-        width: 120px;
+        width: 80px;
         display: block;
         color: #fff;
         img {

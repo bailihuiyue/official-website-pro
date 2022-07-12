@@ -29,8 +29,8 @@
               :key="item.title.en"
               :name="'prodMenu'+i1"
             >
-              <el-row style="margin-top:30px">
-                <el-col :span="6" v-for="(c,i2) in item.children">
+              <div style="margin-top:30px">
+                <div class="rowItem" v-for="(c,i2) in item.children">
                   <el-menu-item
                     :index="calcActiveMenu('prodMenu'+i1+'-'+i2,c[`href${$lang}`])"
                     @click="jumpTo(c[`href${$lang}`],'prodMenu'+i1+'-'+i2)"
@@ -39,8 +39,8 @@
                     <div class="subTitle">{{c[$lang]}}</div>
                     <!-- <div class="subDesc">{{c[$lang]}}</div> -->
                   </el-menu-item>
-                </el-col>
-              </el-row>
+                </div>
+              </div>
             </el-tab-pane>
           </el-tabs>
         </el-submenu>
@@ -66,7 +66,7 @@
             >{{t.title[$lang]}}</span>
           </template>
           <el-row style="margin-top:30px">
-            <el-col :span="6" v-for="(c,i2) in t.children">
+            <el-col :span="4" v-for="(c,i2) in t.children">
               <el-menu-item
                 :index="calcActiveMenu(i1+'-'+i2+'',c[`href${$lang}`])"
                 @click="jumpTo(c[`href${$lang}`],i1+'-'+i2+'')"
@@ -172,7 +172,7 @@ export default {
     jumpTo(href) {
       if (href) {
         if (href.indexOf('//') > 0) {
-          window.location.href = href
+          window.open(href)
         } else {
           // window.location.href = window.location.origin + '#' + href
           // window.location.reload()
@@ -224,7 +224,7 @@ export default {
       padding: 0 10px;
     }
   }
-  .homeMenu{
+  .homeMenu {
     color: #fff !important;
     border-bottom-color: transparent !important;
     background-color: transparent !important;
@@ -249,7 +249,7 @@ export default {
       background-color: transparent;
     }
     .el-tabs__nav-scroll {
-      width: 60% !important;
+      width: 70% !important;
       margin: auto;
       .el-tabs__nav.is-top {
         // float: right;
@@ -280,9 +280,19 @@ div.el-menu--horizontal {
   background-color: rgba(0, 0, 0, 0.9);
   left: 0 !important;
   top: 92px !important;
+  .productMenuList {
+    margin-bottom: 100px;
+  }
+  .rowItem {
+    margin-bottom: 20px;
+    display: inline-block;width: 20%;
+  }
+  .el-col-4{
+    margin-bottom: 20px;
+  }
   & > ul {
-    margin-bottom: 15px;
-    width: 600px;
+    margin-bottom: 100px;
+    width: 900px;
     margin-top: 0;
     // display: flex;
     // flex-direction: row;
@@ -297,12 +307,12 @@ div.el-menu--horizontal {
         color: $themeColor !important;
       }
       .subThumb {
-        width: 70px;
-        margin-left: 10px;
+        width: 100px;
+        // margin-left: 10px;
       }
       .subTitle {
         // margin-top: 5px;
-        width: 90px;
+        width: 100px;
       }
       .subTitle {
         text-align: center;
@@ -315,7 +325,7 @@ div.prodMenuPopper {
   ul {
     padding: 0;
     margin: auto;
-    width: 800px;
+    width: 1000px;
   }
 }
 </style>
