@@ -17,14 +17,14 @@
           active-text-color="#ffd04b"
         />
         <div class="headerButtons">
-          <el-input
+          <!-- <el-input
             class="menuSearch"
             :placeholder="lang.placeholder[$lang]"
             suffix-icon="el-icon-search"
             v-model="searchTxt"
             @change="onSearchProd"
             v-if="!isMobile&&showMenuSearch"
-          ></el-input>
+          ></el-input> -->
           <!-- <SearchProduct v-show="!isMobile" /> -->
           <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
         </div>

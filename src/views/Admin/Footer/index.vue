@@ -1,38 +1,9 @@
 <template>
   <div class="footerAdmin">
     <ChangeLocationAdmin />
-    <br/>
+    <br />
     <el-button @click="updateFooter" style="margin:20px 0;" type="primary">保存</el-button>
-    <el-tabs value="footerList">
-      <el-tab-pane label="底部菜单" name="footerList">
-        <el-alert
-          title="底部编辑功能,请写入正确的json,如果存在children,则表示有二级内容,如果包含href,则表示是可以跳转的链接,否则就是普通文字"
-          type="warning"
-        ></el-alert>
-        <br />
-        <div>
-          <div style="float:left;width:500px">
-            <div>当前已保存的内容:</div>
-            <div style="margin-top:5px;font-size:14px;white-space: pre;">
-              <code>{{footerList}}</code>
-            </div>
-          </div>
-          <div style="float:left">
-            <div style="margin-bottom:5px;">请输入新的内容:</div>
-            <el-input
-              style="width:500px"
-              type="textarea"
-              :autosize="{ minRows: 5, maxRows: 200 }"
-              placeholder="请输入内容"
-              v-model="footerList"
-            ></el-input>
-          </div>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="版权" name="copyright">
-        <el-alert title="版权信息维护" type="warning" />
-        <el-input style="margin-top:20px" v-model="copyright" placeholder="请输入最底部版权信息" />
-      </el-tab-pane>
+    <el-tabs value="img">
       <el-tab-pane label="关注我们" name="img">
         <el-alert title="点击上传最右边图片" type="warning" />
         <div class="uploadMiniPic">
@@ -63,6 +34,35 @@
             placeholder="请输入内容"
             v-model="img"
           ></el-input>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="版权" name="copyright">
+        <el-alert title="版权信息维护" type="warning" />
+        <el-input style="margin-top:20px" v-model="copyright" placeholder="请输入最底部版权信息" />
+      </el-tab-pane>
+      <el-tab-pane label="底部菜单" name="footerList">
+        <el-alert
+          title="底部编辑功能,请写入正确的json,如果存在children,则表示有二级内容,如果包含href,则表示是可以跳转的链接,否则就是普通文字"
+          type="warning"
+        ></el-alert>
+        <br />
+        <div>
+          <div style="float:left;width:500px">
+            <div>当前已保存的内容:</div>
+            <div style="margin-top:5px;font-size:14px;white-space: pre;">
+              <code>{{footerList}}</code>
+            </div>
+          </div>
+          <div style="float:left">
+            <div style="margin-bottom:5px;">请输入新的内容:</div>
+            <el-input
+              style="width:500px"
+              type="textarea"
+              :autosize="{ minRows: 5, maxRows: 200 }"
+              placeholder="请输入内容"
+              v-model="footerList"
+            ></el-input>
+          </div>
         </div>
       </el-tab-pane>
     </el-tabs>

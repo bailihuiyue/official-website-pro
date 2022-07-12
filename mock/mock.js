@@ -73,7 +73,7 @@ module.exports = {
           "img": null,
           "children": null,
           "title": null,
-          "isProduct": true
+          "isProduct": "1"
         }
       },
       {
@@ -111,7 +111,7 @@ module.exports = {
           "img": null,
           "children": null,
           "title": null,
-          "isProduct": true
+          "isProduct": "1"
         }
       },
       {
@@ -149,7 +149,7 @@ module.exports = {
           "img": null,
           "children": null,
           "title": null,
-          "isProduct": true
+          "isProduct": "1"
         }
       },
       {
@@ -187,7 +187,7 @@ module.exports = {
           "img": null,
           "children": null,
           "title": null,
-          "isProduct": true
+          "isProduct": "1"
         }
       }, 
       {

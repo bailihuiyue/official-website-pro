@@ -1,10 +1,12 @@
 <template>
   <div class="SubmitQuestion">
     <div class="isPC" v-if="!isMobile">
+      <!-- 问题 -->
       <div class="faq" @click="showSubmitForm=true">
         <img src="imgs/headset.svg" />
         <div class="submitFAQTxt">{{lang[isFAQ?'submitFAQTxt':'messageFeedbackTxt'][$lang]}}</div>
       </div>
+      <!-- QQ -->
       <a
         href="tencent://message/?Menu=yes&uin=938020803&Service=58&SigT=A7F6FEA02730C988A6A177C5909B904F7BD03C0124EAB6432728821E903F05B77D3EA8E423809AC550876CE5E033F1FA512AF14CCBB9816A896277FD30908021D5009CF02E6DB1378632C0D9F94570C6C772DDA107F4FAD3B2E4A6E1E8E3CAFC6C38D9535F3128B36BB6339B16A957EAF328F30E70EA862C&SigU=30E5D5233A443AB26152F9F6C8236BF0FE43A72F052EF450165F553E68E46F2AAA71FB2584141351904F79B210FF64849F183114BE293216E5AB5B02F60AC240644B288EB7481A96"
         class="qq"
@@ -14,7 +16,7 @@
         <div class="submitFAQTxt">{{lang.qq[$lang]}}</div>
       </a>
     </div>
-    <div v-else style="margin:20px 0;text-align:center">
+    <div class="isMobileFaq" v-else style="margin:20px 0;text-align:center">
       <el-button
         size="small"
         type="info"

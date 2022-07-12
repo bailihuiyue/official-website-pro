@@ -4,7 +4,12 @@
     <VideoBackground :videoData="videoData" v-if="videoData.id" />
     <ProductImgs :productImgs="productImgs" />
     <BottomSection :bottomImgs="bottomImgs" v-if="bottomImgs.length" />
-    <SubmitQuestion v-if="!isMobile" :isFAQ="true" :hasQQ="true"/>
+    <SubmitQuestion v-if="!isMobile" :isFAQ="true" :hasQQ="true" />
+    <!-- 返回顶部 -->
+    <el-backtop :right="40" :bottom="160" :visibility-height="800" v-if="!isMobile">
+      <img src="/imgs/up.png" style="width:40px;height:40px" />
+      <div>{{$lang==='cn'?'回到顶部':'Back To Top'}}</div>
+    </el-backtop>
   </div>
 </template>
  
@@ -51,12 +56,29 @@ export default {
 </script>
  
 <style lang="scss">
+@import '~@/styles/color.scss';
+
 .home {
   .SubmitQuestion {
     .isPC {
       z-index: 9999;
       right: 40px !important;
       color: #e8e8e8;
+    }
+  }
+  .el-backtop {
+    flex-direction: column;
+    width: 60px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    &:hover {
+      color: $themeColor;
+    }
+    div {
+      font-size: 12px;
+      margin-top: 10px;
     }
   }
 }

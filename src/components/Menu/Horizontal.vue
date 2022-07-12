@@ -7,8 +7,14 @@
       text-color="#fff"
       :active-text-color="themeColor"
     >
+      <!-- 返回首页 -->
+      <el-menu-item
+        class="homeMenu"
+        :index="calcActiveMenu('home','/')"
+        @click="jumpTo('/')"
+      >{{lang.home[$lang]}}</el-menu-item>
       <!-- 产品菜单 -->
-      <template>
+      <template v-if="prodMenus.length">
         <el-submenu index="prodMenu" @mouseover.native="onOpenMenu" popper-class="prodMenuPopper">
           <template slot="title">
             <span
@@ -103,6 +109,10 @@ export default {
         menu: {
           cn: '游戏装备',
           en: 'Game Equipment'
+        },
+        home: {
+          cn: '首页',
+          en: 'Home'
         }
       }
     }
@@ -213,6 +223,11 @@ export default {
     .el-submenu__title {
       padding: 0 10px;
     }
+  }
+  .homeMenu{
+    color: #fff !important;
+    border-bottom-color: transparent !important;
+    background-color: transparent !important;
   }
 }
 .productMenuList {
