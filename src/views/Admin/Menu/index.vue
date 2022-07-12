@@ -59,7 +59,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <!--  -->
+    <!-- 弹窗 -->
     <el-dialog :close-on-click-modal="false" title="菜单编辑" :visible.sync="dialogFormVisible">
       <el-form :model="formData">
         <el-form-item label="中文名" :label-width="formLabelWidth">
@@ -73,6 +73,12 @@
         </el-form-item>
         <el-form-item label="英文跳转链接" :label-width="formLabelWidth">
           <el-input v-model="formData.hrefen" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="产品菜单" :label-width="formLabelWidth" v-if="menuType==='l1'">
+          <el-radio-group v-model="formData.isProduct">
+            <el-radio label="1">是</el-radio>
+            <el-radio label="0">否</el-radio>
+          </el-radio-group>
         </el-form-item>
         <el-form-item label="菜单图片" :label-width="formLabelWidth" v-if="menuType==='l2'">
           <el-upload
@@ -120,7 +126,8 @@ export default {
         hrefen: undefined,
         img: undefined,
         cn: undefined,
-        en: undefined
+        en: undefined,
+        isProduct: undefined
       },
       productTypes: [],
       dialogFormVisible: false,
@@ -189,6 +196,7 @@ export default {
       this.formData.en = undefined
       this.dialogFormVisible = true
       this.menuType = 'l2'
+      this.isProduct = undefined
     },
     onCreateOrModify() {
       this.loading = true

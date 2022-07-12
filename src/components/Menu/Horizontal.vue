@@ -7,20 +7,52 @@
       text-color="#fff"
       :active-text-color="themeColor"
     >
-      <template v-for="(t,i1) in menus">
+      <!-- 产品菜单 -->
+      <template>
+        <el-submenu index="prodMenu" @mouseover.native="onOpenMenu" popper-class="prodMenuPopper">
+          <template slot="title">
+            <span
+              style="padding: 25px 0;"
+              @click="jumpTo('/productList','prodMenu')"
+            >{{lang.menu[$lang]}}</span>
+          </template>
+          <el-tabs class="productMenuList" v-model="selectedProdMenu">
+            <el-tab-pane
+              :label="item.title[$lang]"
+              v-for="(item,i1) in prodMenus"
+              :key="item.title.en"
+              :name="'prodMenu'+i1"
+            >
+              <el-row style="margin-top:30px">
+                <el-col :span="6" v-for="(c,i2) in item.children">
+                  <el-menu-item
+                    :index="calcActiveMenu('prodMenu'+i1+'-'+i2,c[`href${$lang}`])"
+                    @click="jumpTo(c[`href${$lang}`],'prodMenu'+i1+'-'+i2)"
+                  >
+                    <img class="subThumb" :src="$imgServer+c.img" />
+                    <div class="subTitle">{{c[$lang]}}</div>
+                    <!-- <div class="subDesc">{{c[$lang]}}</div> -->
+                  </el-menu-item>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+          </el-tabs>
+        </el-submenu>
+      </template>
+      <!-- 技术支持,关于公司等菜单 -->
+      <template v-for="(t,i1) in otherMenus">
+        <!-- 没有二级菜单的情况 -->
         <el-menu-item
           :index="calcActiveMenu(i1+'',t.title[`href${$lang}`])"
-          v-if="!t.children.length&&t.title[$lang]!=='placeholder'"
+          v-if="!t.children.length"
         >
           <span
             style="padding: 25px 0;"
             @click="jumpTo(t.title[`href${$lang}`],i1+'')"
           >{{t.title[$lang]}}</span>
         </el-menu-item>
-        <el-submenu
-          :index="calcActiveMenu(i1+'',t.title[`href${$lang}`])"
-          v-else-if="t.title[$lang]&&t.title[$lang]!=='placeholder'"
-        >
+        <!-- 有二级菜单 -->
+        <el-submenu :index="calcActiveMenu(i1+'',t.title[`href${$lang}`])" v-else>
           <template slot="title">
             <span
               style="padding: 25px 0;"
@@ -48,7 +80,7 @@
 <script>
 import { getMenu } from './service'
 import { themeColor } from '@/styles/color'
-
+// TODO:1.修复menu展开后tab没有默认选中的bug 2.修改其他ui
 export default {
   props: {
     mode: {
@@ -60,10 +92,19 @@ export default {
   },
   data() {
     return {
-      menus: [],
+      selectedProdMenu: '',
+      prodMenuInit: false,
+      prodMenus: [],
+      otherMenus: [],
       themeColor,
       active: '/',
-      menuTreeKey: {}
+      menuTreeKey: {},
+      lang: {
+        menu: {
+          cn: '游戏装备',
+          en: 'Game Equipment'
+        }
+      }
     }
   },
   watch: {
@@ -71,7 +112,7 @@ export default {
       handler: function (val) {
         if (val === '/') {
           // TODO:bug不知道为什么active设置为'/'不可以
-          this.active = new Date()+''
+          this.active = new Date() + ''
         }
       }
     }
@@ -97,7 +138,24 @@ export default {
   // },
   created() {
     getMenu().then((res) => {
-      this.menus = res
+      let prodMenus = []
+      let otherMenus = []
+      if (res.length) {
+        res.forEach((item) => {
+          if (
+            item.title[this.$lang] &&
+            item.title[this.$lang] !== 'placeholder'
+          ) {
+            if (item.title.isProduct === '1') {
+              prodMenus.push(item)
+            } else {
+              otherMenus.push(item)
+            }
+          }
+        })
+        this.prodMenus = prodMenus
+        this.otherMenus = otherMenus
+      }
     })
   },
   methods: {
@@ -119,6 +177,14 @@ export default {
         this.menuTreeKey[path] = key
       }
       return key
+    },
+    onOpenMenu() {
+      if (!this.prodMenuInit) {
+        setTimeout(() => {
+          this.selectedProdMenu = 'prodMenu0'
+          this.prodMenuInit = true
+        }, 500)
+      }
     }
   }
 }
@@ -147,6 +213,93 @@ export default {
     .el-submenu__title {
       padding: 0 10px;
     }
+  }
+}
+.productMenuList {
+  &.el-tabs.el-tabs--top {
+    .el-tabs__active-bar.is-top {
+      background-color: $themeColor;
+    }
+    .el-tabs__nav-wrap.is-top {
+      left: 25%;
+    }
+    // .el-tabs__header.is-top {
+    //   border-top: 1px solid #e0e0e0;
+    //   border-bottom: 1px solid #e0e0e0;
+    //   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+    //   height: 63px;
+    //   margin-bottom: 0;
+    // }
+    .el-tabs__nav-wrap::after {
+      background-color: transparent;
+    }
+    .el-tabs__nav-scroll {
+      width: $contentWidth !important;
+      margin-left: 5% !important;
+      .el-tabs__nav.is-top {
+        // float: right;
+        width: 100%;
+        margin-top: 24px;
+      }
+      .is-active {
+        // color: $themeColor;
+        color: #fff;
+      }
+      .el-tabs__item {
+        color: #fff;
+      }
+      .el-tabs__item.is-active {
+        // color: $themeColor;
+        color: #fff;
+      }
+      .el-tabs__item:hover {
+        // color: $themeColor;
+        color: #fff;
+      }
+    }
+  }
+}
+div.el-menu--horizontal {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  left: 0 !important;
+  top: 92px !important;
+  & > ul {
+    margin-bottom: 15px;
+    width: 600px;
+    margin-top: 0;
+    // display: flex;
+    // flex-direction: row;
+    padding: 0 10%;
+    background-color: transparent;
+    padding-top: 30px;
+    li.el-menu-item {
+      height: 130px !important;
+      width: 150px;
+      &:hover {
+        background-color: transparent !important;
+        color: $themeColor !important;
+      }
+      .subThumb {
+        width: 70px;
+        margin-left: 10px;
+      }
+      .subTitle {
+        // margin-top: 5px;
+        width: 90px;
+      }
+      .subTitle {
+        text-align: center;
+        font-size: 13px;
+      }
+    }
+  }
+}
+div.prodMenuPopper {
+  ul {
+    padding: 0;
+    margin: auto;
+    width: 800px;
   }
 }
 </style>

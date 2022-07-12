@@ -72,7 +72,8 @@ module.exports = {
           "hrefen": "/productList",
           "img": null,
           "children": null,
-          "title": null
+          "title": null,
+          "isProduct": true
         }
       },
       {
@@ -109,7 +110,8 @@ module.exports = {
           "hrefen": "/productList",
           "img": null,
           "children": null,
-          "title": null
+          "title": null,
+          "isProduct": true
         }
       },
       {
@@ -146,7 +148,8 @@ module.exports = {
           "hrefen": "/productList",
           "img": null,
           "children": null,
-          "title": null
+          "title": null,
+          "isProduct": true
         }
       },
       {
@@ -181,6 +184,21 @@ module.exports = {
           "en": "Arcade Stick",
           "hrefcn": "/productList",
           "hrefen": "/productList",
+          "img": null,
+          "children": null,
+          "title": null,
+          "isProduct": true
+        }
+      }, 
+      {
+        "children": [],
+        "title": {
+          "id": 17,
+          "pid": 0,
+          "cn": "placeholder",
+          "en": "placeholder",
+          "hrefcn": "",
+          "hrefen": "",
           "img": null,
           "children": null,
           "title": null
@@ -325,7 +343,7 @@ module.exports = {
           "children": null,
           "title": null
         }
-      }
+      },
     ]
   },
   "post /menu/add": { data: true },
@@ -371,23 +389,23 @@ module.exports = {
     data: [
       {
         id: '0',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg', href: '/product'
       },
       {
         id: '1',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg', href: '/product'
       },
       {
         id: '2',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4WIM169AABbUcjr_00AANGKwHs7dsAAFtp764.jpg', href: '/product'
       },
       {
         id: '3',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWV27z4eIdWNHAACByDKsCqwAANGKwIB5esAAIHg473.jpg', href: '/product'
       },
       {
         id: '4',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg', href: '/product'
       }
     ]
   },
@@ -399,23 +417,23 @@ module.exports = {
     data: [
       {
         id: '0',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg', href: '/product'
       },
       {
         id: '1',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg', href: '/product'
       },
       {
         id: '2',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4WIM169AABbUcjr_00AANGKwHs7dsAAFtp764.jpg', href: '/product'
       },
       {
         id: '3',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWV27z4eIdWNHAACByDKsCqwAANGKwIB5esAAIHg473.jpg', href: '/product'
       },
       {
         id: '4',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg', href: '/product'
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg', href: '/product'
       }
     ]
   },
@@ -428,28 +446,28 @@ module.exports = {
     "msg": "成功",
     "data": [{
       "href": "/product",
-      "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg",
+      "img": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg",
       "id": 10000
     }, {
       "href": "http://www.shkjem.com/video/kj.mp4",
-      "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg",
+      "img": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg",
       "id": 10001
     }, {
       "href": "/product",
-      "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg",
+      "img": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4WIM169AABbUcjr_00AANGKwHs7dsAAFtp764.jpg",
       "id": 10002
     }, {
       "imgs": [{
         "href": "/product",
-        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg",
+        "img": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWV27z4eIdWNHAACByDKsCqwAANGKwIB5esAAIHg473.jpg",
         "id": 10003
       }, {
         "href": "/product",
-        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg",
+        "img": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg",
         "id": 10004
       }, {
         "href": "/product",
-        "img": "https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg",
+        "img": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg",
         "id": 10006
       }],
       "id": 4
@@ -463,7 +481,7 @@ module.exports = {
     data: [
       {
         id: '0',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg',
         title: {
           en: 'shoubing',
           cn: '手柄',
@@ -472,7 +490,7 @@ module.exports = {
       },
       {
         id: '1',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg',
         title: {
           en: 'fangxiangpan',
           cn: '方向盘',
@@ -481,7 +499,7 @@ module.exports = {
       },
       {
         id: '2',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg',
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4WIM169AABbUcjr_00AANGKwHs7dsAAFtp764.jpg',
         title: {
           en: 'erji',
           cn: '耳机',
@@ -503,7 +521,7 @@ module.exports = {
         {
           id: "@num()",
           title: 'p20方向盘',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+          img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg',
           sku: 's1'
         }
       ]
@@ -562,7 +580,7 @@ module.exports = {
     data: {
       id: '0',
       title: '<<欧洲卡车模拟2>> 雷池 方向盘 设置教程',
-      img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+      img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg',
       video: 'http://www.shkjem.com/video/kj.mp4',
       content: '<p>13131</p>'
     }
@@ -692,21 +710,21 @@ module.exports = {
       'medalOfHonour': [
         {
           id: '@num()',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg', href: '/product'
+          img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg', href: '/product'
         },
         {
           id: '@num()',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg', href: '/product'
+          img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg', href: '/product'
         }
       ],
       'honorEvents': [
         {
           id: '@num()',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQDeIdHtWAAVBMqa_elsAADFBQJ_sG0ABUFK945.jpg', href: '/product'
+          img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWV27z4eIdWNHAACByDKsCqwAANGKwIB5esAAIHg473.jpg', href: '/product'
         },
         {
           id: '@num()',
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg', href: '/product'
+          img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg', href: '/product'
         }
       ],
     }
@@ -723,7 +741,7 @@ module.exports = {
       "list|6": [
         {
           id: "@num()",
-          img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
+          img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg',
           title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
           desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx'
         }
@@ -733,7 +751,7 @@ module.exports = {
   "get /companyState/detail": {
     data: {
       id: '@num()',
-      img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/01/04/ChMkK2JzQFKIP4aoADgRK9wwHkkAADFBwF2LX4AOBFD704.jpg',
+      img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4OIWOJCAAB_bX6eGswAANGKwHaSg4AAH-F600.jpg',
       title: 'How to Install/Uninstall Huion v14 Driver on Mac OS(Video)',
       desc: 'Watch the video below on how to install and uninstall a Version 14 driver on xxxxxxxxxxxxxxxxxxx',
       content: '<p>companyState</p>'
@@ -755,7 +773,7 @@ module.exports = {
     data: [
       {
         id: '0',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3tWIfdDDABt8TGc1rDYAADuTAMlpqUAG3xk223.jpg',
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g4/M09/00/0A/ChMlzF27z4GIUDxGAABgVSIskdUAAYQ2gCq2B4AAGBt917.jpg',
         title: {
           en: 'shoubing',
           cn: '手柄',
@@ -764,7 +782,7 @@ module.exports = {
       },
       {
         id: '1',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0B/0A/ChMkLGKO3v2IKhsDAB5rwBc3ulcAADuUAFoJwkAHmvY599.jpg',
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl270OqIJh4dAABflRY2JtIAANGLAPa0U8AAF-t089.jpg',
         title: {
           en: 'fangxiangpan',
           cn: '方向盘',
@@ -773,7 +791,7 @@ module.exports = {
       },
       {
         id: '2',
-        img: 'https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g7/M00/0A/09/ChMkK2JgwtaIUhjoAA2TYD3keJgAACqPAOgWDQADZN4363.jpg',
+        img: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g2/M00/04/02/ChMlWl27z4WIM169AABbUcjr_00AANGKwHs7dsAAFtp764.jpg',
         title: {
           en: 'erji',
           cn: '耳机',
@@ -797,10 +815,10 @@ module.exports = {
   },
   "post /videoBackground/modify": { data: true },
   // 体验店
-  "get /offlineStore/detail":{
-    data:{
+  "get /offlineStore/detail": {
+    data: {
       id: '@num()',
-      content:'<p style="font-size:16px">@cstr(2000,5000)</p>'
+      content: '<p style="font-size:16px">@cstr(2000,5000)</p>'
     }
   },
   "post /offlineStore/modify": { data: true },
