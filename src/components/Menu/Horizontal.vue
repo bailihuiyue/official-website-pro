@@ -35,7 +35,7 @@
                     :index="calcActiveMenu('prodMenu'+i1+'-'+i2,c[`href${$lang}`])"
                     @click="jumpTo(c[`href${$lang}`],'prodMenu'+i1+'-'+i2)"
                   >
-                    <img class="subThumb" :src="$imgServer+c.img" />
+                    <img class="subThumb" :src="$imgServer+(c[`img${$lang}`]||c.imgcn)" />
                     <div class="subTitle">{{c[$lang]}}</div>
                     <!-- <div class="subDesc">{{c[$lang]}}</div> -->
                   </el-menu-item>
@@ -71,7 +71,7 @@
                 :index="calcActiveMenu(i1+'-'+i2+'',c[`href${$lang}`])"
                 @click="jumpTo(c[`href${$lang}`],i1+'-'+i2+'')"
               >
-                <img class="subThumb" :src="$imgServer+c.img" />
+                <img class="subThumb" :src="$imgServer+(c[`img${$lang}`]||c.imgcn)" />
                 <div class="subTitle">{{c[$lang]}}</div>
                 <!-- <div class="subDesc">{{c[$lang]}}</div> -->
               </el-menu-item>
@@ -191,8 +191,10 @@ export default {
     onOpenMenu() {
       if (!this.prodMenuInit) {
         setTimeout(() => {
-          this.selectedProdMenu = 'prodMenu0'
-          this.prodMenuInit = true
+          this.$nextTick(() => {
+            this.selectedProdMenu = 'prodMenu0'
+            this.prodMenuInit = true
+          })
         }, 500)
       }
     }
@@ -285,9 +287,10 @@ div.el-menu--horizontal {
   }
   .rowItem {
     margin-bottom: 20px;
-    display: inline-block;width: 20%;
+    display: inline-block;
+    width: 20%;
   }
-  .el-col-4{
+  .el-col-4 {
     margin-bottom: 20px;
   }
   & > ul {

@@ -47,9 +47,9 @@
       <el-table-column prop="hrefcn" label="中文跳转链接"></el-table-column>
       <el-table-column prop="en" label="英文" width="180"></el-table-column>
       <el-table-column prop="hrefen" label="英文跳转链接"></el-table-column>
-      <el-table-column prop="img" label="图片" width="220">
+      <el-table-column prop="imgcn" label="图片" width="220">
         <template slot-scope="scope">
-          <img style="width:200px" :src="$imgServer + scope.row.img" alt />
+          <img style="width:200px" :src="$imgServer + scope.row.imgcn" alt />
         </template>
       </el-table-column>
       <el-table-column label="操作">
@@ -88,7 +88,7 @@
             :on-success="onSaveImgSuccess"
             :headers="{token:$token}"
           >
-            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
+            <img v-if="formData.imgcn" :src="$imgServer+formData.imgcn" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
@@ -124,7 +124,7 @@ export default {
         id: undefined,
         hrefcn: undefined,
         hrefen: undefined,
-        img: undefined,
+        imgcn: undefined,
         cn: undefined,
         en: undefined,
         isProduct: undefined
@@ -154,7 +154,7 @@ export default {
   methods: {
     onSaveImgSuccess(response) {
       if (response) {
-        this.formData.img = response.data
+        this.formData.imgcn = response.data
       } else {
         this.$message({
           message: response.resultMsg || '上传图片失败,请重试!',
@@ -191,7 +191,7 @@ export default {
       this.formData.hrefcn = undefined
       this.formData.hrefen = undefined
       this.formData.id = undefined
-      this.formData.img = undefined
+      this.formData.imgcn = undefined
       this.formData.cn = undefined
       this.formData.en = undefined
       this.dialogFormVisible = true
