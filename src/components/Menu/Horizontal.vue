@@ -249,7 +249,7 @@ export default {
       background-color: transparent;
     }
     .el-tabs__nav-scroll {
-      width: 60% !important;
+      width: 40% !important;
       margin: auto;
       .el-tabs__nav.is-top {
         // float: right;
@@ -262,6 +262,7 @@ export default {
       }
       .el-tabs__item {
         color: #fff;
+        padding: 0 5px;
       }
       .el-tabs__item.is-active {
         // color: $themeColor;
