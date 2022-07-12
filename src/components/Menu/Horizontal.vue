@@ -22,7 +22,7 @@
               @click="jumpTo('/productList','prodMenu')"
             >{{lang.menu[$lang]}}</span>
           </template>
-          <el-tabs class="productMenuList" v-model="selectedProdMenu">
+          <el-tabs class="productMenuList" v-model="selectedProdMenu" stretch>
             <el-tab-pane
               :label="item.title[$lang]"
               v-for="(item,i1) in prodMenus"
@@ -236,7 +236,7 @@ export default {
       background-color: $themeColor;
     }
     .el-tabs__nav-wrap.is-top {
-      left: 25%;
+      // left: 25%;
     }
     // .el-tabs__header.is-top {
     //   border-top: 1px solid #e0e0e0;
@@ -249,8 +249,8 @@ export default {
       background-color: transparent;
     }
     .el-tabs__nav-scroll {
-      width: $contentWidth !important;
-      margin-left: 5% !important;
+      width: 60% !important;
+      margin: auto;
       .el-tabs__nav.is-top {
         // float: right;
         width: 100%;
