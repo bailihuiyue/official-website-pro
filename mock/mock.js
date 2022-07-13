@@ -47,7 +47,8 @@ module.exports = {
             "en": "subMenu1",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -58,7 +59,8 @@ module.exports = {
             "en": "subMenu2",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           }
@@ -70,7 +72,7 @@ module.exports = {
           "en": "Racing Wheel",
           "hrefcn": "/productList",
           "hrefen": "/productList",
-          "img": null,
+          "imgcn": null,
           "children": null,
           "title": null,
           "isProduct": "1"
@@ -85,7 +87,8 @@ module.exports = {
             "en": "subMenu1",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -96,7 +99,8 @@ module.exports = {
             "en": "subMenu2",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           }
@@ -123,7 +127,8 @@ module.exports = {
             "en": "subMenu1",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -134,7 +139,8 @@ module.exports = {
             "en": "subMenu2",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           }
@@ -161,7 +167,8 @@ module.exports = {
             "en": "subMenu1",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -172,7 +179,8 @@ module.exports = {
             "en": "subMenu2",
             "hrefcn": "/productList",
             "hrefen": "/productList",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           }
@@ -213,7 +221,8 @@ module.exports = {
             "en": "Drivers",
             "hrefcn": "/driver",
             "hrefen": "/driver",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -224,7 +233,8 @@ module.exports = {
             "en": "Config Guide",
             "hrefcn": "/configGuide",
             "hrefen": "/configGuide",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -235,7 +245,8 @@ module.exports = {
             "en": "FAQ",
             "hrefcn": "/faq",
             "hrefen": "/faq",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -246,7 +257,8 @@ module.exports = {
             "en": "APP Download",
             "hrefcn": "/appDownload",
             "hrefen": "/appDownload",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -257,7 +269,8 @@ module.exports = {
             "en": "Contact Us",
             "hrefcn": "/contactUs",
             "hrefen": "/contactUs",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           }
@@ -283,7 +296,8 @@ module.exports = {
             "en": "About Company",
             "hrefcn": "/aboutCompany",
             "hrefen": "/aboutCompany",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -294,7 +308,8 @@ module.exports = {
             "en": "Company Honor",
             "hrefcn": "/companyHonor",
             "hrefen": "/companyHonor",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -305,7 +320,8 @@ module.exports = {
             "en": "Company News",
             "hrefcn": "/companyState",
             "hrefen": "/companyState",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -316,7 +332,8 @@ module.exports = {
             "en": "Recruitment",
             "hrefcn": "/recruitment",
             "hrefen": "/recruitment",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           },
@@ -327,7 +344,8 @@ module.exports = {
             "en": "Offline Store",
             "hrefcn": "/offlineStore",
             "hrefen": "/offlineStore",
-            "img": "logo.png",
+            "imgcn": "logo.png",
+            "imgen": "logo.png",
             "children": null,
             "title": null
           }
@@ -359,26 +377,7 @@ module.exports = {
   // 底部
   'get /footer/get': {
     data: {
-      img: `[{
-        "img":"http://118.190.209.120:8085/pms/20220627101406.png",
-        "href":"https://www.baidu.com"
-        },
-        {
-        "img":"http://118.190.209.120:8085/pms/20220627101432.png",
-        "href":"https://www.baidu.com"
-        },
-        {
-        "img":"http://118.190.209.120:8085/pms/20220627101441.png",
-        "href":"https://www.baidu.com"
-        },
-        {
-        "img":"http://118.190.209.120:8085/pms/20220627101450.png",
-        "href":"https://www.baidu.com"
-        },
-        {
-        "img":"http://118.190.209.120:8085/pms/20220627101459.png",
-        "href":"https://www.baidu.com"
-        }]`,
+      img: `{"en":[{"img":"logo.png","href":"https://www.baidu.com","txt":"Facebook"},{"img":"logo.png","href":"https://www.baidu.com","txt":"Instagram"},{"img":"logo.png","href":"https://twitter.com/PXNgame","txt":"Twinteer"},{"img":"logo.png","href":"https://www.baidu.com","txt":"Youtube"},{"img":"logo.png","href":"https://www.baidu.com","txt":"Shop"}],"cn":[{"img":"logo.png","href":"https://www.baidu.com","txt":"微博"},{"img":"logo.png","href":"https://www.baidu.com","txt":"bilbil"},{"img":"logo.png","href":"https://www.baidu.com","txt":"贴吧"},{"img":"logo.png","href":"https://www.baidu.com","txt":"京东旗舰店"},{"img":"logo.png","href":"https://www.baidu.com","txt":"天猫旗舰店"}]}`,
       list: `[{"cn":"产品","en":"Products","children":[{"cn":"方向盘","en":"Racing Wheel","hrefcn":"/productDetail?id=17","hrefen":"/productDetail?id=17"},{"cn":"游戏手柄","en":"Game Controller","hrefcn":"/productDetail?id=16","hrefen":"/productDetail?id=16"},{"cn":"PXN耳机","en":"Gaming Headset","hrefcn":"/productDetail?id=23","hrefen":"/productDetail?id=23"},{"cn":"飞行摇杆","en":"Arcade Stick","hrefcn":"/productDetail?id=22","hrefen":"/productDetail?id=22"},{"cn":"格斗摇杆","en":"Fighting Stick","hrefcn":"/productDetail?id=22","hrefen":"/productDetail?id=22"}]},{"cn":"技术支持","en":"Technical Support","children":[{"cn":"驱动下载","en":"Driver Download","hrefcn":"/driver","hrefen":"/driver"},{"cn":"设置教程","en":"Config Guide","hrefcn":"/configGuide","hrefen":"/configGuide"},{"cn":"FAQ","en":"FAQ","hrefcn":"/faq","hrefen":"/faq"},{"cn":"APP下载","en":"APP Download","hrefcn":"/appDownload","hrefen":"/appDownload"},{"cn":"联系我们","en":"Contact Us","hrefcn":"/contactUs","hrefen":"/contactUs"}]},{"cn":"莱仕达","en":"About us","children":[{"cn":"关于公司","en":"About Company","hrefcn":"/aboutCompany","hrefen":"/aboutCompany"},{"cn":"荣誉勋章","en":"Company Honor","hrefcn":"/companyHonor","hrefen":"/companyHonor"},{"cn":"公司动态","en":"Company State","hrefcn":"/companyState","hrefen":"/companyState"},{"cn":"招纳精英","en":"Recruitment","hrefcn":"/recruitment","hrefen":"/recruitment"}]}]`,
       copyright: 'Copyright © 2020 Shenzhen PXN Electronic Technology Co., Ltd.'
     }

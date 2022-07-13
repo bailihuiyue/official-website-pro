@@ -108,6 +108,13 @@ export default {
         return false
       }
 
+      try {
+        JSON.parse(this.img)
+      } catch (error) {
+        this.$message.error('关注我们:请输入正确的JSON格式!')
+        return false
+      }
+
       if (!this.copyright) {
         this.$message.error('请输入版权信息')
         return false

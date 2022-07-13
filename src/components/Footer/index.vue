@@ -43,7 +43,7 @@ export default {
   created() {
     getFooter().then((res) => {
       this.list = JSON.parse(res.list)
-      this.img = JSON.parse(res.img)
+      this.img = JSON.parse(res.img)[this.$lang]
       this.copyright = res.copyright
     })
   },
