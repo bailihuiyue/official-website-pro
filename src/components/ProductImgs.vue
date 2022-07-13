@@ -16,13 +16,17 @@ export default {
 </script>
 <style lang="scss">
 .productImgs {
-  .img {
-    max-width: 100%;
-    max-height: 100%;
+  a {
     display: block;
-    transition: all 0.2s;
-    &:hover {
-      transform: scale(1.1);
+    overflow: hidden;
+    .img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      transition: all 0.2s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

@@ -62,7 +62,7 @@ export default {
 .mobile {
   .SeatchBar {
     .el-input {
-      max-width: 80%;
+      max-width: 90%;
     }
   }
 }

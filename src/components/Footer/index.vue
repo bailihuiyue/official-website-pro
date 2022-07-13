@@ -4,7 +4,7 @@
       <div class="followUsTitleEn">{{lang.followUs.en}}</div>
       <div class="followUsTitleCn">{{lang.followUs.cn}}</div>
       <div class="imgsWrap">
-        <a :href="i.href" v-for="i in img" class="imgItem">
+        <a :href="i.href" v-for="i in img" class="imgItem" target="_blank">
           <img :src="i.img" />
           <div class="txt">{{i.txt}}</div>
         </a>

@@ -8,9 +8,24 @@
       active-text-color="#fff"
     >
       <template v-for="(t,i1) in menus">
-        <el-submenu :index="i1+''" v-if="t.title[$lang]&&t.title[$lang]!=='placeholder'">
+        <!-- 没有二级菜单的情况 -->
+        <el-menu-item
+          :index="i1+''"
+          v-if="!t.children.length&&t.title[$lang]&&t.title[$lang]!=='placeholder'"
+        >
+          <span
+            style="padding: 25px 0;"
+            @click="jumpTo(t.title[`href${$lang}`],i1+'')"
+          >{{t.title[$lang]}}</span>
+        </el-menu-item>
+        <!-- 有二级菜单 -->
+        <el-submenu :index="i1+''" v-else-if="t.title[$lang]&&t.title[$lang]!=='placeholder'">
           <template slot="title">{{t.title[$lang]}}</template>
-          <el-menu-item :index="i1+'-'+i2+''" v-for="(c,i2) in t.children" @click="jumpTo(c[`href${$lang}`])">
+          <el-menu-item
+            :index="i1+'-'+i2+''"
+            v-for="(c,i2) in t.children"
+            @click="jumpTo(c[`href${$lang}`])"
+          >
             <!-- <img class="subThumb" :src="c.img" /> -->
             <div class="subTitle">{{c[$lang]}}</div>
             <!-- <div class="subDesc">{{c[$lang]}}</div> -->
