@@ -164,4 +164,11 @@ export default {
     }
   }
 }
+.mobile {
+  .companyStateList {
+    .el-row {
+      margin-top: 0px;
+    }
+  }
+}
 </style>

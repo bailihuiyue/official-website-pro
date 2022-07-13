@@ -128,9 +128,10 @@ export default {
     .el-link.is-underline:hover:after {
       border-bottom: 1px solid $themeColor;
     }
-    margin: 20px 0;
+    margin-top: 20px;
     .el-row {
       text-align: left;
+      margin-bottom: 5px;
       a {
         margin-bottom: 10px;
       }

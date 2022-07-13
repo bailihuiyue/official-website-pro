@@ -87,13 +87,15 @@ export default {
       font-size: 40px;
       color: #fff;
       text-align: center;
-      margin-top: 30px;
       margin-bottom: 20px;
+    }
+    .followUsTitleEn {
+      margin-top: 70px;
     }
     .followUsTitleCn {
       font-size: 26px;
       margin-top: 30px;
-      margin-bottom: 160px;
+      margin-bottom: 130px;
     }
     .imgsWrap {
       margin-bottom: 60px;
@@ -146,6 +148,7 @@ export default {
       .followUsTitleEn {
         margin: 10px;
         font-size: 20px;
+        margin-top: 20px;
       }
       .followUsTitleCn {
         font-size: 16px;

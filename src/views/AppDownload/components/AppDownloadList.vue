@@ -147,4 +147,11 @@ export default {
     }
   }
 }
+.mobile {
+  .AppDownloadList {
+    .el-row {
+      margin-top: 0px;
+    }
+  }
+}
 </style>

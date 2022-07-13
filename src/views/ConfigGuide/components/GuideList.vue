@@ -146,4 +146,11 @@ export default {
     }
   }
 }
+.mobile {
+  .GuideList {
+    .el-row {
+      margin-top: 0px;
+    }
+  }
+}
 </style>

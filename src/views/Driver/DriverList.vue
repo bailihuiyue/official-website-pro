@@ -215,4 +215,11 @@ export default {
     }
   }
 }
+.mobile {
+  .driverList {
+    .el-row {
+      margin-top: 0px;
+    }
+  }
+}
 </style>

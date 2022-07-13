@@ -167,4 +167,11 @@ export default {
     }
   }
 }
+.mobile {
+  .faqList {
+    .el-row {
+      margin-top: 0px;
+    }
+  }
+}
 </style>
