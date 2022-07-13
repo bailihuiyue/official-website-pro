@@ -12,11 +12,9 @@
         <el-menu-item
           :index="i1+''"
           v-if="!t.children.length&&t.title[$lang]&&t.title[$lang]!=='placeholder'"
+          @click="jumpTo(t.title[`href${$lang}`])"
         >
-          <span
-            style="padding: 25px 0;"
-            @click="jumpTo(t.title[`href${$lang}`],i1+'')"
-          >{{t.title[$lang]}}</span>
+          <span style="padding: 25px 0;">{{t.title[$lang]}}</span>
         </el-menu-item>
         <!-- 有二级菜单 -->
         <el-submenu :index="i1+''" v-else-if="t.title[$lang]&&t.title[$lang]!=='placeholder'">
