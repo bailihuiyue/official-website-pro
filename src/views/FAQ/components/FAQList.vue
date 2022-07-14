@@ -142,7 +142,7 @@ export default {
         -webkit-line-clamp: 2;
         overflow: hidden;
         font-size: 14px;
-        height: 40px;
+        // height: 40px;
       }
     }
   }
@@ -173,7 +173,7 @@ export default {
       margin-top: 0px;
       .faqItem {
         .title {
-          height: 48px;
+          height: auto;
         }
       }
     }

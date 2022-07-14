@@ -17,7 +17,7 @@ const productList = {
 const productDetail = {
   title: {
     cn: '产品详情',
-    en: 'Product Detail'
+    en: 'Detail'
   }
 }
 
@@ -113,7 +113,7 @@ const companyStateDetail = {
   path: '/companyStateDetail',
   title: {
     cn: '公司动态详情',
-    en: 'Company Status Detail'
+    en: 'Detail'
   }
 }
 

@@ -134,10 +134,11 @@ export default {
       margin-bottom: 5px;
       a {
         margin-bottom: 10px;
+        margin-right: 20px;
       }
-      .el-link--inner {
-        margin: 0 10px;
-      }
+      // .el-link--inner {
+      //   margin-right: 15px;
+      // }
     }
   }
 }

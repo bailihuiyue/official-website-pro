@@ -16,7 +16,7 @@
       </el-tabs>
     </div>
     <!-- 手机模式 -->
-    <el-tabs v-model="activeName" v-else>
+    <el-tabs v-model="activeName" v-else :class="$lang==='en'?'productDetailEn':''">
       <el-tab-pane :label="words['productDetail'][$lang]" name="productDetail">
         <div class="productPage" v-html="detail.productDetail"></div>
       </el-tab-pane>
@@ -182,6 +182,17 @@ export default {
       img {
         display: block;
         width: 100%;
+      }
+    }
+    .productDetailEn {
+      #tab-productDetail {
+        padding-right: 15px;
+      }
+      #tab-productParameter {
+        padding: 0;
+      }
+      #tab-technicalSupport {
+        padding-left: 15px;
       }
     }
     .el-tabs__active-bar.is-top {
