@@ -8,7 +8,7 @@
     <!-- 返回顶部 -->
     <el-backtop :right="40" :bottom="160" :visibility-height="800" v-if="!isMobile">
       <img src="/imgs/up.png" style="width:40px;height:40px" />
-      <div>{{$lang==='cn'?'回到顶部':'Back To Top'}}</div>
+      <div style="text-align: center;">{{$lang==='cn'?'回到顶部':'Back To Top'}}</div>
     </el-backtop>
   </div>
 </template>

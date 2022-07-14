@@ -220,7 +220,7 @@ export const contactUsData = [
   },
   {
     id: 5,
-    img: 'imgs/contactUs/contactUs5.png',
+    img: 'imgs/contactUs/contactUs6.png',
     title: {
       cn: 'Twitter',
       en: 'Twitter'

@@ -120,7 +120,7 @@ export default {
       cursor: pointer;
       &:hover {
         // border-color: $blackBorderColor;
-        border-color:rgba(0,0,0,0.2)
+        border-color: rgba(0, 0, 0, 0.2);
       }
       .el-card__header {
         // border-bottom-color: $blackBorderColor;
@@ -171,6 +171,11 @@ export default {
   .faqList {
     .el-row {
       margin-top: 0px;
+      .faqItem {
+        .title {
+          height: 48px;
+        }
+      }
     }
   }
 }
