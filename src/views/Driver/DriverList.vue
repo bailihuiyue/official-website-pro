@@ -219,6 +219,15 @@ export default {
   .driverList {
     .el-row {
       margin-top: 0px;
+      .driverItem {
+        .txt {
+          .words {
+            .title {
+              height: auto;
+            }
+          }
+        }
+      }
     }
   }
 }

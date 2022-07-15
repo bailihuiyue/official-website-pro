@@ -1,7 +1,7 @@
 <template>
   <div class="ConfigGuideDetail">
     <div class="title">{{title}}</div>
-    <VideoPlayer :videoData="videoData" v-if="videoData.img" />
+    <VideoPlayer :videoData="videoData" v-if="videoData.href" />
     <div class="content" v-html="content"></div>
   </div>
 </template>
@@ -20,9 +20,11 @@ export default {
   created() {
     getConfigGuideDetail(this.$lang, this.$route.query.id).then((res) => {
       this.title = res.title
-      this.videoData = {
-        img: res.img,
-        href: this.$videoURL + res.video
+      if (res.video) {
+        this.videoData = {
+          img: res.img,
+          href: this.$videoURL + res.video
+        }
       }
       this.content = res.content
     })
@@ -58,7 +60,7 @@ export default {
     .title {
       font-size: 16px;
     }
-    img{
+    img {
       width: 100%;
     }
   }

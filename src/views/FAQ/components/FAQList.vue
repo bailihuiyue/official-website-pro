@@ -126,6 +126,7 @@ export default {
         // border-bottom-color: $blackBorderColor;
       }
       .title {
+        word-break: break-word;
         // height: 35px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -143,6 +144,7 @@ export default {
         overflow: hidden;
         font-size: 14px;
         // height: 40px;
+        word-break: break-word;
       }
     }
   }
