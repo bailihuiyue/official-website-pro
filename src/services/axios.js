@@ -1,7 +1,5 @@
 import axios from "axios";
-// import { Object } from "core-js";
 import { baseURL } from "@/utils/utils";
-// import Vue from "vue";
 import { Message } from "element-ui";
 
 const ContentType = {
