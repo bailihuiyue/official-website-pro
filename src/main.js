@@ -11,10 +11,10 @@ Vue.use(ElementUI);
 // import "swiper/dist/css/swiper.css";
 // Vue.use(VueAwesomeSwiper);
 
-import VideoPlayer from "vue-video-player";
-import "video.js/dist/video-js.css";
-import "vue-video-player/src/custom-theme.css";
-Vue.use(VideoPlayer);
+// import VideoPlayer from "vue-video-player";
+// import "video.js/dist/video-js.css";
+// import "vue-video-player/src/custom-theme.css";
+// Vue.use(VideoPlayer);
 
 // import VueLazyload from "vue-lazyload";
 // Vue.use(VueLazyload, {

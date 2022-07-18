@@ -1,7 +1,6 @@
 <template>
   <div class="AppDownloadDetail">
     <div class="title">{{title}}</div>
-    <!-- <VideoPlayer :videoData="videoData" v-if="title" /> -->
     <div class="content" v-html="content"></div>
     <el-link
       type="primary"
@@ -13,10 +12,8 @@
   </div>
 </template>
 <script>
-// import VideoPlayer from '@/components/VideoPlayer.vue'
 import { getAppDownloadDetail } from './service'
 export default {
-  // components: { VideoPlayer },
   data() {
     return {
       content: '',

@@ -2,7 +2,6 @@
   <div class="footer" v-if="list&&list.length">
     <div class="blogroll">
       <div class="followUsTitleEn">{{lang.followUs.en}}</div>
-      <div class="followUsTitleCn">{{lang.followUs.cn}}</div>
       <div class="imgsWrap">
         <a :href="i.href" v-for="i in img" class="imgItem" target="_blank">
           <img :src="i.img" />
@@ -30,7 +29,7 @@ export default {
       copyright: '',
       lang: {
         followUs: {
-          en: 'Contact Us',
+          en: 'Follow Us',
           cn: '联系我们'
         },
         backToTop: {
@@ -91,6 +90,7 @@ export default {
     }
     .followUsTitleEn {
       margin-top: 70px;
+      margin-bottom: 100px;
     }
     .followUsTitleCn {
       font-size: 26px;
