@@ -42,3 +42,6 @@ new Vue({
   router,
   render: (h) => h(App),
 }).$mount("#app");
+
+document.title = getLang() === 'en' ?
+  'Shenzhen PXN Electronic Technology Co., Ltd | PXN Racing Wheel, Game Controller, Arcade Stick for Xbox One, PS4 Switch, PC' : '莱仕达－专业游戏外设品牌|游戏方向盘|手柄|摇杆|安卓手柄|PS4|Xbox One|苹果手柄'
