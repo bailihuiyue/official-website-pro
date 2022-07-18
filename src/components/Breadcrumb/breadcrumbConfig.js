@@ -41,7 +41,7 @@ const configGuideDetail = {
   path: '/configGuideDetail',
   title: {
     cn: '设置教程详情',
-    en: 'Config Guide Detail'
+    en: 'Detail'
   }
 }
 
@@ -73,7 +73,7 @@ const appDownloadDetail = {
   path: '/appDownloadDetail',
   title: {
     cn: 'APP 详情',
-    en: 'APP Detail'
+    en: 'Detail'
   }
 }
 

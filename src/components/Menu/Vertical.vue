@@ -71,5 +71,8 @@ export default {
 
 <style lang="scss">
 .verticalGlobalMenu {
+  ul {
+    width: 100%;
+  }
 }
 </style>

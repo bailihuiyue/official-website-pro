@@ -36,6 +36,7 @@
         direction="ltr"
         @close="handleDisplayDrawer(false)"
         custom-class="menuDrawerClass"
+        size="100%"
       >
         <VerticalMenu
           mode="vertical"
@@ -261,9 +262,12 @@ body {
     height: auto !important;
     display: block;
   }
+  .el-drawer__wrapper{
+    z-index: 9999999999 !important;
+  }
 }
 .menuDrawerClass {
-  width: 100% !important;
+  // width: 100% !important;
   height: 100%;
   background-color: #000 !important;
   // background-color: #000 !important;

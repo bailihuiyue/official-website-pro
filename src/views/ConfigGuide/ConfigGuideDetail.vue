@@ -47,6 +47,8 @@ export default {
   .videoPlayer {
     width: $contentWidth;
     margin: 0 auto;
+    // position: relative;
+    // z-index:0;
   }
   .content {
     width: $contentWidth;
