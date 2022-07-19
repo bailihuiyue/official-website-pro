@@ -156,7 +156,7 @@ export default {
         //   { title: 'tinyImg', value: 'tinyImg' }
         // ],
         // 可覆盖tiny的css样式,只是控制在tiny中的显示样式,实际style不会保存起来
-        // content_style: 'img{width:100%;height:auto;}',
+        content_style: "img.mce-object.mce-object-video{background-image: url('/imgs/video/tinyPlay.png');background-size: 30%;background-color: #000000;border: 2px dashed #0094ff;outline: none;border-radius: 5px;}",
         init_instance_callback: (editor) => {
           _this.loadingTiny = false
           if (_this.content) {

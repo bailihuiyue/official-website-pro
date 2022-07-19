@@ -86,7 +86,7 @@
 <script>
 import { getMenu } from './service'
 import { themeColor } from '@/styles/color'
-// TODO:1.修复menu展开后tab没有默认选中的bug 2.修改其他ui
+
 export default {
   props: {
     mode: {
@@ -188,14 +188,21 @@ export default {
       }
       return key
     },
+    // TODO:tab标签页无法选中的情况是因为鼠标移入时,tab页面还没显示出来,但是hover了,就设置值了,
+    // 解决方法:tab展示出来才设置值
+    // 原理,menu出现时,是把菜单本身的标签移入到body最下面,这时候判断还有tab的菜单(.prodMenuPopper)的父级是否是body就知道菜单是否显示出来了
     onOpenMenu() {
       if (!this.prodMenuInit) {
         setTimeout(() => {
-          this.$nextTick(() => {
+          const prodMenuPopperParent =
+            document.querySelector('.prodMenuPopper').parentElement
+          // this.$nextTick(() => {
+          if (prodMenuPopperParent.tagName.toLowerCase() === 'body') {
             this.selectedProdMenu = 'prodMenu0'
             this.prodMenuInit = true
-          })
-        }, 500)
+          }
+          // })
+        }, 400)
       }
     }
   }
