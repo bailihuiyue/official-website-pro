@@ -134,10 +134,7 @@ export default {
         branding: false,
         elementpath: false,
         selector: `#${this.tinymceId}`,
-        language:
-          this.languageTypeList[
-            window.localStorage.getItem('lang') === 'en' ? 'en' : 'zh'
-          ],
+        language:'zh_CN',
         height: this.height,
         body_class: 'panel-body ',
         object_resizing: false,
