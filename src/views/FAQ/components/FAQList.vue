@@ -114,6 +114,7 @@ export default {
     margin-top: 40px;
     .faqItem {
       margin-top: 20px;
+      height: 150px;
       // border-color: transparent;
       // background-color: $blackBackgroundColor;
       // color: $blackFontColor;
