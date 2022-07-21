@@ -1,15 +1,17 @@
 <template>
   <div class="faqList">
-    <el-row :gutter="30">
-      <el-col :span="isMobile?24:6" v-for="l in list" :key="l.id">
-        <el-card class="faqItem" @click.native="jumpTo(l.id)">
-          <div slot="header" class="clearfix">
-            <span class="title">{{l.title}}</span>
-          </div>
-          <div class="desc">{{l.desc}}</div>
-        </el-card>
-      </el-col>
-    </el-row>
+    <div :style="{minHeight:isMobile?'':'340px'}">
+      <el-row :gutter="30">
+        <el-col :span="isMobile?24:6" v-for="l in list" :key="l.id">
+          <el-card class="faqItem" @click.native="jumpTo(l.id)">
+            <div slot="header" class="clearfix">
+              <span class="title" :class="'title'+$lang">{{l.title}}</span>
+            </div>
+            <div class="desc">{{l.desc}}</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
     <Pagination
       @onCurrentChange="onCurrentChange"
       :currentPage="currentPage"
@@ -23,7 +25,6 @@
 import { getFAQList } from '../service'
 import device from 'current-device'
 import Pagination from '@/components/Pagination'
-
 export default {
   components: { Pagination },
   props: ['type', 'searchTxt'],
@@ -33,7 +34,8 @@ export default {
       currentPage: 1,
       pageSize: 8,
       total: 0,
-      isMobile: device.mobile()
+      isMobile: device.mobile(),
+      loading: true
     }
   },
   created() {
@@ -46,6 +48,7 @@ export default {
   },
   methods: {
     getFAQListApi({ currentPage, pageSize, type, searchTxt }) {
+      this.loading = true
       getFAQList({
         lang: this.$lang,
         currentPage,
@@ -59,6 +62,7 @@ export default {
         this.$nextTick(() => (this.currentPage = res.currentPage))
         this.pageSize = res.pageSize
         this.total = res.total
+        this.loading = false
       })
     },
     onCurrentChange(currentPage) {
@@ -135,7 +139,12 @@ export default {
         overflow: hidden;
         font-size: 16px;
         color: $themeColor;
+      }
+      .titlecn {
         height: 42px;
+      }
+      .titleen {
+        height: 38px;
       }
       .desc {
         // height: 35px;
