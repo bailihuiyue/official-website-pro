@@ -1,35 +1,37 @@
 <template>
   <div class="driverList">
-    <el-row :gutter="30">
-      <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
-        <div class="driverItem">
-          <div class="txt">
-            <div class="icon">
-              <img src="imgs/download.png" />
+    <div :style="{minHeight:isMobile?'':'480px'}">
+      <el-row :gutter="30">
+        <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
+          <div class="driverItem">
+            <div class="txt">
+              <div class="icon">
+                <img src="imgs/download.png" />
+              </div>
+              <div class="words">
+                <div class="title">{{l.title}}</div>
+                <div class="desc">{{l.desc}}</div>
+              </div>
             </div>
-            <div class="words">
-              <div class="title">{{l.title}}</div>
-              <div class="desc">{{l.desc}}</div>
+            <div class="download">
+              <el-link
+                type="primary"
+                :href="$baseURL+l.driverUrl"
+                class="downDriver"
+                icon="el-icon-download"
+              >{{lang.downDriver[$lang]}}</el-link>
+              <el-link
+                target="_blank"
+                type="primary"
+                :href="$baseURL+l.pdfUrl"
+                class="downPDF"
+                icon="el-icon-download"
+              >{{lang.downPDF[$lang]}}</el-link>
             </div>
           </div>
-          <div class="download">
-            <el-link
-              type="primary"
-              :href="$baseURL+l.driverUrl"
-              class="downDriver"
-              icon="el-icon-download"
-            >{{lang.downDriver[$lang]}}</el-link>
-            <el-link
-              target="_blank"
-              type="primary"
-              :href="$baseURL+l.pdfUrl"
-              class="downPDF"
-              icon="el-icon-download"
-            >{{lang.downPDF[$lang]}}</el-link>
-          </div>
-        </div>
-      </el-col>
-    </el-row>
+        </el-col>
+      </el-row>
+    </div>
     <Pagination
       @onCurrentChange="onCurrentChange"
       :currentPage="currentPage"

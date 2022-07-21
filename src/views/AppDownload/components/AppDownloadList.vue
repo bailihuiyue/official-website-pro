@@ -1,13 +1,15 @@
 <template>
   <div class="AppDownloadList">
-    <el-row :gutter="30">
-      <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
-        <span class="wrap">
-          <i class="el-icon-arrow-right"></i>
-          <span class="title" @click="jumpTo(l.id)">{{l.title}}</span>
-        </span>
-      </el-col>
-    </el-row>
+    <div :style="{minHeight:isMobile?'':'330px'}">
+      <el-row :gutter="30">
+        <el-col :span="isMobile?24:12" v-for="l in list" :key="l.id">
+          <span class="wrap">
+            <i class="el-icon-arrow-right"></i>
+            <span class="title" @click="jumpTo(l.id)">{{l.title}}</span>
+          </span>
+        </el-col>
+      </el-row>
+    </div>
     <Pagination
       @onCurrentChange="onCurrentChange"
       :currentPage="currentPage"
