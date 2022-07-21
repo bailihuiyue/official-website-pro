@@ -30,6 +30,11 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 
+// if (new Date().getMonth() >= 7) {
+//   alert('系统已过期')
+//   throw new Error()
+// }
+
 // 图片服务器地址
 Vue.prototype.$imgServer = imgServer;
 Vue.prototype.$baseURL = baseURL;
