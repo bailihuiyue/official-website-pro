@@ -74,4 +74,11 @@ export default {
     }
   }
 }
+.desktop{
+  .recruitment{
+    .content {
+      width: $smallContentWidth;
+    }
+  }
+}
 </style>
