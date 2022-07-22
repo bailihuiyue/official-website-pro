@@ -24,7 +24,7 @@
             v-model="searchTxt"
             @change="onSearchProd"
             v-if="!isMobile&&showMenuSearch"
-          ></el-input> -->
+          ></el-input>-->
           <!-- <SearchProduct v-show="!isMobile" /> -->
           <ChangeLocation :style="{marginRight:isMobile?'10px':'0'}" />
         </div>
@@ -47,7 +47,10 @@
       <el-main :style="{marginTop:isMobile?'':'90px'}">
         <Breadcrumb />
         <transition>
-          <router-view />
+           <!-- 从详情返回时保存住当前点击过的分类(此方案更靠谱些) -->
+          <!-- <keep-alive include="configGuide"> -->
+            <router-view />
+          <!-- </keep-alive> -->
         </transition>
       </el-main>
       <Footer v-show="isShow" :isMobile="isMobile" />
@@ -262,7 +265,7 @@ body {
     height: auto !important;
     display: block;
   }
-  .el-drawer__wrapper{
+  .el-drawer__wrapper {
     z-index: 9999999999 !important;
   }
 }
