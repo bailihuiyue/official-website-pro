@@ -1,12 +1,7 @@
 <template>
   <div class="appDownload">
     <SeatchBar @onSearch="onSearch" />
-    <ButtonGroup
-      :btns="appDownloadTypes"
-      type="vertical"
-      @click="onChangeTypes"
-      v-show="!searchTxt"
-    />
+    <ButtonGroup :btns="appDownloadTypes" type="vertical" @click="onChangeTypes" v-if="!searchTxt" />
     <AppDownloadList :searchTxt="searchTxt" :type="type" v-if="showList" />
   </div>
 </template>
@@ -40,6 +35,7 @@ export default {
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
+      this.type = ''
     },
     onChangeTypes(data) {
       this.type = data.typeNo

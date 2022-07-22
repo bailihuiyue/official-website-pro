@@ -23,11 +23,7 @@
             >{{lang.menu[$lang]}}</span>
           </template>
           <el-tabs class="productMenuList" v-model="selectedProdMenu" stretch>
-            <el-tab-pane
-              v-for="(item,i1) in prodMenus"
-              :key="item.title.en"
-              :name="'prodMenu'+i1"
-            >
+            <el-tab-pane v-for="(item,i1) in prodMenus" :key="item.title.en" :name="'prodMenu'+i1">
               <div slot="label" @mouseover="onHoverProdTabs('prodMenu'+i1)">{{item.title[$lang]}}</div>
               <div style="margin-top:30px">
                 <div class="rowItem" v-for="(c,i2) in item.children">
@@ -218,8 +214,10 @@ export default {
 .horizontalGolbalMenu {
   margin-top: 15px;
   flex: 1 0 auto;
+  text-align: center;
   .el-menu.el-menu--horizontal {
     border: none !important;
+    display: inline-block;
     .el-submenu__title,
     .el-menu-item {
       background-color: transparent !important;
@@ -236,10 +234,15 @@ export default {
       padding: 0 10px;
     }
   }
+  .el-submenu__title,
+  .el-menu-item {
+    padding: 0 30px;
+  }
   .homeMenu {
     color: #fff !important;
     border-bottom-color: transparent !important;
     background-color: transparent !important;
+    padding-left: 0;
   }
 }
 .productMenuList {
@@ -261,7 +264,7 @@ export default {
       background-color: transparent;
     }
     .el-tabs__nav-scroll {
-      width: 70% !important;
+      width: 100% !important;
       margin: auto;
       .el-tabs__nav.is-top {
         // float: right;
@@ -305,7 +308,7 @@ div.el-menu--horizontal {
   }
   & > ul {
     margin-bottom: 100px;
-    width: 900px;
+    width: 1100px;
     margin-top: 0;
     // display: flex;
     // flex-direction: row;
@@ -338,7 +341,7 @@ div.prodMenuPopper {
   ul {
     padding: 0;
     margin: auto;
-    width: 1000px;
+    width: 1300px;
   }
 }
 </style>

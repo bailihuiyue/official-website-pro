@@ -9,7 +9,7 @@
       v-if="!searchTxt"
       :defaultClickedBtn="defaultClickedBtn"
     />
-    <Products :isMobile="isMobile" :type="type" :searchTxt="searchTxt" />
+    <Products :isMobile="isMobile" :type="type" :searchTxt="searchTxt"  v-if="showList"/>
   </div>
 </template>
 <script>
@@ -27,7 +27,8 @@ export default {
       isMobile: device.mobile(),
       type: '-1',
       searchTxt: '',
-      defaultClickedBtn: null
+      defaultClickedBtn: null,
+      showList: true
     }
   },
   created() {
@@ -67,6 +68,18 @@ export default {
       },
       deep: true
       // immediate: true
+    },
+    type() {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
+    },
+    searchTxt() {
+      this.showList = false
+      this.$nextTick(() => {
+        this.showList = true
+      })
     }
   },
   methods: {

@@ -5,7 +5,7 @@
       :btns="configGuide"
       type="horizontal"
       @click="onChangeTypes"
-      v-show="!searchTxt"
+      v-if="!searchTxt"
       :extraData="extraData"
     />
     <GuideList :searchTxt="searchTxt" :type="type" v-if="showList" />
@@ -50,6 +50,7 @@ export default {
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
+      this.type = ''
     },
     onChangeTypes(data) {
       this.type = data.typeNo

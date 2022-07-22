@@ -39,7 +39,9 @@ export default {
   created() {
     this.getProductListApi({
       currentPage: this.currentPage,
-      pageSize: this.pageSize
+      pageSize: this.pageSize,
+      type: this.type,
+      searchTxt: this.searchTxt || undefined
     })
   },
   methods: {
@@ -48,7 +50,7 @@ export default {
         lang: this.$lang,
         currentPage,
         pageSize,
-        type,
+        type: searchTxt ? undefined : type,
         searchTxt
       }).then((res) => {
         this.list = res.list
