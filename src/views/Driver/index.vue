@@ -1,7 +1,7 @@
 <template>
   <div class="Driver">
     <SeatchBar @onSearch="onSearch" />
-    <ButtonGroup :btns="driverTypes" type="vertical" @click="onChangeTypes" v-show="!searchTxt" />
+    <ButtonGroup :btns="driverTypes" type="vertical" @click="onChangeTypes" v-if="!searchTxt" />
     <DriverList :searchTxt="searchTxt" :type="type" v-if="showList" />
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
+      this.type = ''
     },
     onChangeTypes(data) {
       this.type = data.typeNo

@@ -82,7 +82,7 @@ export default {
         lang: this.$lang,
         currentPage,
         pageSize,
-        type,
+        type: searchTxt ? undefined : type,
         searchTxt
       }).then((res) => {
         this.list = res.list

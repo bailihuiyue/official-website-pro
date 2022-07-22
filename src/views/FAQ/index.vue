@@ -1,7 +1,7 @@
 <template>
   <div class="faqGuide">
     <SeatchBar @onSearch="onSearch" />
-    <ButtonGroup :btns="faqTypes" type="vertical" @click="onChangeTypes" v-show="!searchTxt" />
+    <ButtonGroup :btns="faqTypes" type="vertical" @click="onChangeTypes" v-if="!searchTxt" />
     <FAQList :searchTxt="searchTxt" :type="type" v-if="showList" />
     <SubmitQuestion @submit="onSubmit" :isFAQ="true" />
   </div>
@@ -38,6 +38,7 @@ export default {
   methods: {
     onSearch(searchTxt) {
       this.searchTxt = searchTxt
+      this.type = ''
     },
     onChangeTypes(data) {
       this.type = data.typeNo
