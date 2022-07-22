@@ -344,4 +344,12 @@ div.prodMenuPopper {
     width: 1300px;
   }
 }
+.tablet {
+  .horizontalGolbalMenu {
+    .el-submenu__title,
+    .el-menu-item {
+      padding: 0 10px;
+    }
+  }
+}
 </style>
