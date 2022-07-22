@@ -44,8 +44,13 @@ export default {
       clickedId: null
     }
   },
+  // 从详情返回时保存住当前点击过的分类
   // created() {
-  //   this.clickedId = this.defaultClickedBtn
+  //   const clickedId = sessionStorage.getItem(this.$route.path)
+  //   if (clickedId) {
+  //     this.clickedId = clickedId
+  //     sessionStorage.removeItem(this.$route.path)
+  //   }
   // },
   watch: {
     defaultClickedBtn: {
@@ -58,6 +63,10 @@ export default {
   },
   methods: {
     onClickBtn(data, index) {
+      // 从详情返回时保存住当前点击过的分类
+      // sessionStorage.setItem(this.$route.path, data.id)
+      // sessionStorage.setItem(this.$route.path + 'type', data.typeNo)
+
       this.clickedId = data.id + ''
       this.$emit('click', data)
     }
