@@ -290,6 +290,13 @@ export default {
     }
   }
 }
+.tablet {
+  div.el-menu--horizontal{
+    & > ul {
+      width: 90%;
+    }
+  }
+}
 div.el-menu--horizontal {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.9);
@@ -308,7 +315,7 @@ div.el-menu--horizontal {
   }
   & > ul {
     margin-bottom: 100px;
-    width: 1100px;
+    width: 60%;
     margin-top: 0;
     // display: flex;
     // flex-direction: row;
@@ -341,7 +348,7 @@ div.prodMenuPopper {
   ul {
     padding: 0;
     margin: auto;
-    width: 1300px;
+    width: 80%;
   }
 }
 .tablet {

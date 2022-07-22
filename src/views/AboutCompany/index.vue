@@ -69,4 +69,11 @@ export default {
     }
   }
 }
+.desktop{
+  .aboutCompany{
+    .content {
+      width: $smallContentWidth;
+    }
+  }
+}
 </style>
