@@ -23,7 +23,7 @@ export default {
   components: {
     ButtonGroup,
     SeatchBar,
-    GuideList,
+    GuideList
   },
   data() {
     return {
@@ -38,6 +38,11 @@ export default {
     }
   },
   created() {
+    // 从详情返回时保存住当前点击过的分类
+    // const type = sessionStorage.getItem(this.$route.path + 'type')
+    // sessionStorage.removeItem(this.$route.path + 'type')
+    // this.type = type
+
     getClassify(classifyTypesEnum.configGuide).then((res) => {
       this.configGuide = res
     })

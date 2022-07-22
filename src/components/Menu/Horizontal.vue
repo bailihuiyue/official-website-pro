@@ -24,11 +24,11 @@
           </template>
           <el-tabs class="productMenuList" v-model="selectedProdMenu" stretch>
             <el-tab-pane
-              :label="item.title[$lang]"
               v-for="(item,i1) in prodMenus"
               :key="item.title.en"
               :name="'prodMenu'+i1"
             >
+              <div slot="label" @mouseover="onHoverProdTabs('prodMenu'+i1)">{{item.title[$lang]}}</div>
               <div style="margin-top:30px">
                 <div class="rowItem" v-for="(c,i2) in item.children">
                   <el-menu-item
@@ -204,6 +204,9 @@ export default {
           // })
         }, 400)
       }
+    },
+    onHoverProdTabs(name) {
+      // this.selectedProdMenu = name
     }
   }
 }
