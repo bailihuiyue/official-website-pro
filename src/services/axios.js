@@ -9,7 +9,7 @@ const ContentType = {
 };
 
 axios.defaults.baseURL = baseURL;
-axios.defaults.timeout = 5000;
+axios.defaults.timeout = 1000*30;
 axios.defaults.withCredentials = false;
 axios.defaults.responseType = "json";
 axios.defaults.headers["X-Requested-With"] = "XMLHttpRequest";
@@ -57,6 +57,7 @@ axios.interceptors.response.use(
       if (msg === "Network Error") {
         Message.error("网络错误,请检查网络!");
       } else {
+        // 超时报错会在这里出现
         Message.error(msg);
       }
     } else {

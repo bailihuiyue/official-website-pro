@@ -56,15 +56,15 @@ export default {
   }
 }
 .mobile {
-  .ButtonGroup {
-    margin-bottom: 0;
-  }
-  .el-row {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .companyHonor {
+    .ButtonGroup {
+      margin-bottom: 0;
+    }
+    .el-row {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .carousel {
       width: 100%;
       margin: 0;
