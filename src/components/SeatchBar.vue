@@ -6,6 +6,7 @@
       :placeholder="placeholder[$lang]"
       prefix-icon="el-icon-search"
       @change="onSearch"
+      clearable
     />
   </div>
 </template>
