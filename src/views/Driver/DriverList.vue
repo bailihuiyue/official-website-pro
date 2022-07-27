@@ -10,7 +10,7 @@
               </div>
               <div class="words">
                 <div class="title">{{l.title}}</div>
-                <div class="desc">{{l.desc}}</div>
+                <div class="desc" :title="l.desc">{{l.desc}}</div>
               </div>
             </div>
             <div class="download">
