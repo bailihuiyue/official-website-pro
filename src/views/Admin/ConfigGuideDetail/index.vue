@@ -1,0 +1,290 @@
+<template>
+  <div class="ConfigGuideDetailAdmin">
+    <ChangeLocationAdmin />
+    <div style="margin:15px 0">
+      <span style="margin-right:20px">请选择要编辑的教程类型:</span>
+      <el-radio-group v-model="selectedConfigGuideType">
+        <el-radio
+          :label="c.typeNo"
+          v-for="c in configGuideTypes"
+          :key="c.typeNo"
+        >{{c.title[$adminLang]}}</el-radio>
+      </el-radio-group>
+    </div>
+    <el-button type="primary" @click="addConfigGuideDetail()" style="margin:10px 0">新增设置教程</el-button>
+    <el-table :data="list" border style="width: 100%" v-loading="loading">
+      <el-table-column prop="id" label="id" width="180"></el-table-column>
+      <el-table-column prop="title" label="标题"></el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button type="primary" icon="el-icon-edit" @click="onEdit(scope.$index, scope.row)"></el-button>
+          <el-button type="danger" icon="el-icon-delete" @click="onDelete(scope.$index, scope.row)"></el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <!-- 弹窗 -->
+    <el-dialog
+      :close-on-click-modal="false"
+      title="设置教程详情编辑"
+      :visible.sync="dialogFormVisible"
+      width="80%"
+    >
+      <el-form :model="formData">
+        <el-form-item label="标题" :label-width="formLabelWidth">
+          <el-input v-model="formData.title" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="视频封面" :label-width="formLabelWidth">
+          <el-upload
+            class="avatar-uploader"
+            :action="`${$baseURL}api/upload/uploadImage`"
+            :show-file-list="false"
+            :on-success="onUploadImgSuccess"
+            :headers="{token:$token}"
+          >
+            <img v-if="formData.img" :src="$imgServer+formData.img" class="avatar" />
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+        </el-form-item>
+        <el-form-item label="视频上传" :label-width="formLabelWidth">
+          <el-upload
+            class="upload-demo"
+            style="display:inline-block"
+            :action="`${$baseURL}api/upload/uploadfile`"
+            :show-file-list="false"
+            :on-success="onUploadFileSuccess"
+            :headers="{token:$token}"
+            :before-upload="onBeginUpload"
+          >
+            <el-button :loading="loading" size="small" type="primary">点击上传</el-button>
+          </el-upload>
+          <span v-if="formData.video">
+            <a
+              style="margin-left:30px"
+              target="_blank"
+              :href="$videoURL+formData.video"
+              v-if="formData.video"
+            >点击查看</a>
+            <a
+              style="margin-left:30px"
+              href="javascript:void(0)"
+              @click="()=>this.formData.video=null"
+            >删除视频</a>
+          </span>
+        </el-form-item>
+        <el-form-item label="内容" :label-width="formLabelWidth">
+          <Tinymce
+            :content="formData.content"
+            :height="500"
+            :menubar="false"
+            ref="configGuideDetailTiny"
+          />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="onCancelEdit()">取 消</el-button>
+        <el-button type="primary" @click="onCreateOrModify()">确 定</el-button>
+      </div>
+    </el-dialog>
+  </div>
+</template>
+<script>
+import ChangeLocationAdmin from '@/components/ChangeLocationAdmin'
+import Tinymce from '@/components/Tinymce'
+import {
+  getConfigGuideDetail,
+  addConfigGuideDetail,
+  modifyConfigGuideDetail,
+  deleteConfigGuideDetail,
+  getConfigGuideList
+} from './service'
+import { classifyTypesEnum } from '@/utils/config'
+import { getClassify } from '@/services'
+
+export default {
+  name: 'configGuideDetailAdmin',
+  components: {
+    ChangeLocationAdmin,
+    Tinymce
+  },
+  data() {
+    return {
+      configGuideTypes: [],
+      selectedConfigGuideType: 0,
+      configGuideDetail: {},
+      list: [],
+      formData: {
+        id: '',
+        title: '',
+        video: '',
+        img: '',
+        content: ''
+      },
+      dialogFormVisible: false,
+      formLabelWidth: '120px',
+      loading: false
+    }
+  },
+  created() {
+    getClassify(classifyTypesEnum.configGuide).then((res) => {
+      this.configGuideTypes = res
+      this.selectedConfigGuideType = res[0].typeNo
+      this.getConfigGuideListApi(res[0].typeNo)
+    })
+  },
+  watch: {
+    selectedConfigGuideType(val) {
+      this.getConfigGuideListApi()
+    }
+  },
+  methods: {
+    getConfigGuideListApi(typeNo) {
+      getConfigGuideList({
+        lang: this.$adminLang,
+        currentPage: 1,
+        pageSize: 9999,
+        type: typeNo || this.selectedConfigGuideType
+      }).then((res) => {
+        this.list = res.list
+        this.loading = false
+      })
+    },
+    onUploadImgSuccess(response) {
+      if (response) {
+        this.formData.img = response.data
+      } else {
+        this.$message({
+          message: response.resultMsg || '上传图片失败,请重试!',
+          type: 'error'
+        })
+      }
+    },
+    onUploadFileSuccess(response) {
+      if (response) {
+        this.formData.video = response.data
+        this.$message.success('上传成功!')
+      } else {
+        this.$message({
+          message: response.resultMsg || '上传文件失败,请重试!',
+          type: 'error'
+        })
+      }
+      this.loading = false
+    },
+    onBeginUpload() {
+      this.loading = true
+      return true
+    },
+    addConfigGuideDetail() {
+      // 清除数据
+      this.formData.id = undefined
+      this.formData.img = ''
+      this.formData.video = ''
+      this.formData.title = ''
+      this.formData.content = ''
+      this.dialogFormVisible = true
+    },
+    onCreateOrModify() {
+      this.formData.content = this.$refs.configGuideDetailTiny.getContent()
+      if (
+        this.formData.id === null ||
+        this.formData.id === undefined ||
+        this.formData.id === ''
+      ) {
+        this.loading = true
+        addConfigGuideDetail(this.$adminLang, {
+          ...this.formData,
+          type: this.selectedConfigGuideType
+        })
+          .then((response) => {
+            this.loading = false
+            this.$message({
+              message: '创建成功！',
+              type: 'success'
+            })
+            this.$refs.configGuideDetailTiny.setContent('')
+            this.dialogFormVisible = false
+            this.getConfigGuideListApi()
+          })
+          .catch((e) => {
+            this.$message({
+              message: '网络或程序异常！' + e,
+              type: 'error'
+            })
+          })
+      } else {
+        this.loading = true
+        modifyConfigGuideDetail(this.$adminLang, this.formData)
+          .then((response) => {
+            this.loading = false
+            this.$message({
+              message: '修改成功！',
+              type: 'success'
+            })
+            this.dialogFormVisible = false
+            this.getConfigGuideListApi()
+          })
+          .catch((e) => {
+            this.$message({
+              message: '网络或程序异常！' + e,
+              type: 'error'
+            })
+          })
+      }
+    },
+    //编辑
+    onEdit(index, row) {
+      //index:第几行   row:这一行的数据
+      getConfigGuideDetail(this.$adminLang, row.id).then((res) => {
+        this.formData.title = res.title
+        this.formData.img = res.img
+        this.formData.video = res.video
+        this.formData.id = res.id
+        this.$refs.configGuideDetailTiny.setContent(res.content)
+      })
+      this.dialogFormVisible = true
+    },
+    onCancelEdit() {
+      this.dialogFormVisible = false
+      this.$refs.configGuideDetailTiny.setContent('')
+      this.formData.video = ''
+    },
+    onDelete(index, row) {
+      this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+        .then(() => {
+          // 已确认删除
+          // 调接口删除
+          this.loading = true
+          deleteConfigGuideDetail(this.$adminLang, row.id)
+            .then((response) => {
+              this.loading = false
+              this.$message({
+                message: '删除成功！',
+                type: 'success'
+              })
+              this.getConfigGuideListApi()
+            })
+            .catch((e) => {
+              this.$message({
+                message: '网络或程序异常！' + e,
+                type: 'error'
+              })
+            })
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
+    }
+  }
+}
+</script>
+<style lang="scss">
+.ConfigGuideDetailAdmin {
+}
+</style>
